@@ -1,0 +1,207 @@
+/* ? search__booking */
+.search__booking {
+  justify-content: space-evenly;
+  display: flex;
+}
+.search__booking .form-input {
+  border: 1px solid #dcbd81;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  background-color: #000000bb;
+}
+.search__booking .form-input input,
+.search__booking .form-input select,
+.search__booking .form-input label {
+  background: none;
+  border: none;
+  color: #dcbd81;
+  font-size: 150%;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+.search__booking .form-input a {
+  font-size: 150%;
+  color: black;
+}
+.search__room--input {
+  background-color: #dcbd81 !important;
+  transition: all 0.5s;
+}
+.search__room--input:hover {
+  background-color: #000000bb !important;
+}
+.search__room--input a:hover {
+  text-decoration: none;
+  color: #dcbd81;
+}
+
+/*  ?style for block welcome web */
+.BlockWelcomeItem {
+  box-sizing: border-box;
+  background-color: black;
+  text-align: center;
+  min-height: 400px;
+  padding: 3rem;
+  margin: 0 !important;
+}
+.BlockWelcomeItem h1 {
+  color: #dcbd81;
+}
+.BlockWelcomeItem button {
+  background: none;
+  border: 1px solid #dcbd81;
+}
+.BlockWelcomeItem button:hover {
+  background-color: #dcbd81;
+}
+.BlockWelcomeItem button:hover a {
+  background-color: black;
+  background-color: none;
+  text-decoration: none;
+}
+.BlockWelcomeItem button a {
+  color: #dcbd81;
+}
+
+/* ?style reward */
+
+.reward__item {
+  padding: 20px;
+  /* width: 100px; */
+  height: 200px;
+  text-align: center;
+  position: relative;
+  background: url(../../../image/line.png);
+  background-position: 50% 15%;
+  background-repeat: no-repeat;
+}
+
+.reward__item p {
+  font-weight: 600;
+}
+.time__reward,
+.place__reward {
+  color: #dcbd81;
+}
+.start__hotel {
+  text-align: center;
+  display: flex;
+  margin-left: 25%;
+}
+
+.start__hotel--item {
+  width: 200px;
+  text-align: start;
+  padding: 0.5rem;
+  color: black;
+}
+.slider_item img {
+  height: 300px !important;
+  cursor: pointer;
+  transition: all 0.5s;
+  /* width: 80%; */
+}
+.slider {
+  width: 100% !important;
+}
+.slider_item {
+  overflow: hidden;
+  position: relative;
+}
+.slider_item:hover img {
+  transform: scale(1.2);
+}
+
+.slider-hidden {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(243, 240, 240, 0.596);
+  display: none;
+  transition: all 0.5s;
+  z-index: 1000;
+  padding-top: 50%;
+}
+a:hover {
+  text-decoration: none;
+}
+.slider-hidden a,
+.btn-custom {
+  transition: all 0.5s;
+  color: #dcbd81;
+  padding: 0.75rem 1.5rem;
+  border-radius: 15px;
+  background-color: black;
+  border: 1px solid #dcbd81;
+}
+.slider-hidden a:hover,
+.btn-custom:hover {
+  background-color: #dcbd81;
+  color: black;
+  border: 1px solid black;
+}
+.slider_item:hover .slider-hidden {
+  display: block;
+}
+.slick-list {
+  padding: 0 !important;
+}
+.service__hotel--block {
+  position: relative;
+  text-align: center;
+}
+.service__hotel--block:hover .service__hotel--above {
+  display: block;
+}
+.service__hotel--block > img {
+  width: 100%;
+}
+.service__hotel--above {
+  transition: all 1s;
+
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+.service__hotel--above h1 {
+  color: white;
+  font-family: "Playfair Display", serif;
+  text-transform: none;
+  font-size: 250%;
+}
+/* ? about us item  */
+
+.aboutus__item {
+  text-align: center;
+  min-height: 400px;
+}
+.aboutus__item img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+.aboutus__item p,
+.aboutus__company {
+  line-height: 1.3;
+  color: black;
+  margin-top: 1rem;
+}
+.aboutus__item .quotation_marks {
+  font-size: 150px;
+  color: #dcbd81;
+  /* font-family: ; */
+}
+.aboutus__name {
+  color: #dcbd81;
+}
