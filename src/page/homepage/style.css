@@ -1,0 +1,229 @@
+.bodypage__banner {
+  background-image: url(https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2019/02/1-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  z-index: 0;
+}
+
+.gem-wrapbox-element1 {
+  margin-top: 10%;
+}
+.bodypage__banner h3,
+.bodypage__banner h2 {
+  font-weight: 1;
+  color: white;
+  font-family: "Playfair Display", serif;
+}
+.bodypage__banner h2 {
+  font-size: 700%;
+}
+/* .container-fluid {
+  padding: 0 !important;
+
+} */
+.bodypage__banner h3 {
+  font-size: 300%;
+}
+main {
+  box-sizing: border-box;
+}
+.welcome--block__image {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 400px;
+}
+.welcome--block__image1 {
+  background-image: url(https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/2.jpg?fbclid=IwAR3hjqhdNlxeswpXFQ2f5uAj8V7yXh-5eu5hksxB_GlQZD-5WMdZgpZp4-s);
+}
+.welcome--block__image2 {
+  background-image: url(../../image/3.jpg);
+}
+.welcome--block__image3 {
+  background-image: url(https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/7-4.jpg);
+}
+.banner {
+  /* width: 100%; */
+  text-align: center;
+  background-image: url(https://codex-themes.com/thegem/wp-content/uploads/2016/10/p1.jpg) !important;
+  background-repeat: repeat !important;
+  background-size: cover;
+  height: auto;
+  padding: 1rem 0;
+}
+.reward {
+  padding-top: 20px;
+}
+
+/* ? discover style */
+.Discover {
+  text-align: center;
+  width: 100%;
+  min-height: 70vh;
+  background-image: url(../../image/5.jpg);
+  background-size: 100% 100%;
+}
+@media only screen and (max-width: 1200px) {
+  .Discover {
+    background-size: cover;
+    background-image: url(https://codex-themes.com/thegem/wp-content/uploads/2016/10/p1.jpg);
+  }
+  .discover__description,
+  .start__hotel--item {
+    color: white !important;
+  }
+}
+.fa-star {
+  color: orange;
+}
+.discover__title {
+  font-size: 450%;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  color: #e6aa32;
+}
+.discover__description {
+  color: black;
+}
+li.active a {
+  color: #e6aa32;
+}
+.slider {
+  min-height: 400px;
+}
+.Favorite__Rooms {
+  padding: 2rem;
+  text-align: center;
+  background-image: url(https://codex-themes.com/thegem/wp-content/uploads/2016/10/p1.jpg) !important;
+  background-repeat: repeat !important;
+  background-size: cover;
+  min-height: 1000px;
+}
+.favorite__subtitle,
+.favorite__title {
+  font-family: "Playfair Display", serif;
+  font-size: 200%;
+  color: #e6aa32;
+}
+.favorite__title {
+  font-size: 400%;
+}
+.slider {
+  width: 95vw !important;
+}
+.booking__room--content {
+  text-align: center;
+}
+.booking__room--wrap {
+  display: flex;
+}
+/* .booking__room--wrap img:hover {
+  transform: scale(1.1);
+} */
+.booking__room--wrap img {
+  width: 50%;
+  transition: all 0.5s;
+  flex-basis: 40%;
+  transform-origin: bottom center;
+  animation-name: phone;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+.booking__room--wrap .booking__room--content {
+  flex-basis: 60%;
+}
+
+@keyframes phone {
+  0% {
+    transform: skewX(2deg);
+  }
+
+  50% {
+    transform: skewX(-2deg);
+  }
+  100% {
+    transform: skewX(2deg);
+  }
+}
+
+.booking__room_Online {
+  padding-top: 3rem;
+  background-image: url(https://codex-themes.com/thegem/wp-content/uploads/2016/10/p1.jpg) !important;
+  background-repeat: repeat !important;
+  background-size: cover;
+  min-height: 800px;
+}
+.booking__room--title {
+  font-size: 250%;
+  color: #e6aa32;
+  font-family: "Playfair Display", serif;
+}
+.booking__room--content p,
+h3 {
+  color: white;
+}
+.aboutus {
+  padding-top: 3rem;
+  background-color: #fbf3e6;
+  text-align: center;
+}
+.subtitle {
+  color: black;
+}
+.title {
+  color: #e6aa32;
+  font-size: 350%;
+}
+.Special__Offers {
+  background: url(https://live.staticflickr.com/65535/51278250926_61c9919808_w.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 2rem 0;
+}
+.Special__Offers .container {
+  text-align: center;
+}
+.Special__Offers .subtitle {
+  color: white;
+}
+video {
+  width: 100%;
+}
+section.our_tour.container-fluid {
+  position: relative;
+  padding: 0;
+}
+.titleVideo {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+}
+.titleVideo .subtitle {
+  color: white;
+}
+.discover__sub-title {
+  color: black;
+}
+@media only screen and (max-width: 1200px) {
+  .start__hotel {
+    margin: 0px !important;
+  }
+  h1,
+  h2 {
+    font-size: 200% !important;
+    padding: 0;
+    margin: 0;
+  }
+  img.gem-wrapbox-element {
+    width: 80%;
+  }
+  .service__hotel--block h1 {
+    font-size: 150%;
+  }
+}
