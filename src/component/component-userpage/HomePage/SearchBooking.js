@@ -4,7 +4,7 @@ import AOS from "aos";
 export default function SearchBooking() {
   AOS.init();
   return (
-    <div className="search__booking mt-5 fade-left row" data-aos={"fade-left"}>
+    <div className="search__booking mt-5 fade-left row">
       <div className="form-input col-12 col-lg-6 col-xl-3 mb-2">
         <label htmlFor="checkin">Checkin</label>
         <input type="date" id="checkin" value="2021-01-07" />;

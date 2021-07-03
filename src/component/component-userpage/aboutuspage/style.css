@@ -1,0 +1,28 @@
+/* ! discover amenities block style  */
+
+.DiscoverAmenitiesItem {
+  text-align: center;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: whitesmoke;
+  border-radius: 2px;
+  width: 300px;
+}
+.DiscoverAmenitiesItem i {
+  color: #e6aa32;
+  font-size: 150%;
+}
+.discoverAmenitiesItem-title {
+  padding: 1rem 0;
+}
+.discover_block {
+  /* min-height: 700px; */
+}
+/* /////////////////// */
+.slider_client .aboutus__item img {
+  margin-left: 42%;
+}
+.slider__client {
+  text-align: center;
+  padding-top: 4rem;
+}

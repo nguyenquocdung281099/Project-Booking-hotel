@@ -1,18 +1,15 @@
-import Header from "./page/layout/header";
 import HomePage from "./page/homepage";
-import { Route, Switch } from "react-router-dom";
-import Footer from "./page/layout/footer";
 
+import { Switch } from "react-router-dom";
+import RouterPublic from "./Router/publicRouter/publicrouter";
+import AboutUsPage from "./page/aboutUsPage";
 export default function Page(props) {
   return (
     <div className="page">
-      <Header />
       <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
+        <RouterPublic exact path="/" component={HomePage} />
+        <RouterPublic path component={AboutUsPage} />
       </Switch>
-      <Footer />
     </div>
   );
 }

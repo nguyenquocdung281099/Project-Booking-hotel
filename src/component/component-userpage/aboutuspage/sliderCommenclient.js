@@ -1,4 +1,20 @@
-export default function AboutusContent() {
+import React, { Component } from "react";
+import Slider from "react-slick";
+import "./style.css";
+
+export default function SliderCommentClinet() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    vertical: true,
+    verticalSwiping: true,
+    beforeChange: function (currentSlide, nextSlide) {
+      console.log("before change", currentSlide, nextSlide);
+    },
+    afterChange: function (currentSlide) {
+      console.log("after change", currentSlide);
+    },
+  };
   const aboutus = [
     {
       url: "https://live.staticflickr.com/65535/51277499157_e0a8c0a9df_w.jpg",
@@ -14,20 +30,18 @@ export default function AboutusContent() {
     },
   ];
   return (
-    <div className="aboutus__content row">
-      {aboutus.map((item) => (
-        <AboutusItem item={item} key={`aboutus-${item.name}`} />
-      ))}
+    <div>
+      <Slider {...settings} className="slider_client mt-5">
+        {aboutus.map((item, index) => (
+          <SliderClienItem item={item} key={`slider-${index}`} />
+        ))}
+      </Slider>
     </div>
   );
 }
-
-function AboutusItem(props) {
+function SliderClienItem(props) {
   return (
-    <div
-      className="aboutus__item col-12 col-lg-6 col-xl-4"
-      data-aos="flip-right"
-    >
+    <div className="aboutus__item col-12">
       <img src={props.item.url} alt="about_us_member" />
       <p className="aboutus__description">
         Lorem ipsum dolor sit ametcon sectetur adipisicing elit, sed doiusmod
