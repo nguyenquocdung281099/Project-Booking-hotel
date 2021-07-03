@@ -1,0 +1,76 @@
+.aboutus__main--banner {
+  text-align: center;
+  min-height: 60vh;
+  background-image: url(https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2019/02/1-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+body {
+  color: #5e6666;
+  position: relative;
+}
+.main--banner__title {
+  font-size: 500%;
+  font-family: "Playfair Display", serif;
+  color: white;
+  padding: 1.5rem;
+}
+.aboutus__main--chooseUs {
+  padding-top: 10rem;
+
+  padding-bottom: 5rem;
+  text-align: center;
+  background-color: #f2eadd;
+}
+
+.image__choose {
+  background-position: right top;
+  float: right;
+  background-image: url(https://live.staticflickr.com/65535/51279270040_812151c3cb_o.jpg);
+  background-size: cover;
+  margin-bottom: 1rem;
+}
+.whychooseus__descrn {
+  font-size: 100%;
+}
+.discoverOurRoom {
+  background-color: #f2eadd;
+  text-align: center;
+  min-height: 900px;
+}
+.nearby {
+  text-align: center;
+  background-image: url(https://codex-themes.com/thegem/wp-content/uploads/2016/10/p1.jpg) !important;
+  background-repeat: repeat !important;
+  background-size: cover;
+}
+.nearby .subtitle {
+  color: whitesmoke;
+}
+.nearby_wrap img {
+  position: relative;
+  transition: all 0.5s;
+  margin-bottom: 2rem;
+}
+.nearby_wrap .d-flex img {
+  width: 45%;
+}
+@media only screen and (max-width: 1200px) {
+  .nearby_wrap .d-flex img {
+    width: 100%;
+  }
+}
+.nearby_wrap .d-flex {
+  justify-content: space-between;
+}
+.nearby_wrap > img {
+  max-height: 500px;
+}
+.nearby_wrap img:hover {
+  transform: scale(1.1);
+}
+.slider_client {
+  width: 100%;
+  height: 500px;
+}

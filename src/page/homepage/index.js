@@ -11,15 +11,20 @@ import Button from "../../component/component-userpage/share/button";
 import AboutusContent from "../../component/component-userpage/HomePage/aboutusItem";
 import TitleBlock from "../../component/component-userpage/share/titleblock";
 import OffersBlock from "../../component/component-userpage/share/OffersBlock";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
+AOS.init({
+  duration: 1200,
+});
 export default function HomePage() {
   return (
     <div>
       <section className="bodypage__banner">
         <div className="bodypage__banner--content container">
           <EdgeTop />
-          <h2>TheGem Hotel </h2>
-          <h3> Luxury Resort &#38; Spa</h3>
+          <h2 className="tracking-in-expand">TheGem Hotel </h2>
+          <h3 className="tracking-in-expand"> Luxury Resort &#38; Spa</h3>
           <EdgeBottom />
           <div className="banner__booking">
             <SearchBooking />
@@ -29,9 +34,15 @@ export default function HomePage() {
       <main className="bodypage__main ">
         <section className="bodypage__welcome container-fluid">
           <div className="bodypage__welcome--block row">
-            <div className="welcome--block__image1 welcome--block__image col-12 col-lg-6 col-xl-4"></div>
+            <div
+              className="welcome--block__image1 welcome--block__image col-12 col-lg-6 col-xl-4"
+              data-aos="fade-left"
+            ></div>
             <BlockWelcomeItem title="Great Services" link="/service" />
-            <div className="welcome--block__image2 welcome--block__image col-12 col-lg-6 col-xl-4"></div>
+            <div
+              className="welcome--block__image2 welcome--block__image col-12 col-lg-6 col-xl-4"
+              data-aos="fade-right"
+            ></div>
           </div>
           <div className="bodypage__welcome--block row">
             <BlockWelcomeItem title="Profession Staff" link="/about" />
@@ -49,7 +60,7 @@ export default function HomePage() {
           </div>
         </section>
         <section className="Discover container-fluid">
-          <div className="discover__content row">
+          <div className="discover__content row" data-aos="fade-left">
             <div className="col-12 col-xl-6 pl-5 pt-5 mt-5">
               <div className="star">
                 <i className="fas fa-star"></i>

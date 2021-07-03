@@ -12,7 +12,7 @@ export default function Footer() {
           allowfullscreen=""
           loading="lazy"
         ></iframe>
-        <div className="container-fluid footer__maping__wrapcontact position-absolute">
+        <div className="container-fluid footer__maping__wrapcontact position-md-absolute">
           <div className="footer__mapping--upper row">
             <div className="col-12 col-md-4">
               <h3 className="mapping--upper__title">ADDRESS</h3>
