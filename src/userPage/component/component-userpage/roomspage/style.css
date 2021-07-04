@@ -1,0 +1,13 @@
+.roomsPage__content--wrap .card .img {
+  width: 60% !important;
+}
+
+.roomsPage__content--wrap .card {
+  /* height: 400px; */
+}
+.roomsPage__content--wrap .card-body {
+  text-align: start;
+}
+.roomsPage__content--wrap img:hover {
+  transform: scale(2);
+}

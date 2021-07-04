@@ -61,7 +61,7 @@ export default function HomePage() {
         </section>
         <section className="Discover container-fluid">
           <div className="discover__content row" data-aos="fade-left">
-            <div className="col-12 col-xl-6 pl-5 pt-5 mt-5">
+            <div className="col-12 col-xl-6 pl-5 pt-5 pb-5 mt-5">
               <div className="star">
                 <i className="fas fa-star"></i>
                 <i className="fas fa-star"></i>
@@ -145,11 +145,11 @@ export default function HomePage() {
             <OffersBlock />
           </div>
         </section>
-        <section className="our_tour container-fluid">
+        <section className="our_tour container-fluid " id="video">
           <div className="titleVideo">
             <TitleBlock subtitle="Overview" title="Video Tour" />
           </div>
-          <video autoplay="true">
+          <video autoplay="true" muted>
             <source src="https://codex-themes.com/thegem/wp-content/uploads/2016/10/THE-SUITE-ROOM-10-HD.m4v?fbclid=IwAR07I1UPbMPRkhv7mHcz4A62zlQWjWKf7rqbjkWkPHuVoBk2q4vCEsp4IbE" />
           </video>
         </section>
