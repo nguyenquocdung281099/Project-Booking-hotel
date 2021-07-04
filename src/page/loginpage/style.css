@@ -1,0 +1,37 @@
+h2 {
+  color: #e6aa32;
+  font-family: "Playfair Display", serif;
+}
+.loginpage__header {
+  text-align: center;
+  min-height: 60vh;
+  background-image: url(https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2019/02/1-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+.loginpage__main input,
+.signup__page input {
+  border-radius: 30px;
+  transition: all 0.5s;
+  outline: rgb(231, 231, 19);
+}
+.loginpage__main input:hover,
+.loginpage__main input:focus,
+.signup__page input:hover,
+.signup__page input:focus {
+  transform: scale(1.02);
+}
+.btn {
+  border-radius: 13px !important;
+  padding: 0.7rem 1.4rem;
+  background-color: black;
+  border: 1px solid #e6aa32;
+  color: #e6aa32;
+}
+.btn:hover {
+  transform: scale(1) !important;
+  background-color: #e6aa32;
+  border: 1px solid black;
+  color: black;
+}
