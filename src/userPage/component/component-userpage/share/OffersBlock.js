@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { gettyperoom } from "../../../redux/action";
+import { gettyperoom } from "../../../../redux/action/index";
 import Button from "../share/button";
 import "./share.css";
 

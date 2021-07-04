@@ -36,3 +36,11 @@ tbody th {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+.breadcrumb {
+  background: none;
+  color: white;
+}
+.breadcrumb-item a,
+.breadcrumb-item {
+  color: #dcbd81 !important;
+}

@@ -136,7 +136,7 @@
       "name" :"classic room",
       "size" :50,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["classic_room_1.jpg", "classic_room_2.jpg", "classic_room_3.jpg", "classic_room_4.jpg"],
+      "image" :["https://live.staticflickr.com/65535/51289476079_4d2dd6e2cb_o.jpg", "https://live.staticflickr.com/65535/51288758181_dee4473bc0_o.jpg", "https://live.staticflickr.com/65535/51289768820_cbd31bfb73_o.jpg", "https://live.staticflickr.com/65535/51288758271_0b87e06b71_o.jpg"],
       "pricePerday" : 100
     },
     {
@@ -145,7 +145,7 @@
       "name" :"budget room",
       "size" :50,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["budget_room_1.jpg", "budget_room_2.jpg", "budget_room_3.jpg", "budget_room_4.jpg"],
+      "image" :["https://live.staticflickr.com/65535/51289772730_c996686256_o.jpg", "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg", "https://live.staticflickr.com/65535/51288930163_32576ae383_o.jpg", "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg"],
       "pricePerday" : 120
     },
     {
@@ -154,7 +154,7 @@
       "name" :"single room",
       "size" :50,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["single_room_1.jpg", "single_room_2.jpg", "single_room_3.jpg", "single_room_4.jpg"],
+      "image" :["https://live.staticflickr.com/65535/51289498809_3efe0f112d_o.jpg", "https://live.staticflickr.com/65535/51289792355_65cff9ba35_o.jpg", "https://live.staticflickr.com/65535/51288949408_3740bd6aaf_o.jpg", "https://live.staticflickr.com/65535/51288949508_17772d494b_o.jpg"],
       "pricePerday" : 150
     },
     {
@@ -163,7 +163,7 @@
       "name" :"royal suite room",
       "size" :100,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["royal_room_1.jpg", "royal_room_2.jpg", "royal_room_3.jpg", "royal_room_4.jpg"],
+      "image" :["https://live.staticflickr.com/65535/51289795645_9060700c72_o.jpg", "https://live.staticflickr.com/65535/51288784771_9f366cd903_o.jpg", "https://live.staticflickr.com/65535/51288032662_e83f400a28_o.jpg", "https://live.staticflickr.com/65535/51289795940_a556b9f28d_o.jpg"],
       "pricePerday" : 200
     },
     {
@@ -172,7 +172,7 @@
       "name" :"luxury room",
       "size" :100,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["luxury_room_1.jpg", "luxury_room_2.jpg", "luxury_room_3.jpg", "luxury_room_4.jpg"],
+      "image" :["https://live.staticflickr.com/65535/51289502429_13e859c466_o.jpg", "https://live.staticflickr.com/65535/51289502464_611f56dbe7_o.jpg", "https://live.staticflickr.com/65535/51288785186_7c52d098d0_o.jpg", "https://live.staticflickr.com/65535/51289796185_15645f251d_o.jpg"],
       "pricePerday" : 300
     },
     {
@@ -181,7 +181,7 @@
       "name" :"premium room",
       "size" :100,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["premium_room_1.jpg", "premium_room_2.jpg", "premium_room_3.jpg", "premium_room_4.jpg"],
+      "image" :["https://live.staticflickr.com/65535/51289797400_e53fcc5b6f_o.jpg", "https://live.staticflickr.com/65535/51289503884_81683cd9fa_o.jpg", "https://live.staticflickr.com/65535/51289797565_80615d710c_o.jpg", "https://live.staticflickr.com/65535/51289503994_445d5f7993_o.jpg"],
       "pricePerday" : 350
     }
   ] ,

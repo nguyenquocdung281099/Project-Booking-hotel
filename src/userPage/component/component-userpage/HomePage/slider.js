@@ -1,5 +1,8 @@
 import Slider from "react-slick";
 import "./stylecomponent.css";
+import { Image } from "antd";
+import "antd/dist/antd.css";
+
 export default function MultipleItemsSlider() {
   const settings = {
     speed: 500,
@@ -62,8 +65,8 @@ export default function MultipleItemsSlider() {
 
 function SliderItem(props) {
   return (
-    <div className="slider_item mr-2">
-      <img src={props.url} alt="slider item" className="mr-2" />
+    <div className="slider_item mr-2 pr-2">
+      <Image src={props.url} alt="slider item" />
     </div>
   );
 }
