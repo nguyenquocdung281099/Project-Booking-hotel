@@ -1,0 +1,10 @@
+.siderBarRoom .btn {
+  width: 100%;
+  background-color: black;
+  color: #dcbd81;
+  font-size: 120%;
+}
+.siderBarRoom .btn:hover {
+  color: black;
+  background-color: #dcbd81;
+}

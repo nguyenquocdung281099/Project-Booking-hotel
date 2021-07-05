@@ -19,7 +19,7 @@ AOS.init({
 });
 export default function HomePage() {
   return (
-    <div>
+    <div className="homepage">
       <section className="bodypage__banner">
         <div className="bodypage__banner--content container">
           <EdgeTop />

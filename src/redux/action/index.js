@@ -91,3 +91,21 @@ export const gettyperoomsc = (data) => {
     payload: data,
   };
 };
+
+export const getRating = () => {
+  return {
+    type: ActionType.GET_RATING,
+  };
+};
+export const getRatingSC = (data) => {
+  return {
+    type: ActionType.GET_RATING_SC,
+    payload: data,
+  };
+};
+export const setLoading = (status) => {
+  return {
+    type: ActionType.SET_LOADING,
+    status,
+  };
+};
