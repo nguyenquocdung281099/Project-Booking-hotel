@@ -1,4 +1,4 @@
-thead th {
+.OffersBlockItem thead th {
   background-image: url(https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/22.png);
   /* width: 100px; */
   background-size: 100% 100%;
@@ -9,7 +9,7 @@ thead th {
   /* font-family: "Playfair Display", serif; */
   font-size: 200%;
 }
-tbody th {
+.OffersBlockItem tbody th {
   text-align: center;
   height: 70px;
 }
