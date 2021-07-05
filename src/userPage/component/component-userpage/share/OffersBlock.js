@@ -6,7 +6,7 @@ import "./share.css";
 
 export default function OffersBlock() {
   const dispatch = useDispatch();
-  const type = useSelector((state) => state.RoomReducer.type);
+  const type = useSelector((state) => state.room.type);
   useEffect(() => {
     dispatch(gettyperoom());
   }, []);

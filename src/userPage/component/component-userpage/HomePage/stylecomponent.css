@@ -81,11 +81,12 @@
 }
 
 .reward__item p {
+  color: #dcbd81 !important;
   font-weight: 600;
 }
 .time__reward,
 .place__reward {
-  color: #dcbd81;
+  color: #dcbd81 !important;
 }
 .start__hotel {
   text-align: center;

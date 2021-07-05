@@ -4,7 +4,6 @@ import roomReducer from "./roomReducer";
 import serviceReducer from "./serviceReducer";
 import promoReducer from "./promoReducer";
 import userReducer from "./userReducer";
-import RoomReducer from "./Room";
 
 export const RootReducer = combineReducers({
   booking: bookingReducer,
@@ -12,5 +11,4 @@ export const RootReducer = combineReducers({
   service: serviceReducer,
   promo: promoReducer,
   user: userReducer,
-  RoomReducer,
 });

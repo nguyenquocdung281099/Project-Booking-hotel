@@ -1,17 +1,27 @@
 import axios from "axios";
 import * as func_action from "../action/index";
 import * as action from "../action/const_action";
-import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
-import { URL_TYPE } from "../../userPage/const/const";
+import { call, put, takeLatest } from "redux-saga/effects";
+import { URL_ROOM, URL_TYPE } from "../../userPage/const/const";
+import queryString from "query-string";
 
 export default function* RoomSaga() {
   yield takeLatest(action.GET_TYPE_ROOM, getType);
+  yield takeLatest(action.GET_ROOM, getRoom);
 }
 
-function* getType(action) {
+function* getType() {
   try {
-    const Type = yield call(get, URL_TYPE);
-    yield put(func_action.gettyperoomsc(Type.data));
+    const type = yield call(get, URL_TYPE);
+    yield put(func_action.gettyperoomsc(type.data));
+  } catch (e) {}
+}
+
+function* getRoom(action) {
+  try {
+    const url = queryString.stringify(action.filter);
+    const room = yield call(get, `${URL_ROOM}?${url}`);
+    yield put(func_action.getroomsc(room.data));
   } catch (e) {}
 }
 

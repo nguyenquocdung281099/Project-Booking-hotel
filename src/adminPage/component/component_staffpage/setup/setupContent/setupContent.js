@@ -8,13 +8,13 @@ export default function SetupContent() {
     return (
         <div>
             <Switch>
-                <Route path="/setup/list_rooms">
+                <Route path="/admin/setup/list_rooms">
                     <ListRooms />
                 </Route>
-                <Route path="/setup/list_services">
+                <Route path="/admin/setup/list_services">
                     <ListServices />
                 </Route>
-                <Route path="/setup/list_promos">
+                <Route path="/admin/setup/list_promos">
                     <ListPromos />
                 </Route>
             </Switch>
