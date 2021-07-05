@@ -1,12 +1,13 @@
-
 import "./style.css";
 import TitleBlock from "../../component/component-userpage/share/titleblock";
 import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import SearchBooking from "../../component/component-userpage/HomePage/SearchBooking";
 import CardRoomsList from "../../component/component-userpage/roomspage/cardRoomslist";
+import { Route, useRouteMatch } from "react-router";
 
 import AOS from "aos";
+import SiderBarRoom from "../../component/component-userpage/roomspage/siderbar/sidebarRoom";
 
 AOS.init({
   duration: 1200,
@@ -21,10 +22,13 @@ export default function RoomsPage() {
         <EdgeBottom />
       </section>
       <section className="roomsPage__main--content">
-        <section className="roomsPage__content--wrap container p-5">
+        <section className="roomsPage__content--wrap container">
           <SearchBooking />
           <TitleBlock subtitle="CHOOSE FOR YOURSELF" title="Best Room" />
-          <CardRoomsList />
+          <div className="roomsPage__wrap row">
+            <SiderBarRoom />
+            <CardRoomsList />
+          </div>
         </section>
       </section>
     </main>

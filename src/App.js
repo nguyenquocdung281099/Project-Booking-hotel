@@ -8,7 +8,7 @@ function App() {
       <Route path="/">
         <Page />
       </Route>
-      <Route exact path="/admin">
+      <Route path="/admin">
         <StaffPage />
       </Route>
     </div>

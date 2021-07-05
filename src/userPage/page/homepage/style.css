@@ -273,3 +273,14 @@ section.our_tour.container-fluid {
     opacity: 1;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100% !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+a {
+  text-decoration: none !important;
+}

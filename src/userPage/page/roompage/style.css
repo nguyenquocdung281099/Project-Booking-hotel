@@ -1,4 +1,5 @@
 .roomsPage__main--banner {
+  /* padding: 0 !important; */
   text-align: center;
   min-height: 60vh;
   background-image: url(https://live.staticflickr.com/65535/51278416803_1d4edb7e10_o.jpg);
@@ -10,20 +11,12 @@
 .roomsPage__main {
   position: relative;
 }
-.roomsPage__main--banner::before {
-  position: absolute;
-  background-color: black;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 585;
-}
 .roomsPage__main--content {
   min-height: 100vh;
   background-color: #f9f1e4;
+  padding-top: 0 !important;
 }
-.container-fluid {
+.roomsPage__main .container-fluid {
   padding: 0;
 }
 .roomsPage__content--wrap .search__booking {
@@ -35,4 +28,10 @@
 }
 #video {
   padding: 0 !important;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
