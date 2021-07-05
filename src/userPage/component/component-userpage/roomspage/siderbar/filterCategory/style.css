@@ -1,0 +1,26 @@
+.siderBarRoom li {
+  list-style: none;
+  text-align: start;
+  color: #dcbd81;
+  font-family: "Cardo", serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 0.5rem;
+}
+.siderBarRoom i {
+  margin-right: 0.5rem;
+}
+.siderBarRoom .active {
+  color: black;
+}
+.siderBarRoom li:hover {
+  color: black;
+}
+.siderBarRoom .name_filter {
+  color: black;
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: start;
+}
