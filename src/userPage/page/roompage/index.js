@@ -1,10 +1,13 @@
-import AOS from "aos";
+
 import "./style.css";
 import TitleBlock from "../../component/component-userpage/share/titleblock";
 import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import SearchBooking from "../../component/component-userpage/HomePage/SearchBooking";
 import CardRoomsList from "../../component/component-userpage/roomspage/cardRoomslist";
+
+import AOS from "aos";
+
 AOS.init({
   duration: 1200,
 });

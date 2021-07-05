@@ -1,13 +1,30 @@
 .roomsPage__content--wrap .card .img {
-  width: 60% !important;
-}
-
-.roomsPage__content--wrap .card {
-  /* height: 400px; */
+  width: 70% !important;
 }
 .roomsPage__content--wrap .card-body {
   text-align: start;
 }
-.roomsPage__content--wrap img:hover {
-  transform: scale(2);
+.roomsPage__content--wrap .card {
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.roomsPage__content--wrap .card img {
+  height: 100%;
+  width: 100%;
+}
+.roomsPage__content--wrap .card .card-title {
+  font-family: "Montserrat", sans-serif;
+}
+.roomsPage__content--wrap .card a {
+  color: #dcbd81;
+  padding: 10px 25px;
+  background-color: black;
+  border: 1px solid #dcbd81;
+  transition: all 0.5s;
+}
+.roomsPage__content--wrap .card a:hover {
+  color: black;
+  border: 1px solid black;
+  background-color: #dcbd81;
 }
