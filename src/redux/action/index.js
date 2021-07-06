@@ -8,9 +8,10 @@ export const getbooking = () => {
   };
 };
 
-export const getroom = () => {
+export const getroom = (filter) => {
   return {
     type: ActionType.GET_ROOM,
+    filter: filter,
   };
 };
 
@@ -42,6 +43,12 @@ export const gettyperoom = () => {
   return { type: ActionType.GET_TYPE_ROOM };
 };
 
+export const changeFilter = (filter) => {
+  return {
+    type: ActionType.CHANGE_FILTER,
+    payload: filter,
+  };
+};
 // ! action success
 
 export const getbookingsc = (data) => {

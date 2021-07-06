@@ -1,332 +1,492 @@
 {
-  "room" :
-   [
-     {
-    "id": "1",
-    "name" :101,
-    "idtyperoom":1,
-    "status" : false
-  }, {
-    "id": "2",
-    "name" :102,
-    "idtyperoom":1,
-    "status" : false
-  }, {
-    "id": "3",
-    "name" :103,
-    "idtyperoom":1,
-    "status" : false
-  }, {
-    "id": "4",
-    "name" :104,
-    "idtyperoom":1,
-    "status" : false
-  }, {
-    "id": "5",
-    "name" :201,
-    "idtyperoom":2,
-    "status" : false
-  }, {
-    "id": "6",
-    "name" :202,
-    "idtyperoom":2,
-    "status" : false
-  }, {
-    "id": "7",
-    "name" :203,
-    "idtyperoom":2,
-    "status" : false
-  }, {
-    "id": "8",
-    "name" :204,
-    "idtyperoom":2,
-    "status" : false
-  }, {
-    "id": "9",
-    "name" :301,
-    "idtyperoom":3,
-    "status" : false
-  }, {
-    "id": "10",
-    "name" :302,
-    "idtyperoom":3,
-    "status" : false
-  }, {
-    "id": "11",
-    "name" :303,
-    "idtyperoom":3,
-    "status" : false
-  }, {
-    "id": "12",
-    "name" :304,
-    "idtyperoom":3,
-    "status" : false
-  }, {
-    "id": "13",
-    "name" :401,
-    "idtyperoom":4,
-    "status" : false
-  }, {
-    "id": "14",
-    "name" :402,
-    "idtyperoom":4,
-    "status" : false
-  }, {
-    "id": "15",
-    "name" :403,
-    "idtyperoom":4,
-    "status" : false
-  }, {
-    "id": "16",
-    "name" :404,
-    "idtyperoom":4,
-    "status" : false
-  }, {
-    "id": "17",
-    "name" :501,
-    "idtyperoom":5,
-    "status" : false
-  }, {
-    "id": "18",
-    "name" :502,
-    "idtyperoom":5,
-    "status" : false
-  }, {
-    "id": "19",
-    "name" :503,
-    "idtyperoom":5,
-    "status" : false
-  }, {
-    "id": "20",
-    "name" :504,
-    "idtyperoom":5,
-    "status" : false
-  }, {
-    "id": "21",
-    "name" :601,
-    "idtyperoom":6,
-    "status" : false
-  }, {
-    "id": "22",
-    "name" :601,
-    "idtyperoom":6,
-    "status" : false
-  }, {
-    "id": "23",
-    "name" :602,
-    "idtyperoom":6,
-    "status" : false
-  }, {
-    "id": "24",
-    "name" :603,
-    "idtyperoom":6,
-    "status" : false
-  }, {
-    "id": "25",
-    "name" :604,
-    "idtyperoom":6,
-    "status" : false
-  }
-   ],
-  "TypeRoom" :
-  [
+  "room": [
     {
-      "id":1,
-      "number":3,
-      "name" :"classic room",
-      "size" :50,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["https://live.staticflickr.com/65535/51289476079_4d2dd6e2cb_o.jpg", "https://live.staticflickr.com/65535/51288758181_dee4473bc0_o.jpg", "https://live.staticflickr.com/65535/51289768820_cbd31bfb73_o.jpg", "https://live.staticflickr.com/65535/51288758271_0b87e06b71_o.jpg"],
-      "pricePerday" : 100
+      "id": "1",
+      "name": 101,
+      "idtyperoom": 1,
+      "status": false,
+      "number": 4,
+      "rating": 5,
+      "pricePerday": 100,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
     },
     {
-      "id":2,
-      "number":4,
-      "name" :"budget room",
-      "size" :50,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["https://live.staticflickr.com/65535/51289772730_c996686256_o.jpg", "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg", "https://live.staticflickr.com/65535/51288930163_32576ae383_o.jpg", "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg"],
-      "pricePerday" : 120
+      "id": "2",
+      "name": 102,
+      "idtyperoom": 1,
+      "status": false,
+      "number": 4,
+      "rating": 1,
+      "pricePerday": 100,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
     },
     {
-      "id":3,
-      "number":1,
-      "name" :"single room",
-      "size" :50,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["https://live.staticflickr.com/65535/51289498809_3efe0f112d_o.jpg", "https://live.staticflickr.com/65535/51289792355_65cff9ba35_o.jpg", "https://live.staticflickr.com/65535/51288949408_3740bd6aaf_o.jpg", "https://live.staticflickr.com/65535/51288949508_17772d494b_o.jpg"],
-      "pricePerday" : 150
+      "id": "3",
+      "name": 103,
+      "idtyperoom": 1,
+      "status": false,
+      "number": 4,
+      "rating": 2,
+      "pricePerday": 100,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
     },
     {
-      "id":4,
-      "number":3,
-      "name" :"royal suite room",
-      "size" :100,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["https://live.staticflickr.com/65535/51289795645_9060700c72_o.jpg", "https://live.staticflickr.com/65535/51288784771_9f366cd903_o.jpg", "https://live.staticflickr.com/65535/51288032662_e83f400a28_o.jpg", "https://live.staticflickr.com/65535/51289795940_a556b9f28d_o.jpg"],
-      "pricePerday" : 200
+      "id": "4",
+      "name": 104,
+      "idtyperoom": 1,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 100,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
     },
     {
-      "id":5,
-      "number":2,
-      "name" :"luxury room",
-      "size" :100,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["https://live.staticflickr.com/65535/51289502429_13e859c466_o.jpg", "https://live.staticflickr.com/65535/51289502464_611f56dbe7_o.jpg", "https://live.staticflickr.com/65535/51288785186_7c52d098d0_o.jpg", "https://live.staticflickr.com/65535/51289796185_15645f251d_o.jpg"],
-      "pricePerday" : 300
+      "id": "5",
+      "name": 201,
+      "idtyperoom": 2,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 110,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
     },
     {
-      "id":6,
-      "number":1,
-      "name" :"premium room",
-      "size" :100,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image" :["https://live.staticflickr.com/65535/51289797400_e53fcc5b6f_o.jpg", "https://live.staticflickr.com/65535/51289503884_81683cd9fa_o.jpg", "https://live.staticflickr.com/65535/51289797565_80615d710c_o.jpg", "https://live.staticflickr.com/65535/51289503994_445d5f7993_o.jpg"],
-      "pricePerday" : 350
+      "id": "6",
+      "name": 202,
+      "idtyperoom": 2,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 110,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "7",
+      "name": 203,
+      "idtyperoom": 2,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 110,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "8",
+      "name": 204,
+      "idtyperoom": 2,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 110,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "9",
+      "name": 301,
+      "idtyperoom": 3,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 130,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "10",
+      "name": 302,
+      "idtyperoom": 3,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 130,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "11",
+      "name": 303,
+      "idtyperoom": 3,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 130,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "12",
+      "name": 304,
+      "idtyperoom": 3,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 130,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "13",
+      "name": 401,
+      "idtyperoom": 4,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 150,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "14",
+      "name": 402,
+      "idtyperoom": 4,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 150,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "15",
+      "name": 403,
+      "idtyperoom": 4,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 150,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "16",
+      "name": 404,
+      "idtyperoom": 4,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 150,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "17",
+      "name": 501,
+      "idtyperoom": 5,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 200,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "18",
+      "name": 502,
+      "idtyperoom": 5,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 200,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "19",
+      "name": 503,
+      "idtyperoom": 5,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 200,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "20",
+      "name": 504,
+      "idtyperoom": 5,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 200,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "21",
+      "name": 601,
+      "idtyperoom": 6,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 250,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "22",
+      "name": 601,
+      "idtyperoom": 6,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 250,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "23",
+      "name": 602,
+      "idtyperoom": 6,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 250,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "24",
+      "name": 603,
+      "idtyperoom": 6,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 250,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
+    },
+    {
+      "id": "25",
+      "name": 604,
+      "idtyperoom": 6,
+      "status": false,
+      "number": 4,
+      "rating": 0,
+      "pricePerday": 250,
+      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác."
     }
-  ] ,
-  "service":
-  [
-    {
-      "name":"Dịch vụ Spa",
-    "id": 1,
-    "price": 50
-  },
-  {
-    "name":"Dịch vụ phòng họp",
-    "id": 2,
-    "price": 70
-  },
-  {
-    "name":"Fitness centre",
-    "id": 3,
-    "price": 50
-  },
-  {
-    "name":"Dịch vụ phòng 24/24",
-    "id": 4,
-    "price": 50
-  },
-  {
-    "name":"Sòng bạc",
-    "id": 5,
-    "price": 100
-  },
-  {
-    "name":"Sân golf và sân tennis",
-    "id": 6,
-    "price": 120
-  }
   ],
-  "user":
-  [
-    {
-      "id" :1,
-      "name" :"Nguyen Quoc Dung",
-      "email" : "nguyenquocdung281099@gmail.com",
-      "role": "customer",
-      "userInfo": {
-        "age":22,
-        "address": "Ha Tinh",
-        "password" : "123456",
-        "userName" : "nguyenquocdung"
-      }
-    },
-    {
-      "id" :2,
-      "name" :"Pham Nhat Huy",
-      "email" : "phamnhathuy@gmail.com",
-      "role": "customer",
-      "userInfo": {
-        "age":23,
-        "address": "Da Nang",
-        "password" : "1234567",
-        "userName" : "phamnhathuy"
-      }
-    },
-    {
-      "id" :3,
-      "name" :"Nguyen Van A",
-      "role": "sale",
-      "password" : "1234567",
-      "userName" : "nguyenvana"
-    },
-    {
-      "id" :4,
-      "name" :"Nguyen Van B",
-      "role": "manager",
-      "password" : "1234567ds",
-      "userName" : "nguyenvanb"
-    },
-    {
-      "id" :5,
-      "name" :"Nguyen Van C",
-      "role": "admin",
-      "password" : "1234567ds",
-      "userName" : "nguyenvanc"
-    }
-    
-  ],
-  "paymethod": 
-  [
+  "TypeRoom": [
     {
       "id": 1,
-      "name" : "trực tiếp"
+      "name": "classic room",
+      "size": 50,
+      "image": [
+        "https://live.staticflickr.com/65535/51289476079_4d2dd6e2cb_o.jpg",
+        "https://live.staticflickr.com/65535/51288758181_dee4473bc0_o.jpg",
+        "https://live.staticflickr.com/65535/51289768820_cbd31bfb73_o.jpg",
+        "https://live.staticflickr.com/65535/51288758271_0b87e06b71_o.jpg",
+        "https://live.staticflickr.com/65535/51293656404_3abc2e4eb8_k.jpg",
+        "https://live.staticflickr.com/65535/51293943870_c569d3359f_k.jpg",
+        "https://live.staticflickr.com/65535/51292194247_fdde59c509_k.jpg",
+        "https://live.staticflickr.com/65535/51293943720_c83b6b18ed_h.jpg",
+        "https://live.staticflickr.com/65535/51293654904_bece959530_h.jpg",
+        "https://live.staticflickr.com/65535/51292939121_2fab78370e_k.jpg"
+      ]
     },
     {
       "id": 2,
-      "name" : "qua thẻ ngân hàng"
-    }
-  ],
-  "promotion" :
-  [
-    {
-      "id":1,
-      "name" : "giảm giá mùa hè",
-      "discount" :5,
-      "startTime" : "2021/04/30",
-      "endTime" : "2021/05/30"
+      "name": "budget room",
+      "size": 50,
+      "image": [
+        "https://live.staticflickr.com/65535/51289772730_c996686256_o.jpg",
+        "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg",
+        "https://live.staticflickr.com/65535/51288930163_32576ae383_o.jpg",
+        "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg",
+        "https://live.staticflickr.com/65535/51293945040_52148d89ff_k.jpg",
+        "https://live.staticflickr.com/65535/51292940541_6e25d67bda_k.jpg",
+        "https://live.staticflickr.com/65535/51293655249_d7c248aa79_h.jpg",
+        "https://live.staticflickr.com/65535/51293943950_708b60214b_h.jpg",
+        "https://live.staticflickr.com/65535/51292194372_c6b105379a_k.jpg",
+        "https://live.staticflickr.com/65535/51293943915_ea6103d774_h.jpg"
+      ]
     },
     {
-      "id":2,
-      "name" : "giảm giá ngày kỉ niệm khách sạn ",
-      "discount" :10,
-      "startTime" : "2021/09/30",
-      "endTime" : "2021/10/15"
+      "id": 3,
+      "name": "single room",
+      "size": 50,
+      "image": [
+        "https://live.staticflickr.com/65535/51289498809_3efe0f112d_o.jpg",
+        "https://live.staticflickr.com/65535/51289792355_65cff9ba35_o.jpg",
+        "https://live.staticflickr.com/65535/51288949408_3740bd6aaf_o.jpg",
+        "https://live.staticflickr.com/65535/51288949508_17772d494b_o.jpg",
+        "https://live.staticflickr.com/65535/51292195297_dd3e0bd336_k.jpg",
+        "https://live.staticflickr.com/65535/51292195222_fd98d1a51c_k.jpg",
+        "https://live.staticflickr.com/65535/51292940426_1c794ef515_h.jpg",
+        "https://live.staticflickr.com/65535/51293944185_59bcec2529_k.jpg",
+        "https://live.staticflickr.com/65535/51292939636_1b4350b136_k.jpg",
+        "https://live.staticflickr.com/65535/51293655279_b99c76efac_k.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "royal suite room",
+      "size": 100,
+      "image": [
+        "https://live.staticflickr.com/65535/51289795645_9060700c72_o.jpg",
+        "https://live.staticflickr.com/65535/51288784771_9f366cd903_o.jpg",
+        "https://live.staticflickr.com/65535/51288032662_e83f400a28_o.jpg",
+        "https://live.staticflickr.com/65535/51289795940_a556b9f28d_o.jpg",
+        "https://live.staticflickr.com/65535/51293118418_b7cb322006_k.jpg",
+        "https://live.staticflickr.com/65535/51292194752_72ed0164b7_k.jpg",
+        "https://live.staticflickr.com/65535/51292939846_31e0e9667a_k.jpg",
+        "https://live.staticflickr.com/65535/51293118313_fc449643db_k.jpg",
+        "https://live.staticflickr.com/65535/51293655519_38261b53bc_k.jpg",
+        "https://live.staticflickr.com/65535/51292939721_dbb8e77ddc_h.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "luxury room",
+      "size": 100,
+      "image": [
+        "https://live.staticflickr.com/65535/51289502429_13e859c466_o.jpg",
+        "https://live.staticflickr.com/65535/51289502464_611f56dbe7_o.jpg",
+        "https://live.staticflickr.com/65535/51288785186_7c52d098d0_o.jpg",
+        "https://live.staticflickr.com/65535/51289796185_15645f251d_o.jpg",
+        "https://live.staticflickr.com/65535/51292940366_3fb294f027_h.jpg",
+        "https://live.staticflickr.com/65535/51293656114_95fabd35e1_h.jpg",
+        "https://live.staticflickr.com/65535/51293656079_9d1dadb210_k.jpg",
+        "https://live.staticflickr.com/65535/51293655789_d1fc5afcef_h.jpg",
+        "https://live.staticflickr.com/65535/51292939961_d246651032_h.jpg",
+        "https://live.staticflickr.com/65535/51293944445_2434e5db2a_h.jpg"
+      ],
+      "pricePerday": 300
+    },
+    {
+      "id": 6,
+      "name": "premium room",
+      "size": 100,
+      "image": [
+        "https://live.staticflickr.com/65535/51289797400_e53fcc5b6f_o.jpg",
+        "https://live.staticflickr.com/65535/51289503884_81683cd9fa_o.jpg",
+        "https://live.staticflickr.com/65535/51289797565_80615d710c_o.jpg",
+        "https://live.staticflickr.com/65535/51289503994_445d5f7993_o.jpg",
+        "https://live.staticflickr.com/65535/51293118818_9936fee1b0_h.jpg",
+        "https://live.staticflickr.com/65535/51293118788_ae039e2d05_h.jpg",
+        "https://live.staticflickr.com/65535/51292940226_b513a94bde_h.jpg",
+        "https://live.staticflickr.com/65535/51292940156_42cf8372e0_k.jpg",
+        "https://live.staticflickr.com/65535/51293118643_0a62532a75_k.jpg",
+        "https://live.staticflickr.com/65535/51293655864_b27c335cce_k.jpg"
+      ]
     }
   ],
-  "booking":
-  [
+  "service": [
+    {
+      "name": "Dịch vụ Spa",
+      "id": 1,
+      "price": 50
+    },
+    {
+      "name": "Dịch vụ phòng họp",
+      "id": 2,
+      "price": 70
+    },
+    {
+      "name": "Fitness centre",
+      "id": 3,
+      "price": 50
+    },
+    {
+      "name": "Dịch vụ phòng 24/24",
+      "id": 4,
+      "price": 50
+    },
+    {
+      "name": "Sòng bạc",
+      "id": 5,
+      "price": 100
+    },
+    {
+      "name": "Sân golf và sân tennis",
+      "id": 6,
+      "price": 120
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "name": "Nguyen Quoc Dung",
+      "email": "nguyenquocdung281099@gmail.com",
+      "role": "customer",
+      "age": 22,
+      "address": "Ha Tinh",
+      "password": "123456",
+      "userName": "nguyenquocdung"
+    },
+    {
+      "id": 2,
+      "name": "Pham Nhat Huy",
+      "email": "phamnhathuy@gmail.com",
+      "role": "customer",
+      "age": 23,
+      "address": "Da Nang",
+      "password": "1234567",
+      "userName": "phamnhathuy"
+    },
+    {
+      "id": 3,
+      "name": "Nguyen Van A",
+      "role": "sale",
+      "password": "1234567",
+      "userName": "nguyenvana"
+    },
+    {
+      "id": 4,
+      "name": "Nguyen Van B",
+      "role": "manager",
+      "password": "1234567ds",
+      "userName": "nguyenvanb"
+    },
+    {
+      "id": 5,
+      "name": "Nguyen Van C",
+      "role": "admin",
+      "password": "1234567ds",
+      "userName": "nguyenvanc"
+    }
+  ],
+  "paymethod": [
+    {
+      "id": 1,
+      "name": "trực tiếp"
+    },
+    {
+      "id": 2,
+      "name": "qua thẻ ngân hàng"
+    }
+  ],
+  "promotion": [
+    {
+      "id": 1,
+      "name": "giảm giá mùa hè",
+      "discount": 5,
+      "startTime": "2021/04/30",
+      "endTime": "2021/05/30"
+    },
+    {
+      "id": 2,
+      "name": "giảm giá ngày kỉ niệm khách sạn ",
+      "discount": 10,
+      "startTime": "2021/09/30",
+      "endTime": "2021/10/15"
+    }
+  ],
+  "booking": [
     {
       "id": "1",
       "idroom": "1",
       "userID": "1",
-      "starttime":"",
-      "endtime":"",
+      "starttime": "",
+      "endtime": "",
       "promoId": 1,
-      "totalCost":"",
+      "totalCost": "",
       "status": "NEW",
-      "paymethod" :{
+      "paymethod": {
         "idpaymethod": 1,
-        "status" :true
+        "status": true
       }
-
     }
   ],
-  "bankaccount":
-  [
-  {
-    "id":1,
-    "paymentType": "visa",
-    "paymentId": 12345678,
-    "name": "NGUYEN QUOC DUNG",
-    "balance": 2000
-  },
-  {
-    "id":2,
-    "paymentType": "mastercard",
-    "paymentId": 12315453,
-    "name": "PHAM VAN CHIEN",
-    "balance": 50000
-  }
-  ]}
+  "bankaccount": [
+    {
+      "id": 1,
+      "paymentType": "visa",
+      "paymentId": 12345678,
+      "name": "NGUYEN QUOC DUNG",
+      "balance": 2000
+    },
+    {
+      "id": 2,
+      "paymentType": "mastercard",
+      "paymentId": 12315453,
+      "name": "PHAM VAN CHIEN",
+      "balance": 50000
+    }
+  ]
+}
