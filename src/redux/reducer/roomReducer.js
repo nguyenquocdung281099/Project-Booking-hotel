@@ -5,6 +5,7 @@ const defaultState = {
   type: [],
   filter: {},
   pagi: {},
+  loading: true,
 };
 
 export default function roomReducer(state = defaultState, action) {
@@ -24,6 +25,9 @@ export default function roomReducer(state = defaultState, action) {
       return newState;
     case ActionType.CHANGE_FILTER:
       state = { ...newState, filter: action.payload };
+      return state;
+    case ActionType.SET_LOADING:
+      state = { ...newState, loading: action.status };
       return state;
     default:
       return state;

@@ -16,7 +16,7 @@
   background-color: #f9f1e4;
   padding-top: 0 !important;
 }
-.container-fluid {
+.roomsPage__main .container-fluid {
   padding: 0;
 }
 .roomsPage__content--wrap .search__booking {
