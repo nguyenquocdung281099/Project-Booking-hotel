@@ -9,7 +9,7 @@ export default function OffersBlock() {
   const type = useSelector((state) => state.room.type);
   useEffect(() => {
     dispatch(gettyperoom());
-  }, []);
+  }, [dispatch]);
   let data = type.map((item, key) => {
     if (key > 2) {
       return (
@@ -24,10 +24,6 @@ export default function OffersBlock() {
 function OffersBlockItem(props) {
   return (
     <div className="OffersBlockItem col-12 col-lg-6 col-xl-4">
-      <div className="Special__Offers--price">
-        ${props.pricePerday} <br />
-        PER DAY
-      </div>
       <table class="table table-striped table-dark">
         <thead>
           <tr>

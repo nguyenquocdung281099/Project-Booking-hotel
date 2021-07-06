@@ -4,7 +4,6 @@ import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import SearchBooking from "../../component/component-userpage/HomePage/SearchBooking";
 import CardRoomsList from "../../component/component-userpage/roomspage/cardRoomslist";
-import { Route, useRouteMatch } from "react-router";
 
 import AOS from "aos";
 import SiderBarRoom from "../../component/component-userpage/roomspage/siderbar/sidebarRoom";

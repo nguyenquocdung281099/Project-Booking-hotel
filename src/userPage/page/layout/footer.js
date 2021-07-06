@@ -13,7 +13,7 @@ export default function Footer() {
           loading="lazy"
         ></iframe>
         <div className="container-fluid footer__maping__wrapcontact position-md-absolute">
-          <div className="footer__mapping--upper row p-5">
+          <div className="footer__mapping--upper row p-2">
             <div className="col-12 col-md-4">
               <h3 className="mapping--upper__title">ADDRESS</h3>
               <p>
@@ -39,9 +39,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="container-fluid footer__bottom">
+      <div className="footer__bottom">
         <div className="container">
-          <div className="wrap__footer row p-5">
+          <div className="wrap__footer row p-1">
             <div className="footer__introduction col-12 col-md-6 col-xl-4">
               <img
                 src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2019/02/6.png"

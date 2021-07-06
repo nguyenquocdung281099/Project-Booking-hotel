@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeFilter, gettyperoom } from "../../../../../../redux/action";
 export default function FilterCategory(props) {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(gettyperoom());
-  }, []);
+
   const data = useSelector((state) => state.room);
   const type = data.type;
   const filter = data.filter;
-  console.log(filter);
+  useEffect(() => {
+    dispatch(gettyperoom());
+    // eslint-disable-next-line
+  }, []);
   function handleFilter(id) {
     dispatch(changeFilter({ ...filter, idtyperoom: id }));
   }
@@ -19,6 +20,7 @@ export default function FilterCategory(props) {
       <ul>
         {type.map((item, index) => (
           <li
+            className={filter.idtyperoom === item.id && "active"}
             key={`type_${item.name}-${index}`}
             onClick={(e) => {
               handleFilter(item.id);

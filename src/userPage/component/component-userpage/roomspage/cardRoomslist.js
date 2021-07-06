@@ -4,7 +4,7 @@ import { Image } from "antd";
 import "antd/dist/antd.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getroom } from "../../../../redux/action";
+import { getroom, setLoading } from "../../../../redux/action";
 import AOS from "aos";
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
@@ -15,6 +15,7 @@ export default function CardRoomsList() {
   const data = useSelector((state) => state.room);
   const filter = data.filter;
   const dispatch = useDispatch();
+  const type = data.type;
   const pagi =
     Object.keys(data.pagi).length === 0
       ? {
@@ -25,20 +26,45 @@ export default function CardRoomsList() {
       : data.pagi;
   useEffect(() => {
     dispatch(getroom({ _page: pagi._page, _limit: pagi._limit }));
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     dispatch(getroom({ ...filter, _page: pagi._page, _limit: pagi._limit }));
-  }, [filter]);
+    dispatch(setLoading(true));
+  }, [filter, dispatch, pagi._page, pagi._limit]);
 
   function handleChangePagi(page, pagesize) {
     dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
     window.screenY = 0;
   }
+  const loading = data.loading;
   return (
-    <div className="col-8">
-      {data.rooms.map((item, index) => (
-        <CardRoomsItem item={item} key={`roomsitem-${index}`} />
-      ))}
+    <div className="col-12 col-lg-8">
+      {loading && (
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
+      {data.rooms.map((item, index) => {
+        let indexType = type.findIndex(
+          (itemType) => itemType.id === item.idtyperoom
+        );
+
+        return (
+          <CardRoomsItem
+            item={item}
+            key={`roomsitem-${index}`}
+            type={type[indexType].name}
+          />
+        );
+      })}
       <Pagination
         defaultCurrent={pagi._page}
         total={pagi._totalRows}
@@ -50,18 +76,27 @@ export default function CardRoomsList() {
 }
 
 function CardRoomsItem(props) {
+  const { image, name, pricePerday, id, description, rating } = props.item;
+  let star = [];
+  for (let index = 0; index < 5; index++) {
+    if (index < rating) {
+      star[star.length] = <i class="fas fa-star"></i>;
+    } else {
+      star[star.length] = <i class="far fa-star"></i>;
+    }
+  }
   return (
-    <div class="card d-flex flex-row " data-aos="fade-up">
+    <div class="card d-flex flex-row" data-aos="fade-up">
       <div className="img">
-        {/* <Image src={props.item.image[0]} alt="imageRoom" /> */}
-        <div className="img-action"></div>
+        <Image src={image[3]} alt="imageRoom" />
       </div>
       <div class="card-body">
-        <h4 class="card-title">Room : {props.item.name}</h4>
-
-        <p class="card-text">{props.item.description}</p>
-        <h3></h3>
-        <Link to={`/detailRooms/${props.item.id}`}>Detail</Link>
+        <h4 class="card-nameRoom">Room : {name}</h4>
+        <h5 class="card-NameType">Type Room : {props.type}</h5>
+        <h5 class="card-Price">{pricePerday}$ Price/day </h5>
+        {star}
+        <p class="card-text">{description}</p>
+        <Link to={`/detailRooms/${id}`}>Detail</Link>
       </div>
     </div>
   );
