@@ -85,6 +85,7 @@ export const getusersc = (data) => {
     payload: data,
   };
 };
+
 export const gettyperoomsc = (data) => {
   return {
     type: ActionType.GET_TYPE_ROOM_SC,

@@ -6,7 +6,7 @@ import Dashboard from "./dashboard/dashboard";
 
 export default function StaffWrapper() {
   return (
-    <div className="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <div className="col-md-9 ml-sm-auto col-lg-10 px-md-4 staffpage_wrapper">
       <Switch>
         <Route path="/admin/dashboard">
           <Dashboard />

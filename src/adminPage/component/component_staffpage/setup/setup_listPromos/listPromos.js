@@ -1,5 +1,5 @@
 import './style.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ItemPromo from '../itemPromo/itemPromo'
 import { getpromo } from '../../../../../redux/action/'

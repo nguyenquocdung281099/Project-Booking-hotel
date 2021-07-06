@@ -18,7 +18,7 @@ export default function TableDashboard(props) {
     function generateHeader(data) {
         let res = [];
         for (var i = 0; i < data.length; i++) {
-            res.push(<th key={data[i]}>{data[i]}</th>)
+            res.push(<th style={{textTransform: 'capitalize'}} key={data[i]}>{data[i]}</th>)
         }
         return res;
     }

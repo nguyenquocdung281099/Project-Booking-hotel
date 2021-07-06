@@ -12,7 +12,7 @@ export default function ModalPromo(props) {
   };
   const [values, setValues] = useState(initialValues);
   console.log("values", values);
-
+  
   function handleChange(e) {
     setValues({
       ...values,
@@ -28,7 +28,7 @@ export default function ModalPromo(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
             {isEdit ? "Edit" : "Add"}
           </Modal.Title>
@@ -94,6 +94,9 @@ export default function ModalPromo(props) {
           </form>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="danger" onClick={() => props.hideModal()}>
+            Close
+          </Button>
           {isEdit ? (
             <Button variant="primary" onClick={() => props.editPromo(values)}>
               Save
@@ -103,9 +106,6 @@ export default function ModalPromo(props) {
               Add
             </Button>
           )}
-          <Button variant="danger" onClick={() => props.hideModal()}>
-            Close
-          </Button>
         </Modal.Footer>
       </Modal>
     </>

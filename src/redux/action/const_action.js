@@ -14,8 +14,6 @@ export const GET_SERVICE_SC = "GET_SERVICE_SC";
 export const GET_PROMO_SC = "GET_PROMO_SC";
 export const GET_USER_SC = "GET_USER_SC";
 export const GET_TYPE_ROOM_SC = "GET_TYPE_ROOM_SC";
-
 export const GET_RATING = "GET_RATING";
 export const GET_RATING_SC = "GET_RATING_SC";
-
 export const SET_LOADING = "SET_LOADING";

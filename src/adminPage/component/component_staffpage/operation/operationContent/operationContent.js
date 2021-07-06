@@ -6,7 +6,7 @@ import Invoice from "../operation_invoice/invoice";
 
 export default function OperationContent() {
   return (
-    <div>
+    <div className='operation_content'>
       <Switch>
         <Route path="/admin/operation/list_bookings">
           <ListBookings />

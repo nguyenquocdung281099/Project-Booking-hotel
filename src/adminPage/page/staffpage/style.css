@@ -17,10 +17,12 @@ body {
   max-width: 25%;
 }
 
-.table {
+.staffpage_wrapper {
   text-align: center;
 }
-
+.staffpage_wrapper table, tr, th, td {
+  line-height: 2.25rem;
+}
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
