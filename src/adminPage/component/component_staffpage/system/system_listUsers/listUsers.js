@@ -1,7 +1,7 @@
 import './style.css'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import ItemUser from '../itemUser/itemUser'
+import ItemUser from './itemUser/itemUser'
 import { getuser } from '../../../../../redux/action/'
 
 

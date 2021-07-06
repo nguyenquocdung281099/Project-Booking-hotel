@@ -1,9 +1,19 @@
 import "./style.css";
-import { useState } from "react";
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import TableDashboard from "./tableDashboard/tableDashboard";
+import { getpromo } from "../../../../redux/action";
 
 export default function Dashboard() {
+
+  const dispatch = useDispatch();
+  const promoData = useSelector((state) => state.promo.promo)
+  useEffect(function () {
+    dispatch(getpromo());
+  }, []);
+  console.log(promoData)
+
   let booking = {
     name: "Booking",
     link: "/admin/operation/list_bookings",
@@ -35,46 +45,55 @@ export default function Dashboard() {
     ],
   };
 
-  let roomType = {
-    name: "Room Type",
+  let room = {
+    name: "Room",
     link: "/admin/setup/list_rooms",
     db: [
       {
-        id: 1,
-        name: "classic room",
-        size: 50,
-        pricePerday: 100,
+        "id": "1",
+        "name": 101,
+        "idtyperoom": 1,
+        "status": false,
+        "number": 4,
+        "rating": 5,
+        "pricePerday": 100
       },
       {
-        id: 2,
-        name: "budget room",
-        size: 50,
-        pricePerday: 120,
+        "id": "2",
+        "name": 102,
+        "idtyperoom": 1,
+        "status": false,
+        "number": 4,
+        "rating": 1,
+        "pricePerday": 100,
       },
       {
-        id: 3,
-        name: "single room",
-        size: 50,
-        pricePerday: 150,
+        "id": "3",
+        "name": 103,
+        "idtyperoom": 1,
+        "status": false,
+        "number": 4,
+        "rating": 2,
+        "pricePerday": 100,
       },
       {
-        id: 4,
-        name: "royal suite room",
-        size: 100,
-        pricePerday: 200,
+        "id": "4",
+        "name": 104,
+        "idtyperoom": 1,
+        "status": false,
+        "number": 4,
+        "rating": 0,
+        "pricePerday": 100,
       },
       {
-        id: 5,
-        name: "luxury room",
-        size: 100,
-        pricePerday: 300,
-      },
-      {
-        id: 6,
-        name: "premium room",
-        size: 100,
-        pricePerday: 350,
-      },
+        "id": "5",
+        "name": 201,
+        "idtyperoom": 2,
+        "status": false,
+        "number": 4,
+        "rating": 0,
+        "pricePerday": 110,
+      }
     ],
   };
 
@@ -104,7 +123,6 @@ export default function Dashboard() {
     db: [
       {
         name: "Dịch vụ Spa",
-        id: 1,
         price: 50,
       },
       {
@@ -134,9 +152,9 @@ export default function Dashboard() {
           db={booking.db}
         />
         <TableDashboard
-          name={roomType.name}
-          link={roomType.link}
-          db={roomType.db}
+          name={room.name}
+          link={room.link}
+          db={room.db}
         />
       </div>
       <div class="row">

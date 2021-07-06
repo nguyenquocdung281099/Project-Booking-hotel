@@ -1,0 +1,159 @@
+import axios from "axios";
+import * as func_action from "../action/index";
+import * as action from "../action/const_action";
+import { call, put, takeLatest } from "redux-saga/effects";
+import { URL_PROMO, URL_BOOKING, URL_USER, URL_SERVICE, URL_ROOM } from "../../adminPage/const/const";
+
+export default function* AdminSaga() {
+  yield takeLatest(action.GET_BOOKING, getBooking);
+  yield takeLatest(action.GET_SERVICE, getService);
+  yield takeLatest(action.GET_PROMO, getPromo);
+  yield takeLatest(action.GET_USER, getUser);
+  yield takeLatest(action.ADD_PROMO, addPromo)
+  yield takeLatest(action.EDIT_PROMO, editPromo)
+  yield takeLatest(action.DEL_PROMO, delPromo)
+  yield takeLatest(action.ADD_ROOM, addRoom)
+  yield takeLatest(action.EDIT_ROOM, editRoom)
+  yield takeLatest(action.DEL_ROOM, delRoom)
+  yield takeLatest(action.ADD_SERVICE, addService)
+  yield takeLatest(action.EDIT_SERVICE, editService)
+  yield takeLatest(action.DEL_SERVICE, delService)
+}
+
+function* getBooking() {
+  try {
+    const booking = yield call(get, URL_BOOKING);
+    yield put(func_action.setloader("none"));
+    if (booking.status === 200) {
+      yield put(func_action.getbookingsc(booking.data));
+    }
+  } catch (e) { }
+}
+
+function* getService() {
+  try {
+    const service = yield call(get, URL_SERVICE);
+    yield put(func_action.setloader("none"));
+    if (service.status === 200) {
+      yield put(func_action.getservicesc(service.data));
+    }
+  } catch (e) { }
+}
+
+function* getPromo() {
+  try {
+    const promo = yield call(get, URL_PROMO);
+    yield put(func_action.setloader("none"));
+    if (promo.status === 200) {
+      yield put(func_action.getpromosc(promo.data));
+    }
+  } catch (e) { }
+}
+
+function* getUser() {
+  try {
+    const user = yield call(get, URL_USER);
+    yield put(func_action.setloader("none"));
+    if (user.status === 200) {
+      yield put(func_action.getusersc(user.data));
+    }
+  } catch (e) { }
+}
+
+// ? get api
+function get(url) {
+  return axios.get(url);
+}
+
+function post(url, item) {
+  return axios.post(`${url}`, item)
+}
+
+function putData(url, data) {
+  return axios.put(`${url}/${data.id}`, data)
+}
+
+function del(url, id) {
+  return axios.delete(`${url}/${id}`)
+}
+
+function* addPromo(action) {
+  try {
+    const promo = yield call(post, URL_PROMO, action.payload)
+    if (promo.status === 201) {
+      yield put(func_action.addPromoSC(promo.data))
+    }
+  } catch (e) { }
+}
+
+function* editPromo(action) {
+  try {
+    const promo = yield call(putData, URL_PROMO, action.payload)
+    if (promo.status === 200) {
+      yield put(func_action.editPromoSC(promo.data))
+    }
+  } catch (e) { }
+}
+
+function* delPromo(action) {
+  try {
+    const promo = yield call(del, URL_PROMO, action.payload)
+    if (promo.status === 200) {
+      yield put(func_action.delPromoSC(action.payload))
+    }
+  } catch (e) { }
+}
+
+function* addRoom(action) {
+  try {
+    const room = yield call(post, URL_ROOM, action.payload)
+    if (room.status === 201) {
+      yield put(func_action.addRoomSC(room.data))
+    }
+  } catch (e) { }
+}
+
+function* editRoom(action) {
+  try {
+    const room = yield call(putData, URL_ROOM, action.payload)
+    if (room.status === 200) {
+      yield put(func_action.editRoomSC(room.data))
+    }
+  } catch (e) { }
+}
+
+function* delRoom(action) {
+  try {
+    const room = yield call(del, URL_ROOM, action.payload)
+    if (room.status === 200) {
+      yield put(func_action.delRoomSC(action.payload))
+    }
+  } catch (e) { }
+}
+
+function* addService(action) {
+  try {
+    const service = yield call(post, URL_SERVICE, action.payload)
+    if (service.status === 201) {
+      yield put(func_action.addServiceSC(service.data))
+    }
+  } catch (e) { }
+}
+
+function* editService(action) {
+  try {
+    const service = yield call(putData, URL_SERVICE, action.payload)
+    if (service.status === 200) {
+      yield put(func_action.editServiceSC(service.data))
+    }
+  } catch (e) { }
+}
+
+function* delService(action) {
+  try {
+    const service = yield call(del, URL_SERVICE, action.payload)
+    if (service.status === 200) {
+      yield put(func_action.delServiceSC(action.payload))
+    }
+  } catch (e) { }
+}

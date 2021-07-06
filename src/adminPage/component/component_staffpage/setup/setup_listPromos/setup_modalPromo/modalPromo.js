@@ -1,23 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 export default function ModalPromo(props) {
   let { id, name, discount, startTime, endTime, isOpen, isEdit } = props;
   const initialValues = {
-    id: id,
-    name: name,
-    discount: discount,
-    startTime: startTime,
-    endTime: endTime,
+    id, name, discount, startTime, endTime
   };
   const [values, setValues] = useState(initialValues);
-  console.log("values", values);
 
   function handleChange(e) {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
     });
+  }
+
+  const [dataError, setdataError] = useState({
+    name: "*",
+    discount: "*", 
+    startTime: "*",
+    endTime: "*"
+  });
+
+  let dataErrors = {};
+
+  useEffect(function () {
+    setdataError({ ...dataErrors });
+  }, [values])
+
+  if (values.name === "") {
+    dataErrors = { ...dataErrors, name: "This field can't be empty" };
+  } else {
+    dataErrors = { ...dataErrors, name: "" };
+  }
+
+  if (values.discount <= 0) {
+    dataErrors = { ...dataErrors, discount: "This field must be a positive value" };
+  } else {
+    dataErrors = { ...dataErrors, discount: "" };
   }
 
   return (
@@ -27,8 +47,9 @@ export default function ModalPromo(props) {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        onHide={props.hideModal}
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton onHide={props.hideModal}>
           <Modal.Title id="contained-modal-title-vcenter">
             {isEdit ? "Edit" : "Add"}
           </Modal.Title>
@@ -46,7 +67,10 @@ export default function ModalPromo(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
-                ></input>
+                />
+                <span id="name_error" style={{ colornpm: "red" }}>
+                  {dataError.name}
+                </span>
               </div>
             </div>
             <div className="form-group row">
@@ -57,10 +81,13 @@ export default function ModalPromo(props) {
                 <input
                   defaultValue={discount}
                   name="discount"
-                  type="text"
+                  type="number"
                   className="form-control"
                   onChange={handleChange}
-                ></input>
+                />
+                <span id="discount_error" style={{ color: "red" }}>
+                  {dataError.discount}
+                </span>
               </div>
             </div>
             <div className="form-group row">
@@ -71,10 +98,10 @@ export default function ModalPromo(props) {
                 <input
                   defaultValue={startTime}
                   name="startTime"
-                  type="text"
+                  type="date"
                   className="form-control"
                   onChange={handleChange}
-                ></input>
+                />
               </div>
             </div>
             <div className="form-group row">
@@ -85,27 +112,27 @@ export default function ModalPromo(props) {
                 <input
                   defaultValue={endTime}
                   name="endTime"
-                  type="text"
+                  type="date"
                   className="form-control"
                   onChange={handleChange}
-                ></input>
+                />
               </div>
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          {isEdit ? (
-            <Button variant="primary" onClick={() => props.editPromo(values)}>
-              Save
-            </Button>
-          ) : (
-            <Button variant="primary" onClick={() => props.addPromo(values)}>
-              Add
-            </Button>
-          )}
           <Button variant="danger" onClick={() => props.hideModal()}>
             Close
           </Button>
+          {isEdit ? (
+            <Button variant="primary" onClick={() => props.editData(values)}>
+              Save
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={() => props.addData(values)}>
+              Add
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>

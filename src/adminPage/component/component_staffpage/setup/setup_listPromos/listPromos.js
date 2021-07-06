@@ -1,35 +1,40 @@
 import './style.css'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import ItemPromo from '../itemPromo/itemPromo'
-import { getpromo } from '../../../../../redux/action/'
-import ModalPromo from '../setup_modalPromo/modalPromo'
+import "antd/dist/antd.css";
+import { Pagination } from "antd";
+import ItemPromo from './itemPromo/itemPromo'
+import { getpromo, delPromo, addPromo, editPromo } from '../../../../../redux/action/'
+import ModalPromo from './setup_modalPromo/modalPromo'
 
 export default function ListPromos() {
 
-    // const dispatch = useDispatch();
-    // const promoData = useSelector((state) => state.promo.promo)
-    // const loader  = useSelector((state) => state.promo.loader)
-    // useEffect(function () {
-    //     dispatch(getpromo());
-    // }, []);
+    const dispatch = useDispatch();
+    const promoData = useSelector((state) => state.promo)
+    const loader = useSelector((state) => state.promo.loader)
+    const filter = promoData.filter;
 
-    const [promoData, setPromoData] = useState([
-        {
-            "id": 1,
-            "name": "giảm giá mùa hè",
-            "discount": 5,
-            "startTime": "2021/04/30",
-            "endTime": "2021/05/30"
-        },
-        {
-            "id": 2,
-            "name": "giảm giá ngày kỉ niệm khách sạn ",
-            "discount": 10,
-            "startTime": "2021/09/30",
-            "endTime": "2021/10/15"
-        }
-    ])
+    const pagi =
+        Object.keys(promoData.pagi).length === 0
+            ? {
+                _page: 1,
+                _limit: 15,
+                _totalRows: 15,
+            }
+            : promoData.pagi;
+
+    useEffect(() => {
+        dispatch(getpromo({ _page: pagi._page, _limit: pagi._limit }));
+    }, []);
+
+    useEffect(() => {
+        dispatch(getpromo({ ...filter, _page: pagi._page, _limit: pagi._limit }));
+    }, [filter]);
+
+    function handleChangePagi(page, pagesize) {
+        dispatch(getpromo({ ...filter, _page: page, _limit: pagi._limit }));
+        window.screenY = 0;
+    }
 
     const [modalStatus, setModalStatus] = useState({
         isOpen: false,
@@ -41,41 +46,34 @@ export default function ListPromos() {
         endTime: null
     })
 
-    function addPromo(data) {
+    function addData(data) {
         let item = {
-            id: promoData.length + 1,
             name: data.name,
-            discount: data.discount,
+            discount: +data.discount,
             startTime: data.startTime,
             endTime: data.endTime
         }
-        setPromoData([...promoData, item])
+        dispatch(addPromo(item))
         hideModal()
     }
 
-    function editPromo(data) {
-        let updateData = [...promoData].map((item) => {
-            if (item.id === data.id) {
-                item = data
-            }
-            return item;
-        })
-        setPromoData(updateData);
+    function editData(data) {
+        let updateData = promoData.promo.find(item => item.id === data.id)
+        updateData = data
+        dispatch(editPromo(updateData))
         hideModal()
     }
 
-    function deletePromo(id) {
-        let delPromo = [...promoData].filter((item) => item.id !== id)
-        setPromoData(delPromo)
+    function deleteData(id) {
+        dispatch(delPromo(id))
     }
 
     const showModal = (i, a) => {
         let newState = { ...modalStatus }
-        let data = promoData.find(item => {
+        let data = promoData.promo.find(item => {
             return item.id === a
         })
         newState = { ...newState, isOpen: true, isEdit: i, ...data }
-        console.log('show', newState)
         setModalStatus(newState)
     };
 
@@ -83,13 +81,12 @@ export default function ListPromos() {
         let newState = { ...modalStatus }
         let data = { id: null, name: null, discount: null, startTime: null, endTime: null }
         newState = { ...newState, isOpen: false, isEdit: null, ...data };
-        console.log('close', newState)
         setModalStatus(newState)
     };
 
-    const datas = promoData.map((item, index) => {
+    const datas = promoData.promo.map((item, index) => {
         return <ItemPromo key={index} index={index} {...item}
-            deletePromo={deletePromo}
+            deleteData={deleteData}
             showModal={showModal}
         />
     })
@@ -97,6 +94,12 @@ export default function ListPromos() {
     return (
         <div>
             <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Promotion</button>
+            <Pagination
+                defaultCurrent={pagi._page}
+                total={pagi._totalRows}
+                pageSize={pagi._limit}
+                onChange={handleChangePagi}
+            />
             <table className="table">
                 <thead>
                     <tr>
@@ -110,14 +113,15 @@ export default function ListPromos() {
                 </thead>
                 <tbody>
                     {datas}
+                    <td colSpan="6"><div style={{ display: loader }} className="lds-dual-ring"></div></td>
                 </tbody>
-                {/* <div style={{display: loader}} className="lds-dual-ring"></div> */}
             </table>
+            
             < ModalPromo
                 key={modalStatus.id}
                 {...modalStatus}
-                addPromo={addPromo}
-                editPromo={editPromo}
+                addData={addData}
+                editData={editData}
                 hideModal={hideModal}
             />
         </div >

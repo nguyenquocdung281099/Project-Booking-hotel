@@ -86,6 +86,7 @@ export const getusersc = (data) => {
     payload: data,
   };
 };
+
 export const gettyperoomsc = (data) => {
   return {
     type: ActionType.GET_TYPE_ROOM_SC,
@@ -111,6 +112,7 @@ export const setLoading = (status) => {
   };
 };
 
+
 export const login = (data) => {
   return {
     type: ActionType.LOGIN,
@@ -133,5 +135,131 @@ export const loginErr = () => {
 export const logout = () => {
   return {
     type: ActionType.LOGOUT,
+  };
+};
+
+export const addPromo = (data) => {
+  return {
+    type: ActionType.ADD_PROMO,
+    payload: data,
+  };
+};
+
+export const addPromoSC = (data) => {
+  return {
+    type: ActionType.ADD_PROMO_SC,
+    payload: data,
+  };
+};
+
+export const editPromo = (data) => {
+  return {
+    type: ActionType.EDIT_PROMO,
+    payload: data,
+  };
+};
+
+export const editPromoSC = (data) => {
+  return {
+    type: ActionType.EDIT_PROMO_SC,
+    payload: data,
+  };
+};
+
+export const delPromo = (data) => {
+  return {
+    type: ActionType.DEL_PROMO,
+    payload: data,
+  };
+};
+
+export const delPromoSC = (data) => {
+  return {
+    type: ActionType.DEL_PROMO_SC,
+    payload: data,
+  };
+};
+
+export const addRoom = (data) => {
+  return {
+    type: ActionType.ADD_ROOM,
+    payload: data,
+  };
+};
+
+export const addRoomSC = (data) => {
+  return {
+    type: ActionType.ADD_ROOM_SC,
+    payload: data,
+  };
+};
+
+export const editRoom = (data) => {
+  return {
+    type: ActionType.EDIT_ROOM,
+    payload: data,
+  };
+};
+
+export const editRoomSC = (data) => {
+  return {
+    type: ActionType.EDIT_ROOM_SC,
+    payload: data,
+  };
+};
+
+export const delRoom = (data) => {
+  return {
+    type: ActionType.DEL_ROOM,
+    payload: data,
+  };
+};
+
+export const delRoomSC = (data) => {
+  return {
+    type: ActionType.DEL_ROOM_SC,
+    payload: data,
+  };
+};
+
+export const addService = (data) => {
+  return {
+    type: ActionType.ADD_SERVICE,
+    payload: data,
+  };
+};
+
+export const addServiceSC = (data) => {
+  return {
+    type: ActionType.ADD_SERVICE_SC,
+    payload: data,
+  };
+};
+
+export const editService = (data) => {
+  return {
+    type: ActionType.EDIT_SERVICE,
+    payload: data,
+  };
+};
+
+export const editServiceSC = (data) => {
+  return {
+    type: ActionType.EDIT_SERVICE_SC,
+    payload: data,
+  };
+};
+
+export const delService = (data) => {
+  return {
+    type: ActionType.DEL_SERVICE,
+    payload: data,
+  };
+};
+
+export const delServiceSC = (data) => {
+  return {
+    type: ActionType.DEL_SERVICE_SC,
+    payload: data,
   };
 };
