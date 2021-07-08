@@ -19,3 +19,11 @@ export const GET_RATING = "GET_RATING";
 export const GET_RATING_SC = "GET_RATING_SC";
 
 export const SET_LOADING = "SET_LOADING";
+export const SET_USER = "SET_USER";
+
+export const SET_AUTH = "SET_AUTH";
+
+export const LOGIN = "LOGIN";
+export const LOGIN_SC = "LOGIN_SC";
+export const LOGIN_ERR = "LOGIN_ERR";
+export const LOGOUT = "LOGOUT";

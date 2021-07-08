@@ -247,3 +247,11 @@ footer ul li::before {
   width: 1em;
   margin-left: -1em;
 }
+
+.btn-flag {
+  border: 1px solid #e6aa32;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: #e6aa32;
+}

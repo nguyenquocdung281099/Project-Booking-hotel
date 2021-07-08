@@ -13,11 +13,13 @@ import TitleBlock from "../../component/component-userpage/share/titleblock";
 import OffersBlock from "../../component/component-userpage/share/OffersBlock";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { useTranslation } from "react-i18next";
 
 AOS.init({
   duration: 1200,
 });
 export default function HomePage() {
+  const { t } = useTranslation();
   return (
     <div className="homepage">
       <section className="bodypage__banner">
@@ -74,17 +76,7 @@ export default function HomePage() {
               </h3>
               <h1 className="discover__title">About the Hotel</h1>
               <EdgeBottom />
-              <p className="discover__description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-                <br />
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae!
-              </p>
+              <p className="discover__description">{t("whychooseus")}</p>
               <StarHotel />
             </div>
           </div>
@@ -113,7 +105,7 @@ export default function HomePage() {
               <div className="booking__room--content">
                 <EdgeTop />
                 <h3 className="booking__room--subtitle">Luxury Resort App</h3>
-                <h1 className="booking__room--title">Booking Rooms Online</h1>
+                <h1 className="booking__room--title">{t("Booking Rooms Online")}</h1>
                 <EdgeBottom />
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed

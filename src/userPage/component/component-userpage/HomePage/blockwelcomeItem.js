@@ -1,5 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 export default function BlockWelcomeItem(props) {
+  const { t } = useTranslation();
   return (
     <div className="BlockWelcomeItem col-12 col-lg-6 col-xl-4">
       <h1 className="title">{props.title}</h1>
@@ -11,13 +13,9 @@ export default function BlockWelcomeItem(props) {
         id="tgpli-6012fc51950c9"
         src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/line2.png"
       />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna. Ut enim ad mini veniam,
-        quis nostrud exercitation.
-      </p>
+      <p>{t("")}</p>
       <button className="btn">
-        <Link to={`${props.link}`}>LEARN MORE</Link>
+        <Link to={`${props.link}`}>{t("LEARN MORE")}</Link>
       </button>
     </div>
   );

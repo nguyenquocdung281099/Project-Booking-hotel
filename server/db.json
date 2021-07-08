@@ -515,49 +515,6 @@
       "price": 120
     }
   ],
-  "user": [
-    {
-      "id": 1,
-      "name": "Nguyen Quoc Dung",
-      "email": "nguyenquocdung281099@gmail.com",
-      "role": "customer",
-      "age": 22,
-      "address": "Ha Tinh",
-      "password": "123456",
-      "userName": "nguyenquocdung"
-    },
-    {
-      "id": 2,
-      "name": "Pham Nhat Huy",
-      "email": "phamnhathuy@gmail.com",
-      "role": "customer",
-      "age": 23,
-      "address": "Da Nang",
-      "password": "1234567",
-      "userName": "phamnhathuy"
-    },
-    {
-      "id": 3,
-      "name": "Nguyen Van A",
-      "role": "sale",
-      "password": "1234567",
-      "userName": "nguyenvana"
-    },
-    {
-      "id": 4,
-      "name": "Nguyen Van B",
-      "role": "manager",
-      "password": "1234567ds",
-      "userName": "nguyenvanb"
-    },
-    {
-      "id": 5,
-      "name": "Nguyen Van C",
-      "role": "admin",
-      "password": "1234567ds",
-      "userName": "nguyenvanc"
-    }
-  ],
   "paymethod": [
     {
       "id": 1,

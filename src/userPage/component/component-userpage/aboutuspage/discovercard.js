@@ -1,16 +1,18 @@
+import { useTranslation } from "react-i18next";
 import "./style.css";
 import "./style.css";
 
 export default function DiscoverAmenitiesBlock() {
+  const { t } = useTranslation();
   const data = [
-    { classI: "fas fa-wifi", title: "FREE WIFI ACCESS" },
-    { classI: "fas fa-tv", title: "FREE CABLE TV" },
-    { classI: "fas fa-fan", title: "AIR CONDITIONING" },
+    { classI: "fas fa-wifi", title: t("FREE WIFI ACCESS") },
+    { classI: "fas fa-tv", title: t("FREE CABLE TV") },
+    { classI: "fas fa-fan", title: t("AIR CONDITIONING") },
   ];
   const data2 = [
-    { classI: "fas fa-folder", title: "EXCHANGE OFFICE" },
-    { classI: "fas fa-wifi", title: "FREE STRONGBOX" },
-    { classI: "fas fa-swimmer", title: "FREE POOL ACCESS" },
+    { classI: "fas fa-folder", title: t("EXCHANGE OFFICE") },
+    { classI: "fas fa-wifi", title: t("FREE STRONGBOX") },
+    { classI: "fas fa-swimmer", title: t("FREE POOL ACCESS") },
   ];
   return (
     <>
