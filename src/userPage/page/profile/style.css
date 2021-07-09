@@ -1,0 +1,35 @@
+.veiw-profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #e6aa32;
+  box-shadow: 5px 5px 5px #61450d;
+  margin-bottom: 1rem;
+}
+.veiw-profile input {
+  border: none;
+  width: 300px;
+}
+.veiw-profile label {
+  width: 100px;
+}
+.veiw-profile button {
+  border: none;
+  background: none;
+}
+.veiw-profile,
+.history__booking {
+  border: 1px solid #e6aa32;
+  box-shadow: 5px 5px 5px #61450d;
+  height: max-content;
+  padding: 1rem;
+  min-height: 500px;
+}
+.profiel__page--body {
+}
+.profile__page {
+  background-color: rgb(242, 234, 221);
+  padding: 0;
+  padding-bottom: 2rem;
+}

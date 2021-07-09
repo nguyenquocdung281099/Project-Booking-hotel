@@ -82,5 +82,11 @@
   "Re-enter Password": "Re-enter Password",
   "logout": "Logout",
   "About": "About us",
-  "Contact": "Contact"
+  "Contact": "Contact",
+  "Profile": "Your Profile",
+  "Password": "Password",
+  "nameRoom": "Room Name",
+  "promotion": "Promotion",
+  "checkin": "Checkin",
+  "checkout": "Checkout"
 }

@@ -20,8 +20,9 @@ function* getUser(action) {
 }
 
 function* Login(action) {
-  try { 
+  try {
     const res = yield call(post, `${URL_USER}/login`, action.payload);
+    console.log(res);
     localStorage.setItem(KEY_TOKEN, JSON.stringify(res.data.accessToken));
     const dataUser = jwt_decode(res.data.accessToken);
     console.log(dataUser);
