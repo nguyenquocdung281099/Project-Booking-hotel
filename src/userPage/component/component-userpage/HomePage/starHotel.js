@@ -1,17 +1,20 @@
+import { useTranslation } from "react-i18next";
+
 export default function StarHotel() {
+  const { t } = useTranslation();
   let data1 = [
-    "90 Luxury Rooms",
-    "120 Family Rooms",
-    "340 Standart Rooms",
-    "10 Restaurants and Bars",
-    " 2 Parking Spaces",
+    t("90 Luxury Rooms"),
+    t("120 Family Rooms"),
+    t("340 Standart Rooms"),
+    t("10 Restaurants and Bars"),
+    t(" 2 Parking Spaces"),
   ];
   let data2 = [
-    "1 Spa Center",
-    "4 Fitness Halls",
-    "3 Conference Halls",
-    "5 Swimming Pools",
-    "1 Beauty Center",
+    t("1 Spa Center"),
+    t("4 Fitness Halls"),
+    t("3 Conference Halls"),
+    t("5 Swimming Pools"),
+    t("1 Beauty Center"),
   ];
   data1 = data1.map((item, index) => {
     return (

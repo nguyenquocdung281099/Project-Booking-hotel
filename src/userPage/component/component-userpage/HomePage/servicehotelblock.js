@@ -1,18 +1,20 @@
+import { useTranslation } from "react-i18next";
 import EdgeBottom from "./edge";
 import EdgeTop from "./edgeTop";
 export default function ServiceBlock() {
+  const {t}= useTranslation()
   let dataImg = [
     {
       src: "https://live.staticflickr.com/65535/51277499132_66aac83ffd_b.jpg",
-      title: "Сonference Hall",
+      title: t("hall"),
     },
     {
       src: "https://live.staticflickr.com/65535/51278250976_e72e0e5d59_b.jpg",
-      title: "Luxure Restaurant",
+      title: t("restaurent"),
     },
     {
       src: "https://live.staticflickr.com/65535/51279270075_dfb2975a12_b.jpg",
-      title: "Spa Сenter",
+      title: t("spa")
     },
   ];
   dataImg = dataImg.map((item, index) => (

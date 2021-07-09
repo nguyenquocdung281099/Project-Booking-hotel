@@ -59,6 +59,29 @@ p {
   .main_h {
     padding-top: 25px;
   }
+  .roomsPage__content--wrap .card {
+    flex-direction: column !important;
+    max-height: 100vh !important;
+  }
+  .roomsPage__content--wrap .card .img {
+    max-height: 120px;
+  }
+  .roomsPage__content--wrap .card .img,
+  .roomsPage__content--wrap .card .card-body {
+    width: 100%;
+    overflow: hidden;
+  }
+  .roomsPage__content--wrap li {
+    font-size: 90%;
+  }
+  .roomsPage__content--wrap .card img {
+    width: 100%;
+  }
+  .roomsPage__content--wrap .card p,
+  .roomsPage__content--wrap .card h4,
+  .roomsPage__content--wrap .card h5 {
+    font-size: 75%;
+  }
 }
 
 .sticky {
@@ -223,4 +246,12 @@ footer ul li::before {
   display: inline-block;
   width: 1em;
   margin-left: -1em;
+}
+
+.btn-flag {
+  border: 1px solid #e6aa32;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: #e6aa32;
 }

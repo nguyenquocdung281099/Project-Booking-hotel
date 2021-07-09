@@ -2,7 +2,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import { Image } from "antd";
 import "antd/dist/antd.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getroom, setLoading } from "../../../../redux/action";
 import AOS from "aos";
@@ -26,11 +26,12 @@ export default function CardRoomsList() {
       : data.pagi;
   useEffect(() => {
     dispatch(getroom({ _page: pagi._page, _limit: pagi._limit }));
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     dispatch(getroom({ ...filter, _page: pagi._page, _limit: pagi._limit }));
     dispatch(setLoading(true));
-  }, [filter]);
+  }, [filter, dispatch, pagi._page, pagi._limit]);
 
   function handleChangePagi(page, pagesize) {
     dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
@@ -38,8 +39,7 @@ export default function CardRoomsList() {
   }
   const loading = data.loading;
   return (
-    <div className="col-8">
-
+    <div className="col-12 col-lg-8">
       {loading && (
         <div class="lds-roller">
           <div></div>
@@ -86,9 +86,9 @@ function CardRoomsItem(props) {
     }
   }
   return (
-    <div class="card d-flex flex-row " data-aos="fade-up">
+    <div class="card d-flex flex-row" data-aos="fade-up">
       <div className="img">
-        <Image src={image[0]} alt="imageRoom" />
+        <Image src={image[3]} alt="imageRoom" />
       </div>
       <div class="card-body">
         <h4 class="card-nameRoom">Room : {name}</h4>
@@ -96,7 +96,6 @@ function CardRoomsItem(props) {
         <h5 class="card-Price">{pricePerday}$ Price/day </h5>
         {star}
         <p class="card-text">{description}</p>
-        <h3></h3>
         <Link to={`/detailRooms/${id}`}>Detail</Link>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "../../../../../redux/action";
 import FilterCategory from "./filterCategory";
@@ -9,9 +8,9 @@ export default function SiderBarRoom() {
   const filter = useSelector((state) => state.room.filter);
   const dispatch = useDispatch();
   return (
-    <div className="siderBarRoom col-3 sidebar-filter">
+    <div className="siderBarRoom col-12 col-lg-3 sidebar-filter">
       <select
-      className="sort_room"
+        className="sort_room"
         onChange={(e) => {
           dispatch(
             changeFilter({

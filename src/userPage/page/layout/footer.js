@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import "./style.css";
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="container-fluid ">
       <div className="footer__maping position-relative">
@@ -13,7 +15,7 @@ export default function Footer() {
           loading="lazy"
         ></iframe>
         <div className="container-fluid footer__maping__wrapcontact position-md-absolute">
-          <div className="footer__mapping--upper row p-5">
+          <div className="footer__mapping--upper row p-2">
             <div className="col-12 col-md-4">
               <h3 className="mapping--upper__title">ADDRESS</h3>
               <p>
@@ -39,9 +41,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="container-fluid footer__bottom">
+      <div className="footer__bottom">
         <div className="container">
-          <div className="wrap__footer row p-5">
+          <div className="wrap__footer row p-1">
             <div className="footer__introduction col-12 col-md-6 col-xl-4">
               <img
                 src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2019/02/6.png"
@@ -57,18 +59,17 @@ export default function Footer() {
             <div className="footer__nav col-12 col-md-6 col-xl-4">
               <h3>Useful links</h3>
               <ul>
-                <li>General Information For Users</li>
-                <li>Interactive Fairy Tales</li>
-                <li>Official Storybook Maker Website</li>
-                <li>Everyday Mathematics Links</li>
-                <li>Basic Knowledge and Experience</li>
+                <li>{t("General Information For Users")}</li>
+                <li>{t("Interactive Fairy Tales")}</li>
+                <li>{t("Official Storybook Maker Website")}</li>
+                <li>{t("Everyday Mathematics Links")}</li>
+                <li>{t("Basic Knowledge and Experience")}</li>
               </ul>
             </div>
             <div className="footer__letter col-12 col-md-6 col-xl-4">
               <h3>Newsletter</h3>
               <p>
-                Subscribe to our MailChimp newsletter and stay up to date with
-                all events coming straight in your mailbox:
+                {t("sub")}
               </p>
 
               <div class="input-group mb-3">

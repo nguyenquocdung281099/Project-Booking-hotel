@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { debounce } from "lodash";
 import "./style.css";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { KEY_TOKEN } from "../../const/const";
+import { useDispatch, useSelector } from "react-redux";
+import { getuser, logout } from "../../../redux/action";
+import jwt_decode from "jwt-decode";
+
 export default function Header() {
+  const dispatch = useDispatch();
   const defaultHeaderClassName = "main_h";
   const [headerClassName, setHeaderClassName] = React.useState(
     defaultHeaderClassName
@@ -19,7 +26,18 @@ export default function Header() {
     }
   };
 
-  React.useEffect(() => {
+  const token = localStorage.getItem(KEY_TOKEN);
+  let dataUser = { email: "" };
+  if (token !== null) dataUser = jwt_decode(token);
+  const { t, i18n } = useTranslation();
+  let [path, setpath] = useState("");
+  let match = useLocation();
+  useEffect(() => {
+    console.log("data", dataUser.email);
+    dispatch(getuser(`users?email=${dataUser.email}`));
+  }, [dispatch]);
+
+  useEffect(() => {
     window.addEventListener("scroll", debounce(didScrollPage, 50));
     return () => {
       window.removeEventListener("keydown", didScrollPage);
@@ -30,52 +48,50 @@ export default function Header() {
     setIsOpened(!isOpened);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setHeaderClassName(
       `main_h ${showHeader ? "sticky " : "transparent"} ${
         isOpened ? "open-nav " : ""
       }`
     );
   }, [isOpened, showHeader]);
-  let [path, setpath] = useState("");
-  let match = useLocation();
+
   useEffect(() => {
     setpath(match.pathname);
   }, [match]);
+
   const Routers = [
     {
-      name: "Home",
+      name: t("Home"),
       url: "/",
     },
     {
-      name: "About",
+      name: t("About"),
       url: "/about",
     },
     {
-      name: "Room",
+      name: t("Room"),
       url: "/room",
     },
     {
-      name: "Service",
+      name: t("Service"),
       url: "/service",
     },
     {
-      name: "Contact",
+      name: t("Contact"),
       url: "/contact",
     },
     {
-      name: "News",
+      name: t("News"),
       url: "/news",
     },
     {
-      name: "Gallery",
+      name: t("Gallery"),
       url: "/gallery",
     },
-    {
-      name: "Login",
-      url: "/login",
-    },
   ];
+  let infor = useSelector((state) => state.user.user);
+  if (infor === undefined) infor = [];
   return (
     <div>
       <header className={headerClassName}>
@@ -95,13 +111,53 @@ export default function Header() {
 
           <nav>
             <ul>
-              {Routers.map((item, key) => {
+              {Routers.map((item) => {
                 return (
                   <li className={path === `${item.url}` && "active"}>
-                    <Link to={item.url}>{item.name}</Link>
+                    <Link to={item.url}>{t(item.name)}</Link>
                   </li>
                 );
               })}
+              <li className={path === "active"}>
+                {token ? (
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      localStorage.removeItem(KEY_TOKEN);
+                      dispatch(logout());
+                    }}
+                  >
+                    {t("logout")}
+                    <i class="fas fa-sign-out-alt"></i>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    {t("Login")}
+                    <i class="fas fa-sign-in-alt"></i>
+                  </Link>
+                )}
+              </li>
+              <li>
+                {infor.length !== 0 && token !== null && (
+                  <Link to="/profile">
+                    USER <i class="far fa-user"></i>
+                  </Link>
+                )}
+              </li>
+              <div>
+                <button
+                  className="btn-flag ml-3"
+                  onClick={() => i18n.changeLanguage("vi")}
+                >
+                  vi
+                </button>
+                <button
+                  className="btn-flag"
+                  onClick={() => i18n.changeLanguage("en")}
+                >
+                  en
+                </button>
+              </div>
             </ul>
           </nav>
         </div>

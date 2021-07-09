@@ -5,50 +5,30 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import SliderCommentClinet from "../../component/component-userpage/aboutuspage/sliderCommenclient";
 import DiscoverAmenitiesBlock from "../../component/component-userpage/aboutuspage/discovercard";
-// import CounterNumber from "../../component/component-userpage/aboutuspage/counteritem";
 import TitleBlock from "../../component/component-userpage/share/titleblock";
+import { useTranslation } from "react-i18next";
 AOS.init({
   duration: 1200,
 });
 
 export default function AboutUsPage() {
+  const { t } = useTranslation();
   return (
     <main className="aboutus__main container_fluid">
       <section className="aboutus__main--banner container_fluid">
         <EdgeTop />
-        <h1 className="main--banner__title">About Us</h1>
+        <h1 className="main--banner__title">{t("About Us")}</h1>
         <EdgeBottom />
       </section>
       <section className="aboutus__main--chooseUs">
-        <TitleBlock
-          subtitle="WHY CHOOSE US"
-          title="Experience the Splendour
-of TheGem Hotel!"
-        />
+        <TitleBlock subtitle={t("WHY CHOOSE US")} title={t("Experience")} />
         <div className="aboutus-main container mt-5">
           <div className="row">
             <p
               data-aos="fade-right"
               className="whychooseus__descrn p-4 col-12 col-lg-7"
             >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum. Sed
-              ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque. laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum.
+              {t("whychooseus")}
             </p>
             <div className="col-5 image__choose d-none d-lg-block"></div>
           </div>
@@ -56,7 +36,10 @@ of TheGem Hotel!"
       </section>
       <section className="counter">{/* ! code counter */}</section>
       <section className="discoverOurRoom container-fluid">
-        <TitleBlock subtitle="DISCOVER OUR ROOMS" title="TheGem Amenities" />
+        <TitleBlock
+          subtitle={t("DISCOVER OUR ROOMS")}
+          title={t("TheGem Amenities")}
+        />
         <div className="container">
           <DiscoverAmenitiesBlock />
         </div>
@@ -96,7 +79,7 @@ of TheGem Hotel!"
         </div>
       </section>
       <section className="slider__client">
-        <TitleBlock subtitle="INFORMATION" title="What Client Say" />
+        <TitleBlock subtitle={t("INFORMATION")} title={t("What Client Say")} />
         <SliderCommentClinet />
       </section>
     </main>
