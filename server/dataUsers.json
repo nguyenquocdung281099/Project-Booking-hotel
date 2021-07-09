@@ -49,6 +49,11 @@
       "name": "sale",
       "idRole": "user4",
       "id": 5
+    },
+    {
+      "email": "nguyequocdungdadawda281099@gmail.com",
+      "password": "$2a$10$KTRCtKjVD9t8.lcoeSVr0.bpoCzQ19HhUYckgiz4xZ8cpgJerXkD6",
+      "id": 6
     }
   ],
   "role": [

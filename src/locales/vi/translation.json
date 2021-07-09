@@ -81,5 +81,11 @@
   "INFORMATION ACCOUNT ": "TÀI KHOẢN THÔNG TIN",
   "Password ": "Mật khẩu",
   "Re-enter Password": "Nhập lại mật khẩu",
-  "logout": "Đăng xuất"
+  "logout": "Đăng xuất",
+  "Profile": "Hồ sơ của bạn",
+  "Password": "Mật khẩu",
+  "nameRoom": "Tên phòng",
+  "promotion": "Khuyến mại",
+  "checkin": "Đăng ký vào",
+  "checkout": "Thủ tục thanh toán"
 }

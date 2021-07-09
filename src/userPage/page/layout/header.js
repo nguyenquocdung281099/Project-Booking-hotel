@@ -27,12 +27,13 @@ export default function Header() {
   };
 
   const token = localStorage.getItem(KEY_TOKEN);
-  let dataUser = "";
+  let dataUser = { email: "" };
   if (token !== null) dataUser = jwt_decode(token);
   const { t, i18n } = useTranslation();
   let [path, setpath] = useState("");
   let match = useLocation();
   useEffect(() => {
+    console.log("data", dataUser.email);
     dispatch(getuser(`users?email=${dataUser.email}`));
   }, [dispatch]);
 
@@ -89,8 +90,8 @@ export default function Header() {
       url: "/gallery",
     },
   ];
-  const infor = useSelector((state) => state.user.user);
-  console.log(infor);
+  let infor = useSelector((state) => state.user.user);
+  if (infor === undefined) infor = [];
   return (
     <div>
       <header className={headerClassName}>
@@ -127,15 +128,21 @@ export default function Header() {
                     }}
                   >
                     {t("logout")}
+                    <i class="fas fa-sign-out-alt"></i>
                   </Link>
                 ) : (
-                  <Link to="/login">{t("Login")}</Link>
+                  <Link to="/login">
+                    {t("Login")}
+                    <i class="fas fa-sign-in-alt"></i>
+                  </Link>
                 )}
               </li>
               <li>
-                {infor.length !== 0 &&
-                  token !== null &&
-                  `userName : ${infor.userName}`}
+                {infor.length !== 0 && token !== null && (
+                  <Link to="/profile">
+                    USER <i class="far fa-user"></i>
+                  </Link>
+                )}
               </li>
               <div>
                 <button
