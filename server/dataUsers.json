@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "email": "manager@gmail.com",
+      "password": "$2a$10$TCRm5HfAsGzi9Eesgqg6SOdGnGAPFRGejDS0V0o5ClvLjz0RY3yha",
+      "userName": "manager",
+      "address": "HT",
+      "birthday": "1998/04/30",
+      "name": "manager",
+      "idRole": "user3",
+      "id": 1
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$g8wol7CIvHBAr/8Z/pqbXe3.SR7GyVCas/dJsnpiH/5JEAymmp1fK",
+      "userName": "admin",
+      "address": "HT",
+      "birthday": "1998/04/30",
+      "name": "admin",
+      "idRole": "user2",
+      "id": 2
+    },
+    {
+      "email": "nguyequocdung281099@gmail.com",
+      "password": "$2a$10$PQLfWi.GJmbwqAJv8UKKCO2DbJncPJHWR5Q7nqbriCzbHcxP35W7G",
+      "userName": "nguyenquocdung",
+      "address": "HT",
+      "birthday": "1998/04/30",
+      "name": "nguyenquocdung",
+      "idRole": "user1",
+      "id": 3
+    },
+    {
+      "email": "phamhuy@gmail.com",
+      "password": "$2a$10$DeD23uurvnO40DNJvjzQ.us0jzUaawsPzuYKg/XOoR6XIbS2a3hL2",
+      "userName": "phamhuy",
+      "address": "HT",
+      "birthday": "1998/04/30",
+      "name": "phamhuy",
+      "idRole": "user1",
+      "id": 4
+    },
+    {
+      "email": "sale@gmail.com",
+      "password": "$2a$10$L6ODW9XrjR1yWFdG/H2vM.0QR3Ea9lpmt9UUDcxBKOpVrKv.DzE..",
+      "userName": "sale",
+      "address": "HT",
+      "birthday": "1998/04/30",
+      "name": "sale",
+      "idRole": "user4",
+      "id": 5
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "name": "customer"
+    },
+    {
+      "id": 2,
+      "name": "admin"
+    },
+    {
+      "id": 3,
+      "name": "manager"
+    },
+    {
+      "id": 4,
+      "name": "sale"
+    }
+  ]
+}

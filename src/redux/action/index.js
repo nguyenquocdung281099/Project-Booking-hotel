@@ -27,9 +27,10 @@ export const getpromo = () => {
   };
 };
 
-export const getuser = () => {
+export const getuser = (filter) => {
   return {
     type: ActionType.GET_USER,
+    filter,
   };
 };
 
@@ -107,5 +108,30 @@ export const setLoading = (status) => {
   return {
     type: ActionType.SET_LOADING,
     status,
+  };
+};
+
+export const login = (data) => {
+  return {
+    type: ActionType.LOGIN,
+    payload: data,
+  };
+};
+
+export const loginSc = (token) => {
+  return {
+    type: ActionType.LOGIN_SC,
+    payload: token,
+  };
+};
+
+export const loginErr = () => {
+  return {
+    type: ActionType.LOGIN_ERR,
+  };
+};
+export const logout = () => {
+  return {
+    type: ActionType.LOGOUT,
   };
 };

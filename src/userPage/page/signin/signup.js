@@ -2,7 +2,10 @@ import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getuser } from "../../../redux/action";
+import { useTranslation } from "react-i18next";
 export default function SignUpPage() {
   const [data, setdata] = useState({});
   const [dataError, setdataError] = useState({
@@ -15,13 +18,14 @@ export default function SignUpPage() {
     password: "*",
     rePassword: "*",
   });
-  const user = [
-    "nguyenvana",
-    "nguyenvanb",
-    "nguyenvanc",
-    "nguyenvand",
-    "nguyenvane",
-  ];
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getuser("users"));
+  }, [dispatch]);
+  const { t } = useTranslation();
+  const users = useSelector((state) => state.user.user);
+  const userNameData = users.map((item) => item.userName);
+  console.log(userNameData);
   function SignIn(e) {
     e.preventDefault();
     let dataErrors = {};
@@ -38,92 +42,103 @@ export default function SignUpPage() {
 
     //  ? name
     if (name === "") {
-      dataErrors = { ...dataErrors, name: "please fill out your name" };
+      dataErrors = { ...dataErrors, name: t("please fill out your name") };
     } else {
-      dataErrors = { ...dataErrors, name: "" };
+      delete dataErrors.name;
     }
     // phone ?
     if (phone === "") {
-      dataErrors = { ...dataErrors, phone: "please fill out your phone" };
+      dataErrors = { ...dataErrors, phone: t("please fill out your phone") };
     } else {
       const phoneno = /^\d{10}$/;
       if (!phoneno.test(phone)) {
-        dataErrors = { ...dataErrors, phone: "please format your phone" };
+        dataErrors = { ...dataErrors, phone: t("please format your phone") };
       } else {
-        dataErrors = { ...dataErrors, phone: "" };
+        delete dataErrors.phone;
       }
     }
     //email
     if (email === "") {
-      dataErrors = { ...dataErrors, email: "please fill out your email" };
+      dataErrors = { ...dataErrors, email: t("please fill out your email") };
     } else {
       const emailno =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (!emailno.test(email)) {
-        dataErrors = { ...dataErrors, email: "please format your email" };
+        dataErrors = { ...dataErrors, email: t("please format your email") };
       } else {
-        dataErrors = { ...dataErrors, email: "" };
+        delete dataErrors.email;
       }
     }
     //  ? add
     if (address === "") {
-      dataErrors = { ...dataErrors, address: "please fill out your address" };
+      dataErrors = {
+        ...dataErrors,
+        address: t("please fill out your address"),
+      };
     } else {
-      dataErrors = { ...dataErrors, address: "" };
+      delete dataErrors.address;
     }
     //? birthday
     if (!birthday) {
-      dataErrors = { ...dataErrors, birthday: "please fill out your birthday" };
+      dataErrors = {
+        ...dataErrors,
+        birthday: t("please fill out your birthday"),
+      };
     } else {
-      dataErrors = { ...dataErrors, birthday: "" };
+      delete dataErrors.birthday;
     }
     // ?userName
     if (userName === "") {
-      dataErrors = { ...dataErrors, userName: "please fill out your userName" };
+      dataErrors = {
+        ...dataErrors,
+        userName: t("please fill out your userName"),
+      };
     } else {
-      if (user.findIndex((item) => item === userName) !== -1) {
+      if (userNameData.findIndex((item) => item === userName) !== -1) {
         dataErrors = {
           ...dataErrors,
-          userName: "This user name already in use",
+          userName: t("This user name already in use"),
         };
       } else {
-        dataErrors = {
-          ...dataErrors,
-          userName: "",
-        };
+        delete dataErrors.userName;
       }
     }
     // ? password
     if (password === "") {
-      dataErrors = { ...dataErrors, password: "please fill out your password" };
+      dataErrors = {
+        ...dataErrors,
+        password: t("please fill out your password"),
+      };
     } else {
       const passwordno = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
       if (!passwordno.test(password)) {
         dataErrors = {
           ...dataErrors,
-          password:
-            "password between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter",
+          password: t("passwordRule"),
         };
       } else {
-        dataErrors = { ...dataErrors, password: "" };
+        delete dataErrors.password;
       }
     }
     if (rePassword === "") {
       dataErrors = {
         ...dataErrors,
-        rePassword: "please fill out your re-password",
+        rePassword: t("please fill out your re-password"),
       };
     } else {
       if (rePassword !== password) {
         dataErrors = {
           ...dataErrors,
-          rePassword: "re-password not equal password",
+          rePassword: t("re-password not equal password"),
         };
       } else {
-        dataErrors = { ...dataErrors, rePassword: "" };
+        delete dataErrors.rePassword;
       }
     }
     console.log(data);
+    if (Object.keys(dataErrors).length === 0) {
+      alert("dad");
+    }
     setdataError({ ...dataErrors });
   }
 
@@ -137,10 +152,10 @@ export default function SignUpPage() {
       <section class="signup__page">
         <div class="signup__page--wrap container p-5">
           <form id="information__form">
-            <h2 class=" mb-3">YOUR INFORMATION</h2>
+            <h2 class=" mb-3">{t("YOUR INFORMATION")}</h2>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="name">Name :</label>
+                <label for="name">{t("Name")} :</label>
                 <input
                   class="form-control"
                   id="name"
@@ -154,7 +169,7 @@ export default function SignUpPage() {
                 </span>
               </div>
               <div class="form-group col-md-6">
-                <label for="tel">Number Phone : </label>
+                <label for="tel">{t("Number Phone")} : </label>
                 <input
                   class="form-control"
                   id="tel"
@@ -184,7 +199,7 @@ export default function SignUpPage() {
                 </span>
               </div>
               <div class="form-group col-md-6">
-                <label for="address">Address:</label>
+                <label for="address">{t("Address")}:</label>
                 <input
                   class="form-control"
                   id="address"
@@ -200,7 +215,7 @@ export default function SignUpPage() {
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="date">Birthday :</label>
+                <label for="date">{t("Birthday")} :</label>
                 <input
                   class="form-control"
                   id="date"
@@ -214,7 +229,7 @@ export default function SignUpPage() {
                 </span>
               </div>
               <div class="form-group col-md-6">
-                <label for="userName">UserName:</label>
+                <label for="userName">{t("UserName")}:</label>
                 <input
                   class="form-control"
                   id="userName"
@@ -228,10 +243,10 @@ export default function SignUpPage() {
                 </span>
               </div>
             </div>
-            <h2 class=" mb-3">INFOR ACCOUNT </h2>
+            <h2 class=" mb-3">{t("INFORMATION ACCOUNT ")}</h2>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="password">Password :</label>
+                <label for="password">{t("Password ")}:</label>
                 <input
                   class="form-control"
                   id="password"
@@ -245,7 +260,7 @@ export default function SignUpPage() {
                 </span>
               </div>
               <div class="form-group col-md-6">
-                <label for="re-password">Re-enter Password :</label>
+                <label for="re-password">{t("Re-enter Password")} :</label>
                 <input
                   class="form-control"
                   id="re-password"
@@ -260,7 +275,7 @@ export default function SignUpPage() {
               </div>
             </div>
             <Link to="/login" className="btn" onClick={SignIn}>
-              SIGN UP
+              {t("SIGN UP")}
             </Link>
           </form>
         </div>

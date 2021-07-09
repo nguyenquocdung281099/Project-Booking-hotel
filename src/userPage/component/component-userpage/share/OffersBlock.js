@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { gettyperoom } from "../../../../redux/action/index";
 import Button from "../share/button";
@@ -22,6 +23,7 @@ export default function OffersBlock() {
 }
 
 function OffersBlockItem(props) {
+  const { t } = useTranslation();
   return (
     <div className="OffersBlockItem col-12 col-lg-6 col-xl-4">
       <table class="table table-striped table-dark">
@@ -32,23 +34,23 @@ function OffersBlockItem(props) {
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Flight Ticket</th>
+            <th scope="row">{t("Flight Ticket")}</th>
           </tr>
           <tr>
-            <th scope="row ">Restaurant ( Lunch / Dinner )</th>
+            <th scope="row ">{t("Restaurant")}</th>
           </tr>
           <tr>
-            <th scope="row">Music Concert</th>
+            <th scope="row">{t("Music Concert")}</th>
           </tr>
           <tr>
-            <th scope="row">Airport Pick-up</th>
+            <th scope="row">{t("Airport Pick-up")}</th>
           </tr>
           <tr>
-            <th scope="row">Sport Activities</th>
+            <th scope="row">{t("Sport Activities")}</th>
           </tr>
           <tr>
             <th scope="row pt-2">
-              <Button url="/room" content="BOOK NOW" />
+              <Button url="/room" content={t("BOOK NOW")} />
             </th>
           </tr>
         </tbody>
