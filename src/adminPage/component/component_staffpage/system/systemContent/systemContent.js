@@ -5,7 +5,7 @@ import ConfigureUser from "../system_configureUser/configureUser";
 
 export default function SystemContent() {
   return (
-    <div>
+    <div className='system_content'>
       <Switch>
         <Route path="/admin/system/list_users">
           <ListUsers />

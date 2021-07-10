@@ -1,17 +1,40 @@
-import { GET_PROMO_SC, SET_LOADER } from '../action/const_action'
+import * as ActionType from "../action/const_action";
 
 const defaultState = {
-    promo: [], loader: "block"
+    promo: [], 
+    loader: "block", 
+    filter: {},
+    pagi: {},
 }
 
 export default function promoReducer(state = defaultState, action) {
     let newState = { ...state }
     switch (action.type) {
-        case GET_PROMO_SC:
-            newState = { ...newState, promo: action.payload }
+        case ActionType.GET_PROMO_SC:
+            newState = { ...newState, 
+                promo: action.payload }
             return newState;
-        case SET_LOADER:
+        case ActionType.SET_LOADER:
             newState = { ...newState, loader: action.payload }
+            return newState;
+        case ActionType.ADD_PROMO_SC:
+            newState = {
+                ...newState,
+                promo: [...newState.promo, action.payload]
+            }
+            return newState;
+        case ActionType.EDIT_PROMO_SC:
+            let newPromo1 = newState.promo.map((item) => {
+                if (item.id === action.payload.id) {
+                    item = action.payload
+                }
+                return item;
+            })
+            newState = { ...newState, promo: newPromo1 }
+            return newState;
+        case ActionType.DEL_PROMO_SC:
+            let newPromo2 = newState.promo.filter(item => item.id !== action.payload)
+            newState = { ...newState, promo: newPromo2 }
             return newState;
         default:
             return state;

@@ -1,5 +1,5 @@
 export default function ItemPromo(props) {
-    let { index, id, name, discount, startTime, endTime, showModal, deletePromo } = props
+    let { index, id, name, discount, startTime, endTime, showModal, deleteData } = props
     return (
         <tr>
             <th scope="row">{index+1}</th>
@@ -11,7 +11,7 @@ export default function ItemPromo(props) {
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>
                     <i class="fas fa-edit"></i>
                 </button>
-                <button type="button" className="btn btn-danger" onClick={() => deletePromo(id)}>
+                <button type="button" className="btn btn-danger" onClick={() => deleteData(id)}>
                     <i class="fas fa-ban"></i>
                 </button>
             </td>

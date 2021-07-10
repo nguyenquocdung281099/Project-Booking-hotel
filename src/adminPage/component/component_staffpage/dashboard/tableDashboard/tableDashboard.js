@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 
 export default function TableDashboard(props) {
     let {name, link, db} = props 
-    console.log(name)
 
     let newData = Object.keys(db).map(index => {
         let x = db[index];
@@ -18,7 +17,7 @@ export default function TableDashboard(props) {
     function generateHeader(data) {
         let res = [];
         for (var i = 0; i < data.length; i++) {
-            res.push(<th key={data[i]}>{data[i]}</th>)
+            res.push(<th style={{textTransform: 'capitalize'}} key={data[i]}>{data[i]}</th>)
         }
         return res;
     }
@@ -50,7 +49,6 @@ export default function TableDashboard(props) {
         }
 
         let trData = newData;
-        console.log(data)
         for (var i = 0; i < trData.length; i++) {
             res[i].push(
                 <tr >
