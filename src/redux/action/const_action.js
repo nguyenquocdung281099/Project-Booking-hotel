@@ -47,3 +47,5 @@ export const EDIT_SERVICE = "EDIT_SERVICE"
 export const EDIT_SERVICE_SC = "EDIT_SERVICE_SC"
 export const DEL_SERVICE = "DEL_SERVICE";
 export const DEL_SERVICE_SC = "DEL_SERVICE_SC";
+export const GET_ROOM_DETAIL = "GET_ROOM_DETAIL";
+export const GET_ROOM_DETAIL_SC = "GET_ROOM_DETAIL_SC";

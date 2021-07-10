@@ -9,6 +9,7 @@ import RoomsPage from "./userPage/page/roompage/index";
 import PrivateRoute from "./Router/privaterouter/privateRouter";
 import StaffPage from "./adminPage/page/staffpage/index";
 import ProfilePage from "./userPage/page/profile/profile";
+import RoomDetailPage from "./userPage/page/roomDetail/roomDetail";
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
         <RouterPublic path="/about" component={AboutUsPage} />
         <RouterPublic path="/room" component={RoomsPage} />
         <RouterPublic path="/profile" component={ProfilePage} />
+        <RouterPublic path="/detailRooms/:id" component={RoomDetailPage} />
 
         <RouterPublic path="/login" component={LoginPage} />
         <RouterPublic path="/signup" component={SignUpPage} />

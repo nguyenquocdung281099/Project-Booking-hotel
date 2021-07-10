@@ -1,0 +1,62 @@
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.Utilities__item {
+  font-size: 300%;
+  height: 100px;
+  background-color: white;
+  margin-bottom: 0.3rem;
+  align-items: center;
+  transition: all 0.5s;
+}
+.Utilities__item i {
+  width: 30px;
+  margin-left: 1.5rem;
+}
+.Utilities__item:hover {
+  transform: translateX(15px);
+}
+.DealsBlock {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.DealsBlockItem {
+  width: 30%;
+  border: 2px solid #6c6c6c;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DealsBlockItem_inner {
+  width: 80%;
+  border: 2px solid white;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.DealsBlockItem_inner:hover {
+  width: 90%;
+  height: 90%;
+}
