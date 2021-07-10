@@ -6,7 +6,8 @@ const defaultState = {
   filter: {},
   pagi: {},
   loading: true,
-  loader: "block"
+  loader: "block",
+  roomsDetail: [],
 };
 
 export default function roomReducer(state = defaultState, action) {
@@ -19,7 +20,8 @@ export default function roomReducer(state = defaultState, action) {
         rooms: action.payload.data,
         pagi: action.payload.pagination,
       };
-      return newState;
+      state = { ...newState };
+      return { ...state };
     case ActionType.GET_TYPE_ROOM_SC:
       newState = { ...newState, type: action.payload };
       return newState;
@@ -52,6 +54,12 @@ export default function roomReducer(state = defaultState, action) {
       let newRoom2 = newState.rooms.filter(item => item.id !== action.payload)
       newState = { ...newState, rooms: newRoom2 }
       return newState;
+    case ActionType.GET_ROOM_DETAIL_SC:
+      state = {
+        ...newState,
+        roomsDetail: action.payload,
+      };
+      return state;
     default:
       return state;
   }

@@ -12,9 +12,10 @@ AOS.init({
   duration: 1200,
 });
 export default function CardRoomsList() {
-  const data = useSelector((state) => state.room);
-  const filter = data.filter;
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.room);
+  console.log("data", data);
+  const filter = data.filter;
   const type = data.type;
   const pagi =
     Object.keys(data.pagi).length === 0
@@ -37,10 +38,9 @@ export default function CardRoomsList() {
     dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
     window.screenY = 0;
   }
-  const loading = data.loading;
   return (
     <div className="col-12 col-lg-8">
-      {loading && (
+      {data.loading && (
         <div class="lds-roller">
           <div></div>
           <div></div>
@@ -52,19 +52,19 @@ export default function CardRoomsList() {
           <div></div>
         </div>
       )}
-      {data.rooms.map((item, index) => {
-        let indexType = type.findIndex(
-          (itemType) => itemType.id === item.idtyperoom
-        );
-
-        return (
-          <CardRoomsItem
-            item={item}
-            key={`roomsitem-${index}`}
-            type={type[indexType].name}
-          />
-        );
-      })}
+      {Object.keys(data).length !== 0 &&
+        data.rooms.map((item, index) => {
+          let indexType = type.findIndex(
+            (itemType) => itemType.id === item.idtyperoom
+          );
+          return (
+            <CardRoomsItem
+              item={item}
+              key={`roomsitem-${index}`}
+              type={type[indexType].name}
+            />
+          );
+        })}
       <Pagination
         defaultCurrent={pagi._page}
         total={pagi._totalRows}

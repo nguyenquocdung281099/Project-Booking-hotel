@@ -8,6 +8,7 @@ import { get } from "./callApi";
 export default function* RoomSaga() {
   yield takeLatest(action.GET_TYPE_ROOM, getType);
   yield takeLatest(action.GET_ROOM, getRoom);
+  yield takeLatest(action.GET_ROOM_DETAIL, getRoomDetail);
 }
 function* getType() {
   try {
@@ -23,5 +24,13 @@ function* getRoom(action) {
     yield put(func_action.setLoading(false));
     delay(1000);
     yield put(func_action.getroomsc(room.data));
+  } catch (e) {}
+}
+
+function* getRoomDetail(action) {
+  try {
+    const url = queryString.stringify(action.payload);
+    const room = yield call(get, `${URL_ROOM}?${url}`);
+    yield put(func_action.getRoomDetailSc(room.data[0]));
   } catch (e) {}
 }
