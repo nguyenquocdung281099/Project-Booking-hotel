@@ -42,10 +42,10 @@
     },
     {
       "email": "sale@gmail.com",
-      "password": "$2a$10$L6ODW9XrjR1yWFdG/H2vM.0QR3Ea9lpmt9UUDcxBKOpVrKv.DzE..",
-      "userName": "sale",
+      "password": "$2a$10$nqwap.ynembF1KS3QXRv1eEWEKvtpIlV846po3gpnLHmALT3FZAoO",
+      "userName": "saleaa",
       "address": "HT",
-      "birthday": "1998/04/30",
+      "birthday": "sale",
       "name": "sale",
       "idRole": "user4",
       "id": 5
@@ -54,6 +54,105 @@
       "email": "nguyequocdungdadawda281099@gmail.com",
       "password": "$2a$10$KTRCtKjVD9t8.lcoeSVr0.bpoCzQ19HhUYckgiz4xZ8cpgJerXkD6",
       "id": 6
+    },
+    {
+      "email": "nguyenquocdung281099@gmail.com",
+      "password": "$2a$10$sT1oy8udiKEj4dY8bCCRQevssW8OD.CelR8dM8ZcPqeINOG4APSuW",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-07-11",
+      "userName": "Nguyễn Quốc Dũng",
+      "rePassword": "12345678aA",
+      "id": 7
+    },
+    {
+      "email": "nguyequocdungdawd281099@gmail.com",
+      "password": "$2a$10$Pyv.cDRP6nYKMY96/chHtu3RrN6hHVUq7yEV6lCgIV16L.HraiGKa",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-07-11",
+      "userName": "Nguyễn Quốc Dũng",
+      "rePassword": "12345678aA",
+      "id": 8
+    },
+    {
+      "email": "nguyequocdungdawd281099@gmail.com",
+      "password": "$2a$10$CV49v7irEUMXcvXcgMAdjONnTOwLjSTOEAzQpdxRtDVPjDAfMHwni",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-07-11",
+      "userName": "Nguyễn Quốc Dũng",
+      "rePassword": "12345678aA",
+      "id": 9
+    },
+    {
+      "email": "nguyenquocddawdaung281099@gmail.com",
+      "password": "$2a$10$s5Zgy.bhHTtl7kzR.Pu1O.24/omO5wi6Z2.0oWXmG9yhjZih864d6",
+      "idRole": "user1",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-06-30",
+      "userName": "Nguyễn Quốc Dũng",
+      "id": 10
+    },
+    {
+      "email": "nguyenquocddawdaung281099@gmail.com",
+      "password": "$2a$10$66FqYTDgYo0vnqVhi2rhY.s47itDrmqktlGi50LD8v5GCKfnuDwt6",
+      "idRole": "user1",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-06-30",
+      "userName": "Nguyễn Quốc Dũng",
+      "id": 11
+    },
+    {
+      "email": "nguyenquocdundawdadafdg281099@gmail.com",
+      "password": "$2a$10$rcteIO7We2H31RqluAOgYetxxZ.oLXstOhLhWxANYSaGXaGxPaseS",
+      "idRole": "user1",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-06-27",
+      "userName": "Nguyễn Quốc Dũng",
+      "id": 12
+    },
+    {
+      "email": "nguyenquocdundawdadafdg281099@gmail.com",
+      "password": "$2a$10$yHalBDbfMFc/U4vmo7hCUenkt8zqM8loWuqLxY1MqRhCq55YEWu9m",
+      "idRole": "user1",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-06-27",
+      "userName": "Nguyễn Quốc Dũng",
+      "id": 13
+    },
+    {
+      "email": "nguyenquocdung281dwad099@gmail.com",
+      "password": "$2a$10$w2Hx1EaHyeLcw/d4wwFNeeypGprRKC.DNOJuU0LwyjxzaKt.J5oMq",
+      "idRole": "user1",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-07-07",
+      "userName": "Nguyễn Quốc Dũng",
+      "id": 14
+    },
+    {
+      "email": "nguyenquocdung281dwad099@gmail.com",
+      "password": "$2a$10$ar8AlxP78W3hL1v.TUtxP.WPI/0QyDMaONBr/QOINxTNVA6K9su4W",
+      "idRole": "user1",
+      "name": "Nguyễn Quốc Dũng",
+      "phone": "0971934862",
+      "address": "Hà Tĩnh",
+      "birthday": "2021-07-07",
+      "userName": "Nguyễn Quốc Dũng",
+      "id": 15
     }
   ],
   "role": [

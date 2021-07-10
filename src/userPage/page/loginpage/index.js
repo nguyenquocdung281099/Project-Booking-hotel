@@ -1,6 +1,7 @@
 import "./style.css";
 import Banner from "../../component/component-userpage/share/banner";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "../../component/component-userpage/share/button";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -8,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../redux/action";
 import { Redirect } from "react-router-dom";
 export default function LoginPage() {
+  const notify = () => toast.success("login success!");
   const [data, setdata] = useState({});
   const dispatch = useDispatch();
   const [dataError, setdataError] = useState({
@@ -42,6 +44,7 @@ export default function LoginPage() {
     }
   }
   if (userAuth.isLogin === true) {
+    notify();
     if (userAuth.isAuthen === true) {
       return <Redirect exact to="/admin" />;
     } else {
@@ -51,6 +54,7 @@ export default function LoginPage() {
 
   return (
     <main className="loginpage__main">
+      <ToastContainer />
       <section className="loginpage__header ">
         <Banner title="LOG IN" content="Login " />
       </section>

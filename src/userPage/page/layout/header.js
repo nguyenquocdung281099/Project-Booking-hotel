@@ -7,8 +7,10 @@ import { KEY_TOKEN } from "../../const/const";
 import { useDispatch, useSelector } from "react-redux";
 import { getuser, logout } from "../../../redux/action";
 import jwt_decode from "jwt-decode";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Header() {
+  const notify = () => toast.success("logout success!");
   const dispatch = useDispatch();
   const defaultHeaderClassName = "main_h";
   const [headerClassName, setHeaderClassName] = React.useState(
@@ -33,7 +35,6 @@ export default function Header() {
   let [path, setpath] = useState("");
   let match = useLocation();
   useEffect(() => {
-    console.log("data", dataUser.email);
     dispatch(getuser(`users?email=${dataUser.email}`));
   }, [dispatch]);
 
@@ -110,6 +111,7 @@ export default function Header() {
           </div>
 
           <nav>
+            <ToastContainer />
             <ul>
               {Routers.map((item) => {
                 return (
@@ -118,11 +120,13 @@ export default function Header() {
                   </li>
                 );
               })}
+
               <li className={path === "active"}>
                 {token ? (
                   <Link
                     to="/"
                     onClick={() => {
+                      notify();
                       localStorage.removeItem(KEY_TOKEN);
                       dispatch(logout());
                     }}
