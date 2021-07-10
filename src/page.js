@@ -21,7 +21,6 @@ export default function Page() {
         <RouterPublicd path="/room" component={RoomsPage} />
         <BookingRoute path="/profile" component={ProfilePage} />
         <RouterPublic path="/detailRooms/:id" component={RoomDetailPage} />
-
         <RouterPublic path="/login" component={LoginPage} />
         <RouterPublic path="/signup" component={SignUpPage} />
         <PrivateRoute path="/admin" component={StaffPage} />
