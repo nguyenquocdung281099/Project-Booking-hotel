@@ -22,7 +22,6 @@ export default function userReducer(state = defaultState, action) {
           isLogin: true,
           user: action.payload,
           isAuthen: true,
-          // infomation: action.payload,
         };
       } else {
         newState = {
