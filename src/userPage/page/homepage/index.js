@@ -20,6 +20,9 @@ AOS.init({
 });
 export default function HomePage() {
   const { t } = useTranslation();
+  const x = Date.parse("2021/09/05");
+  console.log(x);
+
   return (
     <div className="homepage">
       <section className="bodypage__banner">
@@ -105,7 +108,9 @@ export default function HomePage() {
               <div className="booking__room--content">
                 <EdgeTop />
                 <h3 className="booking__room--subtitle">Luxury Resort App</h3>
-                <h1 className="booking__room--title">{t("Booking Rooms Online")}</h1>
+                <h1 className="booking__room--title">
+                  {t("Booking Rooms Online")}
+                </h1>
                 <EdgeBottom />
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed

@@ -263,3 +263,16 @@ export const delServiceSC = (data) => {
     payload: data,
   };
 };
+export const getRoomDetail = (filter) => {
+  return {
+    type: ActionType.GET_ROOM_DETAIL,
+    payload: filter,
+  };
+};
+
+export const getRoomDetailSc = (data) => {
+  return {
+    type: ActionType.GET_ROOM_DETAIL_SC,
+    payload: data,
+  };
+};
