@@ -1,13 +1,18 @@
 import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import "./style.css";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getuser } from "../../../redux/action";
+import { Link, Redirect } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
+import { addUser } from "../../../redux/action";
 export default function SignUpPage() {
-  const [data, setdata] = useState({});
+  const notify = () => toast("Wow so easy!");
+  const [data, setdata] = useState({
+    idRole: "user1",
+  });
   const [dataError, setdataError] = useState({
     name: "*",
     phone: "*",
@@ -19,13 +24,8 @@ export default function SignUpPage() {
     rePassword: "*",
   });
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getuser("users"));
-  }, [dispatch]);
+  const [isSignUp, setIsSignUp] = useState(false);
   const { t } = useTranslation();
-  const users = useSelector((state) => state.user.user);
-  const userNameData = users.map((item) => item.userName);
-  console.log(userNameData);
   function SignIn(e) {
     e.preventDefault();
     let dataErrors = {};
@@ -94,14 +94,7 @@ export default function SignUpPage() {
         userName: t("please fill out your userName"),
       };
     } else {
-      if (userNameData.findIndex((item) => item === userName) !== -1) {
-        dataErrors = {
-          ...dataErrors,
-          userName: t("This user name already in use"),
-        };
-      } else {
-        delete dataErrors.userName;
-      }
+      delete dataErrors.userName;
     }
     // ? password
     if (password === "") {
@@ -135,15 +128,19 @@ export default function SignUpPage() {
         delete dataErrors.rePassword;
       }
     }
-    console.log(data);
     if (Object.keys(dataErrors).length === 0) {
-      alert("dad");
+      delete data.rePassword;
+      dispatch(addUser(data));
     }
     setdataError({ ...dataErrors });
   }
-
+  if (isSignUp === true) {
+    toast();
+    return <Redirect to="/login" />;
+  }
   return (
     <main className="signinpage__body">
+      <ToastContainer />
       <section className="signinpage__body--banner">
         <EdgeTop />
         <h1 className="main--banner__title">Sign up</h1>

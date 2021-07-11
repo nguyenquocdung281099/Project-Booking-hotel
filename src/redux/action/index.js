@@ -1,3 +1,4 @@
+import { type } from "os";
 import * as ActionType from "./const_action";
 
 // ! action
@@ -111,7 +112,6 @@ export const setLoading = (status) => {
     status,
   };
 };
-
 
 export const login = (data) => {
   return {
@@ -275,4 +275,23 @@ export const getRoomDetailSc = (data) => {
     type: ActionType.GET_ROOM_DETAIL_SC,
     payload: data,
   };
+};
+
+export const editUser = (id, data) => {
+  return {
+    type: ActionType.EDIT_USERS,
+    id: id,
+    data: data,
+  };
+};
+
+export const addUser = (data) => {
+  return {
+    type: ActionType.ADD_USER,
+    data: data,
+  };
+};
+
+export const showtoast = () => {
+  return { type: ActionType.SHOW_TOAST };
 };

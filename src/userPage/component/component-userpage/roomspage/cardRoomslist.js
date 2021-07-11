@@ -8,6 +8,7 @@ import { getroom, setLoading } from "../../../../redux/action";
 import AOS from "aos";
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
+import { KEY_ROOM_BOOKING } from "../../../const/const";
 AOS.init({
   duration: 1200,
 });
@@ -78,6 +79,7 @@ export default function CardRoomsList() {
 function CardRoomsItem(props) {
   const { image, name, pricePerday, id, description, rating } = props.item;
   let star = [];
+
   for (let index = 0; index < 5; index++) {
     if (index < rating) {
       star[star.length] = <i class="fas fa-star"></i>;
@@ -97,6 +99,14 @@ function CardRoomsItem(props) {
         {star}
         <p class="card-text">{description}</p>
         <Link to={`/detailRooms/${id}`}>Detail</Link>
+        <Link
+          to="/Booking"
+          onClick={() => {
+            localStorage.setItem(KEY_ROOM_BOOKING, JSON.stringify(props.item));
+          }}
+        >
+          Booking
+        </Link>
       </div>
     </div>
   );
