@@ -21,12 +21,9 @@
 .veiw-profile,
 .history__booking {
   border: 1px solid #e6aa32;
-  box-shadow: 5px 5px 5px #61450d;
   height: max-content;
   padding: 1rem;
   min-height: 500px;
-}
-.profiel__page--body {
 }
 .profile__page {
   background-color: rgb(242, 234, 221);

@@ -11,6 +11,7 @@ import StaffPage from "./adminPage/page/staffpage/index";
 import ProfilePage from "./userPage/page/profile/profile";
 import RoomDetailPage from "./userPage/page/roomDetail/roomDetail";
 import BookingRoute from "./Router/bookingrouter/booking";
+import BookingPage from "./userPage/page/bookingPage";
 
 export default function Page() {
   return (
@@ -19,11 +20,13 @@ export default function Page() {
         <RouterPublic exact path="/" component={HomePage} />
         <RouterPublic path="/about" component={AboutUsPage} />
         <RouterPublic path="/room" component={RoomsPage} />
-        <BookingRoute path="/profile" component={ProfilePage} />
         <RouterPublic path="/detailRooms/:id" component={RoomDetailPage} />
-
         <RouterPublic path="/login" component={LoginPage} />
         <RouterPublic path="/signup" component={SignUpPage} />
+
+        <BookingRoute path="/profile" component={ProfilePage} />
+        <BookingRoute path="/booking" component={BookingPage} />
+
         <PrivateRoute path="/admin" component={StaffPage} />
       </Switch>
     </div>
