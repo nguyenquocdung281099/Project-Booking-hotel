@@ -5,6 +5,8 @@ const defaultState = {
   isAuthen: false,
   isLogin: false,
   infomation: [],
+  isToastSC: false,
+  isLoginERR: false,
 };
 
 export default function userReducer(state = defaultState, action) {
@@ -29,10 +31,8 @@ export default function userReducer(state = defaultState, action) {
           isLogin: true,
           user: action.payload,
           isAuthen: false,
-          // infomation: action.payload,
         };
       }
-      console.log(newState);
       state = { ...newState };
       return { ...state };
     case actionType.LOGOUT:
@@ -45,6 +45,9 @@ export default function userReducer(state = defaultState, action) {
       };
       state = { ...newState };
       return { ...state };
+    case actionType.LOGIN_ERR:
+      newState = { ...newState, isLoginERR: true };
+      return newState;
     default:
       return state;
   }

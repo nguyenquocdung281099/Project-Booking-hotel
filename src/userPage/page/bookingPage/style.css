@@ -1,0 +1,62 @@
+.bookingPage {
+  background-color: #f9f1e3;
+  text-align: center;
+}
+.bookingPage label {
+  width: 120px;
+}
+.bookingPage input,
+.bookingPage select,
+.bookingpage-btn,
+.bookingRoom input {
+  min-width: 300px;
+  border: 1px solid chartreuse;
+  border-radius: 15px;
+  padding: 0.5rem 1rem !important;
+  outline: none;
+  transition: all 0.5s;
+}
+.ant-btn {
+  height: 50px !important;
+  width: 75px;
+  border-radius: 15px;
+}
+.bookingpage-btn,
+.discountoCode-btn {
+  background-color: darkgoldenrod;
+  color: white;
+  font-size: 120%;
+  border: 1px solid white;
+}
+.bookingpage-btn:hover,
+.discountoCode-btn:hover {
+  background-color: white;
+  border: 1px solid darkgoldenrod;
+  color: darkgoldenrod;
+}
+.bookingPage input:hover {
+  width: 310px;
+}
+form .group-input {
+  margin-bottom: 1rem;
+}
+.bookingPage .infor_discount {
+  cursor: pointer;
+}
+.chooseBank {
+  margin: 0 auto;
+  max-width: 200px;
+  padding: 1rem;
+  height: auto;
+  background-color: white;
+  border-radius: 15px;
+}
+.chooseBank div {
+  display: flex;
+}
+.chooseBank input {
+  min-width: 30px !important;
+}
+.chooseBank input:hover {
+  width: 30px;
+}

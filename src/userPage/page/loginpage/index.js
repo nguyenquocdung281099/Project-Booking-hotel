@@ -1,28 +1,37 @@
 import "./style.css";
 import Banner from "../../component/component-userpage/share/banner";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "../../component/component-userpage/share/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../redux/action";
 import { Redirect } from "react-router-dom";
 export default function LoginPage() {
-  const [data, setdata] = useState({});
+  const loginErr = useSelector((state) => state.user.isLoginERR);
+  const userAuth = useSelector((state) => state.user);
+
+  const [data, setdata] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
   const [dataError, setdataError] = useState({
     userName: "*",
     password: "*",
   });
-  const userAuth = useSelector((state) => state.user);
+
+  const notify = () => toast.success("login success!");
+  const notifyErr = () =>
+    toast.success("login err! you need re-enter password or email");
+
   const { t } = useTranslation();
+
   function HandleLoginBtn(e) {
     const { email, password } = data;
-    let dataErrors = {};
+    let dataErrors = { userName: "*", password: "*" };
     if (email === "") {
       dataErrors = {
         ...dataErrors,
-        email: t("please fillout your username"),
+        userName: t("please fillout your mail"),
       };
     } else {
       delete dataErrors.userName;
@@ -41,7 +50,15 @@ export default function LoginPage() {
       dispatch(login(data));
     }
   }
+
+  useEffect(() => {
+    if (loginErr === true) {
+      notifyErr();
+    }
+  }, [loginErr]);
+
   if (userAuth.isLogin === true) {
+    notify();
     if (userAuth.isAuthen === true) {
       return <Redirect exact to="/admin" />;
     } else {
@@ -51,6 +68,7 @@ export default function LoginPage() {
 
   return (
     <main className="loginpage__main">
+      <ToastContainer />
       <section className="loginpage__header ">
         <Banner title="LOG IN" content="Login " />
       </section>
@@ -100,7 +118,7 @@ export default function LoginPage() {
                   </span>
                 </div>
                 <input
-                  className="btn"
+                  className="btn-custom "
                   type="button"
                   value={t("LOGIN")}
                   id="btnsubmit"

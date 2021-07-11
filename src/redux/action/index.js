@@ -112,7 +112,6 @@ export const setLoading = (status) => {
   };
 };
 
-
 export const login = (data) => {
   return {
     type: ActionType.LOGIN,
@@ -273,6 +272,62 @@ export const getRoomDetail = (filter) => {
 export const getRoomDetailSc = (data) => {
   return {
     type: ActionType.GET_ROOM_DETAIL_SC,
+    payload: data,
+  };
+};
+
+export const editUser = (id, data) => {
+  return {
+    type: ActionType.EDIT_USERS,
+    id: id,
+    data: data,
+  };
+};
+
+export const addUser = (data) => {
+  return {
+    type: ActionType.ADD_USER,
+    data: data,
+  };
+};
+
+export const showtoast = () => {
+  return { type: ActionType.SHOW_TOAST };
+};
+
+export const getBookingRoom = (data) => {
+  return {
+    type: ActionType.GET_BOOKING_ROOM,
+    payload: data,
+  };
+};
+
+export const getBookingRoomSC = (data) => {
+  return {
+    type: ActionType.GET_BOOKING_ROOM_SC,
+    payload: data,
+  };
+};
+
+export const setBooking = (data) => {
+  return {
+    type: ActionType.SET_BOOKING,
+    payload: data,
+  };
+};
+
+export const editBooking = (data, id, idUser) => {
+  return {
+    type: ActionType.EDIT_BOOKING,
+    id: id,
+    payload: data,
+    idUser: idUser,
+  };
+};
+
+export const editBookingSc = (data) => {
+  return {
+    type: ActionType.EDIT_BOOKING_SC,
     payload: data,
   };
 };
