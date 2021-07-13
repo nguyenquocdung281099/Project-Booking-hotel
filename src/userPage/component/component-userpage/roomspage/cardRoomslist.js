@@ -102,7 +102,10 @@ function CardRoomsItem(props) {
         <Link
           to="/Booking"
           onClick={() => {
-            localStorage.setItem(KEY_ROOM_BOOKING, JSON.stringify(props.item));
+            sessionStorage.setItem(
+              KEY_ROOM_BOOKING,
+              JSON.stringify(props.item)
+            );
           }}
         >
           Booking

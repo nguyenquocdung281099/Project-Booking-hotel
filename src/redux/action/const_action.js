@@ -54,3 +54,8 @@ export const EDIT_USERS = "EDIT_USERS";
 
 export const ADD_USER = "ADD_USER";
 export const SHOW_TOAST = "SHOW_TOAST";
+
+export const GET_BOOKING_ROOM = "GET_BOOKING_ROOM";
+export const GET_BOOKING_ROOM_SC = "GET_BOOKING_ROOM_SC";
+
+export const SET_BOOKING = "SET_BOOKING";

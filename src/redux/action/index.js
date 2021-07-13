@@ -295,3 +295,24 @@ export const addUser = (data) => {
 export const showtoast = () => {
   return { type: ActionType.SHOW_TOAST };
 };
+
+export const getBookingRoom = (data) => {
+  return {
+    type: ActionType.GET_BOOKING_ROOM,
+    payload: data,
+  };
+};
+
+export const getBookingRoomSC = (data) => {
+  return {
+    type: ActionType.GET_BOOKING_ROOM_SC,
+    payload: data,
+  };
+};
+
+export const setBooking = (data) => {
+  return {
+    type: ActionType.SET_BOOKING,
+    payload: data,
+  };
+};

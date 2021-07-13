@@ -6,7 +6,6 @@ import Header from "../../userPage/page/layout/header";
 
 export default function BookingRoute({ component: Component, ...rest }) {
   const isLogin = localStorage.getItem(KEY_TOKEN) && true;
-  console.log(isLogin);
   return (
     <Route
       {...rest}
