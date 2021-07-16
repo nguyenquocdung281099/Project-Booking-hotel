@@ -21,6 +21,7 @@ function* getRoom(action) {
   try {
     const url = queryString.stringify(action.filter);
     const room = yield call(get, `${URL_ROOM}?${url}`);
+    yield put(func_action.setloader(false));
     yield put(func_action.setLoading(false));
     delay(1000);
     yield put(func_action.getroomsc(room.data));

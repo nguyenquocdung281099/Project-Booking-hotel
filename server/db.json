@@ -533,11 +533,6 @@
       "name": "Sòng bạc",
       "id": 5,
       "price": 100
-    },
-    {
-      "name": "Sân golf và sân tennis",
-      "id": 6,
-      "price": 120
     }
   ],
   "paymethod": [
@@ -555,26 +550,46 @@
       "id": 1,
       "name": "giảm giá mùa hè",
       "discount": 5,
+<<<<<<< HEAD
       "code": "discountSummer",
       "amount": 5
+=======
+      "code": "SUMMERPROMO",
+      "amount": 10
+>>>>>>> f4f948c (staffPage search sort)
     },
     {
       "id": 2,
       "name": "giảm giá ngày kỉ niệm khách sạn ",
       "discount": 10,
+<<<<<<< HEAD
       "code": "discountHoilyday",
       "amount": 4
+=======
+      "code": "ANNIVERSARY",
+      "amount": 20
+>>>>>>> f4f948c (staffPage search sort)
     }
   ],
   "booking": [
     {
       "id": 1,
+<<<<<<< HEAD
       "idUser": 3,
       "idroom": "1",
       "dateStart": "Wed Jul 28 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
       "isPayment": true,
       "totalCost": "",
+=======
+      "idroom": 1,
+      "userID": 1,
+      "starttime": "",
+      "endtime": "",
+      "promoId": 1,
+      "totalCost": "",
+      "userName": "NGUYEN QUOC DUNG",
+>>>>>>> f4f948c (staffPage search sort)
       "status": "CANCEL",
       "paymethod": {
         "idpaymethod": 1,
@@ -612,6 +627,7 @@
       "name": "PHAM VAN CHIEN",
       "balance": 50000
     }
+<<<<<<< HEAD
   ],
   "users": [
     {
@@ -682,5 +698,7 @@
       "id": 4,
       "name": "sale"
     }
+=======
+>>>>>>> f4f948c (staffPage search sort)
   ]
 }

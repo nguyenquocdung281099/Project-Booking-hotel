@@ -2,9 +2,10 @@ import * as ActionType from "./const_action";
 
 // ! action
 
-export const getbooking = () => {
+export const getbooking = (filter) => {
   return {
     type: ActionType.GET_BOOKING,
+    filter: filter,
   };
 };
 
@@ -15,22 +16,24 @@ export const getroom = (filter) => {
   };
 };
 
-export const getservice = () => {
+export const getservice = (filter) => {
   return {
     type: ActionType.GET_SERVICE,
+    filter: filter,
   };
 };
 
-export const getpromo = () => {
+export const getpromo = (filter) => {
   return {
     type: ActionType.GET_PROMO,
+    filter: filter,
   };
 };
 
 export const getuser = (filter) => {
   return {
     type: ActionType.GET_USER,
-    filter,
+    filter: filter,
   };
 };
 
@@ -273,6 +276,21 @@ export const getRoomDetailSc = (data) => {
   return {
     type: ActionType.GET_ROOM_DETAIL_SC,
     payload: data,
+  }
+}
+
+//user DB staffpage
+export const getUserDB = (filter) => {
+  return {
+    type: ActionType.GET_USERDB,
+    filter: filter,
+  };
+};
+
+export const getUserDBSC = (data) => {
+  return {
+    type: ActionType.GET_USERDB_SC,
+    payload: data,
   };
 };
 
@@ -298,6 +316,34 @@ export const showtoast = () => {
 export const getBookingRoom = (data) => {
   return {
     type: ActionType.GET_BOOKING_ROOM,
+    payload: data
+  }
+}
+
+export const addUserDB = (data) => {
+  return {
+    type: ActionType.ADD_USERDB,
+    payload: data,
+  };
+};
+
+export const addUserDBSC = (data) => {
+  return {
+    type: ActionType.ADD_USERDB_SC,
+    payload: data,
+  };
+};
+
+export const editUserDB = (data) => {
+  return {
+    type: ActionType.EDIT_USERDB,
+    payload: data,
+  };
+};
+
+export const editUserDBSC = (data) => {
+  return {
+    type: ActionType.EDIT_USERDB_SC,
     payload: data,
   };
 };
@@ -309,9 +355,23 @@ export const getBookingRoomSC = (data) => {
   };
 };
 
+export const delUserDB = (data) => {
+  return {
+    type: ActionType.DEL_USERDB,
+    payload: data,
+  };
+};
+
 export const setBooking = (data) => {
   return {
     type: ActionType.SET_BOOKING,
+    payload: data,
+  };
+};
+
+export const delUserDBSC = (data) => {
+  return {
+    type: ActionType.DEL_USERDB_SC,
     payload: data,
   };
 };
@@ -329,5 +389,57 @@ export const editBookingSc = (data) => {
   return {
     type: ActionType.EDIT_BOOKING_SC,
     payload: data,
+  };
+};
+
+//booking DB staff page
+export const getBookingDB = (filter, search) => {
+  return {
+    type: ActionType.GET_BOOKINGDB,
+    filter: filter,
+    search: search,
+  };
+};
+
+export const getBookingDBSC = (data) => {
+  return {
+    type: ActionType.GET_BOOKINGDB_SC,
+    payload: data,
+  };
+};
+
+export const searchBookingDB = (data) => {
+  return {
+    type: ActionType.SEARCH_BOOKINGDB,
+    payload: data
+  };
+};
+
+export const editBookingDB = (data) => {
+  return {
+    type: ActionType.EDIT_BOOKINGDB,
+    payload: data,
+  };
+};
+
+export const editBookingDBSC = (data) => {
+  return {
+    type: ActionType.EDIT_BOOKINGDB_SC,
+    payload: data,
+  };
+};
+
+//room DB staffpage
+export const getRoomModal = (data) => {
+  return {
+    type: ActionType.GET_ROOM_MODAL,
+    payload: data,
+  };
+};
+
+export const getRoomModalSC = (data) => {
+  return {
+    type: ActionType.GET_ROOM_MODAL_SC,
+    payload: data
   };
 };

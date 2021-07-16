@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 export default function ModalService(props) {
@@ -20,22 +20,31 @@ export default function ModalService(props) {
     price: "*"
   });
 
-  let dataErrors = {};
+  function handleSubmit(data) {
+    
+    let dataErrors = {};
 
-  useEffect(function () {
+    if (data.name === "" || !data.name) {
+      dataErrors = { ...dataErrors, name: "This field can't be empty" };
+    } else {
+      delete dataErrors.name;
+    }
+
+    if (data.price <= 0 || !data.price) {
+      dataErrors = { ...dataErrors, price: "This field must be a positive value" };
+    } else {
+      delete dataErrors.price
+    }
+
     setdataError({ ...dataErrors });
-  }, [values])
 
-  if (values.name === "") {
-    dataErrors = { ...dataErrors, name: "This field can't be empty" };
-  } else {
-    dataErrors = { ...dataErrors, name: "" };
-  }
-
-  if (values.price <= 0) {
-    dataErrors = { ...dataErrors, price: "This field must be a positive value" };
-  } else {
-    dataErrors = { ...dataErrors, price: "" };
+    if (Object.keys(dataErrors).length === 0) {
+      if (isEdit) {
+        props.editData(data)
+      } else {
+        props.addData(data)
+      }
+    }
   }
 
   return (
@@ -95,11 +104,11 @@ export default function ModalService(props) {
             Close
           </Button>
           {isEdit ? (
-            <Button variant="primary" onClick={() => props.editData(values)}>
+            <Button variant="primary" onClick={() => handleSubmit(values)}>
               Save
             </Button>
           ) : (
-            <Button variant="primary" onClick={() => props.addData(values)}>
+            <Button variant="primary" onClick={() => handleSubmit(values)}>
               Add
             </Button>
           )}

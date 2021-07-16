@@ -1,8 +1,8 @@
 import * as ActionType from "../action/const_action";
 
 const defaultState = {
-    promo: [], 
-    loader: "block", 
+    promo: [],
+    loader: true,
     filter: {},
     pagi: {},
 }
@@ -11,8 +11,11 @@ export default function promoReducer(state = defaultState, action) {
     let newState = { ...state }
     switch (action.type) {
         case ActionType.GET_PROMO_SC:
-            newState = { ...newState, 
-                promo: action.payload }
+            newState = {
+                ...newState,
+                promo: action.payload.data,
+                pagi: action.payload.pagination
+            }
             return newState;
         case ActionType.SET_LOADER:
             newState = { ...newState, loader: action.payload }
@@ -36,6 +39,9 @@ export default function promoReducer(state = defaultState, action) {
             let newPromo2 = newState.promo.filter(item => item.id !== action.payload)
             newState = { ...newState, promo: newPromo2 }
             return newState;
+        case ActionType.CHANGE_FILTER:
+            state = { ...newState, filter: action.payload };
+            return state;
         default:
             return state;
     }
