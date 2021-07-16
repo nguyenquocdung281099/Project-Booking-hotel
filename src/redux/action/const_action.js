@@ -59,3 +59,6 @@ export const GET_BOOKING_ROOM = "GET_BOOKING_ROOM";
 export const GET_BOOKING_ROOM_SC = "GET_BOOKING_ROOM_SC";
 
 export const SET_BOOKING = "SET_BOOKING";
+
+export const EDIT_BOOKING = "EDIT_BOOKING";
+export const EDIT_BOOKING_SC = "EDIT_BOOKING_SC";

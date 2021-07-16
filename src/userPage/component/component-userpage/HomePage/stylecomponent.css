@@ -206,3 +206,6 @@ a:hover {
 .aboutus__name {
   color: #dcbd81;
 }
+.search__booking .form-input label {
+  text-align: start;
+}

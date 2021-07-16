@@ -46,10 +46,10 @@ export default function BookingPage() {
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const holidays = setDateBooked(bookingRoomFetch);
   const promo = useSelector((state) => state.promo.promo);
-  console.log(bookingRoomFetch);
+
   useEffect(() => {
     dispatch(getpromo());
-    dispatch(getBookingRoom({ id: infRoom.id }));
+    dispatch(getBookingRoom({ idroom: infRoom.id, status: "NEW" }));
   }, [dispatch]);
 
   const handlePayment = (e) => {
@@ -83,9 +83,11 @@ export default function BookingPage() {
       });
 
       const totalCost = (infRoom.pricePerday * totalDay * discount) / 100;
+      let bookingFinal = { ...booking };
+      bookingFinal = { ...bookingFinal, totalCost: totalCost };
       setBookings({ ...booking, totalCost: totalCost });
-      dispatch(setBooking(booking));
-      console.log(booking);
+      dispatch(setBooking(bookingFinal));
+      console.log(bookingFinal);
     }
   };
 

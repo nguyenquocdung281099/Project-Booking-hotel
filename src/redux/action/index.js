@@ -1,4 +1,3 @@
-import { type } from "os";
 import * as ActionType from "./const_action";
 
 // ! action
@@ -313,6 +312,22 @@ export const getBookingRoomSC = (data) => {
 export const setBooking = (data) => {
   return {
     type: ActionType.SET_BOOKING,
+    payload: data,
+  };
+};
+
+export const editBooking = (data, id, idUser) => {
+  return {
+    type: ActionType.EDIT_BOOKING,
+    id: id,
+    payload: data,
+    idUser: idUser,
+  };
+};
+
+export const editBookingSc = (data) => {
+  return {
+    type: ActionType.EDIT_BOOKING_SC,
     payload: data,
   };
 };

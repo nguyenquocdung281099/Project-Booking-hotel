@@ -2,6 +2,7 @@ import { GET_BOOKING_ROOM_SC, GET_BOOKING_SC } from "../action/const_action";
 
 const defaultState = {
   booking: [],
+  isEditBooking: false,
 };
 
 export default function bookingReducer(state = defaultState, action) {

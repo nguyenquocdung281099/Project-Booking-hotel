@@ -2,16 +2,23 @@ import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import "./style.css";
 import { Link, Redirect } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
 import { addUser } from "../../../redux/action";
 export default function SignUpPage() {
-  const notify = () => toast("Wow so easy!");
   const [data, setdata] = useState({
     idRole: "user1",
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    birthday: "",
+    userName: "",
+    password: "",
+    rePassword: "",
   });
   const [dataError, setdataError] = useState({
     name: "*",
@@ -134,10 +141,12 @@ export default function SignUpPage() {
     }
     setdataError({ ...dataErrors });
   }
+
   if (isSignUp === true) {
     toast();
     return <Redirect to="/login" />;
   }
+
   return (
     <main className="signinpage__body">
       <ToastContainer />
@@ -271,7 +280,7 @@ export default function SignUpPage() {
                 </span>
               </div>
             </div>
-            <Link to="/login" className="btn" onClick={SignIn}>
+            <Link to="/login" className="btn-custom " onClick={SignIn}>
               {t("SIGN UP")}
             </Link>
           </form>

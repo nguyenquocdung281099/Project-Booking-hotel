@@ -575,7 +575,7 @@
       "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
       "isPayment": true,
       "totalCost": "",
-      "status": "NEW",
+      "status": "CANCEL",
       "paymethod": {
         "idpaymethod": 1,
         "status": true
@@ -590,7 +590,7 @@
         "status": false
       },
       "totalCost": 0,
-      "status": "NEW",
+      "status": "CANCEL",
       "idroom": 1,
       "createdAt": 1626172940007,
       "updatedAt": 1626172940007,

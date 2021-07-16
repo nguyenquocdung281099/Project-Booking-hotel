@@ -9,3 +9,7 @@
 .gem-wrapbox-element1 {
   margin-top: 7%;
 }
+.btn {
+  background-color: black !important;
+  color: white !important;
+}

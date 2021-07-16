@@ -27,6 +27,7 @@ export default function RoomDetailPage() {
   const [styleProgess, setStyleProgess] = useState({
     width: "25%",
   });
+  
   useEffect(() => {
     dispath(getRoomDetail({ id: param.id }));
   }, []);
