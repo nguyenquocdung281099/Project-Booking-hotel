@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getRoomDetail } from "../../../redux/action";
+import { getBookingRoom, getRoomDetail } from "../../../redux/action";
 import "./style.css";
 import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
@@ -14,6 +14,8 @@ import TitleBlock from "../../component/component-userpage/share/titleblock";
 import DealBlock from "../../component/component-userpage/roomDetail/dealsBlock";
 import SliderRoomVeiwed from "../../component/component-userpage/roomDetail/sliderRoomVeiwed";
 import { KEY_ROOM_VEIWED } from "../../const/const";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 AOS.init({
   duration: 2000,
@@ -23,17 +25,26 @@ export default function RoomDetailPage() {
   const param = useParams();
   const dispath = useDispatch();
   const { t } = useTranslation();
-
+  let dataRoomCurrent = useSelector((state) => state.room.roomsDetail);
+  const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const [styleProgess, setStyleProgess] = useState({
     width: "25%",
   });
+
+  const holidays = setDateBooked(bookingRoomFetch);
+  console.log(holidays);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispath(getRoomDetail({ id: param.id }));
   }, []);
 
-  let dataRoomCurrent = useSelector((state) => state.room.roomsDetail);
+  useEffect(() => {
+    dispatch(getBookingRoom({ idroom: dataRoomCurrent.id, status: "NEW" }));
+  }, [dispatch]);
 
   //? set data veiwed
+
   if (dataRoomCurrent.name) {
     const data = JSON.parse(sessionStorage.getItem(KEY_ROOM_VEIWED)) || [];
     if (data.findIndex((item) => item.name === dataRoomCurrent.name) === -1) {
@@ -41,6 +52,8 @@ export default function RoomDetailPage() {
       sessionStorage.setItem(KEY_ROOM_VEIWED, JSON.stringify(data));
     }
   }
+
+
   return (
     <main className="roomDetail__page">
       <section className="aboutus__main--banner container_fluid">
@@ -161,7 +174,20 @@ export default function RoomDetailPage() {
               </div>
             </div>
             <div className="col-3 ml-5">
-              <h4 className="mb-5">
+              <h4 className="mb-3">{t("Availability")}</h4>
+              <div className="d-flex">
+                <div className="describe d-flex m-2 ">
+                  <div className=" full-room mr-2">1</div>{" "}
+                  <p>{t("fully-room")}</p>
+                </div>
+                <div className="describe d-flex m-2">
+                  <div className="empty-room mr-2 ">1</div>{" "}
+                  <p>{t("empty-room")}</p>
+                </div>
+              </div>
+              <DatePicker inline excludeDates={holidays} />
+
+              <h4 className="mb-3 mt-3">
                 {t("OUR GUESTS RATE THIS ROOM AS BELOW")}
               </h4>
               <p>
@@ -248,3 +274,17 @@ export default function RoomDetailPage() {
     </main>
   );
 }
+
+const setDateBooked = (booking) => {
+  let holidays = [];
+  if (booking && booking.length !== 0) {
+    booking.forEach((item) => {
+      holidays[holidays.length] = parseInt(Date.parse(item.dateStart));
+      while (holidays[holidays.length - 1] < Date.parse(item.dateEnd)) {
+        holidays[holidays.length] =
+          parseInt(holidays[holidays.length - 1]) + 86400000;
+      }
+    });
+  }
+  return holidays;
+};

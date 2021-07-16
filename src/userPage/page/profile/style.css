@@ -1,4 +1,4 @@
-.veiw-profile img {
+.profiel__page--body img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -7,26 +7,49 @@
   box-shadow: 5px 5px 5px #61450d;
   margin-bottom: 1rem;
 }
-.veiw-profile input {
-  border: none;
-  width: 300px;
-}
-.veiw-profile label {
-  width: 100px;
-}
-.veiw-profile button {
-  border: none;
-  background: none;
-}
-.veiw-profile,
-.history__booking {
-  border: 1px solid #e6aa32;
-  height: max-content;
-  padding: 1rem;
-  min-height: 500px;
-}
+
 .profile__page {
-  background-color: rgb(242, 234, 221);
   padding: 0;
   padding-bottom: 2rem;
+  background-color: #e2e8f0;
+}
+.profile__page .btn-danger {
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.profile__page .btn-danger:hover {
+  background: none;
+  border: 1px solid red;
+  color: red;
+}
+.profile_left {
+  border-radius: 15px;
+
+  background-color: white;
+  text-align: center;
+}
+.profile__main {
+  border-radius: 15px;
+
+  background-color: white;
+}
+.profile__main input {
+  background: none;
+  border: none;
+}
+.profile__main button {
+  background: none;
+  border: 1px solid black;
+  color: black;
+  border-radius: 15px;
+}
+
+.history__booking {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1rem;
+}
+.history__booking_main {
+  text-align: center;
 }

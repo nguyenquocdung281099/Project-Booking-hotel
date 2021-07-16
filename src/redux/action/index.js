@@ -1,4 +1,3 @@
-import { type } from "os";
 import * as ActionType from "./const_action";
 
 // ! action
@@ -22,9 +21,10 @@ export const getservice = () => {
   };
 };
 
-export const getpromo = () => {
+export const getpromo = (url) => {
   return {
     type: ActionType.GET_PROMO,
+    payload: url,
   };
 };
 
@@ -78,6 +78,12 @@ export const getpromosc = (data) => {
   return {
     type: ActionType.GET_PROMO_SC,
     payload: data,
+  };
+};
+
+export const getpromoEr = () => {
+  return {
+    type: ActionType.GET_PROMO_ER,
   };
 };
 
@@ -313,6 +319,29 @@ export const getBookingRoomSC = (data) => {
 export const setBooking = (data) => {
   return {
     type: ActionType.SET_BOOKING,
+    payload: data,
+  };
+};
+
+export const editBooking = (data, id, idUser) => {
+  return {
+    type: ActionType.EDIT_BOOKING,
+    id: id,
+    payload: data,
+    idUser: idUser,
+  };
+};
+
+export const editBookingSc = (data) => {
+  return {
+    type: ActionType.EDIT_BOOKING_SC,
+    payload: data,
+  };
+};
+
+export const filterSearchRoom = (data) => {
+  return {
+    type: ActionType.FILTER_SEARCH_ROOM,
     payload: data,
   };
 };

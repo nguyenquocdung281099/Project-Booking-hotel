@@ -540,30 +540,22 @@
       "price": 120
     }
   ],
-  "paymethod": [
-    {
-      "id": 1,
-      "name": "trực tiếp"
-    },
-    {
-      "id": 2,
-      "name": "qua thẻ ngân hàng"
-    }
-  ],
   "promotion": [
     {
       "id": 1,
       "name": "giảm giá mùa hè",
       "discount": 5,
       "code": "discountSummer",
-      "amount": 5
+      "amount": 5,
+      "expiryDate": "Fri Jul 15 2021 23:20:24 GMT+0700 (Indochina Time)"
     },
     {
       "id": 2,
       "name": "giảm giá ngày kỉ niệm khách sạn ",
       "discount": 10,
       "code": "discountHoilyday",
-      "amount": 4
+      "amount": 4,
+      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
     }
   ],
   "booking": [
@@ -576,25 +568,110 @@
       "isPayment": true,
       "totalCost": "",
       "status": "NEW",
-      "paymethod": {
-        "idpaymethod": 1,
-        "status": true
-      }
+      "paymethod":"ZaloPay"
     },
     {
       "idUser": 3,
       "dateStart": "2021-07-12T17:00:00.000Z",
       "dateEnd": "2021-07-13T17:00:00.000Z",
-      "paymethod": {
-        "idpaymethod": 2,
-        "status": false
-      },
       "totalCost": 0,
-      "status": "NEW",
+      "status": "CANCEL",
+      "paymethod": "ZaloPay",
       "idroom": 1,
       "createdAt": 1626172940007,
       "updatedAt": 1626172940007,
       "id": 2
+    },
+    {
+      "idUser": 3,
+      "paymethod": "ZaloPay",
+      "totalCost": "-100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491121787,
+      "updatedAt": 1626491121787,
+      "id": 3
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 4
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491295427,
+      "updatedAt": 1626491295427,
+      "id": 5
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491379709,
+      "updatedAt": 1626491379709,
+      "id": 6
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491390991,
+      "updatedAt": 1626491390991,
+      "id": 7
+    },{
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 11,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 8
+    },{
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 3,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 9
+    },{
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 2,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 10
     }
   ],
   "bankaccount": [

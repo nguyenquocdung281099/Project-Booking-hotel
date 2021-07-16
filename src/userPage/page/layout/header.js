@@ -144,7 +144,7 @@ export default function Header() {
               <li>
                 {infor.length !== 0 && token !== null && (
                   <Link to="/profile">
-                    USER <i class="far fa-user"></i>
+                    {t("USER")} <i class="far fa-user"></i>
                   </Link>
                 )}
               </li>

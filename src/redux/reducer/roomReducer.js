@@ -8,6 +8,7 @@ const defaultState = {
   loading: true,
   loader: "block",
   roomsDetail: [],
+  filterSearchRoom: {},
 };
 
 export default function roomReducer(state = defaultState, action) {
@@ -26,33 +27,35 @@ export default function roomReducer(state = defaultState, action) {
       newState = { ...newState, type: action.payload };
       return newState;
     case ActionType.CHANGE_FILTER:
-      state = { ...newState, filter: action.payload };
+      state = { ...newState, filter: action.payload, filterSearchRoom: {} };
       return state;
     case ActionType.SET_LOADING:
       state = { ...newState, loading: action.status };
       return state;
     case ActionType.SET_LOADER:
-      newState = { ...newState, loader: action.payload }
+      newState = { ...newState, loader: action.payload };
       return newState;
 
     case ActionType.ADD_ROOM_SC:
       newState = {
         ...newState,
-        rooms: [...newState.rooms, action.payload]
-      }
+        rooms: [...newState.rooms, action.payload],
+      };
       return newState;
     case ActionType.EDIT_ROOM_SC:
       let newRoom1 = newState.rooms.map((item) => {
         if (item.id === action.payload.id) {
-          item = action.payload
+          item = action.payload;
         }
         return item;
-      })
-      newState = { ...newState, rooms: newRoom1 }
+      });
+      newState = { ...newState, rooms: newRoom1 };
       return newState;
     case ActionType.DEL_ROOM_SC:
-      let newRoom2 = newState.rooms.filter(item => item.id !== action.payload)
-      newState = { ...newState, rooms: newRoom2 }
+      let newRoom2 = newState.rooms.filter(
+        (item) => item.id !== action.payload
+      );
+      newState = { ...newState, rooms: newRoom2 };
       return newState;
     case ActionType.GET_ROOM_DETAIL_SC:
       state = {
@@ -60,6 +63,9 @@ export default function roomReducer(state = defaultState, action) {
         roomsDetail: action.payload,
       };
       return state;
+    case ActionType.FILTER_SEARCH_ROOM:
+      newState = { ...newState, filterSearchRoom: action.payload };
+      return newState;
     default:
       return state;
   }

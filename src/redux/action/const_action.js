@@ -3,6 +3,7 @@ export const GET_BOOKING = "GET_BOOKING";
 export const GET_ROOM = "GET_ROOM";
 export const GET_SERVICE = "GET_SERVICE";
 export const GET_PROMO = "GET_PROMO";
+export const GET_PROMO_ER = "GET_PROMO_ER";
 export const GET_USER = "GET_USER";
 export const SET_LOADER = "SET_LOADER";
 export const GET_TYPE_ROOM = "GET_TYPE_ROOM";
@@ -29,6 +30,8 @@ export const LOGOUT = "LOGOUT";
 
 export const ADD_PROMO = "ADD_PROMO";
 export const ADD_PROMO_SC = "ADD_PROMO_SC";
+export const ADD_PROMO_ER = "ADD_PROMO_ER";
+
 export const EDIT_PROMO = "EDIT_PROMO";
 export const EDIT_PROMO_SC = "EDIT_PROMO_SC";
 export const DEL_PROMO = "DEL_PROMO";
@@ -59,3 +62,8 @@ export const GET_BOOKING_ROOM = "GET_BOOKING_ROOM";
 export const GET_BOOKING_ROOM_SC = "GET_BOOKING_ROOM_SC";
 
 export const SET_BOOKING = "SET_BOOKING";
+
+export const EDIT_BOOKING = "EDIT_BOOKING";
+export const EDIT_BOOKING_SC = "EDIT_BOOKING_SC";
+
+export const FILTER_SEARCH_ROOM = "FILTER_SEARCH_ROOM";
