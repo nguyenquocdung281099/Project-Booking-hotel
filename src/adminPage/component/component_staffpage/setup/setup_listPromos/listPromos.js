@@ -6,6 +6,7 @@ import { Pagination } from "antd";
 import ItemPromo from './itemPromo/itemPromo'
 import { getpromo, delPromo, addPromo, editPromo } from '../../../../../redux/action/'
 import ModalPromo from './setup_modalPromo/modalPromo'
+import SortPromo from './setup_sortPromo/sortPromo';
 
 export default function ListPromos() {
 
@@ -18,18 +19,19 @@ export default function ListPromos() {
         Object.keys(promoData.pagi).length === 0
             ? {
                 _page: 1,
-                _limit: 15,
-                _totalRows: 15,
+                _limit: 12,
+                _totalRows: 12,
             }
             : promoData.pagi;
 
     useEffect(() => {
         dispatch(getpromo({ _page: pagi._page, _limit: pagi._limit }));
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         dispatch(getpromo({ ...filter, _page: pagi._page, _limit: pagi._limit }));
-    }, [filter]);
+    }, [filter, dispatch, pagi._page, pagi._limit]);
 
     function handleChangePagi(page, pagesize) {
         dispatch(getpromo({ ...filter, _page: page, _limit: pagi._limit }));
@@ -41,17 +43,16 @@ export default function ListPromos() {
         isEdit: false,
         id: null,
         name: null,
-        discount: null,
-        startTime: null,
-        endTime: null
+        code: null,
+        amount: null,
     })
 
     function addData(data) {
         let item = {
             name: data.name,
             discount: +data.discount,
-            startTime: data.startTime,
-            endTime: data.endTime
+            code: data.code,
+            amount: +data.amount,
         }
         dispatch(addPromo(item))
         hideModal()
@@ -79,7 +80,7 @@ export default function ListPromos() {
 
     const hideModal = () => {
         let newState = { ...modalStatus }
-        let data = { id: null, name: null, discount: null, startTime: null, endTime: null }
+        let data = { id: null, name: null, discount: null, code: null, amount: null, }
         newState = { ...newState, isOpen: false, isEdit: null, ...data };
         setModalStatus(newState)
     };
@@ -93,30 +94,46 @@ export default function ListPromos() {
 
     return (
         <div>
-            <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Promotion</button>
+            <table className="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colSpan="1" className='add-th'>
+                            <div className='form-inline add-inline'>
+                                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Promo</button>
+                            </div>
+                        </th>
+                        <th colSpan="6" className='add-th'>
+                            <SortPromo />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                {loader ?
+                    <tbody>
+                        <tr>
+                            <th colSpan="7" className='add-th'>
+                                <div className="lds-dual-ring"></div>
+                            </th>
+                        </tr>
+                    </tbody>
+                    :
+                    <tbody>{datas}</tbody>
+                }
+            </table>
             <Pagination
                 defaultCurrent={pagi._page}
                 total={pagi._totalRows}
                 pageSize={pagi._limit}
                 onChange={handleChangePagi}
             />
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Discount</th>
-                        <th scope="col">Start</th>
-                        <th scope="col">End</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {datas}
-                    <td colSpan="6"><div style={{ display: loader }} className="lds-dual-ring"></div></td>
-                </tbody>
-            </table>
-            
+
             < ModalPromo
                 key={modalStatus.id}
                 {...modalStatus}

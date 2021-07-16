@@ -5,7 +5,7 @@ export default function ItemService(props) {
         <tr>
             <th scope="row">{index+1}</th>
             <td>{name}</td>
-            <td>{price}</td>
+            <td>{price} $</td>
    
             <td>
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>
