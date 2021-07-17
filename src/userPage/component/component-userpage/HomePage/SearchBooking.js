@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterSearchRoom, getBookingRoom } from "../../../../redux/action";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link, useRouteMatch } from "react-router-dom";
 
@@ -22,7 +21,9 @@ export default function SearchBooking() {
   }, []);
 
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
+  // ? lay id cac phong da dc booking
   const idRoomNotEmpty = getRoomEmpty(dateInfor, bookingRoomFetch);
+  // ? set len filter
   function handleBtnReservation() {
     dispatch(
       filterSearchRoom({

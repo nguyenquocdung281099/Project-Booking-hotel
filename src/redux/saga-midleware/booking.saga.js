@@ -22,8 +22,7 @@ function* getBookingRoom(action) {
 
 function* setBooking(action) {
   try {
-    const booking = yield call(post, URL_BOOKING, action.payload);
-    console.log(booking);
+    yield call(post, URL_BOOKING, action.payload);
   } catch (error) {}
 }
 

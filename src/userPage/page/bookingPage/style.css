@@ -1,11 +1,5 @@
 .bookingPage {
-  background: radial-gradient(
-    circle at bottom right,
-    #cbff59 0%,
-    #fdff97 33%,
-    #e4ffaf 67%,
-    #fff0ba 100%
-  );
+  background-image: url(https://codex-themes.com/thegem/wp-content/uploads/2016/10/p1.jpg);
 }
 .bookingPage label {
   width: 120px;
@@ -162,4 +156,20 @@ form .group-input {
   margin-top: 2rem;
   padding: 0.7rem 2rem;
   border-radius: 15px;
+}
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  font-family: "Playfair Display", serif;
+}
+.react-datepicker__header {
+  background-color: white;
+}
+.service {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.serviceItem {
 }

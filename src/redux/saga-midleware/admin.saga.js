@@ -5,6 +5,7 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import {
   URL_PROMO,
   URL_BOOKING,
+  URL_USERDB,
   URL_SERVICE,
   URL_ROOM,
 } from "../../adminPage/const/const";
@@ -51,20 +52,19 @@ function* getPromo(action) {
     const url = queryString.stringify(action.filter);
     const promo = yield call(get, `${URL_PROMO}?${url}`);
     yield put(func_action.setloader(false));
-    if (promo.status === 200) {
-      const today = Date.parse(new Date());
-      if (
-        promo.data[0].amount > 0 &&
-        Date.parse(promo.data[0].expiryDate) > today
-      ) {
-        yield put(func_action.getpromosc(promo.data));
-      } else if (
-        promo.data.length === 0 ||
-        promo.data[0].amount === 0 ||
-        Date.parse(promo.data[0].expiryDate) <= today
-      ) {
-        yield put(func_action.getpromosc([]));
-      }
+
+    const today = Date.parse(new Date());
+    if (
+      promo.data.data[0].amount > 0 &&
+      Date.parse(promo.data.data[0].expiryDate) > today
+    ) {
+      yield put(func_action.getpromosc(promo.data));
+    } else if (
+      promo.data.data.length === 0 ||
+      promo.data.data[0].amount === 0 ||
+      Date.parse(promo.data.data[0].expiryDate) <= today
+    ) {
+      yield put(func_action.getpromosc([]));
     }
   } catch (e) {
     yield put(func_action.getpromoEr);

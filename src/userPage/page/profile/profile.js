@@ -12,6 +12,8 @@ import {
 } from "../../../redux/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Pagination } from "antd";
+import "antd/dist/antd.css";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ export default function ProfilePage() {
       address: users.address,
       password: users.password,
     });
-    dispatch(getBookingRoom({ idUser: users.id }));
+    dispatch(getBookingRoom({ idUser: users.id, _page: 1, _limit: 5 }));
     dispatch(
       getroom({
         _page: 1,
@@ -38,7 +40,10 @@ export default function ProfilePage() {
 
   const { t } = useTranslation();
   const [disabled, setDisabled] = useState(true);
-  const bookingRoomFetch = useSelector((state) => state.booking.booking);
+  const dataBooking = useSelector((state) => state.booking.booking);
+
+  const bookingRoomFetch = dataBooking.data;
+  console.log(bookingRoomFetch);
   const dataRoom = useSelector((state) => state.room);
 
   return (
@@ -161,58 +166,76 @@ export default function ProfilePage() {
               </tr>
             </thead>
             <tbody>
-              {bookingRoomFetch.map((item, index) => {
-                const checkin = new Date(item.dateStart);
-                const checkout = new Date(item.dateEnd);
-                return (
-                  <tr key={index}>
-                    <th scope="col">{item.id}</th>
-                    <td>
-                      {dataRoom.rooms.map((element) => {
-                        return item.idroom === element.id && element.name;
-                      })}
-                    </td>
-                    <td>{}</td>
-                    <td>
-                      {`${checkin.getDate()}/${
+              {bookingRoomFetch &&
+                bookingRoomFetch.map((item, index) => {
+                  const checkin = new Date(item.dateStart);
+                  const checkout = new Date(item.dateEnd);
+                  return (
+                    <tr key={index}>
+                      <th scope="col">{item.id}</th>
+                      <td>
+                        {dataRoom.rooms.map((element) => {
+                          return item.idroom === element.id && element.name;
+                        })}
+                      </td>
+                      <td>{item.codeDiscount || "none"}</td>
+                      <td>
+                        {`${checkin.getDate()}/${
+                          checkin.getMonth() + 1
+                        }/${checkin.getFullYear()}`}
+                      </td>
+                      <td>
+                        {`${checkout.getDate()}/${
+                          checkout.getMonth() + 1
+                        }/${checkout.getFullYear()}`}
+                      </td>
+                      <td>{item.status}</td>
 
-                        checkin.getMonth() + 1
-                      }/${checkin.getFullYear()}`}
-                    </td>
-                    <td>
+                      <td>{item.paymethod}</td>
 
-                      {`${checkout.getDate()}/${
-
-                        checkout.getMonth() + 1
-                      }/${checkout.getFullYear()}`}
-                    </td>
-                    <td>{item.status}</td>
-
-                    <td>{item.paymethod}</td>
-
-                    <td>${item.totalCost}</td>
-                    <td>
-                      {item.status === "NEW" && (
-                        <button
-                          className="btn-danger"
-                          onClick={() => {
-                            dispatch(
-                              editBooking({ status: "CANCEL" }, item.id, {
-                                idUser: users.id,
-                              })
-                            );
-                            notify();
-                          }}
-                        >
-                          Cancel
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
+                      <td>${item.totalCost}</td>
+                      <td>
+                        {item.status === "NEW" && (
+                          <button
+                            className="btn-danger"
+                            onClick={() => {
+                              dispatch(
+                                editBooking(
+                                  {
+                                    status: "CANCEL",
+                                    totalCost: parseInt(item.totalCost) * 0.2,
+                                  },
+                                  item.id,
+                                  {
+                                    idUser: users.id,
+                                  }
+                                )
+                              );
+                              notify();
+                            }}
+                          >
+                            Cancel
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
+          <Pagination
+            defaultCurrent={1}
+            total={dataBooking.pagination._totalRows}
+            onChange={(currentPage) => {
+              dispatch(
+                getBookingRoom({
+                  idUser: users.id,
+                  _page: currentPage,
+                  _limit: 5,
+                })
+              );
+            }}
+          />
         </div>
       </section>
     </main>

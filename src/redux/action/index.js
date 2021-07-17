@@ -406,6 +406,7 @@ export const filterSearchRoom = (data) => {
   };
 };
 
+
 //booking DB staff page
 export const getBookingDB = (filter, search) => {
   return {
@@ -457,4 +458,3 @@ export const getRoomModalSC = (data) => {
     payload: data
   };
 };
-

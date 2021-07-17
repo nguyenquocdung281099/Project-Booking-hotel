@@ -31,17 +31,16 @@ export default function SiderBarRoom() {
       <FilterCategory />
       <h3 className="name_filter">Filter Rating</h3>
       <FilterRating />
-      {Object.keys(filter).length !== 0 ||
-        (Object.keys(filterSearchRoom).length !== 0 && (
-          <button
-            className="btn"
-            onClick={() => {
-              dispatch(changeFilter({}));
-            }}
-          >
-            Clear Filter
-          </button>
-        ))}
+      {Object.keys(filter).length !== 0 && (
+        <button
+          className="btn"
+          onClick={() => {
+            dispatch(changeFilter({}));
+          }}
+        >
+          Clear Filter
+        </button>
+      )}
     </div>
   );
 }
