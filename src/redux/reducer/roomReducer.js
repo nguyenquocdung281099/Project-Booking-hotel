@@ -6,14 +6,13 @@ const defaultState = {
   filter: {},
   pagi: {},
   loading: true,
-  loader: "block",
   roomsDetail: [],
   filterSearchRoom: {},
+  loader: true
 };
 
 export default function roomReducer(state = defaultState, action) {
   let newState = { ...state };
-  console.log(action.type);
   switch (action.type) {
     case ActionType.GET_ROOM_SC:
       newState = {

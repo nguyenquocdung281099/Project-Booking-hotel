@@ -6,7 +6,7 @@ import ListPromos from '../setup_listPromos/listPromos';
 
 export default function SetupContent() {
     return (
-        <div className='setup_content'>
+        <div className='setup_content content'>
             <Switch>
                 <Route path="/admin/setup/list_rooms">
                     <ListRooms />

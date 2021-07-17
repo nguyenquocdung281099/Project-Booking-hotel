@@ -2,17 +2,19 @@ import * as ActionType from "../action/const_action";
 
 const defaultState = {
     service: [],
-    loader: "block",
     filter: {},
-    pagi: {}
+    pagi: {},
+    loader: true,
 }
 
 export default function serviceReducer(state = defaultState, action) {
     let newState = { ...state }
     switch (action.type) {
         case ActionType.GET_SERVICE_SC:
-            newState = { ...newState, 
-                service: action.payload
+            newState = {
+                ...newState,
+                service: action.payload.data,
+                pagi: action.payload.pagination
             }
             return newState;
         case ActionType.SET_LOADER:
@@ -34,11 +36,13 @@ export default function serviceReducer(state = defaultState, action) {
             newState = { ...newState, service: newService1 }
             return newState;
         case ActionType.DEL_SERVICE_SC:
-            let newService2 = newState.promo.filter(item => item.id !== action.payload)
+            let newService2 = newState.service.filter(item => item.id !== action.payload)
             newState = { ...newState, service: newService2 }
             return newState;
+        case ActionType.CHANGE_FILTER:
+            state = { ...newState, filter: action.payload };
+            return state;
         default:
             return state;
-
     }
 }

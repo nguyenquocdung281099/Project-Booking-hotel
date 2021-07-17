@@ -533,11 +533,6 @@
       "name": "Sòng bạc",
       "id": 5,
       "price": 100
-    },
-    {
-      "name": "Sân golf và sân tennis",
-      "id": 6,
-      "price": 120
     }
   ],
   "promotion": [
@@ -555,7 +550,8 @@
       "discount": 10,
       "code": "discountHoilyday",
       "amount": 4,
-      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
+      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time),
+      "amount": 4
     }
   ],
   "booking": [
@@ -565,10 +561,12 @@
       "idroom": "1",
       "dateStart": "Wed Jul 28 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "isPayment": true,
       "totalCost": "",
       "status": "NEW",
-      "paymethod":"ZaloPay"
+      "paymethod":"ZaloPay"1,
+      "totalCost": "",
+      "userName": "NGUYEN QUOC DUNG",
+      "status": "CANCEL",
     },
     {
       "idUser": 3,
@@ -689,75 +687,11 @@
       "name": "PHAM VAN CHIEN",
       "balance": 50000
     }
-  ],
-  "users": [
-    {
-      "email": "manager@gmail.com",
-      "password": "$2a$10$TCRm5HfAsGzi9Eesgqg6SOdGnGAPFRGejDS0V0o5ClvLjz0RY3yha",
-      "userName": "manager",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "manager",
-      "idRole": "user3",
-      "id": 1
-    },
-    {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$g8wol7CIvHBAr/8Z/pqbXe3.SR7GyVCas/dJsnpiH/5JEAymmp1fK",
-      "userName": "admin",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "admin",
-      "idRole": "user2",
-      "id": 2
-    },
-    {
-      "email": "nguyequocdung281099@gmail.com",
-      "password": "$2a$10$PQLfWi.GJmbwqAJv8UKKCO2DbJncPJHWR5Q7nqbriCzbHcxP35W7G",
-      "userName": "nguyenquocdung",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "nguyenquocdung",
-      "idRole": "user1",
-      "id": 3
-    },
-    {
-      "email": "phamhuy@gmail.com",
-      "password": "$2a$10$DeD23uurvnO40DNJvjzQ.us0jzUaawsPzuYKg/XOoR6XIbS2a3hL2",
-      "userName": "phamhuy",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "phamhuy",
-      "idRole": "user1",
-      "id": 4
-    },
-    {
-      "email": "sale@gmail.com",
-      "password": "$2a$10$L6ODW9XrjR1yWFdG/H2vM.0QR3Ea9lpmt9UUDcxBKOpVrKv.DzE..",
-      "userName": "sale",
       "address": "HT",
       "birthday": "1998/04/30",
       "name": "sale",
       "idRole": "user4",
       "id": 5
-    }
-  ],
-  "role": [
-    {
-      "id": 1,
-      "name": "customer"
-    },
-    {
-      "id": 2,
-      "name": "admin"
-    },
-    {
-      "id": 3,
-      "name": "manager"
-    },
-    {
-      "id": 4,
-      "name": "sale"
     }
   ]
 }

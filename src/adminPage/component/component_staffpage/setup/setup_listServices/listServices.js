@@ -6,30 +6,32 @@ import { Pagination } from "antd";
 import ItemService from './itemService/itemService'
 import { addService, delService, editService, getservice } from '../../../../../redux/action/';
 import ModalService from './setup_modalService/modalService'
+import SortService from './setup_sortService/sortService';
 
 export default function ListServices() {
 
     const dispatch = useDispatch()
     const serviceData = useSelector((state) => state.service)
-    const loader = useSelector((state) => state.promo.loader)
+    const loader = useSelector((state) => state.service.loader)
     const filter = serviceData.filter;
 
     const pagi =
         Object.keys(serviceData.pagi).length === 0
             ? {
                 _page: 1,
-                _limit: 15,
-                _totalRows: 15,
+                _limit: 12,
+                _totalRows: 12,
             }
             : serviceData.pagi;
 
     useEffect(() => {
         dispatch(getservice({ _page: pagi._page, _limit: pagi._limit }));
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         dispatch(getservice({ ...filter, _page: pagi._page, _limit: pagi._limit }));
-    }, [filter]);
+    }, [filter, dispatch, pagi._page, pagi._limit]);
 
     function handleChangePagi(page, pagesize) {
         dispatch(getservice({ ...filter, _page: page, _limit: pagi._limit }));
@@ -75,7 +77,7 @@ export default function ListServices() {
 
     const hideModal = () => {
         let newState = { ...modalStatus }
-        let data = { id: null, name: null, price: null}
+        let data = { id: null, name: null, price: null }
         newState = { ...newState, isOpen: false, isEdit: null, ...data };
         setModalStatus(newState)
     };
@@ -88,15 +90,18 @@ export default function ListServices() {
 
     return (
         <div>
-            <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Service</button>
-            <Pagination
-                defaultCurrent={pagi._page}
-                total={pagi._totalRows}
-                pageSize={pagi._limit}
-                onChange={handleChangePagi}
-            />
-            <table className="table">
+            <table className="table table-bordered">
                 <thead>
+                    <tr>
+                        <th colSpan="1" className='add-th'>
+                            <div className='form-inline add-inline'>
+                                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Service</button>
+                            </div>
+                        </th>
+                        <th colSpan="3" className='add-th'>
+                            <SortService />
+                        </th>
+                    </tr>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
@@ -104,12 +109,24 @@ export default function ListServices() {
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {datas}
-                    <td colSpan="6"><div style={{ display: loader }} className="lds-dual-ring"></div></td>
-                </tbody>
+                {loader ?
+                    <tbody>
+                        <tr>
+                            <th colSpan="4" className='add-th'>
+                                <div className="lds-dual-ring"></div>
+                            </th>
+                        </tr>
+                    </tbody>
+                    :
+                    <tbody>{datas}</tbody>
+                }
             </table>
-            
+            <Pagination
+                defaultCurrent={pagi._page}
+                total={pagi._totalRows}
+                pageSize={pagi._limit}
+                onChange={handleChangePagi}
+            />
             < ModalService
                 key={modalStatus.id}
                 {...modalStatus}

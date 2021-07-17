@@ -41,10 +41,7 @@ export default function BookingPage() {
     idUser: users.id,
     dateStart: undefined,
     dateEnd: undefined,
-    paymethod: {
-      idpaymethod: 2,
-      status: false,
-    },
+
     codeDiscount: undefined,
     totalCost: 0,
     status: "NEW",
@@ -60,6 +57,7 @@ export default function BookingPage() {
   // get discount code
 
   const holidays = setDateBooked(bookingRoomFetch);
+
   useEffect(() => {
     if (isGetPromo === true) {
       notify();

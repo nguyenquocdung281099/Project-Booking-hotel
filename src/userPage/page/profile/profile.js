@@ -175,16 +175,21 @@ export default function ProfilePage() {
                     <td>{}</td>
                     <td>
                       {`${checkin.getDate()}/${
+
                         checkin.getMonth() + 1
                       }/${checkin.getFullYear()}`}
                     </td>
                     <td>
+
                       {`${checkout.getDate()}/${
+
                         checkout.getMonth() + 1
                       }/${checkout.getFullYear()}`}
                     </td>
                     <td>{item.status}</td>
+
                     <td>{item.paymethod}</td>
+
                     <td>${item.totalCost}</td>
                     <td>
                       {item.status === "NEW" && (

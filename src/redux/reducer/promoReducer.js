@@ -45,4 +45,4 @@ export default function promoReducer(state = defaultState, action) {
     default:
       return state;
   }
-}
+

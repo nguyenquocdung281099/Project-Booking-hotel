@@ -8,7 +8,7 @@
       "address": "HT",
       "birthday": "1998/04/30",
       "name": "manager",
-      "idRole": "user3",
+      "idRole": 3,
       "id": 1
     },
     {
@@ -18,7 +18,7 @@
       "address": "HT",
       "birthday": "1998/04/30",
       "name": "admin",
-      "idRole": "user2",
+      "idRole": 2,
       "id": 2
     },
     {
@@ -28,7 +28,7 @@
       "address": "HT",
       "birthday": "1998/04/30",
       "name": "nguyenquocdung",
-      "idRole": "user1",
+      "idRole": 1,
       "id": 3
     },
     {
@@ -38,7 +38,7 @@
       "address": "HT",
       "birthday": "1998/04/30",
       "name": "phamhuy",
-      "idRole": "user1",
+      "idRole": 1,
       "id": 4
     },
     {
@@ -48,8 +48,9 @@
       "address": "HT",
       "birthday": "sale",
       "name": "sale",
-      "idRole": "user4",
+      "idRole": 4,
       "id": 5
+<<<<<<< HEAD
     },
     {
       "email": "nguyequocdungdadawda281099@gmail.com",
@@ -154,6 +155,8 @@
       "birthday": "2021-07-07",
       "userName": "Nguyễn Quốc Dũng",
       "id": 15
+=======
+>>>>>>> f4f948c (staffPage search sort)
     }
   ],
   "role": [

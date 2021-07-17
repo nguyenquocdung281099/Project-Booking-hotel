@@ -10,11 +10,15 @@ import {
   URL_ROOM,
 } from "../../adminPage/const/const";
 import queryString from "query-string";
+import { URL_PROMO, URL_BOOKING, URL_USERDB, URL_SERVICE, URL_ROOM } from "../../adminPage/const/const";
+import queryString from "query-string";
+
 
 export default function* AdminSaga() {
   yield takeLatest(action.GET_BOOKING, getBooking);
   yield takeLatest(action.GET_SERVICE, getService);
   yield takeLatest(action.GET_PROMO, getPromo);
+  
   yield takeLatest(action.GET_USER, getUser);
   yield takeLatest(action.ADD_PROMO, addPromo);
   yield takeLatest(action.EDIT_PROMO, editPromo);
@@ -25,22 +29,24 @@ export default function* AdminSaga() {
   yield takeLatest(action.ADD_SERVICE, addService);
   yield takeLatest(action.EDIT_SERVICE, editService);
   yield takeLatest(action.DEL_SERVICE, delService);
+
 }
 
 function* getBooking() {
   try {
     const booking = yield call(get, URL_BOOKING);
-    yield put(func_action.setloader("none"));
+    yield put(func_action.setloader(false));
     if (booking.status === 200) {
       yield put(func_action.getbookingsc(booking.data));
     }
   } catch (e) {}
 }
 
-function* getService() {
+function* getService(action) {
   try {
-    const service = yield call(get, URL_SERVICE);
-    yield put(func_action.setloader("none"));
+    const url = queryString.stringify(action.filter);
+    const service = yield call(get, `${URL_SERVICE}?${url}`);
+    yield put(func_action.setloader(false));
     if (service.status === 200) {
       yield put(func_action.getservicesc(service.data));
     }
@@ -49,9 +55,9 @@ function* getService() {
 
 function* getPromo(action) {
   try {
-    const url = queryString.stringify(action.payload);
+    const url = queryString.stringify(action.filter);
     const promo = yield call(get, `${URL_PROMO}?${url}`);
-    yield put(func_action.setloader("none"));
+    yield put(func_action.setloader(false));
     if (promo.status === 200) {
       const today = Date.parse(new Date());
       if (
@@ -72,12 +78,13 @@ function* getPromo(action) {
   }
 }
 
-function* getUser() {
+function* getUserDB(action) {
   try {
-    const user = yield call(get, URL_USER);
-    yield put(func_action.setloader("none"));
+    const url = queryString.stringify(action.filter);
+    const user = yield call(get, `${URL_USERDB}?${url}`);
+    yield put(func_action.setloader(false));
     if (user.status === 200) {
-      yield put(func_action.getusersc(user.data));
+      yield put(func_action.getUserDBSC(user.data));
     }
   } catch (e) {}
 }
