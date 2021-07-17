@@ -9,10 +9,21 @@ export default function ModalPromo(props) {
   const [values, setValues] = useState(initialValues);
 
   function handleChange(e) {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+    switch (e.target.name) {
+      case 'discount':
+      case 'amount':
+        setValues({
+          ...values,
+          [e.target.name]: +e.target.value,
+        });
+        break;
+      default:
+        setValues({
+          ...values,
+          [e.target.name]: e.target.value,
+        });
+        break;
+    }
   }
 
   const [dataError, setdataError] = useState({

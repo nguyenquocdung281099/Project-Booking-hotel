@@ -55,3 +55,34 @@ select.form-control {
 .form-group textarea {
   resize: none;
 }
+
+.staffpage_wrapper .btn-primary {
+  background-color: rgb(13, 110, 253) !important;
+}
+
+.staffpage_wrapper .btn-info {
+  background-color: rgb(13, 202, 240) !important;
+}
+.staffpage_wrapper .btn-secondary {
+  background-color: rgb(108, 117, 125) !important;
+}
+.staffpage_wrapper .btn-danger {
+  background-color: rgb(220, 53, 69) !important;
+}
+
+.staffpage_wrapper .card {
+  margin-bottom: 30px;
+}
+
+.staffpage_wrapper .card .table{
+  margin-bottom: unset;
+}
+
+.staffpage_wrapper .card .btn {
+  border-radius: unset !important;
+}
+
+.staffpage_wrapper .card .card-title {
+  margin-bottom: 0 !important;
+  line-height: 1.5;
+}

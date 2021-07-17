@@ -21,6 +21,7 @@ export default function roomReducer(state = defaultState, action) {
         pagi: action.payload.pagination,
       };
       state = { ...newState };
+      console.log(state)
       return { ...state };
     case ActionType.GET_TYPE_ROOM_SC:
       newState = { ...newState, type: action.payload };

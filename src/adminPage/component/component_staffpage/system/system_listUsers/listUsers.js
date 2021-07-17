@@ -64,7 +64,6 @@ export default function ListUsers() {
             email: data.email,
             address: data.address
         }
-        console.log(item)
         dispatch(addUserDB(item))
         hideModal()
     }
@@ -72,6 +71,7 @@ export default function ListUsers() {
     function editData(data) {
         let updateData = userData.userDB.find(item => item.id === data.id)
         updateData = data
+        updateData.updatedAt = +Date.now()
         dispatch(editUserDB(updateData))
         hideModal()
     }

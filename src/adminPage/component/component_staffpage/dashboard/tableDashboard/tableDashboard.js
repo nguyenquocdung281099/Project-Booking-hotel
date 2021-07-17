@@ -1,9 +1,8 @@
 import './style.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function TableDashboard(props) {
-    let {name, link, db} = props 
-
+    let { name, link, db } = props
     let newData = Object.keys(db).map(index => {
         let x = db[index];
         return x;
@@ -17,7 +16,7 @@ export default function TableDashboard(props) {
     function generateHeader(data) {
         let res = [];
         for (var i = 0; i < data.length; i++) {
-            res.push(<th style={{textTransform: 'capitalize'}} key={`${name}.${data[i]}`}>{data[i]}</th>)
+            res.push(<th style={{ textTransform: 'capitalize' }} key={`${name}.${data[i]}`}>{data[i]}</th>)
         }
         return res;
     }
@@ -32,6 +31,7 @@ export default function TableDashboard(props) {
 
         for (var j = 0; j < newData.length; j++) {
             for (var k = 0; k < data.length; k++) {
+                console.log(data[k])
                 res[j].push(
                     <td key={`${name}.td.${j}.${data[k]}.${tdData[j][data[k]]}`}>
                         {tdData[j][data[k]]}
@@ -51,7 +51,7 @@ export default function TableDashboard(props) {
         let trData = newData;
         for (var i = 0; i < trData.length; i++) {
             res[i].push(
-                <tr >
+                <tr key={`${name}.tr.${i}`}>
                     {data[i]}
                 </tr>
             )
@@ -68,26 +68,27 @@ export default function TableDashboard(props) {
     let buildData = generatetrData(buildTd);
 
     return (
-        <div class="col-12 col-md-12 col-lg-12 col-xl-6">
-            <div class="card-header">
-                <h4 class="card-title d-inline-block">{name}</h4>
-                <Link to={link} class="btn btn-primary float-right">View all</Link>
-            </div>
-            <div class="card-body p-0">
-                <div class="table-responsive">
-                    <table class="table table-striped custom-table">
-                        <thead>
-                            <tr>
-                                {buildHeader}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {buildData}
-                        </tbody>
-                    </table>
+        <div className="col-12 col-md-12 col-lg-12 col-xl-6">
+            <div key={`${name}.card`} className='card'>
+                <div className="card-header">
+                    <h4 className="card-title d-inline-block">{name}</h4>
+                    <Link to={link} className="btn btn-primary float-right">View all</Link>
+                </div>
+                <div className="card-body p-0">
+                    <div className="table-responsive">
+                        <table key={`${name}.table`} className="table table-striped custom-table">
+                            <thead key={`${name}.tablehead`}>
+                                <tr>
+                                    {buildHeader}
+                                </tr>
+                            </thead>
+                            <tbody key={`${name}.tablebody`}>
+                                {buildData}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-
     )
 }

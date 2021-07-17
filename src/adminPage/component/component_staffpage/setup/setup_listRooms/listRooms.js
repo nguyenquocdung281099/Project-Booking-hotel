@@ -66,6 +66,7 @@ export default function ListRooms() {
   function editData(data) {
     let updateData = roomData.rooms.find(item => item.id === data.id)
     updateData = data
+    updateData.updatedAt = +Date.now()
     dispatch(editRoom(updateData))
     hideModal()
   }

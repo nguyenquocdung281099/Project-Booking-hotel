@@ -7,6 +7,8 @@ import ItemBooking from './itemBooking/item';
 import { getBookingDB, editBookingDB } from '../../../../../redux/action/'
 import ModalBooking from './operation_modalBooking/modalBooking';
 import SortBooking from './operation_sortBookings/sortBooking';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ListBookings() {
 
@@ -15,6 +17,7 @@ export default function ListBookings() {
     const loader = useSelector((state) => state.bookingDB.loader)
     const filter = bookingDBData.filter;
     const search = bookingDBData.search;
+
 
     const pagi =
         Object.keys(bookingDBData.pagi).length === 0
@@ -48,9 +51,9 @@ export default function ListBookings() {
         isOpen: false,
         id: null,
         idroom: null,
-        userID: null,
-        starttime: null,
-        endtime: null,
+        idUser: null,
+        dateStart: null,
+        dateEnd: null,
         promoId: null,
         totalCost: null,
         userName: null,
@@ -58,10 +61,23 @@ export default function ListBookings() {
         paymethod: null
     })
 
+    const toaster = (data) => {
+        switch (data.status) {
+            case 'CANCEL':
+                return toast.success("Cancel Success!");
+            case 'CHECKED OUT':
+                return toast.success("Checkout Success!");
+            default:
+                return toast.success("Edit Success!");
+        }
+    }
+
     function editData(data) {
         let updateData = bookingDBData.bookingDB.find(item => item.id === data.id)
         updateData = data
+        updateData.updatedAt = +Date.now()
         dispatch(editBookingDB(updateData))
+        toaster(updateData)
         hideModal()
     }
 
@@ -79,24 +95,31 @@ export default function ListBookings() {
         let data = {
             id: null,
             idroom: null,
-            userID: null,
-            starttime: null,
-            endtime: null,
+            idUser: null,
+            dateStart: null,
+            dateEnd: null,
             promoId: null,
             totalCost: null,
             userName: null,
             status: null,
+            paymethod: null
         }
         newState = { ...newState, isOpen: false, ...data };
         setModalStatus(newState)
     };
 
     const checkout = (id) => {
-        console.log(id)
+        let updateData = bookingDBData.bookingDB.find(item => item.id === id)
+        updateData.status = 'CHECKED OUT'
+        dispatch(editBookingDB(updateData))
+        toaster(updateData)
     }
 
     const cancel = (id) => {
-        console.log(id)
+        let updateData = bookingDBData.bookingDB.find(item => item.id === id)
+        updateData.status = 'CANCEL'
+        dispatch(editBookingDB(updateData))
+        toaster(updateData)
     }
 
     const datas = bookingDBData.bookingDB.map((item, index) => {
@@ -106,15 +129,18 @@ export default function ListBookings() {
             {...item}
             showModal={showModal}
             checkout={checkout}
+            cancel={cancel}
         />
     })
 
     return (
         <div>
+            <ToastContainer />
+
             <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th colSpan="7" className='add-th'>
+                        <th colSpan="8" className='add-th'>
                             <SortBooking />
                         </th>
                     </tr>
@@ -124,6 +150,7 @@ export default function ListBookings() {
                         <th scope="col">User</th>
                         <th scope="col">Start</th>
                         <th scope="col">End</th>
+                        <th scope="col">Payment</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -131,7 +158,7 @@ export default function ListBookings() {
                 {loader ?
                     <tbody>
                         <tr>
-                            <th colSpan="7" className='add-th'>
+                            <th colSpan="8" className='add-th'>
                                 <div className="lds-dual-ring"></div>
                             </th>
                         </tr>

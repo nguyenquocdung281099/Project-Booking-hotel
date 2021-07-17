@@ -61,6 +61,7 @@ export default function ListPromos() {
     function editData(data) {
         let updateData = promoData.promo.find(item => item.id === data.id)
         updateData = data
+        updateData.updatedAt = +Date.now()
         dispatch(editPromo(updateData))
         hideModal()
     }

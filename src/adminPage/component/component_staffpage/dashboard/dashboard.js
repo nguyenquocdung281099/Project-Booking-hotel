@@ -1,172 +1,104 @@
 import "./style.css";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import TableDashboard from "./tableDashboard/tableDashboard";
-import { getpromo, getroom } from "../../../../redux/action";
+import { getBookingDB, getpromo, getroom, getservice } from "../../../../redux/action";
+import ChartDash from "./chartDash/chartDash";
+import CalendarDash from "./calendarDash/calendarDash";
 
 export default function Dashboard() {
 
   const dispatch = useDispatch();
+  const bData = useSelector((state) => state.bookingDB.bookingDB)
+  const rData = useSelector((state) => state.room.rooms)
+  const pData = useSelector((state) => state.promo.promo)
+  const sData = useSelector((state) => state.service.service)
 
-  // localhost:3333/api/room?_limit=5&_order=asc&_sort=updatedAt
-  let booking = {
+  useEffect(() => {
+    const bConfig = { order: `desc`, sort: `updatedAt` }
+    const rConfig = { order: `desc`, sort: `updatedAt` }
+    const pConfig = { order: `desc`, sort: `updatedAt` }
+    const sConfig = { order: `desc`, sort: `updatedAt` }
+
+    dispatch(getBookingDB({ _limit: 5, _order: bConfig.order, _sort: bConfig.sort }));
+    dispatch(getroom({ _limit: 5, _order: rConfig.order, _sort: rConfig.sort }))
+    dispatch(getpromo({ _limit: 5, _order: pConfig.order, _sort: pConfig.sort }));
+    dispatch(getservice({ _limit: 5, _order: sConfig.order, _sort: sConfig.sort }))
+    // eslint-disable-next-line
+  }, []);
+
+  const bookTData = bData.map(({ id, dateStart, dateEnd, status }) => ({ id, dateStart, dateEnd, status }));
+  const roomTData = rData.map(({ id, name, idtyperoom, number, rating, pricePerday }) => ({ id, name, idtyperoom, number, rating, pricePerday }));
+
+  const booking = {
     name: "Booking",
     link: "/admin/operation/list_bookings",
-    db: [
-      {
-        id: "1",
-        idroom: "12",
-        userID: "13",
-        starttime: "",
-        endtime: "",
-        status: "NEW",
-      },
-      {
-        id: "2",
-        idroom: "21",
-        userID: "23",
-        starttime: "",
-        endtime: "",
-        status: "NEW",
-      },
-      {
-        id: "3",
-        idroom: "33",
-        userID: "34",
-        starttime: "",
-        endtime: "",
-        status: "NEW",
-      },
-    ],
+    db: bookTData
   };
 
- console.log()
-  let room = {
+  const room = {
     name: "Room",
     link: "/admin/setup/list_rooms",
-    db:
-      [
-        {
-          "id": "1",
-          "name": 101,
-          "idtyperoom": 1,
-          "status": false,
-          "number": 4,
-          "rating": 5,
-          "pricePerday": 100
-        },
-        {
-          "id": "2",
-          "name": 102,
-          "idtyperoom": 1,
-          "status": false,
-          "number": 4,
-          "rating": 1,
-          "pricePerday": 100,
-        },
-        {
-          "id": "3",
-          "name": 103,
-          "idtyperoom": 1,
-          "status": false,
-          "number": 4,
-          "rating": 2,
-          "pricePerday": 100,
-        },
-        {
-          "id": "4",
-          "name": 104,
-          "idtyperoom": 1,
-          "status": false,
-          "number": 4,
-          "rating": 0,
-          "pricePerday": 100,
-        },
-        {
-          "id": "5",
-          "name": 201,
-          "idtyperoom": 2,
-          "status": false,
-          "number": 4,
-          "rating": 0,
-          "pricePerday": 110,
-        }
-      ],
+    db: roomTData
   };
 
-  let promotion = {
+  const promotion = {
     name: "Promotion",
     link: "/admin/setup/list_promos",
-    db:
-      [
-        {
-          id: 1,
-          name: "giảm giá mùa hè",
-          discount: 5,
-          startTime: "2021/04/30",
-          endTime: "2021/05/30",
-        },
-        {
-          id: 2,
-          name: "giảm giá ngày kỉ niệm khách sạn ",
-          discount: 10,
-          startTime: "2021/09/30",
-          endTime: "2021/10/15",
-        },
-      ],
+    db: pData
   };
-  let service = {
+
+  const service = {
     name: "Service",
     link: "/admin/setup/list_services",
-    db: [
-      {
-        name: "Dịch vụ Spa",
-        price: 50,
-      },
-      {
-        name: "Dịch vụ phòng họp",
-        id: 2,
-        price: 70,
-      },
-      {
-        name: "Fitness centre",
-        id: 3,
-        price: 50,
-      },
-      {
-        name: "Dịch vụ phòng 24/24",
-        id: 4,
-        price: 50,
-      },
-    ],
+    db: sData
   };
 
   return (
-    <div className='content'>
-      <div class="row">
-        <TableDashboard
-          name={booking.name}
-          link={booking.link}
-          db={booking.db}
-        />
-        <TableDashboard
-          name={room.name}
-          link={room.link}
-          db={room.db}
-        />
+    <div className='dashcontent container-fluid'>
+      <div className="row">
+        <CalendarDash />
       </div>
-      <div class="row">
-        <TableDashboard
-          name={promotion.name}
-          link={promotion.link}
-          db={promotion.db}
-        />
-        <TableDashboard
-          name={service.name}
-          link={service.link}
-          db={service.db}
-        />
+      <div className="row">
+        <ChartDash />
+      </div>
+      <div className="row">
+
+        {bData.length !== 0 ?
+          <TableDashboard
+            name={booking.name}
+            link={booking.link}
+            db={booking.db}
+          />
+          : ("")}
+
+        {rData.length !== 0 ?
+          <TableDashboard
+            name={room.name}
+            link={room.link}
+            db={room.db}
+          />
+          : ("")}
+
+      </div>
+      <div className="row">
+
+        {pData.length !== 0 ?
+          <TableDashboard
+            name={promotion.name}
+            link={promotion.link}
+            db={promotion.db}
+          />
+          : ("")}
+
+        {sData.length !== 0 ?
+          <TableDashboard
+            name={service.name}
+            link={service.link}
+            db={service.db}
+          />
+          : ("")}
+
       </div>
     </div>
   );

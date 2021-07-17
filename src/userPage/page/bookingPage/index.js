@@ -61,7 +61,6 @@ export default function BookingPage() {
   // get discount code
 
   const holidays = setDateBooked(bookingRoomFetch);
-
   useEffect(() => {
     setBookings({ ...booking, idUser: users.id });
   }, [users]);
