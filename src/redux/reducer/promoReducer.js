@@ -2,7 +2,7 @@ import * as ActionType from "../action/const_action";
 
 const defaultState = {
   promo: [],
-  loader: "block",
+  loader: true,
   filter: {},
   pagi: {},
   isGetPromo: undefined,
@@ -13,9 +13,19 @@ export default function promoReducer(state = defaultState, action) {
   switch (action.type) {
     case ActionType.GET_PROMO_SC:
       if (action.payload.length === 0) {
-        newState = { ...newState, promo: action.payload, isGetPromo: false };
+        console.log(action.payload);
+        newState = {
+          ...newState,
+          promo: action.payload,
+          isGetPromo: false,
+        };
       } else {
-        newState = { ...newState, promo: action.payload, isGetPromo: true };
+        newState = {
+          ...newState,
+          promo: action.payload.data,
+          pagi: action.payload.pagination,
+          isGetPromo: true,
+        };
       }
       return newState;
     case ActionType.SET_LOADER:
@@ -42,6 +52,9 @@ export default function promoReducer(state = defaultState, action) {
       );
       newState = { ...newState, promo: newPromo2 };
       return newState;
+    case ActionType.CHANGE_FILTER:
+      state = { ...newState, filter: action.payload };
+      return state;
     default:
       return state;
   }

@@ -32,7 +32,7 @@ export default function BookingPage() {
   const notifyNotDate = () =>
     toast.warning("you need choose date checkin and checkout!");
 
-  const promo = useSelector((state) => state.promo.promo);
+  let promo = useSelector((state) => state.promo.promo);
   const isGetPromo = useSelector((state) => state.promo.isGetPromo);
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const { t } = useTranslation();
@@ -68,13 +68,12 @@ export default function BookingPage() {
       setBookings({ ...booking, codeDiscount: null });
     }
   }, [isGetPromo]);
-
   const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
   const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
   const totalDay = getTotalDay(Date.parse(checkIn), Date.parse(checkOut));
   const totalCost =
     isGetPromo === true
-      ? getTotalCost(totalDay, infRoom.pricePerday, promo.discount)
+      ? getTotalCost(totalDay, infRoom.pricePerday, promo[0].discount)
       : getTotalCost(totalDay, infRoom.pricePerday);
 
   function handelPay() {
@@ -241,7 +240,13 @@ export default function BookingPage() {
                             disabled={valueSearchCode === "" && true}
                             onClick={(e) => {
                               e.preventDefault();
-                              dispatch(getpromo({ code: valueSearchCode }));
+                              dispatch(
+                                getpromo({
+                                  code: valueSearchCode,
+                                  _page: 1,
+                                  _limit: 25,
+                                })
+                              );
                             }}
                           >
                             {t("apply")}
@@ -286,7 +291,7 @@ export default function BookingPage() {
                         </p>
                         {isGetPromo === true && (
                           <p>
-                            {t("discount code")} :{promo.name}{" "}
+                            {t("discount code")} :{promo[0].code}{" "}
                           </p>
                         )}
                         <p>

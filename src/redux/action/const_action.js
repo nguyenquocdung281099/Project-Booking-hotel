@@ -66,9 +66,7 @@ export const SET_BOOKING = "SET_BOOKING";
 export const EDIT_BOOKING = "EDIT_BOOKING";
 export const EDIT_BOOKING_SC = "EDIT_BOOKING_SC";
 
-
 export const FILTER_SEARCH_ROOM = "FILTER_SEARCH_ROOM";
-
 //user DB staffpage
 export const GET_USERDB = "GET_USERDB";
 export const GET_USERDB_SC = "GET_USERDB_SC";
@@ -89,8 +87,3 @@ export const EDIT_BOOKINGDB_SC = "EDIT_BOOKINGDB_SC"
 //room DB staffpage
 export const GET_ROOM_MODAL= "GET_ROOM_MODAL"
 export const GET_ROOM_MODAL_SC= "GET_ROOM_MODAL_SC"
-
-
-
-
-

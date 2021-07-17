@@ -41,6 +41,7 @@ export default function Dashboard() {
     ],
   };
 
+ console.log()
   let room = {
     name: "Room",
     link: "/admin/setup/list_rooms",

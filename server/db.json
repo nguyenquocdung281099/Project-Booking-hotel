@@ -701,6 +701,18 @@
       "createdAt": 1626515550726,
       "updatedAt": 1626515550726,
       "id": 12
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Mon Jul 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Mon Jul 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "104.00",
+      "status": "CANCEL",
+      "idroom": 4,
+      "paymethod": "ZaloPay",
+      "createdAt": 1626517762490,
+      "updatedAt": 1626517762490,
+      "id": 13
     }
   ],
   "bankaccount": [
