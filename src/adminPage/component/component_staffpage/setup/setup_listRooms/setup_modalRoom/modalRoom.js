@@ -1,19 +1,65 @@
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react';
 import { Modal, Button } from "react-bootstrap";
+import { getRoomModal } from '../../../../../../redux/action';
 
 export default function ModalRoom(props) {
   let { id, name, idtyperoom, number, pricePerday, description, image, isOpen, isEdit } = props;
+
+  const dispatch = useDispatch()
   const initialValues = {
-    id, name, idtyperoom, number, pricePerday, description
+    id, name, idtyperoom, number, pricePerday, description, image
   };
-  
+
+  const roomDB = useSelector((state) => state.roomDB.modal)
   const [values, setValues] = useState(initialValues);
 
+  useEffect(() => {
+    dispatch(getRoomModal())
+    // eslint-disable-next-line
+  }, [])
+
   function handleChange(e) {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+    switch (e.target.name) {
+      case 'idtyperoom':
+      case 'number':
+      case 'pricePerday':
+        setValues({
+          ...values,
+          [e.target.name]: +e.target.value,
+        });
+        break;
+      default:
+        setValues({
+          ...values,
+          [e.target.name]: e.target.value,
+        });
+        break;
+    }
+  }
+
+  function handleChangeImage(e) {
+    let i = null
+    switch (e.target.name) {
+      case 'image0':
+        i = 0
+        break;
+      case 'image1':
+        i = 1
+        break;
+      case 'image2':
+        i = 2
+        break;
+      case 'image3':
+        i = 3
+        break;
+      case 'image4':
+        i = 4
+        break;
+      default:
+        break;
+    }
+    image[i] = e.target.value
   }
 
   const [dataError, setdataError] = useState({
@@ -21,45 +67,90 @@ export default function ModalRoom(props) {
     idtyperoom: "*",
     number: "*",
     pricePerday: "*",
-    description: "*"
+    description: "*",
+    image0: "*", image1: "*", image2: "*", image3: "*", image4: "*",
   });
 
-  let dataErrors = {};
+  function handleSubmit(data) {
 
-  useEffect(function () {
+    let dataErrors = {};
+
+    if (data.name === "" || !data.name) {
+      dataErrors = { ...dataErrors, name: "This field can't be empty" };
+    } else {
+      if (roomDB.findIndex((item) => item.name === +data.name) !== -1) {
+        dataErrors = {
+          ...dataErrors,
+          name: ("This room name already in use"),
+        };
+      } else {
+        delete dataErrors.name;
+      }
+    }
+
+    if (data.idtyperoom === "" || !data.idtyperoom) {
+      dataErrors = { ...dataErrors, idtyperoom: "This field can't be empty" };
+    } else {
+      delete dataErrors.idtyperoom;
+    }
+
+    if (data.number <= 0 || !data.number) {
+      dataErrors = { ...dataErrors, number: "This field must be a positive value" };
+    } else {
+      delete dataErrors.number
+    }
+
+    if (data.pricePerday <= 0 || !data.pricePerday) {
+      dataErrors = { ...dataErrors, pricePerday: "This field must be a positive value" };
+    } else {
+      delete dataErrors.pricePerday
+    }
+
+    if (data.description === "" || !data.description) {
+      dataErrors = { ...dataErrors, description: "This field can't be empty" };
+    } else {
+      delete dataErrors.description
+    }
+
+    if (data.image[0] === "" || !data.image[0]) {
+      dataErrors = { ...dataErrors, image0: "This field can't be empty" };
+    } else {
+      delete dataErrors.image0
+    }
+
+    if (data.image[1] === "" || !data.image[1]) {
+      dataErrors = { ...dataErrors, image1: "This field can't be empty" };
+    } else {
+      delete dataErrors.image1
+    }
+
+    if (data.image[2] === "" || !data.image[2]) {
+      dataErrors = { ...dataErrors, image2: "This field can't be empty" };
+    } else {
+      delete dataErrors.image2
+    }
+
+    if (data.image[3] === "" || !data.image[3]) {
+      dataErrors = { ...dataErrors, image3: "This field can't be empty" };
+    } else {
+      delete dataErrors.image3
+    }
+
+    if (data.image[4] === "" || !data.image[4]) {
+      dataErrors = { ...dataErrors, image4: "This field can't be empty" };
+    } else {
+      delete dataErrors.image4
+    }
+
     setdataError({ ...dataErrors });
-  }, [values])
 
-  if (values.name === "") {
-    dataErrors = { ...dataErrors, name: "This field can't be empty" };
-  } else {
-    dataErrors = { ...dataErrors, name: "" };
-  }
-
-  if (values.idtyperoom === "") {
-    dataErrors = { ...dataErrors, idtyperoom: "This field can't be empty" };
-  } else {
-    dataErrors = { ...dataErrors, idtyperoom: "" };
-  }
-
-  if (values.number === "") {
-    dataErrors = { ...dataErrors, number: "This field can't be empty" };
-  } else {
-    dataErrors = { ...dataErrors, number: "" };
-  }
-
-  if (values.pricePerday <= 0) {
-    dataErrors = { ...dataErrors, pricePerday: "This field must be a positive value" };
-  } else {
-    dataErrors = { ...dataErrors, pricePerday: "" };
-  }
-
-  
-
-  if (values.description === "") {
-    dataErrors = { ...dataErrors, description: "This field can't be empty" };
-  } else {
-    dataErrors = { ...dataErrors, description: "" };
+    if (Object.keys(dataErrors).length === 0) {
+      if (isEdit) {
+        props.editData(data)
+      } else {
+        props.addData(data)
+      }
+    }
   }
 
   return (
@@ -100,15 +191,22 @@ export default function ModalRoom(props) {
                 Type Room ID
               </label>
               <div className="col-sm-9">
-                <select class="custom-select" onChange={handleChange} value={idtyperoom}>
-                  <option hidden>Open this select menu</option>
-                  <option value="1" >One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                  <option value="4">Four</option>
-                  <option value="5">Five</option>
-                  <option value="6">Six</option>
+                <select
+                  className="form-control"
+                  name="idtyperoom"
+                  onChange={handleChange}
+                  value={+values.idtyperoom}>
+                  <option hidden>Select Room Type</option>
+                  <option value="1">Classic Room</option>
+                  <option value="2">Budget Room</option>
+                  <option value="3">Single Room</option>
+                  <option value="4">Royal Suite Room</option>
+                  <option value="5">Luxury Room</option>
+                  <option value="6">Premium Room</option>
                 </select>
+                <span id="idtyperoom_error" style={{ color: "red" }}>
+                  {dataError.idtyperoom}
+                </span>
               </div>
             </div>
             <div className="form-group row">
@@ -123,10 +221,10 @@ export default function ModalRoom(props) {
                   className="form-control"
                   onChange={handleChange}
                 />
+                <span id="number_error" style={{ color: "red" }}>
+                  {dataError.number}
+                </span>
               </div>
-              <span id="number_error" style={{ color: "red" }}>
-                {dataError.number}
-              </span>
             </div>
             <div className="form-group row">
               <label for="pricePerday" className="col-sm-3 col-form-label">
@@ -140,25 +238,108 @@ export default function ModalRoom(props) {
                   className="form-control"
                   onChange={handleChange}
                 />
+                <span id="pricePerday_error" style={{ color: "red" }}>
+                  {dataError.pricePerday}
+                </span>
               </div>
-              <span id="pricePerday_error" style={{ color: "red" }}>
-                {dataError.pricePerday}
-              </span>
             </div>
             <div className="form-group row">
               <label for="description" className="col-sm-3 col-form-label">
                 Description
               </label>
               <div className="col-sm-9">
-                <input
+                <textarea
                   defaultValue={description}
                   name="description"
                   type="textarea"
                   className="form-control"
+                  rows="4"
                   onChange={handleChange}
                 />
                 <span id="description_error" style={{ color: "red" }}>
                   {dataError.description}
+                </span>
+              </div>
+            </div>
+            <div className="form-group row">
+
+              <label for="image0" className="col-sm-3 col-form-label">
+                Image 1
+              </label>
+              <div className="col-sm-9">
+                <input
+                  defaultValue={image[0]}
+                  name="image0"
+                  type="text"
+                  className="form-control"
+                  onChange={handleChangeImage}
+                />
+                <span id="image0_error" style={{ color: "red" }}>
+                  {dataError.image0}
+                </span>
+              </div>
+
+              <label for="image1" className="col-sm-3 col-form-label">
+                Image 2
+              </label>
+              <div className="col-sm-9">
+                <input
+                  defaultValue={image[1]}
+                  name="image1"
+                  type="text"
+                  className="form-control"
+                  onChange={handleChangeImage}
+                />
+                <span id="image_error" style={{ color: "red" }}>
+                  {dataError.image1}
+                </span>
+              </div>
+
+              <label for="image1" className="col-sm-3 col-form-label">
+                Image 3
+              </label>
+              <div className="col-sm-9">
+                <input
+                  defaultValue={image[2]}
+                  name="image2"
+                  type="text"
+                  className="form-control"
+                  onChange={handleChangeImage}
+                />
+                <span id="image2_error" style={{ color: "red" }}>
+                  {dataError.image2}
+                </span>
+              </div>
+
+              <label for="image3" className="col-sm-3 col-form-label">
+                Image 4
+              </label>
+              <div className="col-sm-9">
+                <input
+                  defaultValue={image[3]}
+                  name="image3"
+                  type="text"
+                  className="form-control"
+                  onChange={handleChangeImage}
+                />
+                <span id="image3_error" style={{ color: "red" }}>
+                  {dataError.image3}
+                </span>
+              </div>
+
+              <label for="image4" className="col-sm-3 col-form-label">
+                Image 5
+              </label>
+              <div className="col-sm-9">
+                <input
+                  defaultValue={image[4]}
+                  name="image4"
+                  type="text"
+                  className="form-control"
+                  onChange={handleChangeImage}
+                />
+                <span id="image4_error" style={{ color: "red" }}>
+                  {dataError.image4}
                 </span>
               </div>
             </div>
@@ -169,11 +350,11 @@ export default function ModalRoom(props) {
             Close
           </Button>
           {isEdit ? (
-            <Button variant="primary" onClick={() => props.editData(values)}>
+            <Button variant="primary" onClick={() => handleSubmit(values)}>
               Save
             </Button>
           ) : (
-            <Button variant="primary" onClick={() => props.addData(values)}>
+            <Button variant="primary" onClick={() => handleSubmit(values)}>
               Add
             </Button>
           )}

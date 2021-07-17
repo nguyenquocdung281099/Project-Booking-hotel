@@ -6,28 +6,32 @@ import { Pagination } from "antd";
 import ItemRoom from './itemRoom/itemRoom'
 import { addRoom, delRoom, editRoom, getroom } from '../../../../../redux/action/';
 import ModalRoom from './setup_modalRoom/modalRoom';
+import SortRoom from './setup_sortRoom/sortRoom';
 
 export default function ListRooms() {
-  const roomData = useSelector((state) => state.room)
-  // const loader = useSelector((state) => state.room.loader)
-  const filter = roomData.filter;
+
   const dispatch = useDispatch()
+  const roomData = useSelector((state) => state.room)
+  const loader = useSelector((state) => state.room.loader)
+  const filter = roomData.filter;
+
   const pagi =
     Object.keys(roomData.pagi).length === 0
       ? {
         _page: 1,
-        _limit: 15,
-        _totalRows: 15,
+        _limit: 12,
+        _totalRows: 12,
       }
       : roomData.pagi;
 
   useEffect(() => {
     dispatch(getroom({ _page: pagi._page, _limit: pagi._limit }));
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     dispatch(getroom({ ...filter, _page: pagi._page, _limit: pagi._limit }));
-  }, [filter]);
+  }, [filter, dispatch, pagi._page, pagi._limit]);
 
   function handleChangePagi(page, pagesize) {
     dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
@@ -42,7 +46,8 @@ export default function ListRooms() {
     idtyperoom: null,
     number: null,
     pricePerday: null,
-    description: null
+    description: null,
+    image: []
   })
 
   function addData(data) {
@@ -51,7 +56,8 @@ export default function ListRooms() {
       idtyperoom: +data.idtyperoom,
       number: +data.number,
       pricePerday: +data.pricePerday,
-      description: data.description
+      description: data.description,
+      image: data.image
     }
     dispatch(addRoom(item))
     hideModal()
@@ -85,7 +91,8 @@ export default function ListRooms() {
       idtyperoom: null,
       number: null,
       pricePerday: null,
-      description: null
+      description: null,
+      image:[]
     }
     newState = { ...newState, isOpen: false, isEdit: null, ...data };
     setModalStatus(newState)
@@ -99,17 +106,20 @@ export default function ListRooms() {
 
   return (
     <div>
-      <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Room</button>
-      <Pagination
-        defaultCurrent={pagi._page}
-        total={pagi._totalRows}
-        pageSize={pagi._limit}
-        onChange={handleChangePagi}
-      />
-      <table className="table">
+      <table className="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th colSpan="1" className='add-th'>
+              <div className='form-inline add-inline'>
+                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Room</button>
+              </div>
+            </th>
+            <th colSpan="7" className='add-th'>
+              <SortRoom />
+            </th>
+          </tr>
+          <tr>
+            <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Type</th>
             <th scope="col">Number</th>
@@ -119,12 +129,25 @@ export default function ListRooms() {
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody>
-          {datas}
-          {/* <td colSpan="6"><div style={{ display: loader }} className="lds-dual-ring"></div></td> */}
-        </tbody>
+        {loader ?
+          <tbody>
+            <tr>
+              <th colSpan="8" className='add-th'>
+                <div className="lds-dual-ring"></div>
+              </th>
+            </tr>
+          </tbody>
+          :
+          <tbody>{datas}</tbody>
+        }
       </table>
-      
+      <Pagination
+        defaultCurrent={pagi._page}
+        total={pagi._totalRows}
+        pageSize={pagi._limit}
+        onChange={handleChangePagi}
+      />
+
       < ModalRoom
         key={modalStatus.id}
         {...modalStatus}

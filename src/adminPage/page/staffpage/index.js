@@ -6,12 +6,10 @@ import StaffWrapper from '../../component/component_staffpage/staffWrapper';
 
 export default function StaffPage() {
     return (
-        <div>
+        <div className='mainstaff-wrapper'>
             <Header />
-            <div className="row">
-                <Sidebar />
-                <StaffWrapper />
-            </div>
+            <Sidebar />
+            <StaffWrapper />
         </div>
     )
 }

@@ -34,29 +34,28 @@ export default function Sidebar() {
       name: "List Users",
       url: "/admin/system/list_users",
     },
-    {
-      icon: "fas fa-users-cog",
-      name: "Configure User",
-      url: "/admin/system/configure_user",
-    },
   ];
   let sideList = sidebarData.map((item, index) => {
     return (
-      <Link to={item.url} key={index} className="nav-item nav-link">
-        <i className={item.icon} aria-hidden="true"></i>
-        {item.name}
-      </Link>
+      <li key={index}>
+        <Link to={item.url} className="nav-item nav-link">
+          <i className={item.icon} aria-hidden="true"></i>
+          {item.name}
+        </Link>
+      </li>
+
     );
   });
 
   return (
-    <nav
-      id="sidebarMenu"
-      className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-    >
-      <div className="sidebar-sticky pt-3">
-        <ul className="nav flex-column">{sideList}</ul>
+    <div class="staff_sidebar" id="sidebar" >
+      <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+          <ul>
+            {sideList}
+          </ul>
+        </div>
       </div>
-    </nav>
+    </div>
   );
 }
