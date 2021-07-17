@@ -14,5 +14,5 @@ export default function* Saga() {
   yield fork(BookingSaga);
   yield fork(BookingDBSaga);
   yield fork(UserDBSaga);
-  yield fork(RoomDBSaga)
+  yield fork(RoomDBSaga);
 }

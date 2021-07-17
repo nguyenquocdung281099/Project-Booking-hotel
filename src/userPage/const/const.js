@@ -5,3 +5,5 @@ export const URL_USER = "http://localhost:8000";
 export const KEY_TOKEN = "TOKEN_USER";
 export const KEY_ROOM_VEIWED = "KEY_ROOM_VEIWED";
 export const KEY_ROOM_BOOKING = "KEY_ROOM_BOOKING";
+export const KEY_DATE_CHECKIN = "KEY_DATE_CHECKIN";
+export const KEY_DATE_CHECKOUT = "KEY_DATE_CHECKOUT";

@@ -83,6 +83,12 @@ export const getpromosc = (data) => {
   };
 };
 
+export const getpromoEr = () => {
+  return {
+    type: ActionType.GET_PROMO_ER,
+  };
+};
+
 export const getusersc = (data) => {
   return {
     type: ActionType.GET_USER_SC,
@@ -369,6 +375,7 @@ export const setBooking = (data) => {
   };
 };
 
+
 export const delUserDBSC = (data) => {
   return {
     type: ActionType.DEL_USERDB_SC,
@@ -388,6 +395,13 @@ export const editBooking = (data, id, idUser) => {
 export const editBookingSc = (data) => {
   return {
     type: ActionType.EDIT_BOOKING_SC,
+    payload: data,
+  };
+};
+
+export const filterSearchRoom = (data) => {
+  return {
+    type: ActionType.FILTER_SEARCH_ROOM,
     payload: data,
   };
 };
@@ -443,3 +457,4 @@ export const getRoomModalSC = (data) => {
     payload: data
   };
 };
+

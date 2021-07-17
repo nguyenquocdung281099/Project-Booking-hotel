@@ -533,16 +533,11 @@
       "name": "Sòng bạc",
       "id": 5,
       "price": 100
-    }
-  ],
-  "paymethod": [
-    {
-      "id": 1,
-      "name": "trực tiếp"
     },
     {
-      "id": 2,
-      "name": "qua thẻ ngân hàng"
+      "name": "Sân golf và sân tennis",
+      "id": 6,
+      "price": 120
     }
   ],
   "promotion": [
@@ -550,66 +545,162 @@
       "id": 1,
       "name": "giảm giá mùa hè",
       "discount": 5,
-<<<<<<< HEAD
       "code": "discountSummer",
-      "amount": 5
-=======
-      "code": "SUMMERPROMO",
-      "amount": 10
->>>>>>> f4f948c (staffPage search sort)
+      "amount": 5,
+      "expiryDate": "Fri Jul 15 2021 23:20:24 GMT+0700 (Indochina Time)"
     },
     {
       "id": 2,
       "name": "giảm giá ngày kỉ niệm khách sạn ",
       "discount": 10,
-<<<<<<< HEAD
       "code": "discountHoilyday",
-      "amount": 4
-=======
-      "code": "ANNIVERSARY",
-      "amount": 20
->>>>>>> f4f948c (staffPage search sort)
+      "amount": 4,
+      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
     }
   ],
   "booking": [
     {
       "id": 1,
-<<<<<<< HEAD
       "idUser": 3,
       "idroom": "1",
       "dateStart": "Wed Jul 28 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
       "isPayment": true,
       "totalCost": "",
-=======
-      "idroom": 1,
-      "userID": 1,
-      "starttime": "",
-      "endtime": "",
-      "promoId": 1,
-      "totalCost": "",
-      "userName": "NGUYEN QUOC DUNG",
->>>>>>> f4f948c (staffPage search sort)
-      "status": "CANCEL",
-      "paymethod": {
-        "idpaymethod": 1,
-        "status": true
-      }
+      "status": "NEW",
+      "paymethod": "ZaloPay"
     },
     {
       "idUser": 3,
       "dateStart": "2021-07-12T17:00:00.000Z",
       "dateEnd": "2021-07-13T17:00:00.000Z",
-      "paymethod": {
-        "idpaymethod": 2,
-        "status": false
-      },
       "totalCost": 0,
       "status": "CANCEL",
+      "paymethod": "ZaloPay",
       "idroom": 1,
       "createdAt": 1626172940007,
       "updatedAt": 1626172940007,
       "id": 2
+    },
+    {
+      "idUser": 3,
+      "paymethod": "ZaloPay",
+      "totalCost": "-100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491121787,
+      "updatedAt": 1626491121787,
+      "id": 3
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 4
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491295427,
+      "updatedAt": 1626491295427,
+      "id": 5
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491379709,
+      "updatedAt": 1626491379709,
+      "id": 6
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 1,
+      "createdAt": 1626491390991,
+      "updatedAt": 1626491390991,
+      "id": 7
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 11,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 8
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 3,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 9
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "paymethod": "ZaloPay",
+      "totalCost": "100.00",
+      "status": "CANCEL",
+      "idroom": 2,
+      "createdAt": 1626491187056,
+      "updatedAt": 1626491187056,
+      "id": 10
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": null,
+      "totalCost": "-104.00",
+      "status": "NEW",
+      "idroom": 4,
+      "paymethod": "ZaloPay",
+      "createdAt": 1626515527335,
+      "updatedAt": 1626515527335,
+      "id": 11
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": null,
+      "totalCost": "-104.00",
+      "status": "NEW",
+      "idroom": 4,
+      "paymethod": "ZaloPay",
+      "createdAt": 1626515550726,
+      "updatedAt": 1626515550726,
+      "id": 12
     }
   ],
   "bankaccount": [
@@ -627,7 +718,6 @@
       "name": "PHAM VAN CHIEN",
       "balance": 50000
     }
-<<<<<<< HEAD
   ],
   "users": [
     {
@@ -698,7 +788,5 @@
       "id": 4,
       "name": "sale"
     }
-=======
->>>>>>> f4f948c (staffPage search sort)
   ]
 }

@@ -9,15 +9,18 @@ import AOS from "aos";
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import { KEY_ROOM_BOOKING } from "../../../const/const";
+import { useTranslation } from "react-i18next";
 AOS.init({
   duration: 1200,
 });
 export default function CardRoomsList() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.room);
-  console.log("data", data);
   const filter = data.filter;
   const type = data.type;
+  const filterSearchRoom = data.filterSearchRoom;
+  console.log(filterSearchRoom);
+  const { t } = useTranslation();
   const pagi =
     Object.keys(data.pagi).length === 0
       ? {
@@ -28,12 +31,22 @@ export default function CardRoomsList() {
       : data.pagi;
   useEffect(() => {
     dispatch(getroom({ _page: pagi._page, _limit: pagi._limit }));
+
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
-    dispatch(getroom({ ...filter, _page: pagi._page, _limit: pagi._limit }));
+    Object.keys(filterSearchRoom).length === 0
+      ? dispatch(getroom({ ...filter, _page: pagi._page, _limit: pagi._limit }))
+      : dispatch(
+          getroom({
+            _page: pagi._page,
+            _limit: pagi._limit,
+            ...filterSearchRoom,
+            ...filter,
+          })
+        );
     dispatch(setLoading(true));
-  }, [filter, dispatch, pagi._page, pagi._limit]);
+  }, [filter, dispatch, pagi._page, pagi._limit, filterSearchRoom]);
 
   function handleChangePagi(page, pagesize) {
     dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
@@ -52,6 +65,13 @@ export default function CardRoomsList() {
           <div></div>
           <div></div>
         </div>
+      )}
+      {Object.keys(filterSearchRoom).length !== 0 && (
+        <p>
+          {t("there are ")}
+          {pagi._totalRows}
+          {t("qualified rooms")}
+        </p>
       )}
       {Object.keys(data).length !== 0 &&
         data.rooms.map((item, index) => {

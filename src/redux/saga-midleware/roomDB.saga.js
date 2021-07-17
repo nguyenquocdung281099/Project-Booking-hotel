@@ -3,7 +3,7 @@ import * as func_action from "../action/index";
 import * as action from "../action/const_action";
 import { call, put, takeLatest } from "redux-saga/effects";
 import { URL_ROOM } from "../../adminPage/const/const";
-import queryString from "query-string";
+
 
 export default function* RoomDBSaga() {
     yield takeLatest(action.GET_ROOM_MODAL, getRoomModal);

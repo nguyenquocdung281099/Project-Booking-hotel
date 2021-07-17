@@ -166,27 +166,30 @@ export default function ProfilePage() {
                 const checkout = new Date(item.dateEnd);
                 return (
                   <tr key={index}>
-                    <th scope="col">{index + 1}</th>
+                    <th scope="col">{item.id}</th>
                     <td>
                       {dataRoom.rooms.map((element) => {
                         return item.idroom === element.id && element.name;
                       })}
                     </td>
-                    <td>none</td>
+                    <td>{}</td>
                     <td>
-                      {`${checkin.getDay()}/${
+                      {`${checkin.getDate()}/${
+
                         checkin.getMonth() + 1
                       }/${checkin.getFullYear()}`}
                     </td>
                     <td>
-                      {`${checkout.getDay()}/${
+
+                      {`${checkout.getDate()}/${
+
                         checkout.getMonth() + 1
                       }/${checkout.getFullYear()}`}
                     </td>
                     <td>{item.status}</td>
-                    <td>
-                      {item.paymethod.status === true ? t("paid") : t("unpaid")}
-                    </td>
+
+                    <td>{item.paymethod}</td>
+
                     <td>${item.totalCost}</td>
                     <td>
                       {item.status === "NEW" && (
