@@ -62,3 +62,33 @@
   width: 100%;
   height: 100%;
 }
+.canlendar {
+  width: 300px;
+}
+.react-datepicker,
+.react-datepicker__month-container {
+  width: 100%;
+}
+.full-room {
+  width: 30px;
+  height: 30px;
+  background: red;
+  color: white;
+  text-align: center;
+}
+.empty-room {
+  width: 30px;
+  background: white;
+  height: 30px;
+  text-align: center;
+  color: black;
+}
+.describe p {
+  color: black;
+  align-items: center;
+}
+.react-datepicker__day--disabled {
+  background: rgb(233, 13, 5);
+  border-radius: 3px;
+  color: white;
+}

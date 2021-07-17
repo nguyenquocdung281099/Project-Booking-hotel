@@ -1,10 +1,12 @@
 import * as ActionType from "../action/const_action";
 
 const defaultState = {
+
     promo: [],
     loader: true,
     filter: {},
     pagi: {},
+    isGetPromo: undefined,
 }
 
 export default function promoReducer(state = defaultState, action) {
@@ -42,7 +44,19 @@ export default function promoReducer(state = defaultState, action) {
         case ActionType.CHANGE_FILTER:
             state = { ...newState, filter: action.payload };
             return state;
+        case ActionType.GET_PROMO_SC:
+           if (action.payload.length === 0) {
+            newState = { ...newState, promo: action.payload, isGetPromo: false };
+           } else {
+        newState = { ...newState, promo: action.payload, isGetPromo: true };
+            }
+      return newState;
         default:
             return state;
     }
 }
+};
+    
+
+ 
+    

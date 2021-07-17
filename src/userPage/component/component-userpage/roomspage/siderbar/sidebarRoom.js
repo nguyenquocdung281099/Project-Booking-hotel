@@ -5,7 +5,9 @@ import FilterRating from "./filterRating";
 import "./style.css";
 
 export default function SiderBarRoom() {
-  const filter = useSelector((state) => state.room.filter);
+  const data = useSelector((state) => state.room);
+  const filter = data.filter;
+  const filterSearchRoom = data.filterSearchRoom;
   const dispatch = useDispatch();
   return (
     <div className="siderBarRoom col-12 col-lg-3 sidebar-filter">
@@ -29,17 +31,17 @@ export default function SiderBarRoom() {
       <FilterCategory />
       <h3 className="name_filter">Filter Rating</h3>
       <FilterRating />
-      {Object.keys(filter).length !== 0 && (
-        <button
-          className="btn"
-          onClick={() => {
-            dispatch(changeFilter({}));
-          }}
-        >
-          {" "}
-          Clear Filter
-        </button>
-      )}
+      {Object.keys(filter).length !== 0 ||
+        (Object.keys(filterSearchRoom).length !== 0 && (
+          <button
+            className="btn"
+            onClick={() => {
+              dispatch(changeFilter({}));
+            }}
+          >
+            Clear Filter
+          </button>
+        ))}
     </div>
   );
 }
