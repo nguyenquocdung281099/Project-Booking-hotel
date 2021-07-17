@@ -558,15 +558,14 @@
     {
       "id": 1,
       "idUser": 3,
-      "idroom": "1",
+      "idroom": 1,
       "dateStart": "Wed Jul 28 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
       "totalCost": "",
       "status": "NEW",
-      "paymethod":"ZaloPay"1,
-      "totalCost": "",
-      "userName": "NGUYEN QUOC DUNG",
-      "status": "CANCEL",
+      "paymethod":"ZaloPay",
+      "createdAt": 1626172940007,
+      "updatedAt": 1626172940007,
     },
     {
       "idUser": 3,
@@ -687,11 +686,6 @@
       "name": "PHAM VAN CHIEN",
       "balance": 50000
     }
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "sale",
-      "idRole": "user4",
-      "id": 5
-    }
   ]
 }
+  

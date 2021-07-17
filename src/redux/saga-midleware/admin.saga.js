@@ -2,14 +2,6 @@ import axios from "axios";
 import * as func_action from "../action/index";
 import * as action from "../action/const_action";
 import { call, put, takeLatest } from "redux-saga/effects";
-import {
-  URL_PROMO,
-  URL_BOOKING,
-  URL_USER,
-  URL_SERVICE,
-  URL_ROOM,
-} from "../../adminPage/const/const";
-import queryString from "query-string";
 import { URL_PROMO, URL_BOOKING, URL_USERDB, URL_SERVICE, URL_ROOM } from "../../adminPage/const/const";
 import queryString from "query-string";
 
@@ -18,7 +10,6 @@ export default function* AdminSaga() {
   yield takeLatest(action.GET_BOOKING, getBooking);
   yield takeLatest(action.GET_SERVICE, getService);
   yield takeLatest(action.GET_PROMO, getPromo);
-  
   yield takeLatest(action.GET_USER, getUser);
   yield takeLatest(action.ADD_PROMO, addPromo);
   yield takeLatest(action.EDIT_PROMO, editPromo);
@@ -29,7 +20,6 @@ export default function* AdminSaga() {
   yield takeLatest(action.ADD_SERVICE, addService);
   yield takeLatest(action.EDIT_SERVICE, editService);
   yield takeLatest(action.DEL_SERVICE, delService);
-
 }
 
 function* getBooking() {
