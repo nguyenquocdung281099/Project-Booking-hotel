@@ -6,14 +6,26 @@ import SystemContent from "../../component/component_staffpage/system/systemCont
 import Dashboard from "./dashboard/dashboard";
 import PrivateRoute from "../../../Router/privaterouter/privateRouter";
 
-export default function StaffWrapper() {
+export default function StaffWrapper(props) {
+  let { idRole } = props
+  let loginRole = idRole
+
   return (
     <div className="staffpage_wrapper">
       <Switch>
         <PrivateRoute path="/admin/dashboard" component={Dashboard} />
-        <PrivateRoute path="/admin/operation" component={OperationContent} />
-        <PrivateRoute path="/admin/setup" component={SetupContent} />
-        <PrivateRoute path="/admin/system" component={SystemContent} />
+        {loginRole === 'user4' ?
+          <PrivateRoute path="/admin/operation" component={OperationContent} />
+          : ("")
+        }
+        {loginRole === 'user3' ?
+          <PrivateRoute path="/admin/setup" component={SetupContent} />
+          : ("")
+        }
+        {loginRole === 'user2' ?
+          <PrivateRoute path="/admin/system" component={SystemContent} />
+          : ("")
+        }
       </Switch>
     </div>
   );

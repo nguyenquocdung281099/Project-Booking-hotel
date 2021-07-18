@@ -1,16 +1,15 @@
 export default function ItemUser(props) {
-    let { index, id, name, idRole, birthday, address, userName, email, showModal, deleteData } = props
+    let { index, id, name, idRole, birthday, address, userName, email, showModal, showModalDel } = props
     const roleName = (item) => {
         switch (item) {
-            case 1:
+            case "user1":
                 return 'Customer'
-            case 2:
+            case "user2":
                 return 'Admin'
-            case 3:
+            case "user3":
                 return 'Manager'
-            case 4:
+            case "user4":
                 return 'Sale'
-
             default:
                 return ''
         }
@@ -28,7 +27,7 @@ export default function ItemUser(props) {
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>
                     <i class="fas fa-edit"></i>
                 </button>
-                <button type="button" className="btn btn-danger" onClick={() => deleteData(id)}>
+                <button type="button" className="btn btn-danger" onClick={() => showModalDel(true, id)}>
                     <i class="fas fa-ban"></i>
                 </button>
             </td>

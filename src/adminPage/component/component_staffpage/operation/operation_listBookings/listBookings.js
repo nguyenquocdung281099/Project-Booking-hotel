@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import ItemBooking from './itemBooking/item';
-import { getBookingDB, editBookingDB } from '../../../../../redux/action/'
+import { getBookingDB, editBookingDB, getroom, getUserDB } from '../../../../../redux/action/'
 import ModalBooking from './operation_modalBooking/modalBooking';
 import SortBooking from './operation_sortBookings/sortBooking';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import Invoice from '../operation_invoice/invoice'
 
 export default function ListBookings() {
 
@@ -17,19 +19,21 @@ export default function ListBookings() {
     const loader = useSelector((state) => state.bookingDB.loader)
     const filter = bookingDBData.filter;
     const search = bookingDBData.search;
-
-
+    const roombkPage = useSelector((state) => state.room.rooms)
+    const userbkPage = useSelector((state) => state.userDB.userDB)
     const pagi =
         Object.keys(bookingDBData.pagi).length === 0
             ? {
                 _page: 1,
-                _limit: 12,
+                _limit: 14,
                 _totalRows: 12,
             }
             : bookingDBData.pagi;
 
     useEffect(() => {
         dispatch(getBookingDB({ _page: pagi._page, _limit: pagi._limit }));
+        dispatch(getroom({}))
+        dispatch(getUserDB({}))
         // eslint-disable-next-line
     }, []);
 
@@ -56,9 +60,9 @@ export default function ListBookings() {
         dateEnd: null,
         promoId: null,
         totalCost: null,
-        userName: null,
         status: null,
-        paymethod: null
+        paymethod: null,
+        number: null,
     })
 
     const toaster = (data) => {
@@ -100,13 +104,28 @@ export default function ListBookings() {
             dateEnd: null,
             promoId: null,
             totalCost: null,
-            userName: null,
             status: null,
-            paymethod: null
+            paymethod: null,
+            number: null
         }
         newState = { ...newState, isOpen: false, ...data };
         setModalStatus(newState)
     };
+
+    const findUserName = (data) => {
+        let obj = userbkPage.find(element => element.id === data)
+        return obj ? obj.name : ""
+    }
+
+    const findRoomName = (id) => {
+        let obj = roombkPage.find(element => element.id === id)
+        return obj ? obj.name : ""
+    }
+
+    const findUser = (data) => {
+        let obj = userbkPage.find(element => element.id === data)
+        return obj ? obj : ""
+    }
 
     const checkout = (id) => {
         let updateData = bookingDBData.bookingDB.find(item => item.id === id)
@@ -122,6 +141,47 @@ export default function ListBookings() {
         toaster(updateData)
     }
 
+    const [invoiceStatus, setInvoiceStatus] = useState({
+        isOpen: false,
+        id: null,
+        idroom: null,
+        idUser: null,
+        dateStart: null,
+        dateEnd: null,
+        promoId: null,
+        totalCost: null,
+        status: null,
+        paymethod: null,
+        number: null,
+    });
+
+    const showInvoice = (a) => {
+        let newState = { ...modalStatus }
+        let data = bookingDBData.bookingDB.find(item => {
+            return item.id === a
+        })
+        newState = { ...newState, isOpen: true, ...data }
+        setInvoiceStatus(newState)
+    };
+
+    const hideInvoice = () => {
+        let newState = { ...modalStatus }
+        let data = {
+            id: null,
+            idroom: null,
+            idUser: null,
+            dateStart: null,
+            dateEnd: null,
+            promoId: null,
+            totalCost: null,
+            status: null,
+            paymethod: null,
+            number: null
+        }
+        newState = { ...newState, isOpen: false, ...data };
+        setInvoiceStatus(newState)
+    };
+
     const datas = bookingDBData.bookingDB.map((item, index) => {
         return <ItemBooking
             key={index}
@@ -130,6 +190,9 @@ export default function ListBookings() {
             showModal={showModal}
             checkout={checkout}
             cancel={cancel}
+            findUserName={findUserName}
+            findRoomName={findRoomName}
+            showInvoice={showInvoice}
         />
     })
 
@@ -145,14 +208,14 @@ export default function ListBookings() {
                         </th>
                     </tr>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Room</th>
+                        <th scope="col" style={{ width: "1%" }}>#</th>
+                        <th scope="col" style={{ width: "1%" }}>Room</th>
                         <th scope="col">User</th>
                         <th scope="col">Start</th>
                         <th scope="col">End</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style={{ width: "1%" }}>Number</th>
+                        <th scope="col" >Status</th>
+                        <th scope="col" style={{ width: "27%" }}>Action</th>
                     </tr>
                 </thead>
                 {loader ?
@@ -179,6 +242,16 @@ export default function ListBookings() {
                 {...modalStatus}
                 hideModal={hideModal}
                 editData={editData}
+                findUserName={findUserName}
+                findRoomName={findRoomName}
+            />
+
+            <Invoice
+                key={invoiceStatus.id}
+                {...invoiceStatus}
+                hideInvoice={hideInvoice}
+                findUser={findUser}
+                findRoomName={findRoomName}
             />
         </div>
     )

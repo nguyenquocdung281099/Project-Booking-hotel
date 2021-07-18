@@ -72,8 +72,6 @@ export const GET_USERDB = "GET_USERDB";
 export const GET_USERDB_SC = "GET_USERDB_SC";
 export const ADD_USERDB = "ADD_USERDB";
 export const ADD_USERDB_SC = "ADD_USERDB_SC";
-export const EDIT_USERDB = "EDIT_USERDB"
-export const EDIT_USERDB_SC = "EDIT_USERDB_SC"
 export const DEL_USERDB = "DEL_USERDB";
 export const DEL_USERDB_SC = "DEL_USERDB_SC";
 

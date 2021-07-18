@@ -24,15 +24,6 @@ export default function userDBReducer(state = defaultState, action) {
                 userDB: [...newState.userDB, action.payload]
             }
             return newState;
-        case ActionType.EDIT_USERDB_SC:
-            let newUserDB1 = newState.userDB.map((item) => {
-                if (item.id === action.payload.id) {
-                    item = action.payload
-                }
-                return item;
-            })
-            newState = { ...newState, userDB: newUserDB1 }
-            return newState;
         case ActionType.DEL_USERDB_SC:
             let newUserDB2 = newState.userDB.filter(item => item.id !== action.payload)
             newState = { ...newState, userDB: newUserDB2 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useSelector } from 'react-redux'
 
 export default function ModalUser(props) {
   let { id, name, idRole, userName, birthday, email, address, isOpen, isEdit } = props;
@@ -8,12 +9,15 @@ export default function ModalUser(props) {
   };
   const [values, setValues] = useState(initialValues);
 
+
+
   function handleChange(e) {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
     });
   }
+  const userModal = useSelector((state) => state.userDB.userDB)
 
   const [dataError, setdataError] = useState({
     name: "*",
@@ -29,13 +33,13 @@ export default function ModalUser(props) {
     let dataErrors = {};
 
     if (data.name === "" || !data.name) {
-      dataErrors = { ...dataErrors, name: "This field can't be empty" };
+      dataErrors = { ...dataErrors, name: "This field can't be empty." };
     } else {
       delete dataErrors.name;
     }
 
     if (!data.idRole) {
-      dataErrors = { ...dataErrors,idRole: "This field can't be empty" };
+      dataErrors = { ...dataErrors, idRole: "This field can't be empty" };
     } else {
       delete dataErrors.idRole;
     }
@@ -47,7 +51,7 @@ export default function ModalUser(props) {
     }
 
     if (!data.birthday) {
-      dataErrors = { ...dataErrors, birthday: "This field can't be empty" };
+      dataErrors = { ...dataErrors, birthday: "Please choose a birthday" };
     } else {
       delete dataErrors.birthday
     }
@@ -60,7 +64,14 @@ export default function ModalUser(props) {
       if (!emailno.test(data.email)) {
         dataErrors = { ...dataErrors, email: "Please input valid format email" };
       } else {
-        delete dataErrors.email;
+        if (userModal.findIndex((item) => item.email === data.email) !== -1 && isEdit !== true) {
+          dataErrors = {
+            ...dataErrors,
+            email: ("This email is already in used"),
+          };
+        } else {
+          delete dataErrors.email;
+        }
       }
     }
 
@@ -108,6 +119,7 @@ export default function ModalUser(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout name of user'
                 />
                 <span id="name_error" style={{ color: "red" }}>
                   {dataError.name}
@@ -123,13 +135,12 @@ export default function ModalUser(props) {
                   className="form-control"
                   name="idRole"
                   onChange={handleChange}
-                  defaultValue={idRole}
                   value={values.idRole}>
-                  <option hidden>Select Role</option>
-                  <option value="1">Customer</option>
-                  <option value="2">Sale</option>
-                  <option value="3">Manager</option>
-                  <option value="4">Admin</option>
+                  <option hidden>Please choose role</option>
+                  <option value="user1">Customer</option>
+                  <option value="user4">Sale</option>
+                  <option value="user3">Manager</option>
+                  <option value="user2">Admin</option>
                 </select>
                 <span id="idRole_error" style={{ color: "red" }}>
                   {dataError.idRole}
@@ -147,6 +158,7 @@ export default function ModalUser(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout user name'
                 />
                 <span id="userName_error" style={{ color: "red" }}>
                   {dataError.userName}
@@ -164,8 +176,9 @@ export default function ModalUser(props) {
                   type="date"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please choose a birthday'
                 />
-                 <span id="birthday_error" style={{ color: "red" }}>
+                <span id="birthday_error" style={{ color: "red" }}>
                   {dataError.birthday}
                 </span>
               </div>
@@ -181,8 +194,9 @@ export default function ModalUser(props) {
                   type="email"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please input an email'
                 />
-                 <span id="email_error" style={{ color: "red" }}>
+                <span id="email_error" style={{ color: "red" }}>
                   {dataError.email}
                 </span>
               </div>
@@ -198,6 +212,7 @@ export default function ModalUser(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please input an address'
                 />
                 <span id="address_error" style={{ color: "red" }}>
                   {dataError.address}

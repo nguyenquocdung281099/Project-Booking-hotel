@@ -1,0 +1,11 @@
+.dashcontent .row.chart, .row.calendar {
+    justify-content: center;
+}
+
+.dashcontent .card.barchart, .card.linechart, .card.calendar{
+    width: 90%
+}
+
+.dashcontent .row.chart:first-of-type {
+    margin-top: 30px;
+}

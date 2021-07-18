@@ -23,27 +23,33 @@ const localizer = dateFnsLocalizer({
   locales
 });
 
-const myEventsList = [
-  { start: new Date(), end: new Date(), title: "special event" }
-];
-
 export default function CalendarDash() {
   const dispatch = useDispatch();
   const calendarData = useSelector((state) => state.bookingDB.bookingDB)
   useEffect(() => {
-    dispatch(getBookingDB({ }));
+    dispatch(getBookingDB({}));
     // eslint-disable-next-line
   }, []);
 
-  console.log(calendarData)
+  const data = calendarData.map(({ id, dateStart, dateEnd }) => ({ id, dateStart, dateEnd }));
+
+  const myEventsList = data.map(function (row) {
+    return { start: new Date(row.dateStart), end: new Date(row.dateEnd), title: `Room ${row.id}` }
+  })
 
   return (
-    <Calendar
-      localizer={localizer}
-      events={myEventsList}
-      startAccessor="start"
-      endAccessor="end"
-      style={{ height: 500 }}
-    />
+    <div className='card calendar' >
+      <div className="card-header">
+        Book Calendar
+      </div>
+      <Calendar
+        localizer={localizer}
+        events={myEventsList}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: 500 }}
+      />
+    </div>
+
   )
 }

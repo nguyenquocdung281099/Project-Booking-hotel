@@ -340,20 +340,6 @@ export const addUserDBSC = (data) => {
   };
 };
 
-export const editUserDB = (data) => {
-  return {
-    type: ActionType.EDIT_USERDB,
-    payload: data,
-  };
-};
-
-export const editUserDBSC = (data) => {
-  return {
-    type: ActionType.EDIT_USERDB_SC,
-    payload: data,
-  };
-};
-
 export const getBookingRoomSC = (data) => {
   return {
     type: ActionType.GET_BOOKING_ROOM_SC,

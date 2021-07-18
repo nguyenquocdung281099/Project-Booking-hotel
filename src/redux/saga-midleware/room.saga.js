@@ -24,7 +24,6 @@ function* getRoom(action) {
     yield put(func_action.setloader(false));
     yield put(func_action.setLoading(false));
     delay(1000);
-    console.log('saga', room)
     yield put(func_action.getroomsc(room.data));
   } catch (e) {}
 }
