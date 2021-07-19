@@ -9,6 +9,7 @@ import { getuser, logout } from "../../../redux/action";
 import jwt_decode from "jwt-decode";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 export default function Header() {
   const notify = () => toast.success("logout success!");
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export default function Header() {
   };
 
   const token = localStorage.getItem(KEY_TOKEN);
-  let dataUser = { email: "" };
+  let dataUser = "";
   if (token !== null) dataUser = jwt_decode(token);
   const { t, i18n } = useTranslation();
   let [path, setpath] = useState("");
@@ -91,8 +92,7 @@ export default function Header() {
       url: "/gallery",
     },
   ];
-  let infor = useSelector((state) => state.user.user);
-  if (infor === undefined) infor = [];
+  const infor = useSelector((state) => state.user.user) || [];
   return (
     <div>
       <header className={headerClassName}>
@@ -109,7 +109,6 @@ export default function Header() {
             <span />
             <span />
           </div>
-
           <nav>
             <ToastContainer />
             <ul>
@@ -128,6 +127,7 @@ export default function Header() {
                     onClick={() => {
                       notify();
                       localStorage.removeItem(KEY_TOKEN);
+                      localStorage.removeItem("KEY_AUTHEN");
                       dispatch(logout());
                     }}
                   >

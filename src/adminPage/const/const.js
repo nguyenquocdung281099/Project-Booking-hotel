@@ -6,3 +6,5 @@ export const URL_SERVICE = "http://localhost:3333/api/service";
 export const URL_PROMO = "http://localhost:3333/api/promotion";
 export const URL_USER = "http://localhost:3333/api/user";
 export const URL_USERDB = "http://localhost:8000/users";
+
+export const KEY_TOKEN = "TOKEN_USER";

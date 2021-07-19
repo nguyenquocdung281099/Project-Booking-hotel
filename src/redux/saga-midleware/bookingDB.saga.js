@@ -8,7 +8,6 @@ import queryString from "query-string";
 export default function* BookingDBSaga() {
     yield takeLatest(action.GET_BOOKINGDB, getBookingDB);
     yield takeLatest(action.EDIT_BOOKINGDB, editBookingDB);
-
 }
 
 function* getBookingDB(action) {

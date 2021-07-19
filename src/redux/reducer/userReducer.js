@@ -2,7 +2,7 @@ import * as actionType from "../action/const_action";
 
 const defaultState = {
   user: [],
-  isAuthen: false,
+  isAuthen: localStorage.setItem("KEY_AUTHEN", true) || false,
   isLogin: false,
   infomation: [],
   isToastSC: false,
@@ -11,14 +11,13 @@ const defaultState = {
 
 export default function userReducer(state = defaultState, action) {
   let newState = { ...state };
-  // console.log(action.type);
   switch (action.type) {
     case actionType.GET_USER_SC:
       newState = { ...newState, user: action.payload };
       return newState;
     case actionType.LOGIN_SC:
-      // console.log(action.payload.idRole);
       if (action.payload.idRole !== "user1") {
+        localStorage.setItem("KEY_AUTHEN", true);
         newState = {
           ...newState,
           isLogin: true,
@@ -30,11 +29,10 @@ export default function userReducer(state = defaultState, action) {
           ...newState,
           isLogin: true,
           user: action.payload,
-          isAuthen: false,
         };
       }
-      state = { ...newState };
-      return { ...state };
+
+      return { ...newState };
     case actionType.LOGOUT:
       newState = {
         ...newState,

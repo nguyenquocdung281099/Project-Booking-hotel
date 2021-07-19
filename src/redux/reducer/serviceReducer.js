@@ -11,12 +11,20 @@ export default function serviceReducer(state = defaultState, action) {
     let newState = { ...state }
     switch (action.type) {
         case ActionType.GET_SERVICE_SC:
-            newState = {
-                ...newState,
-                service: action.payload.data,
-                pagi: action.payload.pagination
+            if (action.payload.pagination) {
+                newState = {
+                    ...newState,
+                    service: action.payload.data,
+                    pagi: action.payload.pagination
+                }
+            } else {
+                newState = {
+                    ...newState,
+                    service: action.payload
+                }
             }
             return newState;
+
         case ActionType.SET_LOADER:
             newState = { ...newState, loader: action.payload }
             return newState;

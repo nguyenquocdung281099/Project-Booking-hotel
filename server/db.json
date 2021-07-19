@@ -2,12 +2,9 @@
   "room": [
     {
       "id": 1,
-      "name": 101,
+      "name": 10101,
       "idtyperoom": 1,
-      "booking": [],
-      "status": false,
       "number": 1,
-      "rating": 4,
       "pricePerday": 100,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
       "image": [
@@ -17,16 +14,14 @@
         "https://live.staticflickr.com/65535/51293943720_c83b6b18ed_h.jpg",
         "https://live.staticflickr.com/65535/51293944445_2434e5db2a_h.jpg",
         "https://live.staticflickr.com/65535/51293945040_52148d89ff_k.jpg"
-      ]
+      ],
+      "updatedAt": 1626700295746
     },
     {
       "id": 2,
       "name": 102,
       "idtyperoom": 1,
-      "booking": [],
-      "status": false,
       "number": 3,
-      "rating": 1,
       "pricePerday": 110,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
       "image": [
@@ -36,16 +31,14 @@
         "https://live.staticflickr.com/65535/51292940156_42cf8372e0_k.jpg",
         "https://live.staticflickr.com/65535/51293118418_b7cb322006_k.jpg",
         "https://live.staticflickr.com/65535/51293944445_2434e5db2a_h.jpg"
-      ]
+      ],
+      "updatedAt": 1626700316926
     },
     {
       "id": 3,
       "name": 103,
       "idtyperoom": 1,
-      "booking": [],
-      "status": false,
-      "number": 2,
-      "rating": 3,
+      "number": 5,
       "pricePerday": 105,
       "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
       "image": [
@@ -55,7 +48,8 @@
         "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg",
         "https://live.staticflickr.com/65535/51293945040_52148d89ff_k.jpg",
         "https://live.staticflickr.com/65535/51292939636_1b4350b136_k.jpg"
-      ]
+      ],
+      "updatedAt": 1626700330271
     },
     {
       "id": 4,
@@ -510,9 +504,9 @@
   ],
   "service": [
     {
-      "name": "Dịch vụ Spa",
       "id": 1,
-      "price": 50
+      "name": "Dịch vụ swim",
+      "price": "500"
     },
     {
       "name": "Dịch vụ phòng họp",
@@ -546,8 +540,8 @@
       "name": "giảm giá mùa hè",
       "discount": 5,
       "code": "discountSummer",
-      "amount": 5,
-      "expiryDate": "Fri Jul 15 2021 23:20:24 GMT+0700 (Indochina Time)"
+      "amount": 7,
+      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
     },
     {
       "id": 2,
@@ -560,224 +554,25 @@
   ],
   "booking": [
     {
-      "id": 1,
-      "idUser": 3,
-      "idroom": "1",
-      "dateStart": "Wed Jul 28 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "isPayment": true,
-      "totalCost": "",
-      "status": "NEW",
-      "paymethod": "ZaloPay"
-    },
-    {
-      "idUser": 3,
-      "dateStart": "2021-07-12T17:00:00.000Z",
-      "dateEnd": "2021-07-13T17:00:00.000Z",
-      "totalCost": 0,
-      "status": "CANCEL",
-      "paymethod": "ZaloPay",
-      "idroom": 1,
-      "createdAt": 1626172940007,
-      "updatedAt": 1626172940007,
-      "id": 2
-    },
-    {
-      "idUser": 3,
-      "paymethod": "ZaloPay",
-      "totalCost": "-100.00",
-      "status": "CANCEL",
-      "idroom": 1,
-      "createdAt": 1626491121787,
-      "updatedAt": 1626491121787,
-      "id": 3
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 1,
-      "createdAt": 1626491187056,
-      "updatedAt": 1626491187056,
-      "id": 4
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 1,
-      "createdAt": 1626491295427,
-      "updatedAt": 1626491295427,
-      "id": 5
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 1,
-      "createdAt": 1626491379709,
-      "updatedAt": 1626491379709,
-      "id": 6
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 1,
-      "createdAt": 1626491390991,
-      "updatedAt": 1626491390991,
-      "id": 7
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 11,
-      "createdAt": 1626491187056,
-      "updatedAt": 1626491187056,
-      "id": 8
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 3,
-      "createdAt": 1626491187056,
-      "updatedAt": 1626491187056,
-      "id": 9
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 17 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "paymethod": "ZaloPay",
-      "totalCost": "100.00",
-      "status": "CANCEL",
-      "idroom": 2,
-      "createdAt": 1626491187056,
-      "updatedAt": 1626491187056,
-      "id": 10
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": null,
-      "totalCost": "-104.00",
-      "status": "NEW",
-      "idroom": 4,
-      "paymethod": "ZaloPay",
-      "createdAt": 1626515527335,
-      "updatedAt": 1626515527335,
-      "id": 11
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": null,
-      "totalCost": "-104.00",
-      "status": "NEW",
-      "idroom": 4,
-      "paymethod": "ZaloPay",
-      "createdAt": 1626515550726,
-      "updatedAt": 1626515550726,
-      "id": 12
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Mon Jul 19 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Mon Jul 19 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": "104.00",
-      "status": "CANCEL",
-      "idroom": 4,
-      "paymethod": "ZaloPay",
-      "createdAt": 1626517762490,
-      "updatedAt": 1626517762490,
-      "id": 13
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Tue Jul 20 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Fri Jul 23 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountHoilyday",
-      "totalCost": "-270.00",
-      "status": "NEW",
-      "idroom": 1,
-      "paymethod": "ZaloPay",
-      "createdAt": 1626526252280,
-      "updatedAt": 1626526252280,
-      "id": 14
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Mon Jul 26 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Tue Jul 27 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountHoilyday",
-      "totalCost": "-118.80",
-      "status": "NEW",
-      "idroom": 9,
-      "paymethod": "ZaloPay",
-      "createdAt": 1626615449283,
-      "updatedAt": 1626615449283,
-      "id": 15
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "idUser": 2,
+      "dateStart": "Wed Jul 21 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": null,
-      "totalCost": "100.00",
+      "codeDiscount": "discountSummer",
+      "totalCost": "1445.00",
       "status": "NEW",
       "idroom": 1,
-      "paymethod": "visa-master",
-      "createdAt": 1626615855815,
-      "updatedAt": 1626615855815,
-      "id": 16
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Wed Aug 18 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Aug 28 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountHoilyday",
-      "totalCost": "-900.00",
-      "status": "NEW",
-      "idroom": 1,
+      "number": 1,
+      "service": [
+        {
+          "id": 1,
+          "name": "Dịch vụ swim",
+          "price": "500"
+        }
+      ],
       "paymethod": "ZaloPay",
-      "createdAt": 1626616321920,
-      "updatedAt": 1626616321920,
-      "id": 17
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sun Jul 18 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sun Jul 18 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountHoilyday",
-      "totalCost": 19.8,
-      "status": "CANCEL",
-      "idroom": 2,
-      "paymethod": "ATM",
-      "createdAt": 1626616659956,
-      "updatedAt": 1626616659956,
-      "id": 18
+      "createdAt": 1626750421949,
+      "updatedAt": 1626750421949,
+      "id": 1
     }
   ],
   "bankaccount": [

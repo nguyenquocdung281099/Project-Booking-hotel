@@ -7,6 +7,9 @@ import ItemService from './itemService/itemService'
 import { addService, delService, editService, getservice } from '../../../../../redux/action/';
 import ModalService from './setup_modalService/modalService'
 import SortService from './setup_sortService/sortService';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ModalDelete from '../../modalDelete/modalDelete';
 
 export default function ListServices() {
 
@@ -19,7 +22,7 @@ export default function ListServices() {
         Object.keys(serviceData.pagi).length === 0
             ? {
                 _page: 1,
-                _limit: 12,
+                _limit: 14,
                 _totalRows: 12,
             }
             : serviceData.pagi;
@@ -46,6 +49,24 @@ export default function ListServices() {
         price: null
     })
 
+    const [modalDelStatus, setModalDelStatus] = useState({
+        isOpen: false,
+        id: null
+    })
+
+    const toaster = (data) => {
+        switch (data) {
+            case 'ADD':
+                return toast.success("Add Success!");
+            case 'EDIT':
+                return toast.success("Edit Success!");
+            case 'DELETE':
+                return toast.success("Delete Success!");
+            default:
+                return toast.success("Edit Success!");
+        }
+    }
+
     function addData(data) {
         let item = {
             name: data.name,
@@ -53,6 +74,7 @@ export default function ListServices() {
         }
         dispatch(addService(item))
         hideModal()
+        toaster('ADD')
     }
 
     function editData(data) {
@@ -60,10 +82,12 @@ export default function ListServices() {
         updateData = data
         dispatch(editService(updateData))
         hideModal()
+        toaster('EDIT')
     }
 
     function deleteData(id) {
         dispatch(delService(id))
+        toaster('DELETE')
     }
 
     const showModal = (i, a) => {
@@ -82,14 +106,32 @@ export default function ListServices() {
         setModalStatus(newState)
     };
 
+    const showModalDel = (i, a) => {
+        let newState = { ...modalDelStatus }
+        newState = { ...newState, isOpen: i, id: a }
+        setModalDelStatus(newState)
+    }
+
+    const hideModalDel = () => {
+        setModalDelStatus({ isOpen: false, id: null })
+    }
+
+    const deleteConfirm = (data) => {
+        hideModalDel()
+        deleteData(data)
+    }
+
     const datas = serviceData.service.map((item, index) => {
         return <ItemService key={index} index={index} {...item}
-            deleteData={deleteData}
-            showModal={showModal} />
-    })
+        showModalDel={showModalDel}
+        showModal={showModal} 
+        />
+    })   
 
     return (
         <div>
+            <ToastContainer />
+
             <table className="table table-bordered">
                 <thead>
                     <tr>
@@ -121,6 +163,7 @@ export default function ListServices() {
                     <tbody>{datas}</tbody>
                 }
             </table>
+
             <Pagination
                 defaultCurrent={pagi._page}
                 total={pagi._totalRows}
@@ -133,6 +176,12 @@ export default function ListServices() {
                 addData={addData}
                 editData={editData}
                 hideModal={hideModal}
+            />
+
+            <ModalDelete
+                {...modalDelStatus}
+                hideModalDel={hideModalDel}
+                deleteConfirm={deleteConfirm}
             />
         </div>
     )

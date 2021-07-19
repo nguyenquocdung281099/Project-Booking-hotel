@@ -9,6 +9,7 @@ const defaultState = {
 };
 
 export default function promoReducer(state = defaultState, action) {
+  console.log(action.type);
   let newState = { ...state };
   switch (action.type) {
     case ActionType.GET_PROMO_SC:
@@ -44,6 +45,7 @@ export default function promoReducer(state = defaultState, action) {
         }
         return item;
       });
+
       newState = { ...newState, promo: newPromo1 };
       return newState;
     case ActionType.DEL_PROMO_SC:
@@ -54,6 +56,9 @@ export default function promoReducer(state = defaultState, action) {
       return newState;
     case ActionType.CHANGE_FILTER:
       state = { ...newState, filter: action.payload };
+      return state;
+    case ActionType.CANCEL_COST:
+      state = { ...newState, isGetPromo: false };
       return state;
     default:
       return state;

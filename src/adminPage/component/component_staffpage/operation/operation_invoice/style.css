@@ -1,0 +1,9 @@
+.invoice-details, .invoice-payment-details > li span {float: right;text-align: right;}
+.table .team-members a {width: 32px;height: 32px;}
+.table .team-members .all-users {line-height: 30px;}
+.attach-files > ul {list-style: none;margin: 0;padding: 0;}
+.attach-files li {display: inline-block;margin-right: 10px;position: relative;}
+.attach-files li img {width: 50px;}
+.file-remove {color: #f00;position: absolute;right: -6px;top: -7px;}
+.attach-files li:last-child {margin-right: 0;}
+.inv-logo {height: auto;margin-bottom: 20px;max-height: 100px;width: auto;}

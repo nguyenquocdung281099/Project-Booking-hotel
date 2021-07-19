@@ -11,7 +11,7 @@ export default function ModalRoom(props) {
     id, name, idtyperoom, number, pricePerday, description, image
   };
 
-  const roomDB = useSelector((state) => state.roomDB.modal)
+  const roomModal = useSelector((state) => state.roomDB.modal)
   const [values, setValues] = useState(initialValues);
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function ModalRoom(props) {
 
   function handleChange(e) {
     switch (e.target.name) {
+      case 'name':
       case 'idtyperoom':
       case 'number':
       case 'pricePerday':
@@ -76,18 +77,18 @@ export default function ModalRoom(props) {
     let dataErrors = {};
 
     if (data.name === "" || !data.name) {
-      dataErrors = { ...dataErrors, name: "This field can't be empty" };
+      dataErrors = { ...dataErrors, name: "This field can't be empty and can only contain numbers" };
     } else {
-      if (roomDB.findIndex((item) => item.name === +data.name) !== -1) {
+      if (roomModal.findIndex((item) => item.name === +data.name && isEdit !== true) !== -1) {
         dataErrors = {
           ...dataErrors,
-          name: ("This room name already in use"),
+          name: ("This room name is already in used"),
         };
       } else {
         delete dataErrors.name;
       }
     }
-
+    
     if (data.idtyperoom === "" || !data.idtyperoom) {
       dataErrors = { ...dataErrors, idtyperoom: "This field can't be empty" };
     } else {
@@ -111,35 +112,56 @@ export default function ModalRoom(props) {
     } else {
       delete dataErrors.description
     }
+    const regeximage = new RegExp('^https?://(?:[a-z0-9-]+.)+[a-z]{2,6}(?:/[^/#?]+)+.(?:jpg|gif|png)$', 'i')
 
     if (data.image[0] === "" || !data.image[0]) {
       dataErrors = { ...dataErrors, image0: "This field can't be empty" };
     } else {
-      delete dataErrors.image0
+      if (!regeximage.test(data.image[0])) {
+        dataErrors = { ...dataErrors, image0: "Please input valid format image url" };
+      } else {
+        delete dataErrors.image0
+      }
     }
 
     if (data.image[1] === "" || !data.image[1]) {
       dataErrors = { ...dataErrors, image1: "This field can't be empty" };
     } else {
-      delete dataErrors.image1
+      if (!regeximage.test(data.image[1])) {
+        dataErrors = { ...dataErrors, image1: "Please input valid format image url" };
+      } else {
+        delete dataErrors.image1
+      }
     }
 
     if (data.image[2] === "" || !data.image[2]) {
       dataErrors = { ...dataErrors, image2: "This field can't be empty" };
     } else {
-      delete dataErrors.image2
+      if (!regeximage.test(data.image[2])) {
+        dataErrors = { ...dataErrors, image2: "Please input valid format image url" };
+      } else {
+        delete dataErrors.image2
+      }
     }
 
     if (data.image[3] === "" || !data.image[3]) {
       dataErrors = { ...dataErrors, image3: "This field can't be empty" };
     } else {
-      delete dataErrors.image3
+      if (!regeximage.test(data.image[3])) {
+        dataErrors = { ...dataErrors, image3: "Please input valid format image url" };
+      } else {
+        delete dataErrors.image3
+      }
     }
 
     if (data.image[4] === "" || !data.image[4]) {
       dataErrors = { ...dataErrors, image4: "This field can't be empty" };
     } else {
-      delete dataErrors.image4
+      if (!regeximage.test(data.image[4])) {
+        dataErrors = { ...dataErrors, image4: "Please input valid format image url" };
+      } else {
+        delete dataErrors.image4
+      }
     }
 
     setdataError({ ...dataErrors });
@@ -180,6 +202,7 @@ export default function ModalRoom(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout name of room'
                 />
                 <span id="name_error" style={{ color: "red" }}>
                   {dataError.name}
@@ -188,7 +211,7 @@ export default function ModalRoom(props) {
             </div>
             <div className="form-group row">
               <label for="idtyperoom" className="col-sm-3 col-form-label">
-                Type Room ID
+                Room Type
               </label>
               <div className="col-sm-9">
                 <select
@@ -196,7 +219,7 @@ export default function ModalRoom(props) {
                   name="idtyperoom"
                   onChange={handleChange}
                   value={+values.idtyperoom}>
-                  <option hidden>Select Room Type</option>
+                  <option hidden>Please choose type of room</option>
                   <option value="1">Classic Room</option>
                   <option value="2">Budget Room</option>
                   <option value="3">Single Room</option>
@@ -211,7 +234,7 @@ export default function ModalRoom(props) {
             </div>
             <div className="form-group row">
               <label for="number" className="col-sm-3 col-form-label">
-                Number
+                Number of People
               </label>
               <div className="col-sm-9">
                 <input
@@ -220,6 +243,7 @@ export default function ModalRoom(props) {
                   type="number"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout number of people'
                 />
                 <span id="number_error" style={{ color: "red" }}>
                   {dataError.number}
@@ -237,6 +261,7 @@ export default function ModalRoom(props) {
                   type="number"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout price per day of room'
                 />
                 <span id="pricePerday_error" style={{ color: "red" }}>
                   {dataError.pricePerday}
@@ -255,6 +280,7 @@ export default function ModalRoom(props) {
                   className="form-control"
                   rows="4"
                   onChange={handleChange}
+                  placeholder='Please fillout description of room'
                 />
                 <span id="description_error" style={{ color: "red" }}>
                   {dataError.description}
@@ -273,6 +299,7 @@ export default function ModalRoom(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChangeImage}
+                  placeholder='Please fillout link of image'
                 />
                 <span id="image0_error" style={{ color: "red" }}>
                   {dataError.image0}
@@ -289,6 +316,7 @@ export default function ModalRoom(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChangeImage}
+                  placeholder='Please fillout link of image'
                 />
                 <span id="image_error" style={{ color: "red" }}>
                   {dataError.image1}
@@ -305,6 +333,7 @@ export default function ModalRoom(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChangeImage}
+                  placeholder='Please fillout link of image'
                 />
                 <span id="image2_error" style={{ color: "red" }}>
                   {dataError.image2}
@@ -321,6 +350,7 @@ export default function ModalRoom(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChangeImage}
+                  placeholder='Please fillout link of image'
                 />
                 <span id="image3_error" style={{ color: "red" }}>
                   {dataError.image3}
@@ -337,6 +367,7 @@ export default function ModalRoom(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChangeImage}
+                  placeholder='Please fillout link of image'
                 />
                 <span id="image4_error" style={{ color: "red" }}>
                   {dataError.image4}
