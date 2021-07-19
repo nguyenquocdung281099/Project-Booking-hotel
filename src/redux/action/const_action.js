@@ -72,8 +72,6 @@ export const GET_USERDB = "GET_USERDB";
 export const GET_USERDB_SC = "GET_USERDB_SC";
 export const ADD_USERDB = "ADD_USERDB";
 export const ADD_USERDB_SC = "ADD_USERDB_SC";
-export const EDIT_USERDB = "EDIT_USERDB"
-export const EDIT_USERDB_SC = "EDIT_USERDB_SC"
 export const DEL_USERDB = "DEL_USERDB";
 export const DEL_USERDB_SC = "DEL_USERDB_SC";
 
@@ -81,9 +79,13 @@ export const DEL_USERDB_SC = "DEL_USERDB_SC";
 export const GET_BOOKINGDB = "GET_BOOKINGDB";
 export const GET_BOOKINGDB_SC = "GET_BOOKINGDB_SC";
 export const SEARCH_BOOKINGDB = "SEARCH_BOOKINGDB";
-export const EDIT_BOOKINGDB = "EDIT_BOOKINGDB"
-export const EDIT_BOOKINGDB_SC = "EDIT_BOOKINGDB_SC"
+export const EDIT_BOOKINGDB = "EDIT_BOOKINGDB";
+export const EDIT_BOOKINGDB_SC = "EDIT_BOOKINGDB_SC";
 
 //room DB staffpage
-export const GET_ROOM_MODAL= "GET_ROOM_MODAL"
-export const GET_ROOM_MODAL_SC= "GET_ROOM_MODAL_SC"
+export const GET_ROOM_MODAL = "GET_ROOM_MODAL";
+export const GET_ROOM_MODAL_SC = "GET_ROOM_MODAL_SC";
+// get pro
+export const GET_PROMOUS = "GET_PROMOUS";
+
+export const CANCEL_COST ="CANCEL_COST"

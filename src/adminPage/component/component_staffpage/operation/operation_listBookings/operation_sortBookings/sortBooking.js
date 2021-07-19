@@ -82,6 +82,8 @@ export default function SortBooking(props) {
                     >
                         <option hidden>Sort</option>
                         <option value="status">Status</option>
+                        <option value="dateStart">Date Start</option>
+                        <option value="dateEnd">Date End</option>
                     </select>
                 </div>
                 <div className="form-group">

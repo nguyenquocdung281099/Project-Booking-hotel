@@ -96,12 +96,12 @@ form .group-input {
   padding-left: 1rem;
   margin-bottom: 2rem;
 }
-.div-date h4 {
+.div-date h3 {
   color: rgba(0, 0, 0, 0.466);
   position: relative;
 }
 
-.div-date h4::before {
+.div-date h3::before {
   content: "";
   position: absolute;
   width: 40%;

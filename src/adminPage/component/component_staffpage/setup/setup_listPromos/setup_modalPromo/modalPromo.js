@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useSelector } from 'react-redux'
 
 export default function ModalPromo(props) {
   let { id, name, discount, code, amount, isOpen, isEdit } = props;
@@ -9,11 +10,24 @@ export default function ModalPromo(props) {
   const [values, setValues] = useState(initialValues);
 
   function handleChange(e) {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+    switch (e.target.name) {
+      case 'discount':
+      case 'amount':
+        setValues({
+          ...values,
+          [e.target.name]: +e.target.value,
+        });
+        break;
+      default:
+        setValues({
+          ...values,
+          [e.target.name]: e.target.value,
+        });
+        break;
+    }
   }
+
+  const promoModal = useSelector((state) => state.promo.promo)
 
   const [dataError, setdataError] = useState({
     name: "*",
@@ -29,11 +43,18 @@ export default function ModalPromo(props) {
     if (data.name === "" || !data.name) {
       dataErrors = { ...dataErrors, name: "This field can't be empty" };
     } else {
-      delete dataErrors.name;
+      if (promoModal.findIndex((item) => item.name === data.name) !== -1 && isEdit !== true) {
+        dataErrors = {
+          ...dataErrors,
+          name: ("This promo name is already in used"),
+        };
+      } else {
+        delete dataErrors.name;
+      }
     }
 
     if (data.discount <= 0 || !data.discount) {
-      dataErrors = { ...dataErrors, discount: "This field can't be empty" };
+      dataErrors = { ...dataErrors, discount: "This field must be a positive value" };
     } else {
       delete dataErrors.discount;
     }
@@ -41,11 +62,18 @@ export default function ModalPromo(props) {
     if (data.code === "" || !data.code) {
       dataErrors = { ...dataErrors, code: "This field can't be empty" };
     } else {
-      delete dataErrors.code;
+      if (promoModal.findIndex((item) => item.code === data.code) !== -1 && isEdit !== true) {
+        dataErrors = {
+          ...dataErrors,
+          code: ("This promo code is already in used"),
+        };
+      } else {
+        delete dataErrors.code;
+      }
     }
 
     if (data.amount <= 0 || !data.amount) {
-      dataErrors = { ...dataErrors, amount: "This field can't be empty" };
+      dataErrors = { ...dataErrors, amount: "This field must be a positive value" };
     } else {
       delete dataErrors.amount;
     }
@@ -88,6 +116,7 @@ export default function ModalPromo(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout name promo'
                 />
                 <span id="name_error" style={{ color: "red" }}>
                   {dataError.name}
@@ -105,6 +134,7 @@ export default function ModalPromo(props) {
                   type="number"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout value of discount'
                 />
                 <span id="discount_error" style={{ color: "red" }}>
                   {dataError.discount}
@@ -122,6 +152,7 @@ export default function ModalPromo(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout name of promo code'
                 />
                 <span id="code_error" style={{ color: "red" }}>
                   {dataError.code}
@@ -139,6 +170,7 @@ export default function ModalPromo(props) {
                   type="number"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout amount of promo code'
                 />
                 <span id="amount_error" style={{ color: "red" }}>
                   {dataError.amount}

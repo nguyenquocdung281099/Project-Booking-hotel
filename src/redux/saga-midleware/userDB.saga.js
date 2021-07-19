@@ -8,7 +8,6 @@ import queryString from "query-string";
 export default function* UserDBSaga() {
     yield takeLatest(action.GET_USERDB, getUserDB);
     yield takeLatest(action.ADD_USERDB, addUserDB);
-    yield takeLatest(action.EDIT_USERDB, editUserDB);
     yield takeLatest(action.DEL_USERDB, delUserDB);
 }
 
@@ -33,15 +32,6 @@ function* addUserDB(action) {
     } catch (e) { }
 }
 
-function* editUserDB(action) {
-    try {
-        const userDB = yield call(putData, URL_USERDB, action.payload)
-        if (userDB.status === 200) {
-            yield put(func_action.editUserDBSC(userDB.data))
-        }
-    } catch (e) { }
-}
-
 function* delUserDB(action) {
     try {
         const userDB = yield call(del, URL_USERDB, action.payload)
@@ -59,10 +49,6 @@ function get(url) {
 
 function post(url, item) {
     return axios.post(`${url}`, item)
-}
-
-function putData(url, data) {
-    return axios.put(`${url}/${data.id}`, data)
 }
 
 function del(url, id) {

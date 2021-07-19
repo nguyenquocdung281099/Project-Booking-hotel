@@ -12,8 +12,9 @@ import {
   KEY_ROOM_BOOKING,
 } from "../../const/const";
 import {
+  cancelCost,
   editPromo,
-  getpromo,
+  getPromoUs,
   getservice,
   setBooking,
 } from "../../../redux/action/index";
@@ -30,6 +31,7 @@ export default function BookingPage() {
   const param = useLocation();
 
   const notify = () => toast.success("apply code success!");
+  const cancelSC = () => toast.success("cancel code success!");
   const notifyEr = () =>
     toast.warning("discount code has been used or is incorrect!");
   const notifyPaySC = () => toast.success("Booking success!");
@@ -40,10 +42,8 @@ export default function BookingPage() {
   let promo = useSelector((state) => state.promo.promo);
   const isGetPromo = useSelector((state) => state.promo.isGetPromo);
   const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
-  console.log(filterSearchRoom.number_gte + 1);
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const service = useSelector((state) => state.service.service);
-  console.log(service);
   const { t } = useTranslation();
   const users = useSelector((state) => state.user.user);
   const [booking, setBookings] = useState({
@@ -61,7 +61,6 @@ export default function BookingPage() {
   // get discount code
 
   const holidays = setDateBooked(bookingRoomFetch);
-
   useEffect(() => {
     setBookings({ ...booking, idUser: users.id });
   }, [users]);
@@ -69,21 +68,24 @@ export default function BookingPage() {
   useEffect(() => {
     dispatch(getservice({ _page: 1 }));
   }, []);
-
   useEffect(() => {
     if (isGetPromo === true) {
       notify();
       setIsCancel(true);
-      dispatch(editPromo({ ...promo[0], amount: promo[0].amount - 1 }));
       setBookings({ ...booking, codeDiscount: promo[0].code });
     } else if (isGetPromo === false) {
-      notifyEr();
       setBookings({ ...booking, codeDiscount: null });
+      if (isCancelCode === true) {
+        notifyEr();
+      } else {
+        cancelSC();
+      }
     }
   }, [isGetPromo]);
   const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
   const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
-  const totalDay = getTotalDay(Date.parse(checkIn), Date.parse(checkOut));
+  const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
+
   const totalCost =
     isGetPromo === true
       ? getTotalCost(totalDay, infRoom.pricePerday, promo[0].discount)
@@ -91,6 +93,9 @@ export default function BookingPage() {
 
   function handelPay() {
     notifyPaySC();
+    if (isGetPromo === true) {
+      dispatch(editPromo({ ...promo[0], amount: promo[0].amount - 1 }));
+    }
     const bookings = {
       ...booking,
       totalCost: totalCost,
@@ -254,7 +259,7 @@ export default function BookingPage() {
                           onChange={(e) => {
                             setValueSearchCode(e.target.value);
                           }}
-                          disabled={promo.length !== 0}
+                          disabled={promo.length !== 0 && isCancelCode === true}
                         />
 
                         {isCancelCode === false ? (
@@ -264,7 +269,7 @@ export default function BookingPage() {
                             onClick={(e) => {
                               e.preventDefault();
                               dispatch(
-                                getpromo({
+                                getPromoUs({
                                   code: valueSearchCode,
                                   _page: 1,
                                   _limit: 25,
@@ -281,12 +286,7 @@ export default function BookingPage() {
                               setIsCancel(false);
                               e.preventDefault();
                               setBookings({ ...booking, codeDiscount: null });
-                              dispatch(
-                                editPromo({
-                                  ...promo[0],
-                                  amount: promo[0].amount + 1,
-                                })
-                              );
+                              dispatch(cancelCost());
                             }}
                           >
                             {t("Cancel")}
@@ -298,13 +298,13 @@ export default function BookingPage() {
                       <h2 className="mb-5">{t("inf Date")}</h2>
 
                       <div className="info_checkIn div-date ">
-                        <h4> {t("checkin")}</h4>
+                        <h3> {t("checkin")}</h3>
                         <p>{`${checkIn.getDate()}/${
                           checkIn.getMonth() + 1
                         }/${checkIn.getFullYear()}`}</p>
                       </div>
                       <div className="info_checkOut div-date">
-                        <h4> {t("checkout")}</h4>
+                        <h3> {t("checkout")}</h3>
                         <p>{`${checkOut.getDate()}/${
                           checkOut.getMonth() + 1
                         }/${checkOut.getFullYear()}`}</p>
@@ -313,12 +313,19 @@ export default function BookingPage() {
                     <div className="col-3">
                       <h2 className="mb-5">{t("inf Room")}</h2>
                       <div className="inf_room__confirm">
-                        <h2 className="name_rom">
+                        <h3 className="name_rom">
                           {t("nameRoom")}: {infRoom.name}
-                        </h2>
-                        <p className="name_rom">
+                        </h3>
+                        <h3 className="name_rom">
                           {t("pricePerDay")}: ${infRoom.pricePerday}
-                        </p>
+                        </h3>
+                        <h3>
+                          {t("Total Day")} :{" "}
+                          {getTotalDay(
+                            Date.parse(checkOut),
+                            Date.parse(checkIn)
+                          )}
+                        </h3>
                         {isGetPromo === true && isCancelCode === true ? (
                           <p>
                             {t("discount code")} :{promo[0].code}{" "}
@@ -326,13 +333,7 @@ export default function BookingPage() {
                         ) : (
                           ""
                         )}
-                        <p>
-                          {t("Total Day")} :{" "}
-                          {getTotalDay(
-                            Date.parse(checkIn),
-                            Date.parse(checkOut)
-                          )}
-                        </p>
+
                         <div className="descr_room">{infRoom.description}</div>
                       </div>
                     </div>
@@ -507,6 +508,8 @@ const setDateBooked = (booking) => {
 };
 
 function getTotalDay(dateEndMs, dateStartMs) {
+  console.log(dateEndMs);
+  console.log(dateEndMs);
   const totalDay =
     (dateEndMs - dateStartMs) / 86400000 === 0
       ? 1

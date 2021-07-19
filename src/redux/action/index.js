@@ -282,8 +282,8 @@ export const getRoomDetailSc = (data) => {
   return {
     type: ActionType.GET_ROOM_DETAIL_SC,
     payload: data,
-  }
-}
+  };
+};
 
 //user DB staffpage
 export const getUserDB = (filter) => {
@@ -322,9 +322,9 @@ export const showtoast = () => {
 export const getBookingRoom = (data) => {
   return {
     type: ActionType.GET_BOOKING_ROOM,
-    payload: data
-  }
-}
+    payload: data,
+  };
+};
 
 export const addUserDB = (data) => {
   return {
@@ -336,20 +336,6 @@ export const addUserDB = (data) => {
 export const addUserDBSC = (data) => {
   return {
     type: ActionType.ADD_USERDB_SC,
-    payload: data,
-  };
-};
-
-export const editUserDB = (data) => {
-  return {
-    type: ActionType.EDIT_USERDB,
-    payload: data,
-  };
-};
-
-export const editUserDBSC = (data) => {
-  return {
-    type: ActionType.EDIT_USERDB_SC,
     payload: data,
   };
 };
@@ -374,7 +360,6 @@ export const setBooking = (data) => {
     payload: data,
   };
 };
-
 
 export const delUserDBSC = (data) => {
   return {
@@ -406,7 +391,6 @@ export const filterSearchRoom = (data) => {
   };
 };
 
-
 //booking DB staff page
 export const getBookingDB = (filter, search) => {
   return {
@@ -426,7 +410,7 @@ export const getBookingDBSC = (data) => {
 export const searchBookingDB = (data) => {
   return {
     type: ActionType.SEARCH_BOOKINGDB,
-    payload: data
+    payload: data,
   };
 };
 
@@ -455,6 +439,19 @@ export const getRoomModal = (data) => {
 export const getRoomModalSC = (data) => {
   return {
     type: ActionType.GET_ROOM_MODAL_SC,
-    payload: data
+    payload: data,
+  };
+};
+
+export const getPromoUs = (data) => {
+  return {
+    type: ActionType.GET_PROMOUS,
+    payload: data,
+  };
+};
+
+export const cancelCost = () => {
+  return {
+    type: ActionType.CANCEL_COST,
   };
 };
