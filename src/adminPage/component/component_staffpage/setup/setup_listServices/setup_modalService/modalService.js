@@ -3,9 +3,9 @@ import { Modal, Button } from "react-bootstrap";
 import { useSelector } from 'react-redux'
 
 export default function ModalService(props) {
-  let { id, name, price, isOpen, isEdit } = props;
+  let { id, name, price, createdAt, updatedAt, isOpen, isEdit } = props;
   const initialValues = {
-    id, name, price
+    id, name, price, createdAt, updatedAt
   };
   const [values, setValues] = useState(initialValues);
 
@@ -17,7 +17,6 @@ export default function ModalService(props) {
   }
 
   const serviceModal = useSelector((state) => state.service.service)
-
 
   const [dataError, setdataError] = useState({
     name: "*",

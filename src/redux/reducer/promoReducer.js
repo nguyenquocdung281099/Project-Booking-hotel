@@ -12,6 +12,20 @@ export default function promoReducer(state = defaultState, action) {
   console.log(action.type);
   let newState = { ...state };
   switch (action.type) {
+    case ActionType.GET_PROMODB_SC:
+      if (action.payload.pagination) {
+        newState = {
+          ...newState,
+          promo: action.payload.data,
+          pagi: action.payload.pagination
+        }
+      } else {
+        newState = {
+          ...newState,
+          promo: action.payload
+        }
+      }
+      return newState;
     case ActionType.GET_PROMO_SC:
       if (action.payload.length === 0) {
         console.log(action.payload);

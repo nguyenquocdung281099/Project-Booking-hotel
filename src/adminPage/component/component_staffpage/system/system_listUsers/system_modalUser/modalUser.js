@@ -3,13 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 import { useSelector } from 'react-redux'
 
 export default function ModalUser(props) {
-  let { id, name, idRole, userName, birthday, email, address, isOpen, isEdit } = props;
+  let { id, name, idRole, birthday, email, address,
+    password, createdAt, updatedAt, isOpen, isEdit } = props;
   const initialValues = {
-    id, name, idRole, userName, birthday, email, address
+    id, name, idRole, birthday, email, address, password, createdAt, updatedAt,
   };
   const [values, setValues] = useState(initialValues);
-
-
 
   function handleChange(e) {
     setValues({
@@ -22,7 +21,6 @@ export default function ModalUser(props) {
   const [dataError, setdataError] = useState({
     name: "*",
     idRole: "*",
-    userName: "*",
     birthday: "*",
     email: "*",
     address: "*",
@@ -42,12 +40,6 @@ export default function ModalUser(props) {
       dataErrors = { ...dataErrors, idRole: "This field can't be empty" };
     } else {
       delete dataErrors.idRole;
-    }
-
-    if (data.userName === "" || !data.userName) {
-      dataErrors = { ...dataErrors, userName: "This field can't be empty" };
-    } else {
-      delete dataErrors.userName;
     }
 
     if (!data.birthday) {
@@ -144,24 +136,6 @@ export default function ModalUser(props) {
                 </select>
                 <span id="idRole_error" style={{ color: "red" }}>
                   {dataError.idRole}
-                </span>
-              </div>
-            </div>
-            <div className="form-group row">
-              <label for="userName" className="col-sm-3 col-form-label">
-                User Name
-              </label>
-              <div className="col-sm-9">
-                <input
-                  defaultValue={name}
-                  name="userName"
-                  type="text"
-                  className="form-control"
-                  onChange={handleChange}
-                  placeholder='Please fillout user name'
-                />
-                <span id="userName_error" style={{ color: "red" }}>
-                  {dataError.userName}
                 </span>
               </div>
             </div>

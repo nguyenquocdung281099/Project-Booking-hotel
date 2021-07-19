@@ -22,6 +22,7 @@ export default function Dashboard() {
   const rData = useSelector((state) => state.room.rooms);
   const pData = useSelector((state) => state.promo.promo);
   const sData = useSelector((state) => state.service.service);
+  const uData = useSelector((state) => state.userDB.userDB);
 
   useEffect(() => {
     dispatch(getBookingDB({}));
@@ -32,7 +33,6 @@ export default function Dashboard() {
   }, []);
 
   const token = localStorage.getItem(KEY_TOKEN);
-  let uData = useSelector((state) => state.userDB.userDB);
   let emailUser = { email: "" };
   if (token !== null) emailUser = jwt_decode(token);
 
@@ -42,10 +42,12 @@ export default function Dashboard() {
     // eslint-disable-next-line
   }, []);
 
-  const userData = uData.find((e) => e.email === emailUser.email);
+  console.log(emailUser)
+
+  const userData = ((uData.length !== 0 || uData !== null) && typeof(emailUser) !== 'undefined') ? uData.find((e) => e.email === emailUser.email) : [];
 
   // table
-  const dummyBData = bData.slice().sort((a, b) => b.updatedAt - a.updatedAt);
+  const dummyBData = (bData.length !== 0 || bData !== null) ? bData.slice().sort((a, b) => b.updatedAt - a.updatedAt) : [];
   dummyBData.splice(5);
   const bookTData = dummyBData.map(({ id, dateStart, dateEnd, status }) => ({
     id,
@@ -54,7 +56,7 @@ export default function Dashboard() {
     status,
   }));
 
-  const dummyRData = rData.slice().sort((a, b) => b.updatedAt - a.updatedAt);
+  const dummyRData = (rData.length !== 0 || rData !== null) ? rData.slice().sort((a, b) => b.updatedAt - a.updatedAt) : [];
   dummyRData.splice(5);
   const roomTData = dummyRData.map(
     ({ name, idtyperoom, number, rating, pricePerday }) => ({
@@ -66,16 +68,17 @@ export default function Dashboard() {
     })
   );
 
-  const dummyPData = pData.slice().sort((a, b) => b.updatedAt - a.updatedAt);
+  const dummyPData = (pData.length !== 0 || pData !== null) ? pData.slice().sort((a, b) => b.updatedAt - a.updatedAt) : [];
   dummyPData.splice(5);
-  const promoTData = dummyPData.map(({ name, code, discount, amount }) => ({
+  let promoTData = dummyPData.map(({ name, code, discount, amount }) => ({
     name,
     code,
     discount,
     amount,
   }));
 
-  const dummySData = sData.slice().sort((a, b) => b.updatedAt - a.updatedAt);
+
+  const dummySData = (sData.length !== 0 || sData !== null) ? sData.slice().sort((a, b) => b.updatedAt - a.updatedAt) : [];
   dummySData.splice(5);
   const serviceTData = dummySData.map(({ id, name, price }) => ({
     id,
@@ -87,51 +90,53 @@ export default function Dashboard() {
     name: "Booking",
     link: "/admin/operation/list_bookings",
     db: bookTData,
-    button: userData.role === "user4" ? true : false,
+    button: (typeof(uData) !== 'undefined' && typeof(emailUser) !== 'undefined' && typeof(userData) !== 'undefined') ? userData.role === "user4" ? true : false : false
   };
 
   const room = {
     name: "Room",
     link: "/admin/setup/list_rooms",
     db: roomTData,
-    button: userData.role === "user3" ? true : false,
+    button: (typeof(uData) !== 'undefined' && typeof(emailUser) !== 'undefined' && typeof(userData) !== 'undefined') ? userData.role === "user3" ? true : false : false
   };
 
   const promotion = {
     name: "Promotion",
     link: "/admin/setup/list_promos",
     db: promoTData,
-    button: userData.role === "user3" ? true : false,
+    button: (typeof(uData) !== 'undefined' && typeof(emailUser) !== 'undefined' && typeof(userData) !== 'undefined') ? userData.role === "user3" ? true : false : false
   };
 
   const service = {
     name: "Service",
     link: "/admin/setup/list_services",
     db: serviceTData,
-    button: userData.role === "user3" ? true : false,
+    button: (typeof(uData) !== 'undefined' && typeof(emailUser) !== 'undefined' && typeof(userData) !== 'undefined') ? userData.role === "user3" ? true : false : false
   };
 
   //chartbooking
-  const dummyData = bData.map(({ dateEnd, totalCost, status }) => ({
-    month: new Date(dateEnd).getMonth() + 1,
-    year: new Date(dateEnd).getFullYear(),
-    cost:
-      status === "CANCEL"
-        ? Number.parseFloat(totalCost) * 0.8
-        : Number.parseFloat(totalCost),
-  }));
+  const currentMonth = new Date().getMonth() + 1
+  const currentYear = new Date().getFullYear()
 
-  const dummyData2 = bData.map(({ dateEnd, number, status }) => ({
-    month: new Date(dateEnd).getMonth() + 1,
-    year: new Date(dateEnd).getFullYear(),
-    peopleCome: status === "CANCEL" ? 0 : number,
-    peopleCancel: status === "CANCEL" ? number : 0,
-  }));
+  const dummyData = bData.map(({ dateEnd, totalCost, status }) =>
+  ({
+    month: ((new Date(dateEnd)).getMonth() + 1),
+    year: (new Date(dateEnd)).getFullYear(),
+    cost: status === 'CANCEL' ?
+      Number.parseFloat(totalCost) * 0.8 :
+      Number.parseFloat(totalCost),
+  }))
 
-  const currentMonth = new Date().getMonth() + 1;
-  const currentYear = new Date().getFullYear();
-  const regTime = [];
-  const monthLabels = [];
+  const dummyData2 = bData.map(({ dateEnd, number, status }) =>
+  ({
+    month: ((new Date(dateEnd)).getMonth() + 1),
+    year: (new Date(dateEnd)).getFullYear(),
+    peopleCome: status === 'CANCEL' ? 0 : number,
+    peopleCancel: status === 'CANCEL' ? number : 0,
+  }))
+
+  const regTime = []
+  const monthLabels = []
   const monthNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const monthNames = [
     "January",

@@ -2,14 +2,17 @@ import './style.css'
 import { Modal, Button } from "react-bootstrap";
 
 export default function Invoice(props) {
-    let { id, idroom, idUser, dateStart, dateEnd, promoId, totalCost,
-        status, paymethod, isOpen, number, findRoomName, findUser} = props;
+    let { id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost, status,
+        paymethod, number, service, createdAt, updatedAt, isOpen, findRoomName, findUser } = props;
 
     const dayStart = new Date(dateStart)
     let dayS = `${dayStart.getDate()}/${dayStart.getMonth() + 1}/${dayStart.getFullYear()}`
     const dayEnd = new Date(dateEnd)
     let dayE = `${dayEnd.getDate()}/${dayEnd.getMonth() + 1}/${dayEnd.getFullYear()}`
 
+    let sCost = 0;
+    sCost = (service.length !== 0 || service !== null) ? sCost + service.map(item => item.price) : 0
+    let bCost = totalCost - sCost
     let uInfo = findUser(idUser)
     return (
         <Modal
@@ -97,10 +100,25 @@ export default function Invoice(props) {
                                                         <td>1</td>
                                                         <td>Booking</td>
                                                         <td className="hidden-xs">{`From ${dayS} to ${dayE}`}</td>
-                                                        <td>${totalCost}</td>
+                                                        <td>${bCost}</td>
                                                         <td>1</td>
-                                                        <td>${totalCost}</td>
+                                                        <td>${bCost}</td>
                                                     </tr>
+
+                                                    {service.length !== 0 || service !== null ?
+                                                        service.map((eitem, eindex) => {
+                                                            return (
+                                                                <tr key={`trservice-${eindex}`}>
+                                                                    <td>{eindex + 2}</td>
+                                                                    <td>{`Service ${eindex + 1}`}</td>
+                                                                    <td className="hidden-xs">{eitem.name}</td>
+                                                                    <td>${eitem.price}</td>
+                                                                    <td>1</td>
+                                                                    <td>${eitem.price}</td>
+                                                                </tr>)
+                                                        })
+                                                        : ("")}
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -146,10 +164,10 @@ export default function Invoice(props) {
                 </div>
             </Modal.Body>
             <Modal.Footer>
-          <Button variant="danger" onClick={() => props.hideInvoice()}>
-            Close
-          </Button>
-        </Modal.Footer>
+                <Button variant="danger" onClick={() => props.hideInvoice()}>
+                    Close
+                </Button>
+            </Modal.Footer>
         </Modal>
     )
 }

@@ -56,7 +56,9 @@ export default function ListRooms() {
     description: null,
     image: [],
     rating: null,
-  });
+    createdAt: null,
+    updatedAt: null
+  })
 
   const [modalDelStatus, setModalDelStatus] = useState({
     isOpen: false,
@@ -84,10 +86,11 @@ export default function ListRooms() {
       pricePerday: +data.pricePerday,
       description: data.description,
       image: data.image,
-    };
-    dispatch(addRoom(item));
-    hideModal();
-    toaster("ADD");
+      rating: +data.rating,
+    }
+    dispatch(addRoom(item))
+    hideModal()
+    toaster('ADD')
   }
 
   function editData(data) {
@@ -124,7 +127,9 @@ export default function ListRooms() {
       description: null,
       image: [],
       rating: null,
-    };
+      createdAt: null,
+      updatedAt: null
+    }
     newState = { ...newState, isOpen: false, isEdit: null, ...data };
     setModalStatus(newState);
   };

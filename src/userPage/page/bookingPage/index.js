@@ -45,12 +45,9 @@ export default function BookingPage() {
   let promo = useSelector((state) => state.promo.promo);
   const isGetPromo = useSelector((state) => state.promo.isGetPromo);
   const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
-<<<<<<< HEAD
-=======
   const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
   const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
   const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
->>>>>>> b55a262cea899303e94675d644c0f299f43b088f
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const service = useSelector((state) => state.service.service);
   const { t } = useTranslation();
@@ -91,12 +88,6 @@ export default function BookingPage() {
       }
     }
   }, [isGetPromo]);
-<<<<<<< HEAD
-  const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
-  const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
-  const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
-=======
->>>>>>> b55a262cea899303e94675d644c0f299f43b088f
 
   const totalCost =
     isGetPromo === true
@@ -359,15 +350,6 @@ export default function BookingPage() {
                     <div className="col-3">
                       <h2 className="mb-5">{t("inf Room")}</h2>
                       <div className="inf_room__confirm">
-<<<<<<< HEAD
-                        <h3 className="name_rom">
-                          {t("nameRoom")}: {infRoom.name}
-                        </h3>
-                        <h3 className="name_rom">
-                          {t("pricePerDay")}: ${infRoom.pricePerday}
-                        </h3>
-                        <h3>
-=======
                         <h4 className="name_rom">
                           {t("nameRoom")}: {infRoom.name}
                         </h4>
@@ -375,15 +357,11 @@ export default function BookingPage() {
                           {t("pricePerDay")}: ${infRoom.pricePerday}
                         </h4>
                         <h4>
->>>>>>> b55a262cea899303e94675d644c0f299f43b088f
                           {t("Total Day")} :{" "}
                           {getTotalDay(
                             Date.parse(checkOut),
                             Date.parse(checkIn)
                           )}
-<<<<<<< HEAD
-                        </h3>
-=======
                         </h4>
                         <h4>
                           {t("Person")}:{booking.number}
@@ -397,7 +375,6 @@ export default function BookingPage() {
                           </p>
                         ))}
                         <hr />
->>>>>>> b55a262cea899303e94675d644c0f299f43b088f
                         {isGetPromo === true && isCancelCode === true ? (
                           <p>
                             {t("discount code")} :{promo[0].code}{" "}
@@ -405,10 +382,6 @@ export default function BookingPage() {
                         ) : (
                           ""
                         )}
-<<<<<<< HEAD
-
-=======
->>>>>>> b55a262cea899303e94675d644c0f299f43b088f
                         <div className="descr_room">{infRoom.description}</div>
                       </div>
                     </div>
