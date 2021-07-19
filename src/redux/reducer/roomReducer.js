@@ -8,7 +8,7 @@ const defaultState = {
   loading: true,
   roomsDetail: [],
   filterSearchRoom: {},
-  loader: true
+  loader: true,
 };
 
 export default function roomReducer(state = defaultState, action) {
@@ -26,7 +26,16 @@ export default function roomReducer(state = defaultState, action) {
       newState = { ...newState, type: action.payload };
       return newState;
     case ActionType.CHANGE_FILTER:
-      state = { ...newState, filter: action.payload, filterSearchRoom: {} };
+      Object.keys(action.payload).length === 0
+        ? (state = {
+            ...newState,
+            filter: action.payload,
+            filterSearchRoom: {},
+          })
+        : (state = {
+            ...newState,
+            filter: action.payload,
+          });
       return state;
     case ActionType.SET_LOADING:
       state = { ...newState, loading: action.status };

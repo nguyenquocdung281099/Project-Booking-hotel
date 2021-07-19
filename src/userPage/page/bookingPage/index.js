@@ -11,7 +11,12 @@ import {
   KEY_DATE_CHECKOUT,
   KEY_ROOM_BOOKING,
 } from "../../const/const";
-import { getpromo, setBooking } from "../../../redux/action/index";
+import {
+  editPromo,
+  getpromo,
+  getservice,
+  setBooking,
+} from "../../../redux/action/index";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,14 +24,14 @@ import { Link, Route, Switch, useLocation } from "react-router-dom";
 
 export default function BookingPage() {
   const [valueSearchCode, setValueSearchCode] = useState("");
-  const [isCancelCode, setIsCancel] = useState(true);
+  const [isCancelCode, setIsCancel] = useState(false);
   const [valuePayMethod, setValuePayMethod] = useState("ZaloPay");
-
   const infRoom = JSON.parse(sessionStorage.getItem(KEY_ROOM_BOOKING)) || [];
   const param = useLocation();
 
   const notify = () => toast.success("apply code success!");
-  const notifyEr = () => toast.warning("apply code error!");
+  const notifyEr = () =>
+    toast.warning("discount code has been used or is incorrect!");
   const notifyPaySC = () => toast.success("Booking success!");
 
   const notifyNotDate = () =>
@@ -34,7 +39,11 @@ export default function BookingPage() {
 
   let promo = useSelector((state) => state.promo.promo);
   const isGetPromo = useSelector((state) => state.promo.isGetPromo);
+  const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
+  console.log(filterSearchRoom.number_gte + 1);
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
+  const service = useSelector((state) => state.service.service);
+  console.log(service);
   const { t } = useTranslation();
   const users = useSelector((state) => state.user.user);
   const [booking, setBookings] = useState({
@@ -49,22 +58,26 @@ export default function BookingPage() {
   });
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setBookings({ ...booking, idUser: users.id });
-  }, [users]);
-
   // get discount code
 
   const holidays = setDateBooked(bookingRoomFetch);
 
   useEffect(() => {
+    setBookings({ ...booking, idUser: users.id });
+  }, [users]);
+
+  useEffect(() => {
+    dispatch(getservice({ _page: 1 }));
+  }, []);
+
+  useEffect(() => {
     if (isGetPromo === true) {
       notify();
+      setIsCancel(true);
+      dispatch(editPromo({ ...promo[0], amount: promo[0].amount - 1 }));
       setBookings({ ...booking, codeDiscount: promo[0].code });
     } else if (isGetPromo === false) {
       notifyEr();
-      setIsCancel(true);
       setBookings({ ...booking, codeDiscount: null });
     }
   }, [isGetPromo]);
@@ -168,6 +181,19 @@ export default function BookingPage() {
                       />
                     </div>
                   </div>
+                  <h3>{t("extra service")}</h3>
+                  <div className="col-12 service">
+                    {service.map((item) => (
+                      <div className="servceItem">
+                        <input
+                          type="checkbox"
+                          name="service"
+                          className="mr-2"
+                        />
+                        {item.name}-${item.price}
+                      </div>
+                    ))}
+                  </div>
                   <Link
                     class="btn"
                     style={{ width: "100px", marginLeft: "auto" }}
@@ -228,13 +254,10 @@ export default function BookingPage() {
                           onChange={(e) => {
                             setValueSearchCode(e.target.value);
                           }}
-                          disabled={
-                            promo.length !== 0 &&
-                            (isCancelCode === true ? true : false)
-                          }
+                          disabled={promo.length !== 0}
                         />
 
-                        {promo.length === 0 && isCancelCode === true ? (
+                        {isCancelCode === false ? (
                           <button
                             className="btn-applyCode"
                             disabled={valueSearchCode === "" && true}
@@ -255,8 +278,15 @@ export default function BookingPage() {
                           <button
                             className="btn-applyCode"
                             onClick={(e) => {
-                              setIsCancel(true);
+                              setIsCancel(false);
                               e.preventDefault();
+                              setBookings({ ...booking, codeDiscount: null });
+                              dispatch(
+                                editPromo({
+                                  ...promo[0],
+                                  amount: promo[0].amount + 1,
+                                })
+                              );
                             }}
                           >
                             {t("Cancel")}
@@ -289,10 +319,12 @@ export default function BookingPage() {
                         <p className="name_rom">
                           {t("pricePerDay")}: ${infRoom.pricePerday}
                         </p>
-                        {isGetPromo === true && (
+                        {isGetPromo === true && isCancelCode === true ? (
                           <p>
                             {t("discount code")} :{promo[0].code}{" "}
                           </p>
+                        ) : (
+                          ""
                         )}
                         <p>
                           {t("Total Day")} :{" "}
@@ -486,6 +518,7 @@ function getTotalCost(totalDay, pricePerday, discout = 0) {
   const ttday = parseInt(totalDay);
   const price = parseFloat(pricePerday);
   const discount = parseFloat(discout);
-  const totalCost = ttday * price - (ttday * price * discount) / 100;
+  const priceDiscout = (ttday * price * discount) / 100;
+  const totalCost = ttday * price - priceDiscout;
   return totalCost.toFixed(2);
 }

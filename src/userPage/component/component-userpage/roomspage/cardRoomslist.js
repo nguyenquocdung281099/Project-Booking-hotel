@@ -18,8 +18,7 @@ export default function CardRoomsList() {
   const data = useSelector((state) => state.room);
   const filter = data.filter;
   const type = data.type;
-  const filterSearchRoom = data.filterSearchRoom;
-  console.log(filterSearchRoom);
+  const filterSearchRoom = data.filterSearchRoom;;
   const { t } = useTranslation();
   const pagi =
     Object.keys(data.pagi).length === 0
