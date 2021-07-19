@@ -225,7 +225,9 @@ export default function ProfilePage() {
           </table>
           <Pagination
             defaultCurrent={1}
-            total={dataBooking.pagination._totalRows}
+            total={
+              dataBooking.pagination ? dataBooking.pagination._totalRows : 0
+            }
             onChange={(currentPage) => {
               dispatch(
                 getBookingRoom({

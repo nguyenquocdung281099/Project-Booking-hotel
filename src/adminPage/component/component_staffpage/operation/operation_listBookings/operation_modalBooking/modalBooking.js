@@ -2,14 +2,17 @@ import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 export default function ModalBooking(props) {
-  let { id, idroom, userID, starttime, endtime, promoId, totalCost,
-    userName, status, paymethod, isOpen } = props;
+  let { id, idroom, idUser, dateStart, dateEnd, promoId, totalCost,
+    status, paymethod, isOpen, number, findRoomName, findUserName} = props;
 
   const initialValues = {
-    id, idroom, userID, starttime, endtime, promoId, totalCost,
-    userName, status, paymethod
+    id, idroom, idUser, dateStart, dateEnd, promoId, totalCost,
+   status, paymethod, number
   };
-  
+
+  let rName = findRoomName(idroom)
+  let uName = findUserName(idUser)
+
   const [values, setValues] = useState(initialValues);
 
   function handleChange(e) {
@@ -22,6 +25,7 @@ export default function ModalBooking(props) {
   const [dataError, setdataError] = useState({
     status: "*",
   });
+
 
   function handleSubmit(data) {
     let dataErrors = {};
@@ -70,26 +74,12 @@ export default function ModalBooking(props) {
               </div>
             </div>
             <div className="form-group row">
-              <label for="userID" className="col-sm-3 col-form-label">
-                User ID
-              </label>
-              <div className="col-sm-9">
-                <input
-                  defaultValue={userID}
-                  name="userID"
-                  type="text"
-                  className="form-control"
-                  disabled
-                />
-              </div>
-            </div>
-            <div className="form-group row">
               <label for="userName" className="col-sm-3 col-form-label">
                 User Name
               </label>
               <div className="col-sm-9">
                 <input
-                  defaultValue={userName}
+                  defaultValue={uName}
                   name="userName"
                   type="text"
                   className="form-control"
@@ -98,29 +88,57 @@ export default function ModalBooking(props) {
               </div>
             </div>
             <div className="form-group row">
-              <label for="starttime" className="col-sm-3 col-form-label">
-                Start Time
+              <label for="roomNumber" className="col-sm-3 col-form-label">
+                Room Number
               </label>
               <div className="col-sm-9">
                 <input
-                  name="starttime"
-                  type="date"
+                  defaultValue={rName}
+                  name="roomNumber"
+                  type="text"
                   className="form-control"
-                  defaultValue={starttime}
                   disabled
                 />
               </div>
             </div>
             <div className="form-group row">
-              <label for="endtime" className="col-sm-3 col-form-label">
-                End Time
+              <label for="number" className="col-sm-3 col-form-label">
+                Number of people
               </label>
               <div className="col-sm-9">
                 <input
-                  name="endtime"
-                  type="date"
+                  defaultValue={number}
+                  name="number"
+                  type="text"
                   className="form-control"
-                  defaultValue={endtime}
+                  disabled
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label for="dateStart" className="col-sm-3 col-form-label">
+                Date Start
+              </label>
+              <div className="col-sm-9">
+                <input
+                  name="dateStart"
+                  type="text"
+                  className="form-control"
+                  defaultValue={dateStart}
+                  disabled
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label for="dateEnd" className="col-sm-3 col-form-label">
+                Date End
+              </label>
+              <div className="col-sm-9">
+                <input
+                  name="dateEnd"
+                  type="text"
+                  className="form-control"
+                  defaultValue={dateEnd}
                   disabled
                 />
               </div>
@@ -140,29 +158,15 @@ export default function ModalBooking(props) {
               </div>
             </div>
             <div className="form-group row">
-              <label for="idpay" className="col-sm-3 col-form-label">
+              <label for="paymethod" className="col-sm-3 col-form-label">
                 Pay Method
               </label>
               <div className="col-sm-9">
                 <input
-                  name="idpay"
+                  name="paymethod"
                   type="text"
                   className="form-control"
-                  defaultValue={paymethod? paymethod.idpaymethod:""}
-                  disabled
-                />
-              </div>
-            </div>
-            <div className="form-group row">
-              <label for="statuspay" className="col-sm-3 col-form-label">
-                Status Pay
-              </label>
-              <div className="col-sm-9">
-                <input
-                  name="statuspay"
-                  type="text"
-                  className="form-control"
-                  defaultValue={paymethod? paymethod.status:""}
+                  defaultValue={paymethod}
                   disabled
                 />
               </div>
@@ -194,7 +198,7 @@ export default function ModalBooking(props) {
           <Button variant="danger" onClick={() => props.hideModal()}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => handleSubmit(values)}>
+          <Button variant="primary" className='mred' onClick={() => handleSubmit(values)}>
             Save
           </Button>
         </Modal.Footer>

@@ -5,7 +5,6 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import {
   URL_PROMO,
   URL_BOOKING,
-  URL_USERDB,
   URL_SERVICE,
   URL_ROOM,
 } from "../../adminPage/const/const";
@@ -24,6 +23,7 @@ export default function* AdminSaga() {
   yield takeLatest(action.ADD_SERVICE, addService);
   yield takeLatest(action.EDIT_SERVICE, editService);
   yield takeLatest(action.DEL_SERVICE, delService);
+  yield takeLatest(action.GET_PROMOUS, getPromoUS);
 }
 
 function* getBooking() {
@@ -52,13 +52,26 @@ function* getPromo(action) {
     const url = queryString.stringify(action.filter);
     const promo = yield call(get, `${URL_PROMO}?${url}`);
     yield put(func_action.setloader(false));
+    yield put(func_action.getpromosc(promo.data));
+  } catch (e) {
+    yield put(func_action.getpromoEr);
+  }
+}
 
+function* getPromoUS(action) {
+  try {
+    const url = queryString.stringify(action.payload);
+    const promo = yield call(get, `${URL_PROMO}?${url}`);
+    yield put(func_action.setloader(false));
     const today = Date.parse(new Date());
-    if (
-      promo.data.data[0].amount > 0 &&
-      Date.parse(promo.data.data[0].expiryDate) > today
-    ) {
-      yield put(func_action.getpromosc(promo.data));
+    console.log(promo.data.data[0].expiryDate);
+    if (promo.data.data.length !== 0) {
+      if (
+        promo.data.data[0].amount > 0 &&
+        Date.parse(promo.data.data[0].expiryDate) > today
+      ) {
+        yield put(func_action.getpromosc(promo.data));
+      }
     } else if (
       promo.data.data.length === 0 ||
       promo.data.data[0].amount === 0 ||
@@ -70,7 +83,6 @@ function* getPromo(action) {
     yield put(func_action.getpromoEr);
   }
 }
-
 // ? get api
 function get(url) {
   return axios.get(url);
@@ -99,7 +111,6 @@ function* addPromo(action) {
 
 function* editPromo(action) {
   try {
-    console.log(action.payload);
     const promo = yield call(putData, URL_PROMO, action.payload);
     if (promo.status === 200) {
       yield put(func_action.editPromoSC(promo.data));

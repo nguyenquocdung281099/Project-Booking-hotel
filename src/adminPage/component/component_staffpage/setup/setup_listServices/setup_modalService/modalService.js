@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useSelector } from 'react-redux'
 
 export default function ModalService(props) {
   let { id, name, price, isOpen, isEdit } = props;
@@ -15,19 +16,29 @@ export default function ModalService(props) {
     });
   }
 
+  const serviceModal = useSelector((state) => state.service.service)
+
+
   const [dataError, setdataError] = useState({
     name: "*",
     price: "*"
   });
 
   function handleSubmit(data) {
-    
+
     let dataErrors = {};
 
     if (data.name === "" || !data.name) {
       dataErrors = { ...dataErrors, name: "This field can't be empty" };
     } else {
-      delete dataErrors.name;
+      if (serviceModal.findIndex((item) => item.name === data.name) !== -1 && isEdit !== true) {
+        dataErrors = {
+          ...dataErrors,
+          name: ("This service name is already in used"),
+        };
+      } else {
+        delete dataErrors.name;
+      }
     }
 
     if (data.price <= 0 || !data.price) {
@@ -74,6 +85,7 @@ export default function ModalService(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout name of service'
                 />
                 <span id="name_error" style={{ color: "red" }}>
                   {dataError.name}
@@ -91,6 +103,7 @@ export default function ModalService(props) {
                   type="number"
                   className="form-control"
                   onChange={handleChange}
+                  placeholder='Please fillout price of service'
                 />
                 <span id="price_error" style={{ color: "red" }}>
                   {dataError.price}
