@@ -74,7 +74,6 @@ export default function BookingPage() {
   useEffect(() => {
     dispatch(getservice({ _page: 1 }));
   }, []);
-
   useEffect(() => {
     if (isGetPromo === true) {
       notify();

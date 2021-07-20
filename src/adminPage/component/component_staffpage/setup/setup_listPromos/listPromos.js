@@ -46,8 +46,12 @@ export default function ListPromos() {
         isEdit: false,
         id: null,
         name: null,
+        discount: null,
         code: null,
         amount: null,
+        expiryDate: null,
+        createdAt: null,
+        updatedAt: null,
     })
 
     const [modalDelStatus, setModalDelStatus] = useState({
@@ -74,6 +78,7 @@ export default function ListPromos() {
             discount: +data.discount,
             code: data.code,
             amount: +data.amount,
+            expiryDate: data.expiryDate,
         }
         dispatch(addPromo(item))
         hideModal()
@@ -105,7 +110,16 @@ export default function ListPromos() {
 
     const hideModal = () => {
         let newState = { ...modalStatus }
-        let data = { id: null, name: null, discount: null, code: null, amount: null, }
+        let data = {
+            id: null,
+            name: null,
+            discount: null,
+            code: null,
+            amount: null,
+            expiryDate: null,
+            createdAt: null,
+            updatedAt: null,
+        }
         newState = { ...newState, isOpen: false, isEdit: null, ...data };
         setModalStatus(newState)
     };
@@ -154,6 +168,7 @@ export default function ListPromos() {
                         <th scope="col">Discount</th>
                         <th scope="col">Code</th>
                         <th scope="col">Amount</th>
+                        <th scope="col">Expire Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>

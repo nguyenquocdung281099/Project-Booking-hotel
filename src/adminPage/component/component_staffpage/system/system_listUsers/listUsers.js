@@ -57,10 +57,12 @@ export default function ListUsers() {
         id: null,
         name: null,
         idRole: null,
-        userName: null,
         birthday: null,
         email: null,
         address: null,
+        password: null,
+        createdAt: null,
+        updatedAt: null
     })
 
     const [modalDelStatus, setModalDelStatus] = useState({
@@ -108,12 +110,15 @@ export default function ListUsers() {
     const hideModal = () => {
         let newState = { ...modalStatus }
         let data = {
+            id: null,
             name: null,
             idRole: null,
-            userName: null,
             birthday: null,
             email: null,
             address: null,
+            password: null,
+            createdAt: null,
+            updatedAt: null
         }
         newState = { ...newState, isOpen: false, isEdit: null, ...data };
         setModalStatus(newState)
@@ -148,10 +153,9 @@ export default function ListUsers() {
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">ID Role</th>
+                        <th scope="col">Role</th>
                         <th scope="col">Birth</th>
                         <th scope="col">Address</th>
-                        <th scope="col">User Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Action</th>
                     </tr>

@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 export default function ModalBooking(props) {
-  let { id, idroom, idUser, dateStart, dateEnd, promoId, totalCost,
-    status, paymethod, isOpen, number, findRoomName, findUserName} = props;
+  let { id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost, status,
+    paymethod, number, service, createdAt, updatedAt, isOpen, findRoomName, findUserName } = props;
+
 
   const initialValues = {
-    id, idroom, idUser, dateStart, dateEnd, promoId, totalCost,
-   status, paymethod, number
+    id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost, status,
+    paymethod, number, service, createdAt, updatedAt
   };
 
   let rName = findRoomName(idroom)
@@ -24,13 +25,18 @@ export default function ModalBooking(props) {
 
   const [dataError, setdataError] = useState({
     status: "*",
-  });
+    dateStart: "*",
+  })
 
+  let dayS = new Date(dateStart)
+  let dateS = `${dayS.getDate()}/${dayS.getMonth() + 1}/${dayS.getFullYear()}`
+  let dayE = new Date(dateEnd)
+  let dateE = `${dayE.getDate()}/${dayE.getMonth() + 1}/${dayE.getFullYear()}`
 
   function handleSubmit(data) {
     let dataErrors = {};
 
-    if (data.status=== "" || !data.status) {
+    if (data.status === "" || !data.status) {
       dataErrors = { ...dataErrors, status: "This field can't be empty" };
     } else {
       delete dataErrors.status;
@@ -39,8 +45,8 @@ export default function ModalBooking(props) {
     setdataError({ ...dataErrors });
 
     if (Object.keys(dataErrors).length === 0) {
-        props.editData(data)
-      }
+      props.editData(data)
+    }
   }
 
   return (
@@ -124,7 +130,7 @@ export default function ModalBooking(props) {
                   name="dateStart"
                   type="text"
                   className="form-control"
-                  defaultValue={dateStart}
+                  defaultValue={dateS}
                   disabled
                 />
               </div>
@@ -138,21 +144,52 @@ export default function ModalBooking(props) {
                   name="dateEnd"
                   type="text"
                   className="form-control"
-                  defaultValue={dateEnd}
+                  defaultValue={dateE}
                   disabled
                 />
               </div>
             </div>
+
+            {values.service.length !== 0 || values.service !== null ?
+              values.service.map((eitem, eindex) => {
+                return (
+                  <div className="form-group row">
+                    <label for={`eservice-${eindex+1}`} className="col-sm-3 col-form-label">
+                      Service {eindex+1}
+                    </label>
+                    <div className="col-sm-7">
+                      <input
+                        name={`eservice-name-${eindex+1}`}
+                        type="text"
+                        className="form-control"
+                        defaultValue={eitem.name}
+                        disabled
+                      />
+                    </div>
+                    <div className="col-sm-2">
+                      <input
+                        name={`eservice-price-${eindex+1}`}
+                        type="text"
+                        className="form-control"
+                        defaultValue={`$ ${eitem.price}`}
+                        disabled
+                      />
+                    </div>
+                  </div>)
+              })
+
+              : ("")}
+
             <div className="form-group row">
-              <label for="promoId" className="col-sm-3 col-form-label">
-                Promo ID
+              <label for="codeDiscount" className="col-sm-3 col-form-label">
+                Code Discount
               </label>
               <div className="col-sm-9">
                 <input
-                  name="promoId"
+                  name="codeDiscount"
                   type="text"
                   className="form-control"
-                  defaultValue={promoId}
+                  defaultValue={codeDiscount}
                   disabled
                 />
               </div>
