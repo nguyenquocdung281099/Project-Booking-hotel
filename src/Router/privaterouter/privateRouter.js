@@ -1,7 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-  const fakeAuthe = localStorage.getItem("KEY_AUTHEN");
+  const fakeAuthe = localStorage.getItem("KEY_AUTHEN") && true;
   return (
     <Route
       {...rest}

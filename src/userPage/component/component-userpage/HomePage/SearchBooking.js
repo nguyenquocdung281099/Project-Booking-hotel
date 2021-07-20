@@ -13,7 +13,7 @@ export default function SearchBooking() {
     checkout: "",
     guest: 2,
   });
-
+  console.log(dateInfor);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -170,6 +170,32 @@ form .group-input {
   border-radius: 5px;
   border: 1px solid black;
 }
+.servceItem label {
+  font-family: "Playfair Display", serif;
+  font-size: 110%;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.servceItem label:hover {
+  font-size: 112%;
+  color: #f67638;
+}
 
-.serviceItem {
+.servceItem .price {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+.servceItem .fa-check {
+  display: none;
+  color: #b59b6c;
+  font-size: 150%;
+}
+.servceItem input:checked + .fa-check {
+  display: block;
+}
+.serviceEr {
+  margin: 0;
 }

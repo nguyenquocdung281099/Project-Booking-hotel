@@ -2,7 +2,7 @@ import * as actionType from "../action/const_action";
 
 const defaultState = {
   user: [],
-  isAuthen: false,
+  isAuthen: localStorage.setItem("KEY_AUTHEN", true) || false,
   isLogin: false,
   infomation: [],
   isToastSC: false,

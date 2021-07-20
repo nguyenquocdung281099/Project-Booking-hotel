@@ -29,6 +29,9 @@ export default function BookingPage() {
   const [valuePayMethod, setValuePayMethod] = useState("ZaloPay");
   const infRoom = JSON.parse(sessionStorage.getItem(KEY_ROOM_BOOKING)) || [];
   const param = useLocation();
+  const [serviceExtra, setServiceExtra] = useState(
+    JSON.parse(localStorage.getItem("KEY_SERVICE")) || []
+  );
 
   const notify = () => toast.success("apply code success!");
   const cancelSC = () => toast.success("cancel code success!");
@@ -42,6 +45,12 @@ export default function BookingPage() {
   let promo = useSelector((state) => state.promo.promo);
   const isGetPromo = useSelector((state) => state.promo.isGetPromo);
   const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
+<<<<<<< HEAD
+=======
+  const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
+  const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
+  const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
+>>>>>>> b55a262cea899303e94675d644c0f299f43b088f
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const service = useSelector((state) => state.service.service);
   const { t } = useTranslation();
@@ -50,11 +59,11 @@ export default function BookingPage() {
     idUser: users.id,
     dateStart: undefined,
     dateEnd: undefined,
-
     codeDiscount: undefined,
     totalCost: 0,
     status: "NEW",
     idroom: infRoom.id,
+    number: filterSearchRoom.number_gte + 1 || infRoom.number,
   });
 
   const dispatch = useDispatch();
@@ -82,16 +91,24 @@ export default function BookingPage() {
       }
     }
   }, [isGetPromo]);
+<<<<<<< HEAD
   const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
   const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
   const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
+=======
+>>>>>>> b55a262cea899303e94675d644c0f299f43b088f
 
   const totalCost =
     isGetPromo === true
-      ? getTotalCost(totalDay, infRoom.pricePerday, promo[0].discount)
-      : getTotalCost(totalDay, infRoom.pricePerday);
+      ? getTotalCost(
+          totalDay,
+          infRoom.pricePerday,
+          serviceExtra,
+          promo[0].discount
+        )
+      : getTotalCost(totalDay, infRoom.pricePerday, serviceExtra);
 
-  function handelPay() {
+  const handelPay = () => {
     notifyPaySC();
     if (isGetPromo === true) {
       dispatch(editPromo({ ...promo[0], amount: promo[0].amount - 1 }));
@@ -105,8 +122,18 @@ export default function BookingPage() {
     };
     setBooking({ ...bookings });
     dispatch(setBooking(bookings));
-  }
+    localStorage.removeItem("KEY_SERVICE");
+    sessionStorage.removeItem(KEY_DATE_CHECKIN);
+    sessionStorage.removeItem(KEY_DATE_CHECKOUT);
+  };
 
+  const handleService = (service) => {
+    const index = serviceExtra.findIndex((item) => item.name === service.name);
+    index === -1 ? serviceExtra.push(service) : serviceExtra.splice(index, 1);
+    localStorage.setItem("KEY_SERVICE", JSON.stringify([...serviceExtra]));
+    setServiceExtra([...serviceExtra]);
+    setBookings({ ...booking, service: [...serviceExtra] });
+  };
   return (
     <main className="bookingPage">
       <ToastContainer />
@@ -187,17 +214,36 @@ export default function BookingPage() {
                     </div>
                   </div>
                   <h3>{t("extra service")}</h3>
-                  <div className="col-12 service">
-                    {service.map((item) => (
-                      <div className="servceItem">
-                        <input
-                          type="checkbox"
-                          name="service"
-                          className="mr-2"
-                        />
-                        {item.name}-${item.price}
-                      </div>
-                    ))}
+                  <div className="col-12 service mb-3 mt-3">
+                    <table class="table table-borderless">
+                      <tbody>
+                        {service.map((item) => (
+                          <tr className="servceItem">
+                            <td>
+                              <label
+                                htmlFor={item.name}
+                                onClick={() => {
+                                  handleService(item);
+                                }}
+                              >
+                                {item.name}
+                              </label>
+                            </td>
+                            <td className="price">${item.price}</td>
+                            <td style={{ width: "50px" }}>
+                              <input
+                                type="checkbox"
+                                name="service"
+                                className="mr-2"
+                                id={item.name}
+                                hidden
+                              />
+                              <i class="fas fa-check"></i>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                   <Link
                     class="btn"
@@ -313,6 +359,7 @@ export default function BookingPage() {
                     <div className="col-3">
                       <h2 className="mb-5">{t("inf Room")}</h2>
                       <div className="inf_room__confirm">
+<<<<<<< HEAD
                         <h3 className="name_rom">
                           {t("nameRoom")}: {infRoom.name}
                         </h3>
@@ -320,12 +367,37 @@ export default function BookingPage() {
                           {t("pricePerDay")}: ${infRoom.pricePerday}
                         </h3>
                         <h3>
+=======
+                        <h4 className="name_rom">
+                          {t("nameRoom")}: {infRoom.name}
+                        </h4>
+                        <h4 className="name_rom">
+                          {t("pricePerDay")}: ${infRoom.pricePerday}
+                        </h4>
+                        <h4>
+>>>>>>> b55a262cea899303e94675d644c0f299f43b088f
                           {t("Total Day")} :{" "}
                           {getTotalDay(
                             Date.parse(checkOut),
                             Date.parse(checkIn)
                           )}
+<<<<<<< HEAD
                         </h3>
+=======
+                        </h4>
+                        <h4>
+                          {t("Person")}:{booking.number}
+                        </h4>
+                        {serviceExtra.length !== 0 && (
+                          <h4 className="serviceEr">{t("Service Extra")} :</h4>
+                        )}
+                        {serviceExtra.map((item) => (
+                          <p className="serviceEr">
+                            {item.name}-{item.price}$
+                          </p>
+                        ))}
+                        <hr />
+>>>>>>> b55a262cea899303e94675d644c0f299f43b088f
                         {isGetPromo === true && isCancelCode === true ? (
                           <p>
                             {t("discount code")} :{promo[0].code}{" "}
@@ -333,7 +405,10 @@ export default function BookingPage() {
                         ) : (
                           ""
                         )}
+<<<<<<< HEAD
 
+=======
+>>>>>>> b55a262cea899303e94675d644c0f299f43b088f
                         <div className="descr_room">{infRoom.description}</div>
                       </div>
                     </div>
@@ -449,27 +524,37 @@ export default function BookingPage() {
                   <div className="col-4">
                     <h2 className="mb-5">{t("inf Room")}</h2>
                     <div className="inf_room__confirm">
-                      <h2 className="name_rom">
+                      <h4 className="name_rom">
                         {t("nameRoom")}: {infRoom.name}
-                      </h2>
-                      <p className="name_rom">
+                      </h4>
+                      <h4 className="name_rom">
                         {t("pricePerDay")}: ${infRoom.pricePerday}
-                      </p>
-                      <p>
+                      </h4>
+                      <h4>
                         {t("Total Day")} :{totalDay}
-                      </p>
-                      <p>
+                      </h4>
+                      <h4>
                         {`${checkIn.getDate()}/${
                           checkIn.getMonth() + 1
                         }/${checkIn.getFullYear()}`}{" "}
                         {t("to")}
-                        {`${checkOut.getDate()}/${
+                        {` ${checkOut.getDate()}/${
                           checkOut.getMonth() + 1
                         }/${checkOut.getFullYear()}`}
-                      </p>
-                      <p>
+                      </h4>
+
+                      {serviceExtra.length !== 0 && (
+                        <h4 className="serviceEr">{t("Service Extra")} :</h4>
+                      )}
+                      {serviceExtra.map((item) => (
+                        <p className="serviceEr">
+                          {item.name}-{item.price}$
+                        </p>
+                      ))}
+                      <h4>
                         {t("Total Cost")} :{totalCost}
-                      </p>
+                      </h4>
+                      <hr />
                       <div className="descr_room">{infRoom.description}</div>
                     </div>
                   </div>
@@ -517,11 +602,18 @@ function getTotalDay(dateEndMs, dateStartMs) {
   return totalDay;
 }
 
-function getTotalCost(totalDay, pricePerday, discout = 0) {
+function getTotalCost(totalDay, pricePerday, service, discout = 0) {
+  const serviceCost =
+    service.length === 0
+      ? 0
+      : service.reduce((total, services) => {
+          return (total += services.price);
+        }, 0);
   const ttday = parseInt(totalDay);
   const price = parseFloat(pricePerday);
   const discount = parseFloat(discout);
-  const priceDiscout = (ttday * price * discount) / 100;
-  const totalCost = ttday * price - priceDiscout;
+  const serviceCosts = parseFloat(serviceCost);
+  const priceDiscout = (ttday * price * discount + serviceCosts) / 100;
+  const totalCost = ttday * price + serviceCosts - priceDiscout;
   return totalCost.toFixed(2);
 }
