@@ -6,7 +6,7 @@ import Button from "../../component/component-userpage/share/button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../../redux/action";
+import { login, signUpTO } from "../../../redux/action";
 import { Redirect } from "react-router-dom";
 export default function LoginPage() {
   const loginErr = useSelector((state) => state.user.isLoginERR);
@@ -57,6 +57,9 @@ export default function LoginPage() {
     }
   }, [loginErr]);
 
+  useEffect(() => {
+    dispatch(signUpTO());
+  }, []);
   if (userAuth.isLogin === true) {
     notify();
     if (userAuth.isAuthen === true) {

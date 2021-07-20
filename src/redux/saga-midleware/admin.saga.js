@@ -33,7 +33,7 @@ function* getBooking() {
     if (booking.status === 200) {
       yield put(func_action.getbookingsc(booking.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* getService(action) {
@@ -44,7 +44,7 @@ function* getService(action) {
     if (service.status === 200) {
       yield put(func_action.getservicesc(service.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* getPromo(action) {
@@ -52,7 +52,9 @@ function* getPromo(action) {
     const url = queryString.stringify(action.filter);
     const promo = yield call(get, `${URL_PROMO}?${url}`);
     yield put(func_action.setloader(false));
-    yield put(func_action.getpromosc(promo.data));
+    if (promo.status === 200) {
+      yield put(func_action.getPromoDBSC(promo.data));
+    }
   } catch (e) {
     yield put(func_action.getpromoEr);
   }
@@ -64,7 +66,6 @@ function* getPromoUS(action) {
     const promo = yield call(get, `${URL_PROMO}?${url}`);
     yield put(func_action.setloader(false));
     const today = Date.parse(new Date());
-    console.log(promo.data.data[0].expiryDate);
     if (promo.data.data.length !== 0) {
       if (
         promo.data.data[0].amount > 0 &&
@@ -106,7 +107,7 @@ function* addPromo(action) {
     if (promo.status === 201) {
       yield put(func_action.addPromoSC(promo.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* editPromo(action) {
@@ -115,7 +116,7 @@ function* editPromo(action) {
     if (promo.status === 200) {
       yield put(func_action.editPromoSC(promo.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* delPromo(action) {
@@ -124,7 +125,7 @@ function* delPromo(action) {
     if (promo.status === 200) {
       yield put(func_action.delPromoSC(action.payload));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* addRoom(action) {
@@ -133,7 +134,7 @@ function* addRoom(action) {
     if (room.status === 201) {
       yield put(func_action.addRoomSC(room.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* editRoom(action) {
@@ -142,7 +143,7 @@ function* editRoom(action) {
     if (room.status === 200) {
       yield put(func_action.editRoomSC(room.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* delRoom(action) {
@@ -151,7 +152,7 @@ function* delRoom(action) {
     if (room.status === 200) {
       yield put(func_action.delRoomSC(action.payload));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* addService(action) {
@@ -160,7 +161,7 @@ function* addService(action) {
     if (service.status === 201) {
       yield put(func_action.addServiceSC(service.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* editService(action) {
@@ -169,7 +170,7 @@ function* editService(action) {
     if (service.status === 200) {
       yield put(func_action.editServiceSC(service.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* delService(action) {
@@ -178,5 +179,5 @@ function* delService(action) {
     if (service.status === 200) {
       yield put(func_action.delServiceSC(action.payload));
     }
-  } catch (e) {}
+  } catch (e) { }
 }

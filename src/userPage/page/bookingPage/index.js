@@ -60,6 +60,7 @@ export default function BookingPage() {
     totalCost: 0,
     status: "NEW",
     idroom: infRoom.id,
+    userName: users.userName,
     number: filterSearchRoom.number_gte + 1 || infRoom.number,
   });
 
@@ -74,7 +75,6 @@ export default function BookingPage() {
   useEffect(() => {
     dispatch(getservice({ _page: 1 }));
   }, []);
-
   useEffect(() => {
     if (isGetPromo === true) {
       notify();
@@ -135,14 +135,15 @@ export default function BookingPage() {
         <EdgeBottom />
       </section>
       <div className="container">
-        <div className="process-booking">
+        <div className="process-booking d-flex d-md-block flex-column">
           <span className="active">
+            <i class="fas fa-chevron-right"></i>
             <Link className="active" to="/Booking/">
               1. {t("choose date")}
             </Link>
-          </span>{" "}
-          <i class="fas fa-chevron-right"></i>{" "}
+          </span>
           <span>
+            <i class="fas fa-chevron-right"></i>
             <Link
               className={
                 param.pathname === "/Booking/infbooking" ||
@@ -155,8 +156,9 @@ export default function BookingPage() {
               2. {t("inf_booking")}
             </Link>
           </span>
-          <i class="fas fa-chevron-right"></i>{" "}
+
           <span>
+            <i class="fas fa-chevron-right"></i>
             <Link
               className={
                 param.pathname === "/Booking/confirmbooking" && "active"
@@ -172,7 +174,7 @@ export default function BookingPage() {
             <Switch>
               <Route exact path="/booking">
                 <div className="chooseDate__booking row ">
-                  <div className="group-input col-6 ">
+                  <div className="group-input col-md-6 col-12">
                     <div>
                       <h3>{t("Check In")}</h3>
                       <DatePicker
@@ -189,7 +191,7 @@ export default function BookingPage() {
                       />
                     </div>
                   </div>
-                  <div className="col-6">
+                  <div className=" col-md-6 col-12">
                     <div>
                       <h3>{t("check Out")}</h3>
                       <DatePicker
@@ -207,7 +209,7 @@ export default function BookingPage() {
                   </div>
                   <h3>{t("extra service")}</h3>
                   <div className="col-12 service mb-3 mt-3">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless table-responsive">
                       <tbody>
                         {service.map((item) => (
                           <tr className="servceItem">
@@ -270,7 +272,7 @@ export default function BookingPage() {
               <Route path="/Booking/infbooking">
                 <div>
                   <div className="row">
-                    <div className="infBooking col-5">
+                    <div className="infBooking col-12 col-lg-5">
                       <h2 className="mb-5">{t("inf_booking")}</h2>
                       <div className="email group-input">
                         <label for="email">Email:</label>
@@ -332,7 +334,7 @@ export default function BookingPage() {
                         )}
                       </div>
                     </div>
-                    <div className=" col-3 mb-5">
+                    <div className=" col-12 col-lg-3 mb-5">
                       <h2 className="mb-5">{t("inf Date")}</h2>
 
                       <div className="info_checkIn div-date ">
@@ -348,7 +350,7 @@ export default function BookingPage() {
                         }/${checkOut.getFullYear()}`}</p>
                       </div>
                     </div>
-                    <div className="col-3">
+                    <div className="col-12 col-lg-3 mb-3">
                       <h2 className="mb-5">{t("inf Room")}</h2>
                       <div className="inf_room__confirm">
                         <h4 className="name_rom">
@@ -408,7 +410,7 @@ export default function BookingPage() {
               </Route>
               <Route path="/Booking/confirmbooking">
                 <div className="row">
-                  <div className="infor_paymethod col-8">
+                  <div className="infor_paymethod col-12 col-md-7">
                     <h2>{t("payment")}</h2>
                     <p>{t("Please check payment method")}</p>
                     <div className="payment_method">
@@ -495,7 +497,7 @@ export default function BookingPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-4">
+                  <div className="col-12 col-md-5 mb-4">
                     <h2 className="mb-5">{t("inf Room")}</h2>
                     <div className="inf_room__confirm">
                       <h4 className="name_rom">

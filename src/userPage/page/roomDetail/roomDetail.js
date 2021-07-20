@@ -53,7 +53,6 @@ export default function RoomDetailPage() {
     }
   }
 
-
   return (
     <main className="roomDetail__page">
       <section className="aboutus__main--banner container_fluid">
@@ -67,10 +66,10 @@ export default function RoomDetailPage() {
         <div className="roomDetail__wrap container">
           <SearchBooking />
           <div className="row pt-5 pb-5">
-            <div className="col-8 ">
+            <div className="col-12 col-md-8 ">
               <SliderDetail />
             </div>
-            <div className="col-4">
+            <div className="col-12 col-md-4">
               <Utilities />
             </div>
           </div>
@@ -82,12 +81,12 @@ export default function RoomDetailPage() {
               setStyleProgess({ width: "75%" });
             }}
           >
-            <div className="col-8">
+            <div className="col-xs-7 col-12 ml-2 mr-2">
               <h4>{t("DESCRIPTION")}</h4>
               <p>{dataRoomCurrent.description}</p>
               <h4 className="mb-5">{t("ROOM DETAIL")}</h4>
-              <div className="d-flex">
-                <table className="table table-striped ">
+              <div className="row">
+                <table className="table table-striped col-12 col-md-6 m-1">
                   <tbody>
                     <tr>
                       <th scope="row">{t("size")}:</th>
@@ -127,7 +126,7 @@ export default function RoomDetailPage() {
                     </tr>
                   </tbody>
                 </table>
-                <table className="table table-striped ">
+                <table className="table table-striped col-12 col-md-6 p-1">
                   <tbody>
                     <tr>
                       <th scope="row">{t("Room Service")}</th>
@@ -173,7 +172,7 @@ export default function RoomDetailPage() {
                 </table>
               </div>
             </div>
-            <div className="col-3 ml-5">
+            <div className="col-12 col-xs-5  m-3">
               <h4 className="mb-3">{t("Availability")}</h4>
               <div className="d-flex">
                 <div className="describe d-flex m-2 ">
@@ -185,7 +184,9 @@ export default function RoomDetailPage() {
                   <p>{t("empty-room")}</p>
                 </div>
               </div>
-              <DatePicker inline excludeDates={holidays} />
+              <div className="d-flex">
+                <DatePicker inline excludeDates={holidays} />
+              </div>
 
               <h4 className="mb-3 mt-3">
                 {t("OUR GUESTS RATE THIS ROOM AS BELOW")}

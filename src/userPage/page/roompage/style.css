@@ -29,7 +29,7 @@
 #video {
   padding: 0 !important;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .container {
     width: 100% !important;
     padding: 0 !important;

@@ -53,3 +53,12 @@
 .history__booking_main {
   text-align: center;
 }
+@media only screen and (max-width: 768px) {
+  .profile__main {
+    margin: 0 !important;
+  }
+  .profile__main .history__booking {
+    width: 768px !important;
+    overflow-x: scroll !important;
+  }
+}

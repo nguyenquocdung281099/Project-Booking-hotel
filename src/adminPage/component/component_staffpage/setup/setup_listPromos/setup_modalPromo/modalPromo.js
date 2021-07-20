@@ -3,9 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 import { useSelector } from 'react-redux'
 
 export default function ModalPromo(props) {
-  let { id, name, discount, code, amount, isOpen, isEdit } = props;
+  let { id, name, discount, code, amount, expiryDate, createdAt,
+    updatedAt, isOpen, isEdit } = props;
+
   const initialValues = {
-    id, name, discount, code, amount
+    id, name, discount, code, amount, expiryDate, createdAt,
+    updatedAt
   };
   const [values, setValues] = useState(initialValues);
 
@@ -16,6 +19,13 @@ export default function ModalPromo(props) {
         setValues({
           ...values,
           [e.target.name]: +e.target.value,
+        });
+        break;
+      case 'expiryDate':
+        let temp = new Date(e.target.value).toString()
+        setValues({
+          ...values,
+          [e.target.name]: temp
         });
         break;
       default:
@@ -33,8 +43,12 @@ export default function ModalPromo(props) {
     name: "*",
     discount: "*",
     code: "*",
-    amount: "*"
+    amount: "*",
+    expiryDate: "*"
   });
+
+  let eDay = new Date(expiryDate).toISOString().substr(0, 10)
+  let today = new Date().toISOString().substr(0, 10)
 
   function handleSubmit(data) {
 
@@ -65,7 +79,7 @@ export default function ModalPromo(props) {
       if (promoModal.findIndex((item) => item.code === data.code) !== -1 && isEdit !== true) {
         dataErrors = {
           ...dataErrors,
-          code: ("This promo code is already in used"),
+          code: ("This promo code name is already in used"),
         };
       } else {
         delete dataErrors.code;
@@ -76,6 +90,12 @@ export default function ModalPromo(props) {
       dataErrors = { ...dataErrors, amount: "This field must be a positive value" };
     } else {
       delete dataErrors.amount;
+    }
+
+    if (data.expiryDate === "" || !data.expiryDate) {
+      dataErrors = { ...dataErrors, expiryDate: "Please choose an expire date" };
+    } else {
+      delete dataErrors.expiryDate;
     }
 
     setdataError({ ...dataErrors });
@@ -174,6 +194,25 @@ export default function ModalPromo(props) {
                 />
                 <span id="amount_error" style={{ color: "red" }}>
                   {dataError.amount}
+                </span>
+              </div>
+            </div>
+            <div className="form-group row">
+              <label for="expiryDate" className="col-sm-3 col-form-label">
+                Expiry Date
+              </label>
+              <div className="col-sm-9">
+                <input
+                  defaultValue={isEdit ? eDay : today}
+                  name="expiryDate"
+                  type="date"
+                  className="form-control"
+                  onChange={handleChange}
+                  placeholder='Please choose expiry date'
+                  min={today}
+                />
+                <span id="expiryDate_error" style={{ color: "red" }}>
+                  {dataError.expiryDate}
                 </span>
               </div>
             </div>

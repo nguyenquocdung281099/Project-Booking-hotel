@@ -21,7 +21,6 @@ export default function ItemUser(props) {
             <td>{roleName(idRole)}</td>
             <td>{birthday}</td>
             <td>{address}</td>
-            <td>{userName}</td>
             <td>{email}</td>
             <td>
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>

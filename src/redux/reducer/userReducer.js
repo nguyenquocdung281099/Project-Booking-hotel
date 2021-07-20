@@ -7,11 +7,19 @@ const defaultState = {
   infomation: [],
   isToastSC: false,
   isLoginERR: false,
+  isSignUpEr: false,
+  isSignUpSC: false,
 };
 
 export default function userReducer(state = defaultState, action) {
   let newState = { ...state };
   switch (action.type) {
+    case actionType.SIGN_UP_ER:
+      newState = { ...newState, isSignUpEr: true };
+      return newState;
+    case actionType.SIGN_UP_SC:
+      newState = { ...newState, isSignUpEr: false, isSignUpSC: true };
+      return newState;
     case actionType.GET_USER_SC:
       newState = { ...newState, user: action.payload };
       return newState;
@@ -23,11 +31,13 @@ export default function userReducer(state = defaultState, action) {
           isLogin: true,
           user: action.payload,
           isAuthen: true,
+          isSignUpSC: false,
         };
       } else {
         newState = {
           ...newState,
           isLogin: true,
+          isSignUpSC: false,
           user: action.payload,
         };
       }
@@ -45,6 +55,9 @@ export default function userReducer(state = defaultState, action) {
       return { ...state };
     case actionType.LOGIN_ERR:
       newState = { ...newState, isLoginERR: true };
+      return newState;
+    case actionType.SIGN_UP_TO:
+      newState = { ...newState, isSignUpSC: false };
       return newState;
     default:
       return state;

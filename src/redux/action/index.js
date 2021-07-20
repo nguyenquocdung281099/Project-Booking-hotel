@@ -455,3 +455,28 @@ export const cancelCost = () => {
     type: ActionType.CANCEL_COST,
   };
 };
+
+//getpromodbsc
+
+export const getPromoDBSC = (data) => {
+  return {
+    type: ActionType.GET_PROMODB_SC,
+    payload: data,
+  };
+};
+
+export const signUpEr = () => {
+  return {
+    type: ActionType.SIGN_UP_ER,
+  };
+};
+export const signUpSc = () => {
+  return {
+    type: ActionType.SIGN_UP_SC,
+  };
+};
+export const signUpTO = () => {
+  return {
+    type: ActionType.SIGN_UP_TO,
+  };
+};

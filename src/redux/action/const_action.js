@@ -88,4 +88,14 @@ export const GET_ROOM_MODAL_SC = "GET_ROOM_MODAL_SC";
 // get pro
 export const GET_PROMOUS = "GET_PROMOUS";
 
-export const CANCEL_COST ="CANCEL_COST"
+export const CANCEL_COST = "CANCEL_COST";
+
+//getpromodbsc
+
+export const GET_PROMODB_SC = "GET_PROMODB_SC";
+
+export const SIGN_UP_ER = "SIGN_UP_ER";
+
+export const SIGN_UP_SC = "SIGN_UP_SC";
+
+export const SIGN_UP_TO = "SIGN_UP_TO";

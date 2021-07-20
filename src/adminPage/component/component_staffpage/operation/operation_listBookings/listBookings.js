@@ -58,11 +58,14 @@ export default function ListBookings() {
         idUser: null,
         dateStart: null,
         dateEnd: null,
-        promoId: null,
+        codeDiscount: null,
         totalCost: null,
         status: null,
         paymethod: null,
         number: null,
+        service: [],
+        createdAt: null,
+        updatedAt: null
     })
 
     const toaster = (data) => {
@@ -102,11 +105,14 @@ export default function ListBookings() {
             idUser: null,
             dateStart: null,
             dateEnd: null,
-            promoId: null,
+            codeDiscount: null,
             totalCost: null,
             status: null,
             paymethod: null,
-            number: null
+            number: null,
+            service: [],
+            createdAt: null,
+            updatedAt: null
         }
         newState = { ...newState, isOpen: false, ...data };
         setModalStatus(newState)
@@ -148,11 +154,12 @@ export default function ListBookings() {
         idUser: null,
         dateStart: null,
         dateEnd: null,
-        promoId: null,
+        codeDisount: null,
         totalCost: null,
         status: null,
         paymethod: null,
         number: null,
+        service: [],
     });
 
     const showInvoice = (a) => {
@@ -172,11 +179,12 @@ export default function ListBookings() {
             idUser: null,
             dateStart: null,
             dateEnd: null,
-            promoId: null,
+            codeDisount: null,
             totalCost: null,
             status: null,
             paymethod: null,
-            number: null
+            number: null,
+            service: [],
         }
         newState = { ...newState, isOpen: false, ...data };
         setInvoiceStatus(newState)
@@ -238,7 +246,7 @@ export default function ListBookings() {
             />
 
             < ModalBooking
-                key={modalStatus.id}
+                key={`${modalStatus.id}-bmodal`}
                 {...modalStatus}
                 hideModal={hideModal}
                 editData={editData}
@@ -247,7 +255,7 @@ export default function ListBookings() {
             />
 
             <Invoice
-                key={invoiceStatus.id}
+                key={`${invoiceStatus.id}-imodal`}
                 {...invoiceStatus}
                 hideInvoice={hideInvoice}
                 findUser={findUser}

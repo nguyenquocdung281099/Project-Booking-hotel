@@ -18,7 +18,7 @@ export default function DealBlock() {
     },
   ];
   return (
-    <div className="DealsBlock">
+    <div className="DealsBlock row">
       {data.map((item) => (
         <DealsBlockItem item={item} key={`${item.descr}`} />
       ))}
@@ -28,7 +28,7 @@ export default function DealBlock() {
 
 function DealsBlockItem(props) {
   return (
-    <div className="DealsBlockItem">
+    <div className="DealsBlockItem col-12 col-md-6 col-lg-4">
       <div className="DealsBlockItem_inner">
         <h2 className="price">{props.item.price}$</h2>
         <h2>{props.item.descr}</h2>

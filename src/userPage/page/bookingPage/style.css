@@ -69,6 +69,7 @@ form .group-input {
 .infBooking label {
   font-size: 100%;
   text-transform: uppercase;
+  color: white;
 }
 .btn-applyCode {
   background: #f67638;
@@ -182,7 +183,6 @@ form .group-input {
   font-size: 112%;
   color: #f67638;
 }
-
 .servceItem .price {
   font-family: "Playfair Display", serif;
   font-weight: 500;
@@ -198,4 +198,33 @@ form .group-input {
 }
 .serviceEr {
   margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .infBooking input,
+  .infBooking select {
+    padding: 0.7rem 1rem;
+    /* width: 100%; */
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    border: none;
+  }
+  #code_promo {
+    width: 56%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .infBooking input,
+  .infBooking select {
+    padding: 0.7rem 1rem;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    border: none;
+  }
+  #code_promo {
+    width: 70%;
+  }
 }

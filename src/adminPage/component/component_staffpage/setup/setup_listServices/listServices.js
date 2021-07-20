@@ -46,7 +46,9 @@ export default function ListServices() {
         isEdit: false,
         id: null,
         name: null,
-        price: null
+        price: null,
+        createdAt: null,
+        updatedAt: null
     })
 
     const [modalDelStatus, setModalDelStatus] = useState({
@@ -80,6 +82,7 @@ export default function ListServices() {
     function editData(data) {
         let updateData = serviceData.service.find(item => item.id === data.id)
         updateData = data
+        updateData.updatedAt = +Date.now()
         dispatch(editService(updateData))
         hideModal()
         toaster('EDIT')
@@ -101,7 +104,13 @@ export default function ListServices() {
 
     const hideModal = () => {
         let newState = { ...modalStatus }
-        let data = { id: null, name: null, price: null }
+        let data = { 
+            id: null, 
+            name: null, 
+            price: null,
+            createdAt: null,
+            updatedAt: null
+        }
         newState = { ...newState, isOpen: false, isEdit: null, ...data };
         setModalStatus(newState)
     };
@@ -123,10 +132,10 @@ export default function ListServices() {
 
     const datas = serviceData.service.map((item, index) => {
         return <ItemService key={index} index={index} {...item}
-        showModalDel={showModalDel}
-        showModal={showModal} 
+            showModalDel={showModalDel}
+            showModal={showModal}
         />
-    })   
+    })
 
     return (
         <div>

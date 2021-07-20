@@ -20,6 +20,8 @@ export default function Header() {
   const [showHeader, setShowHeader] = React.useState(false);
   const [isOpened, setIsOpened] = React.useState(true);
 
+
+
   const didScrollPage = (e) => {
     const headerStickyOffset = 50;
     if (window.scrollY >= headerStickyOffset) {

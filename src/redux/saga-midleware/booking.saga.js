@@ -30,9 +30,11 @@ function* editBooking(action) {
   try {
     const param = queryString.stringify(action.idUser);
     yield call(patch, ` ${URL_BOOKING}/${action.id}`, action.payload);
-    const booking = yield call(get, `${URL_BOOKING}?${param}`);
+    const filter = { ...action.idUser, _page: 1, _limit: 5 };
+    const newParam = queryString.stringify(filter);
+    const booking = yield call(get, `${URL_BOOKING}?${newParam}`);
+    console.log("dawdawd", booking);
     yield put(func_action.getbookingsc(booking.data));
-    yield put(func_action.editBookingSc(""));
   } catch (error) {
     console.log(error);
   }

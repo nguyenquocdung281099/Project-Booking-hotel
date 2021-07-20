@@ -96,6 +96,7 @@ export default function CardRoomsList() {
 }
 
 function CardRoomsItem(props) {
+  const { t } = useTranslation();
   const { image, name, pricePerday, id, description, rating } = props.item;
   let star = [];
 
@@ -112,12 +113,14 @@ function CardRoomsItem(props) {
         <Image src={image[3]} alt="imageRoom" />
       </div>
       <div class="card-body">
-        <h4 class="card-nameRoom">Room : {name}</h4>
-        <h5 class="card-NameType">Type Room : {props.type}</h5>
-        <h5 class="card-Price">{pricePerday}$ Price/day </h5>
+        <h4 class="card-nameRoom">
+          {t("Room")} : {name}
+        </h4>
+        <h5 class="card-NameType">{t("Type Room")} : {props.type}</h5>
+        <h5 class="card-Price">{pricePerday}$ {t("Price/day")} </h5>
         {star}
         <p class="card-text">{description}</p>
-        <Link to={`/detailRooms/${id}`}>Detail</Link>
+        <Link to={`/detailRooms/${id}`}>{t("Detail")}</Link>
         <Link
           to="/Booking"
           onClick={() => {
@@ -127,7 +130,7 @@ function CardRoomsItem(props) {
             );
           }}
         >
-          Booking
+          {t("Booking")}
         </Link>
       </div>
     </div>

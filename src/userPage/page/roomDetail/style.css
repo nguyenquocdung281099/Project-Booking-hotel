@@ -36,7 +36,7 @@
 .veiwed-slide-item {
   position: relative;
   z-index: 0;
-  height: 500px;
+  height: 700px;
 }
 .veiwed-slide-name {
   width: 100%;
@@ -92,3 +92,22 @@
   border-radius: 3px;
   color: white;
 }
+@media only screen and (max-width: 768px) {
+  .veiwed-slide-item {
+    position: relative;
+    z-index: 0;
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .veiwed-slide-item {
+    position: relative;
+    z-index: 0;
+    height: 300px;
+  }
+}
+
+/* table {
+  width: 750px !important;
+  overflow: scroll;
+} */

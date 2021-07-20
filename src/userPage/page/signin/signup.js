@@ -3,12 +3,21 @@ import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import "./style.css";
 import { Link, Redirect } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
-import { addUser } from "../../../redux/action";
+import { addUser, signUpTO } from "../../../redux/action";
 export default function SignUpPage() {
+  const isSignUpEr = useSelector((state) => state.user.isSignUpEr);
+  const toastEr = () => toast.warning("Email already used !");
+  const toastSc = () => toast.warning("sign in success !");
+
+  useEffect(() => {
+    if (isSignUpEr === true) {
+      toastEr();
+    }
+  }, [isSignUpEr]);
   const [data, setdata] = useState({
     idRole: "user1",
     name: "",
@@ -31,7 +40,7 @@ export default function SignUpPage() {
     rePassword: "*",
   });
   const dispatch = useDispatch();
-  const [isSignUp, setIsSignUp] = useState(false);
+  // const [isSignUp, setIsSignUp] = useState(false);
   const { t } = useTranslation();
   function SignIn(e) {
     e.preventDefault();
@@ -135,15 +144,15 @@ export default function SignUpPage() {
         delete dataErrors.rePassword;
       }
     }
+
     if (Object.keys(dataErrors).length === 0) {
-      delete data.rePassword;
       dispatch(addUser(data));
     }
     setdataError({ ...dataErrors });
   }
-
-  if (isSignUp === true) {
-    toast();
+  const isSignUpSC = useSelector((state) => state.user.isSignUpSC);
+  if (isSignUpSC === true) {
+    toastSc();
     return <Redirect to="/login" />;
   }
 

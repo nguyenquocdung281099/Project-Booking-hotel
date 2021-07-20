@@ -1,23 +1,6 @@
 {
   "room": [
     {
-      "id": 1,
-      "name": 10101,
-      "idtyperoom": 1,
-      "number": 1,
-      "pricePerday": 100,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
-      "image": [
-        "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg",
-        "https://live.staticflickr.com/65535/51289768820_cbd31bfb73_o.jpg",
-        "https://live.staticflickr.com/65535/51289502464_611f56dbe7_o.jpg",
-        "https://live.staticflickr.com/65535/51293943720_c83b6b18ed_h.jpg",
-        "https://live.staticflickr.com/65535/51293944445_2434e5db2a_h.jpg",
-        "https://live.staticflickr.com/65535/51293945040_52148d89ff_k.jpg"
-      ],
-      "updatedAt": 1626700295746
-    },
-    {
       "id": 2,
       "name": 102,
       "idtyperoom": 1,
@@ -55,8 +38,6 @@
       "id": 4,
       "name": 104,
       "idtyperoom": 1,
-      "booking": [],
-      "status": false,
       "number": 1,
       "rating": 5,
       "pricePerday": 104,
@@ -68,7 +49,9 @@
         "https://live.staticflickr.com/65535/51289502429_13e859c466_o.jpg",
         "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg",
         "https://live.staticflickr.com/65535/51292940226_b513a94bde_h.jpg"
-      ]
+      ],
+      "createdAt": null,
+      "updatedAt": 1626784496046
     },
     {
       "id": 5,
@@ -536,14 +519,6 @@
   ],
   "promotion": [
     {
-      "id": 1,
-      "name": "giảm giá mùa hè",
-      "discount": 5,
-      "code": "discountSummer",
-      "amount": 7,
-      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
-    },
-    {
       "id": 2,
       "name": "giảm giá ngày kỉ niệm khách sạn ",
       "discount": 10,
@@ -554,14 +529,15 @@
   ],
   "booking": [
     {
-      "idUser": 2,
-      "dateStart": "Wed Jul 21 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountSummer",
-      "totalCost": "1445.00",
+      "idUser": 26,
+      "dateStart": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": null,
+      "totalCost": "1167.00",
       "status": "NEW",
-      "idroom": 1,
-      "number": 1,
+      "idroom": 6,
+      "userName": "Nguyễn Quốc Dũng",
+      "number": 4,
       "service": [
         {
           "id": 1,
@@ -570,8 +546,8 @@
         }
       ],
       "paymethod": "ZaloPay",
-      "createdAt": 1626750421949,
-      "updatedAt": 1626750421949,
+      "createdAt": 1626790351862,
+      "updatedAt": 1626790351862,
       "id": 1
     }
   ],
@@ -589,76 +565,6 @@
       "paymentId": 12315453,
       "name": "PHAM VAN CHIEN",
       "balance": 50000
-    }
-  ],
-  "users": [
-    {
-      "email": "manager@gmail.com",
-      "password": "$2a$10$TCRm5HfAsGzi9Eesgqg6SOdGnGAPFRGejDS0V0o5ClvLjz0RY3yha",
-      "userName": "manager",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "manager",
-      "idRole": "user3",
-      "id": 1
-    },
-    {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$g8wol7CIvHBAr/8Z/pqbXe3.SR7GyVCas/dJsnpiH/5JEAymmp1fK",
-      "userName": "admin",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "admin",
-      "idRole": "user2",
-      "id": 2
-    },
-    {
-      "email": "nguyequocdung281099@gmail.com",
-      "password": "$2a$10$PQLfWi.GJmbwqAJv8UKKCO2DbJncPJHWR5Q7nqbriCzbHcxP35W7G",
-      "userName": "nguyenquocdung",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "nguyenquocdung",
-      "idRole": "user1",
-      "id": 3
-    },
-    {
-      "email": "phamhuy@gmail.com",
-      "password": "$2a$10$DeD23uurvnO40DNJvjzQ.us0jzUaawsPzuYKg/XOoR6XIbS2a3hL2",
-      "userName": "phamhuy",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "phamhuy",
-      "idRole": "user1",
-      "id": 4
-    },
-    {
-      "email": "sale@gmail.com",
-      "password": "$2a$10$L6ODW9XrjR1yWFdG/H2vM.0QR3Ea9lpmt9UUDcxBKOpVrKv.DzE..",
-      "userName": "sale",
-      "address": "HT",
-      "birthday": "1998/04/30",
-      "name": "sale",
-      "idRole": "user4",
-      "id": 5
-    }
-  ],
-  "role": [
-    {
-      "id": 1,
-      "name": "customer"
-    },
-    {
-      "id": 2,
-      "name": "admin"
-    },
-    {
-      "id": 3,
-      "name": "manager"
-    },
-    {
-      "id": 4,
-      "name": "sale"
     }
   ]
 }

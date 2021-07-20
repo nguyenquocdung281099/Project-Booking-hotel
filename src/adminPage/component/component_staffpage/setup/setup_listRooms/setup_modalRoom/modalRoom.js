@@ -4,11 +4,12 @@ import { Modal, Button } from "react-bootstrap";
 import { getRoomModal } from '../../../../../../redux/action';
 
 export default function ModalRoom(props) {
-  let { id, name, idtyperoom, number, pricePerday, description, image, isOpen, isEdit } = props;
+  let { id, name, idtyperoom, number, rating, pricePerday, description, image, 
+    createdAt, updatedAt, isOpen, isEdit } = props;
 
   const dispatch = useDispatch()
   const initialValues = {
-    id, name, idtyperoom, number, pricePerday, description, image
+    id, name, idtyperoom, number, rating, pricePerday, description, image, createdAt, updatedAt
   };
 
   const roomModal = useSelector((state) => state.roomDB.modal)

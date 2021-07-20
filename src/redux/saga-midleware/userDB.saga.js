@@ -15,7 +15,6 @@ function* getUserDB(action) {
   try {
     const url = queryString.stringify(action.filter);
     const userDB = yield call(get, `${URL_USERDB}?${url}`);
-    console.log(userDB);
     yield put(func_action.setloader(false));
     if (userDB.status === 200) {
       yield put(func_action.getUserDBSC(userDB.data));

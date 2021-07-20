@@ -43,7 +43,6 @@ export default function ProfilePage() {
   const dataBooking = useSelector((state) => state.booking.booking);
 
   const bookingRoomFetch = dataBooking.data;
-  console.log(bookingRoomFetch);
   const dataRoom = useSelector((state) => state.room);
 
   return (
@@ -57,7 +56,7 @@ export default function ProfilePage() {
       </section>
       <section className="profiel__page--body wrap container mt-5 mb-5">
         <div className="row ">
-          <div className="col-4 profile_left pt-3">
+          <div className="col-12 col-md-4 profile_left pt-3">
             <img
               src="https://www.bootdey.com/img/Content/avatar/avatar7.png"
               alt="imgUser"
@@ -65,8 +64,8 @@ export default function ProfilePage() {
             <h3>{users.userName}</h3>
             <address>{users.address}</address>
           </div>
-          <div className="profile__main col-7 ml-5">
-            <table class="table">
+          <div className="profile__main col-12 col-md-7 ml-5 ">
+            <table class="table ">
               <tbody>
                 <tr>
                   <th scope="row">Email:</th>
@@ -151,7 +150,7 @@ export default function ProfilePage() {
         </div>
         <div className="history__booking_main mt-5 mb-5">
           <h3>{t("History Booking")}</h3>
-          <table class="table history__booking mb-5 mt-5">
+          <table class="table history__booking mb-5 mt-5 ">
             <thead>
               <tr>
                 <th scope="col">#</th>

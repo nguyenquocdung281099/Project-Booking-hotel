@@ -14,8 +14,13 @@ export default function* UserSaga() {
 
 function* addUser(action) {
   try {
-    yield post(`${URL_USER}/signup`, action.data);
-  } catch (error) {}
+    console.log(action.data);
+    const data = yield post(`${URL_USER}/signup`, action.data);
+    console.log(data);
+    yield put(actionFuntion.signUpSc());
+  } catch (error) {
+    yield put(actionFuntion.signUpEr());
+  }
 }
 
 function* getUser(action) {

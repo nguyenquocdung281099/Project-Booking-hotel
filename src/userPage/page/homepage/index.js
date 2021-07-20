@@ -75,9 +75,9 @@ export default function HomePage() {
                 <i className="fas fa-star"></i>
               </div>
               <h3 className="discover__sub-title">
-                Discover what makes us a five star hotel
+                {t(" Discover what makes us a five star hotel")}
               </h3>
-              <h1 className="discover__title">About the Hotel</h1>
+              <h1 className="discover__title">{t("About the Hotel")}</h1>
               <EdgeBottom />
               <p className="discover__description">{t("whychooseus")}</p>
               <StarHotel />
@@ -86,7 +86,7 @@ export default function HomePage() {
         </section>
         <section className="container-fluid Favorite__Rooms">
           <h3 className="favorite__subtitle">TheGem Hotel</h3>
-          <h1 className="favorite__title">Favorite Rooms</h1>
+          <h1 className="favorite__title">{t("Favorite Rooms")}</h1>
           <EdgeBottom />
           <MultipleItemsSlider />
           <div>
@@ -107,7 +107,7 @@ export default function HomePage() {
               />
               <div className="booking__room--content">
                 <EdgeTop />
-                <h3 className="booking__room--subtitle">Luxury Resort App</h3>
+                <h3 className="booking__room--subtitle">{t("Luxury Resort App")}</h3>
                 <h1 className="booking__room--title">
                   {t("Booking Rooms Online")}
                 </h1>
@@ -121,7 +121,7 @@ export default function HomePage() {
                   doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
                   illo inventore veritati.
                 </p>
-                <Button url="/room" content="DOWNLOAD" />
+                <Button url="/room" content={t("DOWNLOAD")} />
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
           <div className="container">
             <TitleBlock
               subtitle="TheGem Hotel"
-              title="Special Offers"
+              title={t("Special Offers")}
               top="false"
             />
             <OffersBlock />
@@ -144,7 +144,7 @@ export default function HomePage() {
         </section>
         <section className="our_tour container-fluid " id="video">
           <div className="titleVideo">
-            <TitleBlock subtitle="Overview" title="Video Tour" />
+            <TitleBlock subtitle={t("Overview")} title={t("Video Tour")} />
           </div>
           <video autoplay="true" muted>
             <source src="https://codex-themes.com/thegem/wp-content/uploads/2016/10/THE-SUITE-ROOM-10-HD.m4v?fbclid=IwAR07I1UPbMPRkhv7mHcz4A62zlQWjWKf7rqbjkWkPHuVoBk2q4vCEsp4IbE" />

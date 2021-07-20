@@ -255,3 +255,11 @@ footer ul li::before {
   background-color: black;
   color: #e6aa32;
 }
+@media only screen and (max-width: 1200px) {
+  .header a {
+    font-size: 70% !important;
+  }
+  .header li {
+    margin-left: 25px !important;
+  }
+}
