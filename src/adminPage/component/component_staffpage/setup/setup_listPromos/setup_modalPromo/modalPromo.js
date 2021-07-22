@@ -86,8 +86,8 @@ export default function ModalPromo(props) {
       }
     }
 
-    if (data.amount <= 0 || !data.amount) {
-      dataErrors = { ...dataErrors, amount: "This field must be a positive value" };
+    if (data.amount < 0 || !data.amount) {
+      dataErrors = { ...dataErrors, amount: "This field can't be a negative value " };
     } else {
       delete dataErrors.amount;
     }
@@ -145,7 +145,7 @@ export default function ModalPromo(props) {
             </div>
             <div className="form-group row">
               <label for="discount" className="col-sm-3 col-form-label">
-                Discount
+                Discount (%)
               </label>
               <div className="col-sm-9">
                 <input
@@ -181,7 +181,7 @@ export default function ModalPromo(props) {
             </div>
             <div className="form-group row">
               <label for="amount" className="col-sm-3 col-form-label">
-                Amount
+                Amount 
               </label>
               <div className="col-sm-9">
                 <input

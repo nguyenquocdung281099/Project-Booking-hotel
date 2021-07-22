@@ -1,8 +1,8 @@
 import SBadge from '../../../badge/badge'
 
 export default function ItemBooking(props) {
-    let { index, id, dateStart, dateEnd, status, idroom, idUser, number,
-        showModal, checkout, cancel, findUserName, findRoomName, showInvoice } = props
+    let { index, id, dateStart, dateEnd, status, idroom, userName, number,
+        showModal, checkout, cancel, findRoomName, showInvoice } = props
     const badge = SBadge(status)
     const dayStart = new Date(dateStart)
     const dayEnd = new Date(dateEnd)
@@ -11,13 +11,12 @@ export default function ItemBooking(props) {
     let canCancel = (status === 'NEW') ? true : false
 
     let rName = findRoomName(idroom)
-    let uName = findUserName(idUser)
 
     return (
         <tr>
             <th scope="row">{index + 1}</th>
             <td>{rName}</td>
-            <td>{uName}</td>
+            <td>{userName}</td>
             <td>{`${dayStart.getDate()}/${dayStart.getMonth() + 1}/${dayStart.getFullYear()}`}</td>
             <td>{`${dayEnd.getDate()}/${dayEnd.getMonth() + 1}/${dayEnd.getFullYear()}`}</td>
             <td>{number}</td>

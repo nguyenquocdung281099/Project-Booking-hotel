@@ -9,12 +9,14 @@ import {
   delRoom,
   editRoom,
   getroom,
+  getBookingDB
 } from "../../../../../redux/action/";
 import ModalRoom from "./setup_modalRoom/modalRoom";
 import SortRoom from "./setup_sortRoom/sortRoom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ModalDelete from "../../modalDelete/modalDelete";
+import ModalDelete from "../../modalRSUDelete/modalDelete";
+
 
 export default function ListRooms() {
   const dispatch = useDispatch();
@@ -22,17 +24,20 @@ export default function ListRooms() {
   const loader = useSelector((state) => state.room.loader);
   const filter = roomData.filter;
 
+  const bookRModal = useSelector((state) => state.bookingDB.bookingDB)
+
   const pagi =
     Object.keys(roomData.pagi).length === 0
       ? {
-          _page: 1,
-          _limit: 14,
-          _totalRows: 12,
-        }
+        _page: 1,
+        _limit: 14,
+        _totalRows: 12,
+      }
       : roomData.pagi;
 
   useEffect(() => {
     dispatch(getroom({ _page: pagi._page, _limit: pagi._limit }));
+    dispatch(getBookingDB({}));
     // eslint-disable-next-line
   }, []);
 
@@ -86,7 +91,7 @@ export default function ListRooms() {
       pricePerday: +data.pricePerday,
       description: data.description,
       image: data.image,
-      rating: +data.rating,
+      rating: 0,
     }
     dispatch(addRoom(item))
     hideModal()
@@ -149,6 +154,11 @@ export default function ListRooms() {
     deleteData(data);
   };
 
+  const findUsing = (data) => {
+    let obj = bookRModal.findIndex(element => element.idroom === data)
+    return obj !== -1 ? obj : -1
+  }
+
   const datas = roomData.rooms.map((item, index) => {
     return (
       <ItemRoom
@@ -175,7 +185,7 @@ export default function ListRooms() {
                   class="btn btn-primary"
                   onClick={() => showModal(false, null)}
                 >
-                  Add Room
+                  <i class="fas fa-plus-circle"></i> Add Room
                 </button>
               </div>
             </th>
@@ -222,9 +232,11 @@ export default function ListRooms() {
       />
 
       <ModalDelete
+        key={`${modalDelStatus.id}_rdel`}
         {...modalDelStatus}
         hideModalDel={hideModalDel}
         deleteConfirm={deleteConfirm}
+        findUsing={findUsing}
       />
     </div>
   );

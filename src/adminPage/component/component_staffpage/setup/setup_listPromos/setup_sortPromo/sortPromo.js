@@ -52,6 +52,7 @@ export default function SortPromo() {
                             <option hidden>Sort</option>
                             <option value="discount">Discount</option>
                             <option value="amount">Amount</option>
+                            <option value="expiryDate">Expiry Date</option>
                         </select>
                 </div>
                 <div className="form-group">

@@ -31,10 +31,10 @@ export default function ItemRoom(props) {
             <td>{status}</td>
             <td>
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>
-                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-edit"></i> Edit
                 </button>
                 <button type="button" className="btn btn-danger" onClick={() => showModalDel(true, id)}>
-                    <i class="fas fa-ban"></i>
+                    <i class="fas fa-ban"></i> Delete
                 </button>
             </td>
         </tr>

@@ -4,13 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import ItemUser from "./itemUser/itemUser";
-import { delUserDB, getUserDB } from "../../../../../redux/action/";
-import { editUser } from "../../../../../redux/action/index";
+import { 
+  delUserDB, 
+  editUserDB, 
+  getUserDB,
+  getBookingDB
+ } from "../../../../../redux/action/";
 import ModalUser from "./system_modalUser/modalUser";
 import SortUser from "./system_sortUser/sortUser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ModalDelete from "../../modalDelete/modalDelete";
+import ModalDelete from "../../modalRSUDelete/modalDelete";
 
 export default function ListUsers() {
   const dispatch = useDispatch();
@@ -23,6 +27,8 @@ export default function ListUsers() {
     _totalRows: userData.userDB.length,
   };
 
+  const bookUModal = useSelector((state) => state.bookingDB.bookingDB)
+
   const [pindex, setPIndex] = useState({ minIndex: 0, maxIndex: 0 });
 
   useEffect(() => {
@@ -33,6 +39,7 @@ export default function ListUsers() {
 
   useEffect(() => {
     dispatch(getUserDB({}));
+    dispatch(getBookingDB({}));
   }, [dispatch]);
 
   useEffect(() => {
@@ -58,7 +65,7 @@ export default function ListUsers() {
     birthday: null,
     email: null,
     address: null,
-    password: null,
+    phone: null,
     createdAt: null,
     updatedAt: null,
   });
@@ -85,7 +92,7 @@ export default function ListUsers() {
     let updateData = userData.userDB.find((item) => item.id === data.id);
     updateData = data;
     updateData.updatedAt = +Date.now();
-    dispatch(editUser(updateData.id, updateData));
+    dispatch(editUserDB(updateData));
     dispatch(getUserDB({}));
     hideModal();
     toaster("EDIT");
@@ -114,7 +121,7 @@ export default function ListUsers() {
       birthday: null,
       email: null,
       address: null,
-      password: null,
+      phone: null,
       createdAt: null,
       updatedAt: null,
     };
@@ -136,6 +143,11 @@ export default function ListUsers() {
     hideModalDel();
     deleteData(data);
   };
+
+  const findUsing = (data) => {
+    let obj = bookUModal.findIndex(element => element.idUser === data)
+    return obj !== -1 ? obj : -1
+  }
 
   return (
     <div>
@@ -199,9 +211,11 @@ export default function ListUsers() {
       />
 
       <ModalDelete
+        key={`${modalDelStatus.id}_udel`}
         {...modalDelStatus}
         hideModalDel={hideModalDel}
         deleteConfirm={deleteConfirm}
+        findUsing={findUsing}
       />
     </div>
   );

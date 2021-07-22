@@ -169,5 +169,10 @@
   " Clear Filter": "LÀm sạch bộ lọc",
   "Type Room": "Loại phòng",
   "Price/day": "Giá / ngày",
-  "Detail": "Chi tiết"
+  "Detail": "Chi tiết",
+  "choose Service": "Nhấp vào dịch vụ nâng cao bạn muốn chọn",
+  "inf booking": "Thông tin đặt chỗ",
+  "total cost": "Tổng chi phí",
+  "cancel success": "Hủy thành công <3",
+  "Edit success": "Chỉnh sửa thành công"
 }

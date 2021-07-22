@@ -12,14 +12,15 @@ import {
 } from "../../../redux/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Pagination } from "antd";
+import { Pagination, Popconfirm } from "antd";
 import "antd/dist/antd.css";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.user);
   const [dataInf, setdataInf] = useState({});
-  const notify = () => toast.success("cancel success!");
+  const notify = () => toast.success(t("cancel success"));
+  const notifyEd = () => toast.success(t("Edit success"));
 
   useEffect(() => {
     setdataInf({
@@ -27,7 +28,6 @@ export default function ProfilePage() {
       userName: users.userName,
       birthday: users.birthday,
       address: users.address,
-      password: users.password,
     });
     dispatch(getBookingRoom({ idUser: users.id, _page: 1, _limit: 5 }));
     dispatch(
@@ -44,6 +44,22 @@ export default function ProfilePage() {
 
   const bookingRoomFetch = dataBooking.data;
   const dataRoom = useSelector((state) => state.room);
+
+  function handleCancel(item) {
+    dispatch(
+      editBooking(
+        {
+          status: "CANCEL",
+          totalCost: parseInt(parseInt(item.totalCost) * 0.2),
+        },
+        item.id,
+        {
+          idUser: users.id,
+        }
+      )
+    );
+    notify();
+  }
 
   return (
     <main className="profile__page container-fluid">
@@ -73,7 +89,7 @@ export default function ProfilePage() {
                     <input
                       type="text"
                       value={dataInf.email}
-                      disabled={disabled}
+                      disabled
                       onChange={(e) => {
                         setdataInf({ ...dataInf, email: e.target.value });
                       }}
@@ -106,19 +122,7 @@ export default function ProfilePage() {
                     />
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">{t("Password")}:</th>
-                  <td>
-                    <input
-                      type="password"
-                      value={dataInf.password}
-                      onChange={(e) => {
-                        setdataInf({ ...dataInf, password: e.target.value });
-                      }}
-                      disabled={disabled}
-                    />
-                  </td>
-                </tr>
+
                 <tr>
                   <th>
                     <button
@@ -135,6 +139,7 @@ export default function ProfilePage() {
                     <button
                       className="btn m-auto"
                       onClick={() => {
+                        notifyEd();
                         setDisabled(true);
                         dispatch(editUser(users.id, dataInf));
                       }}
@@ -192,29 +197,25 @@ export default function ProfilePage() {
 
                       <td>{item.paymethod}</td>
 
-                      <td>${item.totalCost}</td>
+                      <td>
+                        
+                        {new Intl.NumberFormat("de-DE", {
+                          style: "currency",
+                          currency: "USD",
+                        }).format(item.totalCost)}
+                      </td>
                       <td>
                         {item.status === "NEW" && (
-                          <button
-                            className="btn-danger"
-                            onClick={() => {
-                              dispatch(
-                                editBooking(
-                                  {
-                                    status: "CANCEL",
-                                    totalCost: parseInt(item.totalCost) * 0.2,
-                                  },
-                                  item.id,
-                                  {
-                                    idUser: users.id,
-                                  }
-                                )
-                              );
-                              notify();
+                          <Popconfirm
+                            title="Do you really want to cancel the room? you will lose 20% of the cost"
+                            onConfirm={() => {
+                              handleCancel(item);
                             }}
+                            okText="Yes"
+                            cancelText="No"
                           >
-                            Cancel
-                          </button>
+                            <button className="btn-danger">Cancel</button>
+                          </Popconfirm>
                         )}
                       </td>
                     </tr>

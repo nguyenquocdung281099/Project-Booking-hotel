@@ -172,5 +172,10 @@
   " Clear Filter": " Clear Filter",
   "Type Room": "Type Room",
   "Price/day": "Price/day",
-  "Detail": "Detail"
+  "Detail": "Detail",
+  "choose Service": "Click on the advanced service you want to choose",
+  "inf booking": "Bookings Information",
+  "total cost": "Total Cost",
+  "cancel success": "Cancel success <3",
+  "Edit success": "Edit success"
 }

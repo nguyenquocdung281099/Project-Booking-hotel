@@ -42,13 +42,11 @@ export default function Dashboard() {
     // eslint-disable-next-line
   }, []);
 
-  console.log(emailUser);
-
   const userData =
     uData.length !== 0 &&
-    uData !== null &&
-    typeof uData !== "undefined" &&
-    typeof emailUser !== "undefined"
+      uData !== null &&
+      typeof uData !== "undefined" &&
+      typeof emailUser !== "undefined"
       ? uData.find((e) => e.email === emailUser.email)
       : [];
 
@@ -112,9 +110,9 @@ export default function Dashboard() {
         : [],
     button:
       typeof uData !== "undefined" &&
-      typeof emailUser !== "undefined" &&
-      typeof userData !== "undefined"
-        ? userData.role === "user4"
+        typeof emailUser !== "undefined" &&
+        typeof userData !== "undefined"
+        ? userData.idRole === "user4"
           ? true
           : false
         : false,
@@ -129,9 +127,9 @@ export default function Dashboard() {
         : [],
     button:
       typeof uData !== "undefined" &&
-      typeof emailUser !== "undefined" &&
-      typeof userData !== "undefined"
-        ? userData.role === "user3"
+        typeof emailUser !== "undefined" &&
+        typeof userData !== "undefined"
+        ? userData.idRole === "user3"
           ? true
           : false
         : false,
@@ -141,14 +139,14 @@ export default function Dashboard() {
     name: "Promotion",
     link: "/admin/setup/list_promos",
     db:
-      pData.length !== 0 && pData !== null && typeof pData !== "undefined"
+      (pData.length !== 0 || pData !== null) && typeof pData !== "undefined"
         ? promoTData
         : [],
     button:
       typeof uData !== "undefined" &&
-      typeof emailUser !== "undefined" &&
-      typeof userData !== "undefined"
-        ? userData.role === "user3"
+        typeof emailUser !== "undefined" &&
+        typeof userData !== "undefined"
+        ? userData.idRole === "user3"
           ? true
           : false
         : false,
@@ -158,14 +156,14 @@ export default function Dashboard() {
     name: "Service",
     link: "/admin/setup/list_services",
     db:
-      sData.length !== 0 && sData !== null && typeof pData !== "undefined"
+      (sData.length !== 0 || sData !== null) && typeof sData !== "undefined"
         ? serviceTData
         : [],
     button:
       typeof uData !== "undefined" &&
-      typeof emailUser !== "undefined" &&
-      typeof userData !== "undefined"
-        ? userData.role === "user3"
+        typeof emailUser !== "undefined" &&
+        typeof userData !== "undefined"
+        ? userData.idRole === "user3"
           ? true
           : false
         : false,
@@ -315,8 +313,8 @@ export default function Dashboard() {
 
       <div className="row">
         {bData.length !== 0 &&
-        bData !== null &&
-        typeof bData !== "undefined" ? (
+          bData !== null &&
+          typeof bData !== "undefined" ? (
           <TableDashboard
             name={booking.name}
             link={booking.link}
@@ -328,8 +326,8 @@ export default function Dashboard() {
         )}
 
         {rData.length !== 0 &&
-        rData !== null &&
-        typeof rData !== "undefined" ? (
+          rData !== null &&
+          typeof rData !== "undefined" ? (
           <TableDashboard
             name={room.name}
             link={room.link}
@@ -342,8 +340,8 @@ export default function Dashboard() {
       </div>
       <div className="row">
         {pData.length !== 0 &&
-        pData !== null &&
-        typeof pData !== "undefined" ? (
+          pData !== null &&
+          typeof pData !== "undefined" ? (
           <TableDashboard
             name={promotion.name}
             link={promotion.link}
@@ -355,8 +353,8 @@ export default function Dashboard() {
         )}
 
         {sData.length !== 0 &&
-        sData !== null &&
-        typeof sData !== "undefined" ? (
+          sData !== null &&
+          typeof sData !== "undefined" ? (
           <TableDashboard
             name={service.name}
             link={service.link}
