@@ -9,10 +9,10 @@ export default function ItemService(props) {
    
             <td>
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>
-                    <i class="fas fa-info"></i>
+                    <i class="fas fa-info"></i> Edit
                 </button>
                 <button type="button" className="btn btn-danger" onClick={() => showModalDel(true, id)}>
-                    <i class="fas fa-ban"></i>
+                    <i class="fas fa-ban"></i> Delete
                 </button>
             </td>
         </tr>

@@ -51,6 +51,7 @@ export default function SortUser() {
                         >
                             <option hidden>Sort</option>
                             <option value="idRole">Role</option>
+
                         </select>
                 </div>
                 <div className="form-group">

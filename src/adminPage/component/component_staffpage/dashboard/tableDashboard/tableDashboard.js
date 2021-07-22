@@ -193,7 +193,7 @@ export default function TableDashboard(props) {
     return res;
   }
 
-  let header = newData[1] ? headerProps(newData[1]) : {};
+  let header = newData[0] ? headerProps(newData[0]) : {};
 
   let buildHeader = generateHeader(header);
 

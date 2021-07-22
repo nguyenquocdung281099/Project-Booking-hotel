@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import ItemService from './itemService/itemService'
-import { addService, delService, editService, getservice } from '../../../../../redux/action/';
+import { addService, delService, editService, getservice, getBookingDB } from '../../../../../redux/action/';
 import ModalService from './setup_modalService/modalService'
 import SortService from './setup_sortService/sortService';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ModalDelete from '../../modalDelete/modalDelete';
+import ModalDelete from "../../modalRSUDelete/modalDelete";
 
 export default function ListServices() {
 
@@ -17,6 +17,8 @@ export default function ListServices() {
     const serviceData = useSelector((state) => state.service)
     const loader = useSelector((state) => state.service.loader)
     const filter = serviceData.filter;
+
+    const bookSModal = useSelector((state) => state.bookingDB.bookingDB)
 
     const pagi =
         Object.keys(serviceData.pagi).length === 0
@@ -29,6 +31,7 @@ export default function ListServices() {
 
     useEffect(() => {
         dispatch(getservice({ _page: pagi._page, _limit: pagi._limit }));
+        dispatch(getBookingDB({}));
         // eslint-disable-next-line
     }, []);
 
@@ -104,9 +107,9 @@ export default function ListServices() {
 
     const hideModal = () => {
         let newState = { ...modalStatus }
-        let data = { 
-            id: null, 
-            name: null, 
+        let data = {
+            id: null,
+            name: null,
             price: null,
             createdAt: null,
             updatedAt: null
@@ -130,6 +133,15 @@ export default function ListServices() {
         deleteData(data)
     }
 
+    const findUsing = (data) => {
+        let temp = []
+        bookSModal ? bookSModal.forEach((item) => {
+            item.service.forEach((sitem)=> temp[temp.length] = sitem.id)
+        }): temp = []
+        let obj = temp ? temp.findIndex(element => element === data) : -1
+        return obj !== -1 ? obj : -1
+    }
+
     const datas = serviceData.service.map((item, index) => {
         return <ItemService key={index} index={index} {...item}
             showModalDel={showModalDel}
@@ -146,7 +158,8 @@ export default function ListServices() {
                     <tr>
                         <th colSpan="1" className='add-th'>
                             <div className='form-inline add-inline'>
-                                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Service</button>
+                                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>
+                                <i class="fas fa-plus-circle"></i> Add Service</button>
                             </div>
                         </th>
                         <th colSpan="3" className='add-th'>
@@ -179,6 +192,7 @@ export default function ListServices() {
                 pageSize={pagi._limit}
                 onChange={handleChangePagi}
             />
+
             < ModalService
                 key={modalStatus.id}
                 {...modalStatus}
@@ -188,9 +202,11 @@ export default function ListServices() {
             />
 
             <ModalDelete
+                key={`${modalDelStatus.id}_sdel`}
                 {...modalDelStatus}
                 hideModalDel={hideModalDel}
                 deleteConfirm={deleteConfirm}
+                findUsing={findUsing}
             />
         </div>
     )

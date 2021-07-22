@@ -65,7 +65,8 @@ export default function ListBookings() {
         number: null,
         service: [],
         createdAt: null,
-        updatedAt: null
+        updatedAt: null,
+        userName: null,
     })
 
     const toaster = (data) => {
@@ -112,7 +113,8 @@ export default function ListBookings() {
             number: null,
             service: [],
             createdAt: null,
-            updatedAt: null
+            updatedAt: null,
+            userName: null
         }
         newState = { ...newState, isOpen: false, ...data };
         setModalStatus(newState)
@@ -160,6 +162,7 @@ export default function ListBookings() {
         paymethod: null,
         number: null,
         service: [],
+        userName: null
     });
 
     const showInvoice = (a) => {
@@ -185,6 +188,7 @@ export default function ListBookings() {
             paymethod: null,
             number: null,
             service: [],
+            userName: null
         }
         newState = { ...newState, isOpen: false, ...data };
         setInvoiceStatus(newState)
@@ -250,7 +254,6 @@ export default function ListBookings() {
                 {...modalStatus}
                 hideModal={hideModal}
                 editData={editData}
-                findUserName={findUserName}
                 findRoomName={findRoomName}
             />
 
@@ -258,8 +261,8 @@ export default function ListBookings() {
                 key={`${invoiceStatus.id}-imodal`}
                 {...invoiceStatus}
                 hideInvoice={hideInvoice}
-                findUser={findUser}
                 findRoomName={findRoomName}
+                findUser={findUser}
             />
         </div>
     )

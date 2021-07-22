@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { changeFilter, searchBookingDB } from '../../../../../../redux/action';
 import './style.css'
 
@@ -16,6 +16,8 @@ export default function SortBooking(props) {
     const [values, setValues] = useState({});
     const [searchInput, setSearchInput] = useState('');
     const [searchType, setSearchType] = useState('');
+
+    const debounceSearchInput = useRef(null)
 
     function handleChangeSort(e) {
         if (e.target.name === 'sort') {
@@ -47,10 +49,26 @@ export default function SortBooking(props) {
     }
 
     function handleSearchInput(e) {
-        setSearchInput(e.target.value);
+        const inputValue = e.target.value
+        setSearchInput(inputValue);
+
+        if (!handleSearch) return;
+
+        if (debounceSearchInput.current) {
+            clearTimeout(debounceSearchInput.current)
+        }
+
+        debounceSearchInput.current = setTimeout(()=> {
+            if (searchType !== '' && inputValue !== ''){
+                let string = '{"' + searchType + '_like":"' + inputValue + '"}'
+                let a = JSON.parse(string)
+                dispatch(searchBookingDB({...search, ...a }))
+            }
+        }, 1000)
     }
 
     function handleSearchType(e) {
+        dispatch(searchBookingDB({}))
         setSearchType(e.target.value)
     }
 
@@ -58,15 +76,19 @@ export default function SortBooking(props) {
         if (data1 !== '' && data2 !== '') {
             let string = '{"' + data1 + '_like":"' + data2 + '"}'
             let a = JSON.parse(string)
-            dispatch(searchBookingDB({ ...search, ...a }));
+            dispatch(searchBookingDB({
+                ...search, ...a
+            }));
         }
     }
-    
+
     function handleResetSearch() {
         dispatch(searchBookingDB({}))
         setSearchType(searchTypeDef)
         setSearchInput(searchInputDef)
     }
+
+
 
     return (
         <>
@@ -118,7 +140,7 @@ export default function SortBooking(props) {
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Search"
+                            placeholder="Search..."
                             onChange={handleSearchInput}
                             value={searchInput}
                         >
@@ -144,7 +166,7 @@ export default function SortBooking(props) {
                         value={searchType}
                     >
                         <option hidden>Search Type</option>
-                        <option value="userName">User Name</option>
+                        <option value="userName" selected>User Name</option>
                         <option value="id">ID Booking</option>
                     </select>
                 </div>

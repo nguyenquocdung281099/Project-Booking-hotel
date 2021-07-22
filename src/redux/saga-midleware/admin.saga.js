@@ -84,22 +84,6 @@ function* getPromoUS(action) {
     yield put(func_action.getpromoEr);
   }
 }
-// ? get api
-function get(url) {
-  return axios.get(url);
-}
-
-function post(url, item) {
-  return axios.post(`${url}`, item);
-}
-
-function putData(url, data) {
-  return axios.put(`${url}/${data.id}`, data);
-}
-
-function del(url, id) {
-  return axios.delete(`${url}/${id}`);
-}
 
 function* addPromo(action) {
   try {
@@ -112,7 +96,10 @@ function* addPromo(action) {
 
 function* editPromo(action) {
   try {
-    const promo = yield call(putData, URL_PROMO, action.payload);
+    const promo = yield call(
+      patch,
+      `${URL_PROMO}/${action.payload.id}`
+      , action.payload);
     if (promo.status === 200) {
       yield put(func_action.editPromoSC(promo.data));
     }
@@ -139,7 +126,10 @@ function* addRoom(action) {
 
 function* editRoom(action) {
   try {
-    const room = yield call(putData, URL_ROOM, action.payload);
+    const room = yield call(
+      patch,
+      `${URL_ROOM}/${action.payload.id}`
+      , action.payload);
     if (room.status === 200) {
       yield put(func_action.editRoomSC(room.data));
     }
@@ -166,7 +156,10 @@ function* addService(action) {
 
 function* editService(action) {
   try {
-    const service = yield call(putData, URL_SERVICE, action.payload);
+    const service = yield call(
+      patch,
+      `${URL_SERVICE}/${action.payload.id}`
+      , action.payload);
     if (service.status === 200) {
       yield put(func_action.editServiceSC(service.data));
     }
@@ -181,3 +174,20 @@ function* delService(action) {
     }
   } catch (e) { }
 }
+
+// ? get api
+function get(url) {
+  return axios.get(url);
+}
+
+function post(url, item) {
+  return axios.post(`${url}`, item);
+}
+
+function del(url, id) {
+  return axios.delete(`${url}/${id}`);
+}
+
+function patch(url, data) {
+  return axios.patch(url, data);
+};

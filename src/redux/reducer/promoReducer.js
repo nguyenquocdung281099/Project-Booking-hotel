@@ -9,7 +9,6 @@ const defaultState = {
 };
 
 export default function promoReducer(state = defaultState, action) {
-  console.log(action.type);
   let newState = { ...state };
   switch (action.type) {
     case ActionType.GET_PROMODB_SC:

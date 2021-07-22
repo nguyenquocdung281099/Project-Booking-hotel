@@ -10,7 +10,7 @@ export default function Header() {
   const dispatch = useDispatch();
   return (
     <div className="staff_header">
-      <div className="staff_header-left">
+      <div className="staff_header-right">
         <ToastContainer />
         <button className="btn m-2">
           <Link
@@ -22,7 +22,7 @@ export default function Header() {
               dispatch(logout());
             }}
           >
-            logout
+            Logout
             <i class="fas fa-sign-out-alt"></i>
           </Link>
         </button>
