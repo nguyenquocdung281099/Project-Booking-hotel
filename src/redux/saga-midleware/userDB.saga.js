@@ -7,7 +7,7 @@ import queryString from "query-string";
 
 export default function* UserDBSaga() {
   yield takeLatest(action.GET_USERDB, getUserDB);
-  yield takeLatest(action.ADD_USERDB, addUserDB);
+  yield takeLatest(action.EDIT_USERDB, editUserDB);
   yield takeLatest(action.DEL_USERDB, delUserDB);
 }
 
@@ -19,17 +19,20 @@ function* getUserDB(action) {
     if (userDB.status === 200) {
       yield put(func_action.getUserDBSC(userDB.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
-function* addUserDB(action) {
+function* editUserDB(action) {
   try {
-    const userDB = yield call(post, URL_USERDB, action.payload);
-    console.log(userDB);
-    if (userDB.status === 201) {
-      yield put(func_action.addUserDBSC(userDB.data));
+    const res = yield call(
+      patch,
+      `${URL_USERDB}/${action.payload.id}`,
+      action.payload
+    );
+    if (res.status === 200) {
+      yield put(func_action.editUserDBSC(res.data));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function* delUserDB(action) {
@@ -38,7 +41,7 @@ function* delUserDB(action) {
     if (userDB.status === 200) {
       yield put(func_action.delUserDBSC(action.payload));
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 
 // ? get api
@@ -46,10 +49,10 @@ function get(url) {
   return axios.get(url);
 }
 
-function post(url, item) {
-  return axios.post(`${url}`, item);
-}
-
 function del(url, id) {
   return axios.delete(`${url}/${id}`);
 }
+
+function patch(url, data) {
+  return axios.patch(url, data);
+};

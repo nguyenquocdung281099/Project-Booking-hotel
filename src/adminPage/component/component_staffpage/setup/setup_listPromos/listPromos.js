@@ -4,12 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import ItemPromo from './itemPromo/itemPromo'
-import { getpromo, delPromo, addPromo, editPromo } from '../../../../../redux/action/'
+import {
+    getpromo,
+    delPromo,
+    addPromo,
+    editPromo,
+    getBookingDB
+} from '../../../../../redux/action/'
 import ModalPromo from './setup_modalPromo/modalPromo'
 import SortPromo from './setup_sortPromo/sortPromo';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ModalDelete from '../../modalDelete/modalDelete';
+import ModalPDelete from './setup_modalPDelete/modalPDelete';
 
 export default function ListPromos() {
 
@@ -17,6 +23,8 @@ export default function ListPromos() {
     const promoData = useSelector((state) => state.promo)
     const loader = useSelector((state) => state.promo.loader)
     const filter = promoData.filter;
+
+    const bookPModal = useSelector((state) => state.bookingDB.bookingDB)
 
     const pagi =
         Object.keys(promoData.pagi).length === 0
@@ -29,6 +37,7 @@ export default function ListPromos() {
 
     useEffect(() => {
         dispatch(getpromo({ _page: pagi._page, _limit: pagi._limit }));
+        dispatch(getBookingDB({}));
         // eslint-disable-next-line
     }, []);
 
@@ -139,6 +148,16 @@ export default function ListPromos() {
         deleteData(data)
     }
 
+    const findUsing = (data) => {
+        let obj = bookPModal.findIndex(element => element.codeDiscount === data)
+        return obj !== -1 ? obj : -1
+    }
+
+    const findCode = (data) => {
+        let obj = promoData.promo.find(element => element.id === data)
+        return obj ? obj.code : ""
+    }
+
     const datas = promoData.promo.map((item, index) => {
         return <ItemPromo key={index} index={index} {...item}
             showModalDel={showModalDel}
@@ -155,7 +174,8 @@ export default function ListPromos() {
                     <tr>
                         <th colSpan="1" className='add-th'>
                             <div className='form-inline add-inline'>
-                                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>Add Promo</button>
+                                <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>
+                                <i class="fas fa-plus-circle"></i> Add Promo</button>
                             </div>
                         </th>
                         <th colSpan="6" className='add-th'>
@@ -168,7 +188,7 @@ export default function ListPromos() {
                         <th scope="col">Discount</th>
                         <th scope="col">Code</th>
                         <th scope="col">Amount</th>
-                        <th scope="col">Expire Date</th>
+                        <th scope="col">Expiry Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -199,10 +219,12 @@ export default function ListPromos() {
                 hideModal={hideModal}
             />
 
-            <ModalDelete
+            <ModalPDelete
                 {...modalDelStatus}
                 hideModalDel={hideModalDel}
                 deleteConfirm={deleteConfirm}
+                findUsing={findUsing}
+                findCode={findCode}
             />
         </div >
     )

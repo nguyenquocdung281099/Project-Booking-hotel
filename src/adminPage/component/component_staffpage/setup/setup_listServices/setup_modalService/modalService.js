@@ -93,7 +93,7 @@ export default function ModalService(props) {
             </div>
             <div className="form-group row">
               <label for="discount" className="col-sm-3 col-form-label">
-                Price
+                Price ($)
               </label>
               <div className="col-sm-9">
                 <input

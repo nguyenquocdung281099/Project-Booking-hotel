@@ -3,16 +3,15 @@ import { Modal, Button } from "react-bootstrap";
 
 export default function ModalBooking(props) {
   let { id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost, status,
-    paymethod, number, service, createdAt, updatedAt, isOpen, findRoomName, findUserName } = props;
+    paymethod, number, service, createdAt, updatedAt, userName, isOpen, findRoomName } = props;
 
 
   const initialValues = {
     id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost, status,
-    paymethod, number, service, createdAt, updatedAt
+    paymethod, number, service, createdAt, updatedAt, userName
   };
 
   let rName = findRoomName(idroom)
-  let uName = findUserName(idUser)
 
   const [values, setValues] = useState(initialValues);
 
@@ -85,7 +84,7 @@ export default function ModalBooking(props) {
               </label>
               <div className="col-sm-9">
                 <input
-                  defaultValue={uName}
+                  defaultValue={userName}
                   name="userName"
                   type="text"
                   className="form-control"
@@ -154,12 +153,12 @@ export default function ModalBooking(props) {
               values.service.map((eitem, eindex) => {
                 return (
                   <div className="form-group row">
-                    <label for={`eservice-${eindex+1}`} className="col-sm-3 col-form-label">
-                      Service {eindex+1}
+                    <label for={`eservice-${eindex + 1}`} className="col-sm-3 col-form-label">
+                      Service {eindex + 1}
                     </label>
                     <div className="col-sm-7">
                       <input
-                        name={`eservice-name-${eindex+1}`}
+                        name={`eservice-name-${eindex + 1}`}
                         type="text"
                         className="form-control"
                         defaultValue={eitem.name}
@@ -168,7 +167,7 @@ export default function ModalBooking(props) {
                     </div>
                     <div className="col-sm-2">
                       <input
-                        name={`eservice-price-${eindex+1}`}
+                        name={`eservice-price-${eindex + 1}`}
                         type="text"
                         className="form-control"
                         defaultValue={`$ ${eitem.price}`}
@@ -179,7 +178,20 @@ export default function ModalBooking(props) {
               })
 
               : ("")}
-
+            <div className="form-group row">
+              <label for="totalCost" className="col-sm-3 col-form-label">
+                Total Cost
+              </label>
+              <div className="col-sm-9">
+                <input
+                  name="totalCost"
+                  type="text"
+                  className="form-control"
+                  defaultValue={`$ ${totalCost}`}
+                  disabled
+                />
+              </div>
+            </div>
             <div className="form-group row">
               <label for="codeDiscount" className="col-sm-3 col-form-label">
                 Code Discount

@@ -253,7 +253,7 @@ export default function ModalRoom(props) {
             </div>
             <div className="form-group row">
               <label for="pricePerday" className="col-sm-3 col-form-label">
-                Price Per Day
+                Price Per Day ($)
               </label>
               <div className="col-sm-9">
                 <input

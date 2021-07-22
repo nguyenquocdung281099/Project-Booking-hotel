@@ -2,18 +2,21 @@ import './style.css'
 import { Modal, Button } from "react-bootstrap";
 
 export default function Invoice(props) {
-    let { id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost, status,
-        paymethod, number, service, createdAt, updatedAt, isOpen, findRoomName, findUser } = props;
+    let { id, idroom, idUser, dateStart, dateEnd, codeDiscount, totalCost,
+        paymethod, number, service, createdAt, updatedAt, userName, isOpen, findRoomName, findUser } = props;
 
     const dayStart = new Date(dateStart)
     let dayS = `${dayStart.getDate()}/${dayStart.getMonth() + 1}/${dayStart.getFullYear()}`
     const dayEnd = new Date(dateEnd)
     let dayE = `${dayEnd.getDate()}/${dayEnd.getMonth() + 1}/${dayEnd.getFullYear()}`
-
-    let sCost = 0;
-    sCost = (service.length !== 0 || service !== null) ? sCost + service.map(item => item.price) : 0
-    let bCost = totalCost - sCost
     let uInfo = findUser(idUser)
+
+    let sCost = 0
+    service.length !== 0 ? service.forEach((sitem) => sCost = sCost + Number.parseFloat(sitem.price)) : sCost = 0
+    let bCost = totalCost - sCost
+
+    let rName = findRoomName(idroom)
+
     return (
         <Modal
             show={isOpen}
@@ -68,7 +71,7 @@ export default function Invoice(props) {
                                                 <h5>Invoice to:</h5>
                                                 <ul className="list-unstyled">
                                                     <li>
-                                                        <h5><strong>{uInfo.name}</strong></h5></li>
+                                                        <h5><strong>{uInfo.userName}</strong></h5></li>
                                                     <li>{uInfo.address}</li>
                                                     <li>{uInfo.phone}</li>
                                                     <li>{uInfo.email}</li>
@@ -80,6 +83,7 @@ export default function Invoice(props) {
                                                     <li>
                                                         <h5>Total Due: <span className="text-right">${totalCost}</span></h5></li>
                                                     <li>Method: <span>{paymethod}</span></li>
+                                                    <li>Discount: <span>{codeDiscount}</span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -99,22 +103,22 @@ export default function Invoice(props) {
                                                     <tr>
                                                         <td>1</td>
                                                         <td>Booking</td>
-                                                        <td className="hidden-xs">{`From ${dayS} to ${dayE}`}</td>
-                                                        <td>${bCost}</td>
+                                                        <td className="hidden-xs">{`Room ${rName} from ${dayS} to ${dayE}`}</td>
+                                                        <td>${Number.parseFloat(bCost).toFixed(2)}</td>
                                                         <td>1</td>
-                                                        <td>${bCost}</td>
+                                                        <td>${Number.parseFloat(bCost).toFixed(2)}</td>
                                                     </tr>
 
-                                                    {service.length !== 0 || service !== null ?
+                                                    {(service.length !== 0 && service) ?
                                                         service.map((eitem, eindex) => {
                                                             return (
                                                                 <tr key={`trservice-${eindex}`}>
                                                                     <td>{eindex + 2}</td>
                                                                     <td>{`Service ${eindex + 1}`}</td>
                                                                     <td className="hidden-xs">{eitem.name}</td>
-                                                                    <td>${eitem.price}</td>
+                                                                    <td>${Number.parseFloat(eitem.price).toFixed(2)}</td>
                                                                     <td>1</td>
-                                                                    <td>${eitem.price}</td>
+                                                                    <td>${Number.parseFloat(eitem.price).toFixed(2)}</td>
                                                                 </tr>)
                                                         })
                                                         : ("")}
@@ -133,17 +137,9 @@ export default function Invoice(props) {
                                                             <table className="table m-b-0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <th>Subtotal:</th>
-                                                                        <td className="text-right">${totalCost}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Tax: <span className="text-regular">(0%)</span></th>
-                                                                        <td className="text-right">$0</td>
-                                                                    </tr>
-                                                                    <tr>
                                                                         <th>Total:</th>
                                                                         <td className="text-right text-primary">
-                                                                            <h5>${totalCost}</h5></td>
+                                                                            <h5>${Number.parseFloat(totalCost).toFixed(2)}</h5></td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
