@@ -8,7 +8,7 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  max-width: 200px;
   height: 100px;
   overflow: hidden;
   background-color: #000000bb;
@@ -206,6 +206,7 @@ a:hover {
 .aboutus__name {
   color: #dcbd81;
 }
-.search__booking .form-input label {
+.search__booking .form-input label,
+.search__booking .form-input input {
   text-align: start;
 }

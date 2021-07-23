@@ -98,7 +98,8 @@ export default function CardRoomsList() {
 
 function CardRoomsItem(props) {
   const { t } = useTranslation();
-  const { image, name, pricePerday, id, description, rating } = props.item;
+  const { image, name, pricePerday, id, description, rating, number } =
+    props.item;
   let star = [];
 
   for (let index = 0; index < 5; index++) {
@@ -122,6 +123,9 @@ function CardRoomsItem(props) {
         </h5>
         <h5 class="card-Price">
           {pricePerday}$ {t("Price/day")}{" "}
+        </h5>
+        <h5 class="card-Price">
+          {number} {t("person/room")}{" "}
         </h5>
         {star}
         <p class="card-text">{description}</p>

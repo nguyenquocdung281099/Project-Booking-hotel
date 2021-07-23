@@ -103,7 +103,7 @@ export default function Dashboard() {
 
   const booking = {
     name: "Booking",
-    link: "/admin/operation/list_bookings",
+    link: "/admin/list_bookings",
     db:
       (bData.length !== 0 || bData !== null) && typeof bData !== "undefined"
         ? bookTData
@@ -120,7 +120,7 @@ export default function Dashboard() {
 
   const room = {
     name: "Room",
-    link: "/admin/setup/list_rooms",
+    link: "/admin/list_rooms",
     db:
       (rData.length !== 0 || rData !== null) && typeof rData !== "undefined"
         ? roomTData
@@ -137,7 +137,7 @@ export default function Dashboard() {
 
   const promotion = {
     name: "Promotion",
-    link: "/admin/setup/list_promos",
+    link: "/admin/list_promos",
     db:
       (pData.length !== 0 || pData !== null) && typeof pData !== "undefined"
         ? promoTData
@@ -154,7 +154,7 @@ export default function Dashboard() {
 
   const service = {
     name: "Service",
-    link: "/admin/setup/list_services",
+    link: "/admin/list_services",
     db:
       (sData.length !== 0 || sData !== null) && typeof sData !== "undefined"
         ? serviceTData

@@ -22,6 +22,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, Route, Switch, useLocation } from "react-router-dom";
+import { InputNumber } from "antd";
 
 export default function BookingPage() {
   const [valueSearchCode, setValueSearchCode] = useState("");
@@ -113,7 +114,6 @@ export default function BookingPage() {
       dateStart: sessionStorage.getItem(KEY_DATE_CHECKIN),
       dateEnd: sessionStorage.getItem(KEY_DATE_CHECKOUT),
     };
-    console.log({ ...bookings });
     setBooking({ ...bookings });
     dispatch(setBooking(bookings));
     localStorage.removeItem("KEY_SERVICE");
@@ -128,6 +128,10 @@ export default function BookingPage() {
     setServiceExtra([...serviceExtra]);
     setBookings({ ...booking, service: [...serviceExtra] });
   };
+
+  function onChangeNumber(value) {
+    setBookings({ ...booking, number: value });
+  }
   return (
     <main className="bookingPage">
       <ToastContainer />
@@ -339,6 +343,15 @@ export default function BookingPage() {
                             {t("Cancel")}
                           </button>
                         )}
+                      </div>
+                      <div className="address group-input">
+                        <label for="address">{t("Person")}:</label>
+                        <InputNumber
+                          min={1}
+                          max={infRoom.number}
+                          defaultValue={booking.number}
+                          onChange={onChangeNumber}
+                        />
                       </div>
                     </div>
                     <div className=" col-12 col-md-6 col-lg-3 mb-5">
@@ -665,7 +678,7 @@ function getTotalCost(totalDay, pricePerday, service, discout = 0) {
   const price = parseFloat(pricePerday);
   const discount = parseFloat(discout);
   const serviceCosts = parseFloat(serviceCost);
-  const priceDiscout = (ttday * price * discount + serviceCosts) / 100;
+  const priceDiscout = ((ttday * price + serviceCosts) * discount) / 100;
   const totalCost = ttday * price + serviceCosts - priceDiscout;
   return parseInt(totalCost);
 }
