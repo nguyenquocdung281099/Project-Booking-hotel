@@ -15,14 +15,7 @@ export default function roomReducer(state = defaultState, action) {
   let newState = { ...state };
   switch (action.type) {
     case ActionType.GET_ROOM_SC:
-      // newState = {
-      //   ...newState,
-      //   rooms: action.payload.data,
-      //   pagi: action.payload.pagination,
-      // };
-      // state = { ...newState };
-      // console.log(state)
-      // return { ...state };
+
         if (action.payload.pagination) {
             newState = {
                 ...newState,

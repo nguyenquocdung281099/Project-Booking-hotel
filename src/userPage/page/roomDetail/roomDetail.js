@@ -32,7 +32,7 @@ export default function RoomDetailPage() {
   });
 
   const holidays = setDateBooked(bookingRoomFetch);
-  console.log(holidays);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -81,98 +81,70 @@ export default function RoomDetailPage() {
               setStyleProgess({ width: "75%" });
             }}
           >
-            <div className="col-xs-7 col-12 ml-2 mr-2">
+            <div className="col-12 col-md-7">
               <h4>{t("DESCRIPTION")}</h4>
               <p>{dataRoomCurrent.description}</p>
               <h4 className="mb-5">{t("ROOM DETAIL")}</h4>
-              <div className="row">
-                <table className="table table-striped col-12 col-md-6 m-1">
-                  <tbody>
-                    <tr>
-                      <th scope="row">{t("size")}:</th>
-                      <td>350-425 m2</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("view")}:</th>
-                      <td>{t("Sea")}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Ensuite Bathroom")}</th>
-                      <td>
-                        <i class="far fa-times-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Breakfast Included")} </th>
-                      <td>
-                        <i class="fas fa-check-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Gym Access")}</th>
-                      <td>
-                        <i class="fas fa-check-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Ensuite Bathroom")}</th>
-                      <td>24/7</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Free Airport Pickup")}</th>
-                      <td>
-                        <i class="fas fa-check-circle"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="table table-striped col-12 col-md-6 p-1">
-                  <tbody>
-                    <tr>
-                      <th scope="row">{t("Room Service")}</th>
-                      <td>
-                        <i class="fas fa-check-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Roof terrace")}</th>
-                      <td>
-                        <i class="fas fa-check-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Dryer")}</th>
-                      <td>
-                        <i class="far fa-times-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Balcony")}</th>
-                      <td>
-                        <i class="far fa-times-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Smoking allowed")}</th>
-                      <td>
-                        <i class="far fa-times-circle"></i>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Concrete flooring")}</th>
-                      <td>24/7</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{t("Free Parking")}</th>
-                      <td>
-                        <i class="fas fa-check-circle"></i>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <table className="table table-striped ">
+                <tbody>
+                  <tr>
+                    <th scope="row">{t("Room Service")}</th>
+                    <td>
+                      <i class="fas fa-check-circle"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Roof terrace")}</th>
+                    <td>
+                      <i class="fas fa-check-circle"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Dryer")}</th>
+                    <td>
+                      <i class="far fa-times-circle"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Balcony")}</th>
+                    <td>
+                      <i class="far fa-times-circle"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Smoking allowed")}</th>
+                    <td>
+                      <i class="far fa-times-circle"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Concrete flooring")}</th>
+                    <td>24/7</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Free Parking")}</th>
+                    <td>
+                      <i class="fas fa-check-circle"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("size")}:</th>
+                    <td>350-425 m2</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("view")}:</th>
+                    <td>{t("Sea")}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">{t("Ensuite Bathroom")}</th>
+                    <td>
+                      <i class="far fa-times-circle"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div className="col-12 col-xs-5  m-3">
+            <div className="col-12 col-md-5">
               <h4 className="mb-3">{t("Availability")}</h4>
               <div className="d-flex">
                 <div className="describe d-flex m-2 ">

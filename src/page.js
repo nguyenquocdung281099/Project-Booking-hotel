@@ -27,7 +27,7 @@ export default function Page() {
         <BookingRoute path="/profile" component={ProfilePage} />
         <BookingRoute path="/booking" component={BookingPage} />
 
-        <PrivateRoute path="/admin" component={StaffPage} />
+        <PrivateRoute path="/admin/dashboard" component={StaffPage} />
       </Switch>
     </div>
   );

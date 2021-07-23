@@ -1,21 +1,40 @@
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 export default function ModalUser(props) {
-  let { id, name, idRole, birthday, email, address, phone,
-    createdAt, updatedAt, isOpen, isEdit } = props;
+  let {
+    id,
+    name,
+    idRole,
+    birthday,
+    email,
+    address,
+    phone,
+    createdAt,
+    updatedAt,
+    isOpen,
+    isEdit,
+  } = props;
   const initialValues = {
-    id, name, idRole, birthday, email, address, phone, createdAt, updatedAt,
+    id,
+    name,
+    idRole,
+    birthday,
+    email,
+    address,
+    phone,
+    createdAt,
+    updatedAt,
   };
   const [values, setValues] = useState(initialValues);
 
   function handleChange(e) {
     switch (e.target.name) {
-      case 'birthday':
+      case "birthday":
         setValues({
           ...values,
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value,
         });
         break;
       default:
@@ -26,7 +45,7 @@ export default function ModalUser(props) {
         break;
     }
   }
-  const userModal = useSelector((state) => state.userDB.userDB)
+  const userModal = useSelector((state) => state.userDB.userDB);
 
   const [dataError, setdataError] = useState({
     name: "*",
@@ -37,11 +56,10 @@ export default function ModalUser(props) {
     phone: "*",
   });
 
-  let bDay = new Date(birthday).toISOString().substr(0, 10)
-  let today = new Date().toISOString().substr(0, 10)
+  let bDay = new Date(birthday).toISOString().substr(0, 10);
+  let today = new Date().toISOString().substr(0, 10);
 
   function handleSubmit(data) {
-
     let dataErrors = {};
 
     if (data.name === "" || !data.name) {
@@ -59,7 +77,7 @@ export default function ModalUser(props) {
     if (!data.birthday) {
       dataErrors = { ...dataErrors, birthday: "Please choose a birthday" };
     } else {
-      delete dataErrors.birthday
+      delete dataErrors.birthday;
     }
 
     if (data.email === "" || !data.email) {
@@ -68,9 +86,15 @@ export default function ModalUser(props) {
       const emailno =
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (!emailno.test(data.email)) {
-        dataErrors = { ...dataErrors, email: "Please input valid format email" };
+        dataErrors = {
+          ...dataErrors,
+          email: "Please input valid format email",
+        };
       } else {
-        if (userModal.findIndex((item) => item.email === data.email) !== -1 && isEdit !== true) {
+        if (
+          userModal.findIndex((item) => item.email === data.email) !== -1 &&
+          isEdit !== true
+        ) {
           dataErrors = {
             ...dataErrors,
             email: "This email is already in used",
@@ -88,11 +112,17 @@ export default function ModalUser(props) {
     }
 
     if (data.phone === "" || !data.phone) {
-      dataErrors = { ...dataErrors, phone: "Please fill out your phone number" };
+      dataErrors = {
+        ...dataErrors,
+        phone: "Please fill out your phone number",
+      };
     } else {
       const phoneno = /^\d{10}$/;
-      if (!phoneno.test(phone)) {
-        dataErrors = { ...dataErrors, phone: "Please format your phone number" };
+      if (!phoneno.test(data.phone)) {
+        dataErrors = {
+          ...dataErrors,
+          phone: "Please format your phone number",
+        };
       } else {
         delete dataErrors.phone;
       }
@@ -102,9 +132,9 @@ export default function ModalUser(props) {
 
     if (Object.keys(dataErrors).length === 0) {
       if (isEdit) {
-        props.editData(data)
+        props.editData(data);
       } else {
-        props.addData(data)
+        props.addData(data);
       }
     }
   }
@@ -136,7 +166,7 @@ export default function ModalUser(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
-                  placeholder='Please fill out name of user'
+                  placeholder="Please fill out name of user"
                 />
                 <span id="name_error" style={{ color: "red" }}>
                   {dataError.name}
@@ -152,7 +182,8 @@ export default function ModalUser(props) {
                   className="form-control"
                   name="idRole"
                   onChange={handleChange}
-                  value={values.idRole}>
+                  value={values.idRole}
+                >
                   <option hidden>Please choose role</option>
                   <option value="user1">Customer</option>
                   <option value="user4">Sale</option>
@@ -175,7 +206,7 @@ export default function ModalUser(props) {
                   type="date"
                   className="form-control"
                   onChange={handleChange}
-                  placeholder='Please choose a birthday'
+                  placeholder="Please choose a birthday"
                   max={today}
                 />
                 <span id="birthday_error" style={{ color: "red" }}>
@@ -194,7 +225,7 @@ export default function ModalUser(props) {
                   type="email"
                   className="form-control"
                   onChange={handleChange}
-                  placeholder='Please input an email'
+                  placeholder="Please input an email"
                 />
                 <span id="email_error" style={{ color: "red" }}>
                   {dataError.email}
@@ -212,7 +243,7 @@ export default function ModalUser(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
-                  placeholder='Please input an address'
+                  placeholder="Please input an address"
                 />
                 <span id="address_error" style={{ color: "red" }}>
                   {dataError.address}
@@ -230,7 +261,7 @@ export default function ModalUser(props) {
                   type="text"
                   className="form-control"
                   onChange={handleChange}
-                  placeholder='Please fill out your phone number'
+                  placeholder="Please fill out your phone number"
                 />
                 <span id="phone_error" style={{ color: "red" }}>
                   {dataError.phone}

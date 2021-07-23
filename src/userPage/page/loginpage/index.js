@@ -60,10 +60,11 @@ export default function LoginPage() {
   useEffect(() => {
     dispatch(signUpTO());
   }, []);
+
   if (userAuth.isLogin === true) {
     notify();
     if (userAuth.isAuthen === true) {
-      return <Redirect exact to="/admin" />;
+      return <Redirect exact to="/admin/dashboard" />;
     } else {
       return <Redirect exact to="/" />;
     }

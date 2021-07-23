@@ -17,6 +17,7 @@ export default function CardRoomsList() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.room);
   const filter = data.filter;
+  console.log(filter);
   const type = data.type.length === 0 ? [{ name: "" }] : data.type;
   const filterSearchRoom = data.filterSearchRoom;
   const { t } = useTranslation();
@@ -116,8 +117,12 @@ function CardRoomsItem(props) {
         <h4 class="card-nameRoom">
           {t("Room")} : {name}
         </h4>
-        <h5 class="card-NameType">{t("Type Room")} : {props.type}</h5>
-        <h5 class="card-Price">{pricePerday}$ {t("Price/day")} </h5>
+        <h5 class="card-NameType">
+          {t("Type Room")} : {props.type}
+        </h5>
+        <h5 class="card-Price">
+          {pricePerday}$ {t("Price/day")}{" "}
+        </h5>
         {star}
         <p class="card-text">{description}</p>
         <Link to={`/detailRooms/${id}`}>{t("Detail")}</Link>

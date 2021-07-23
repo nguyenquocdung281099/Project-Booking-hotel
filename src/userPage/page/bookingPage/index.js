@@ -75,6 +75,7 @@ export default function BookingPage() {
   useEffect(() => {
     dispatch(getservice({ _page: 1 }));
   }, []);
+
   useEffect(() => {
     if (isGetPromo === true) {
       notify();
@@ -112,6 +113,7 @@ export default function BookingPage() {
       dateStart: sessionStorage.getItem(KEY_DATE_CHECKIN),
       dateEnd: sessionStorage.getItem(KEY_DATE_CHECKOUT),
     };
+    console.log({ ...bookings });
     setBooking({ ...bookings });
     dispatch(setBooking(bookings));
     localStorage.removeItem("KEY_SERVICE");
@@ -174,7 +176,7 @@ export default function BookingPage() {
             <Switch>
               <Route exact path="/booking">
                 <div className="chooseDate__booking row ">
-                  <div className="group-input col-md-6 col-12">
+                  <div className="group-input col-md-6 col-12 col-lg-4">
                     <div>
                       <h3>{t("Check In")}</h3>
                       <DatePicker
@@ -191,7 +193,7 @@ export default function BookingPage() {
                       />
                     </div>
                   </div>
-                  <div className=" col-md-6 col-12">
+                  <div className=" col-md-6 col-12 col-lg-4">
                     <div>
                       <h3>{t("check Out")}</h3>
                       <DatePicker
@@ -207,37 +209,42 @@ export default function BookingPage() {
                       />
                     </div>
                   </div>
-                  <h3>{t("extra service")}</h3>
-                  <div className="col-12 service mb-3 mt-3">
-                    <table class="table table-borderless table-responsive">
-                      <tbody>
-                        {service.map((item) => (
-                          <tr className="servceItem">
-                            <td>
-                              <label
-                                htmlFor={item.name}
-                                onClick={() => {
-                                  handleService(item);
-                                }}
-                              >
-                                {item.name}
-                              </label>
-                            </td>
-                            <td className="price">${item.price}</td>
-                            <td style={{ width: "50px" }}>
-                              <input
-                                type="checkbox"
-                                name="service"
-                                className="mr-2"
-                                id={item.name}
-                                hidden
-                              />
-                              <i class="fas fa-check"></i>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+
+                  <div className="col-md-6 col-12 col-lg-4 mb-3 ">
+                    <h3>{t("extra service")}</h3>
+
+                    <div class="service">
+                      <p>{t("choose Service")}</p>
+                      <table class="table table-borderless table-responsive">
+                        <tbody>
+                          {service.map((item) => (
+                            <tr className="servceItem">
+                              <td>
+                                <label
+                                  htmlFor={item.name}
+                                  onClick={() => {
+                                    handleService(item);
+                                  }}
+                                >
+                                  {item.name}
+                                </label>
+                              </td>
+                              <td className="price">${item.price}</td>
+                              <td style={{ width: "50px" }}>
+                                <input
+                                  type="checkbox"
+                                  name="service"
+                                  className="mr-2"
+                                  id={item.name}
+                                  hidden
+                                />
+                                <i class="fas fa-check"></i>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                   <Link
                     class="btn"
@@ -334,7 +341,7 @@ export default function BookingPage() {
                         )}
                       </div>
                     </div>
-                    <div className=" col-12 col-lg-3 mb-5">
+                    <div className=" col-12 col-md-6 col-lg-3 mb-5">
                       <h2 className="mb-5">{t("inf Date")}</h2>
 
                       <div className="info_checkIn div-date ">
@@ -350,34 +357,66 @@ export default function BookingPage() {
                         }/${checkOut.getFullYear()}`}</p>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-3 mb-3">
-                      <h2 className="mb-5">{t("inf Room")}</h2>
+                    <div className="col-12 col-md-6 col-lg-4 mb-3">
+                      <h2 className="mb-5">{t("inf booking")}</h2>
                       <div className="inf_room__confirm">
-                        <h4 className="name_rom">
-                          {t("nameRoom")}: {infRoom.name}
-                        </h4>
-                        <h4 className="name_rom">
-                          {t("pricePerDay")}: ${infRoom.pricePerday}
-                        </h4>
-                        <h4>
-                          {t("Total Day")} :{" "}
-                          {getTotalDay(
-                            Date.parse(checkOut),
-                            Date.parse(checkIn)
+                        <table class="table">
+                          <tr>
+                            <td>
+                              <h5 className="name_rom">{t("nameRoom")}</h5>
+                            </td>
+                            <td>
+                              <h5>{infRoom.name}</h5>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 className="name_rom">{t("pricePerDay")}</h5>
+                            </td>
+                            <td>
+                              <h5>${infRoom.pricePerday}</h5>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 className="name_rom"> {t("Total Day")}</h5>
+                            </td>
+                            <td>
+                              <h5>
+                                {getTotalDay(
+                                  Date.parse(checkOut),
+                                  Date.parse(checkIn)
+                                )}
+                              </h5>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h5 className="name_rom"> {t("Person")}</h5>
+                            </td>
+                            <td>
+                              <h5>
+                                {booking.number} <i class="fas fa-user-tie"></i>
+                              </h5>
+                            </td>
+                          </tr>
+                          {serviceExtra.length !== 0 && (
+                            <tr>
+                              <td>
+                                <h5 className="serviceEr">
+                                  {t("Service Extra")}
+                                </h5>
+                              </td>
+                              <td>
+                                {serviceExtra.map((item) => (
+                                  <p className="serviceEr">
+                                    {item.name}-{item.price}$
+                                  </p>
+                                ))}
+                              </td>
+                            </tr>
                           )}
-                        </h4>
-                        <h4>
-                          {t("Person")}:{booking.number}
-                        </h4>
-                        {serviceExtra.length !== 0 && (
-                          <h4 className="serviceEr">{t("Service Extra")} :</h4>
-                        )}
-                        {serviceExtra.map((item) => (
-                          <p className="serviceEr">
-                            {item.name}-{item.price}$
-                          </p>
-                        ))}
-                        <hr />
+                        </table>
                         {isGetPromo === true && isCancelCode === true ? (
                           <p>
                             {t("discount code")} :{promo[0].code}{" "}
@@ -385,7 +424,6 @@ export default function BookingPage() {
                         ) : (
                           ""
                         )}
-                        <div className="descr_room">{infRoom.description}</div>
                       </div>
                     </div>
                   </div>
@@ -500,38 +538,76 @@ export default function BookingPage() {
                   <div className="col-12 col-md-5 mb-4">
                     <h2 className="mb-5">{t("inf Room")}</h2>
                     <div className="inf_room__confirm">
-                      <h4 className="name_rom">
-                        {t("nameRoom")}: {infRoom.name}
-                      </h4>
-                      <h4 className="name_rom">
-                        {t("pricePerDay")}: ${infRoom.pricePerday}
-                      </h4>
-                      <h4>
-                        {t("Total Day")} :{totalDay}
-                      </h4>
-                      <h4>
-                        {`${checkIn.getDate()}/${
-                          checkIn.getMonth() + 1
-                        }/${checkIn.getFullYear()}`}{" "}
-                        {t("to")}
-                        {` ${checkOut.getDate()}/${
-                          checkOut.getMonth() + 1
-                        }/${checkOut.getFullYear()}`}
-                      </h4>
-
-                      {serviceExtra.length !== 0 && (
-                        <h4 className="serviceEr">{t("Service Extra")} :</h4>
-                      )}
-                      {serviceExtra.map((item) => (
-                        <p className="serviceEr">
-                          {item.name}-{item.price}$
-                        </p>
-                      ))}
-                      <h4>
-                        {t("Total Cost")} :{totalCost}
-                      </h4>
-                      <hr />
-                      <div className="descr_room">{infRoom.description}</div>
+                      <table class="table">
+                        <tr>
+                          <td>
+                            <h5 className="name_rom">{t("nameRoom")}</h5>
+                          </td>
+                          <td>
+                            <h5>{infRoom.name}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h5 className="name_rom">{t("pricePerDay")}</h5>
+                          </td>
+                          <td>
+                            <h5>${infRoom.pricePerday}</h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h5 className="name_rom"> {t("Total Day")}</h5>
+                          </td>
+                          <td>
+                            <h5>
+                              {getTotalDay(
+                                Date.parse(checkOut),
+                                Date.parse(checkIn)
+                              )}
+                            </h5>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h5 className="name_rom"> {t("Person")}</h5>
+                          </td>
+                          <td>
+                            <h5>
+                              {booking.number} <i class="fas fa-user-tie"></i>
+                            </h5>
+                          </td>
+                        </tr>
+                        {serviceExtra.length !== 0 && (
+                          <tr>
+                            <td>
+                              <h5 className="serviceEr">
+                                {t("Service Extra")}
+                              </h5>
+                            </td>
+                            <td>
+                              {serviceExtra.map((item) => (
+                                <p className="serviceEr">
+                                  {item.name}-{item.price}$
+                                </p>
+                              ))}
+                            </td>
+                          </tr>
+                        )}
+                        <tr>
+                          <td>
+                            <h5 className="name_rom"> {t("total cost")}</h5>
+                          </td>
+                          <td>
+                            <h5>
+                              {new Intl.NumberFormat("de-DE", {
+                                style: "currency",
+                                currency: "USD",
+                              }).format(totalCost)}
+                            </h5>
+                          </td>
+                        </tr>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -583,7 +659,7 @@ function getTotalCost(totalDay, pricePerday, service, discout = 0) {
     service.length === 0
       ? 0
       : service.reduce((total, services) => {
-          return (total += services.price);
+          return (total += parseInt(services.price));
         }, 0);
   const ttday = parseInt(totalDay);
   const price = parseFloat(pricePerday);
@@ -591,5 +667,5 @@ function getTotalCost(totalDay, pricePerday, service, discout = 0) {
   const serviceCosts = parseFloat(serviceCost);
   const priceDiscout = (ttday * price * discount + serviceCosts) / 100;
   const totalCost = ttday * price + serviceCosts - priceDiscout;
-  return totalCost.toFixed(2);
+  return parseInt(totalCost);
 }
