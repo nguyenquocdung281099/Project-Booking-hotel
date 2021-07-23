@@ -396,20 +396,12 @@ export const getBookingDB = (filter, search) => {
   return {
     type: ActionType.GET_BOOKINGDB,
     filter: filter,
-    search: search,
   };
 };
 
 export const getBookingDBSC = (data) => {
   return {
     type: ActionType.GET_BOOKINGDB_SC,
-    payload: data,
-  };
-};
-
-export const searchBookingDB = (data) => {
-  return {
-    type: ActionType.SEARCH_BOOKINGDB,
     payload: data,
   };
 };

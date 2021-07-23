@@ -529,80 +529,53 @@
   ],
   "booking": [
     {
-      "idUser": 2,
-      "dateStart": "Wed Jul 21 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountSummer",
-      "totalCost": "1445.00",
+      "idUser": 5,
+      "dateStart": "Thu Sep 02 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Sep 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
       "status": "NEW",
-      "idroom": 1,
-      "number": 1,
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
       "service": [
         {
-          "id": 1,
-          "name": "Dịch vụ swim",
-          "price": "500"
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
         }
       ],
       "paymethod": "ZaloPay",
-      "createdAt": 1626750421949,
-      "updatedAt": 1626750421949,
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
       "id": 1
     },
     {
       "idUser": 3,
-      "dateStart": "Mon Aug 09 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Thu Aug 12 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 0.4,
+      "dateStart": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 232.60000000000002,
       "status": "CANCEL",
-      "idroom": 5,
-      "number": 4,
+      "idroom": 2,
+      "userName": "nguyenquocdung1234",
+      "number": 3,
       "paymethod": "ZaloPay",
-      "createdAt": 1626774157898,
-      "updatedAt": 1626774157898,
+      "createdAt": 1627006563227,
+      "updatedAt": 1627006563227,
       "id": 2
     },
     {
       "idUser": 3,
-      "dateStart": "Wed Jul 28 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountSummer",
-      "totalCost": 3.2,
+      "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Aug 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 66,
       "status": "CANCEL",
-      "idroom": 1,
-      "number": 1,
-      "service": [
-        {
-          "name": "Sân golf và sân tennis",
-          "id": 6,
-          "price": 120
-        }
-      ],
+      "idroom": 2,
+      "userName": "nguyenquocdung1234",
+      "number": 3,
       "paymethod": "ZaloPay",
-      "createdAt": 1626774812070,
-      "updatedAt": 1626774812070,
+      "createdAt": 1627006949958,
+      "updatedAt": 1627006949958,
       "id": 3
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sun Aug 15 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Thu Aug 19 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "codeDiscount": "discountSummer",
-      "totalCost": 95,
-      "status": "CANCEL",
-      "idroom": 6,
-      "number": 2,
-      "service": [
-        {
-          "name": "Fitness centre",
-          "id": 3,
-          "price": 50
-        }
-      ],
-      "paymethod": "visa-jcb",
-      "createdAt": 1626785901654,
-      "updatedAt": 1626785901654,
-      "id": 4
     }
   ],
   "bankaccount": [

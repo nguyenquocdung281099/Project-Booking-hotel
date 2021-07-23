@@ -78,8 +78,7 @@ export const DEL_USERDB_SC = "DEL_USERDB_SC";
 //booking DB staffpage
 export const GET_BOOKINGDB = "GET_BOOKINGDB";
 export const GET_BOOKINGDB_SC = "GET_BOOKINGDB_SC";
-export const SEARCH_BOOKINGDB = "SEARCH_BOOKINGDB";
-export const EDIT_BOOKINGDB = "EDIT_BOOKINGDB";
+ export const EDIT_BOOKINGDB = "EDIT_BOOKINGDB";
 export const EDIT_BOOKINGDB_SC = "EDIT_BOOKINGDB_SC";
 
 //room DB staffpage

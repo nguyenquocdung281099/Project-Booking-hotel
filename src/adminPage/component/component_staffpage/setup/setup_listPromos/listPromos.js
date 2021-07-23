@@ -166,7 +166,7 @@ export default function ListPromos() {
     })
 
     return (
-        <div>
+        <div className='setup_content content'>
             <ToastContainer />
 
             <table className="table table-bordered">
