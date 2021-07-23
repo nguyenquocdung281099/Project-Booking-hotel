@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useRef, useState } from 'react';
-import { changeFilter, searchBookingDB } from '../../../../../../redux/action';
+import { changeFilter, getBookingDB } from '../../../../../../redux/action';
 import './style.css'
 
 export default function SortBooking(props) {
@@ -8,14 +8,11 @@ export default function SortBooking(props) {
     const dispatch = useDispatch();
 
     const filter = useSelector((state) => state.bookingDB.filter);
-    const search = useSelector((state) => state.bookingDB.search);
 
     const initialOptionSort = { sort: '', order: '' }
-    const searchInputDef = ''
-    const searchTypeDef = ''
     const [values, setValues] = useState({});
     const [searchInput, setSearchInput] = useState('');
-    const [searchType, setSearchType] = useState('');
+    const [searchType, setSearchType] = useState('userName');
 
     const debounceSearchInput = useRef(null)
 
@@ -52,43 +49,28 @@ export default function SortBooking(props) {
         const inputValue = e.target.value
         setSearchInput(inputValue);
 
-        if (!handleSearch) return;
+        if (!props.handleSearch) return;
 
         if (debounceSearchInput.current) {
             clearTimeout(debounceSearchInput.current)
         }
 
-        debounceSearchInput.current = setTimeout(()=> {
-            if (searchType !== '' && inputValue !== ''){
-                let string = '{"' + searchType + '_like":"' + inputValue + '"}'
-                let a = JSON.parse(string)
-                dispatch(searchBookingDB({...search, ...a }))
+        debounceSearchInput.current = setTimeout(() => {
+            let string = '{"' + searchType + '_like":"' + inputValue + '"}'
+            let a = JSON.parse(string)
+            let b = {
+                key: searchType,
+                value: inputValue
             }
+            console.log(a)
+            console.log(b)
+            props.handleSearch(b)
         }, 1000)
     }
 
     function handleSearchType(e) {
-        dispatch(searchBookingDB({}))
         setSearchType(e.target.value)
     }
-
-    function handleSearch(data1, data2) {
-        if (data1 !== '' && data2 !== '') {
-            let string = '{"' + data1 + '_like":"' + data2 + '"}'
-            let a = JSON.parse(string)
-            dispatch(searchBookingDB({
-                ...search, ...a
-            }));
-        }
-    }
-
-    function handleResetSearch() {
-        dispatch(searchBookingDB({}))
-        setSearchType(searchTypeDef)
-        setSearchInput(searchInputDef)
-    }
-
-
 
     return (
         <>
@@ -145,15 +127,6 @@ export default function SortBooking(props) {
                             value={searchInput}
                         >
                         </input>
-                        <div className="input-group-btn">
-                            <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={() => handleSearch(searchType, searchInput)}
-                            >
-                                <i className="fas fa-search"></i>
-                            </button>
-                        </div>
                     </div>
                 </div>
                 <div className="form-group">
@@ -165,25 +138,11 @@ export default function SortBooking(props) {
                         onChange={handleSearchType}
                         value={searchType}
                     >
-                        <option hidden>Search Type</option>
                         <option value="userName" selected>User Name</option>
                         <option value="id">ID Booking</option>
                     </select>
                 </div>
-                <div className="form-group row col-auto">
-                    {Object.keys(search).length !== 0 && (
-                        <button
-                            type="button"
-                            className="btn btn-primary"
-                            onClick={() => handleResetSearch()}
-                        >
-                            {" "}
-                            Clear search
-                        </button>
-                    )}
-                </div>
             </div>
-
         </>
     )
 }

@@ -91,7 +91,7 @@ export default function ModalUser(props) {
       dataErrors = { ...dataErrors, phone: "Please fill out your phone number" };
     } else {
       const phoneno = /^\d{10}$/;
-      if (!phoneno.test(phone)) {
+      if (!phoneno.test(data.phone)) {
         dataErrors = { ...dataErrors, phone: "Please format your phone number" };
       } else {
         delete dataErrors.phone;

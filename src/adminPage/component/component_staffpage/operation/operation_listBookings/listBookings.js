@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import ItemBooking from './itemBooking/item';
-import { getBookingDB, editBookingDB, getroom, getUserDB } from '../../../../../redux/action/'
+import { getBookingDB, editBookingDB, getroom, getUserDB, changeFilter } from '../../../../../redux/action/'
 import ModalBooking from './operation_modalBooking/modalBooking';
 import SortBooking from './operation_sortBookings/sortBooking';
 import { ToastContainer, toast } from "react-toastify";
@@ -18,7 +18,6 @@ export default function ListBookings() {
     const bookingDBData = useSelector((state) => state.bookingDB)
     const loader = useSelector((state) => state.bookingDB.loader)
     const filter = bookingDBData.filter;
-    const search = bookingDBData.search;
     const roombkPage = useSelector((state) => state.room.rooms)
     const userbkPage = useSelector((state) => state.userDB.userDB)
     const pagi =
@@ -41,13 +40,8 @@ export default function ListBookings() {
         dispatch(getBookingDB({ ...filter, _page: pagi._page, _limit: pagi._limit }));
     }, [filter, dispatch, pagi._page, pagi._limit]);
 
-    useEffect(() => {
-        dispatch(getBookingDB({ ...search, _page: pagi._page, _limit: pagi._limit }));
-    }, [search, dispatch, pagi._page, pagi._limit]);
-
     function handleChangePagi(page, pagesize) {
         dispatch(getBookingDB({ ...filter, _page: page, _limit: pagi._limit }));
-        dispatch(getBookingDB({ ...search, _page: page, _limit: pagi._limit }));
         window.screenY = 0;
     }
 
@@ -208,26 +202,43 @@ export default function ListBookings() {
         />
     })
 
+    function handleSearch(data) {
+        if (data.value !== "") {
+            let string = '{"' + data.key + '_like":"' + data.value + '"}'
+            let a = JSON.parse(string)
+            dispatch(
+                changeFilter({
+                    ...filter,
+                    ...a
+                })
+            )
+        } else {
+            // dispatch(getBookingDB({ _page: pagi._page, _limit: pagi._limit }))
+            dispatch(changeFilter({}))
+            console.log(filter)
+        }
+    }
+
     return (
-        <div>
+        <div className='operation_content content'>
             <ToastContainer />
 
             <table className="table table-bordered">
                 <thead>
                     <tr>
                         <th colSpan="8" className='add-th'>
-                            <SortBooking />
+                            <SortBooking handleSearch={handleSearch}/>
                         </th>
                     </tr>
                     <tr>
-                        <th scope="col" style={{ width: "1%" }}>#</th>
-                        <th scope="col" style={{ width: "1%" }}>Room</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Room</th>
                         <th scope="col">User</th>
                         <th scope="col">Start</th>
                         <th scope="col">End</th>
-                        <th scope="col" style={{ width: "1%" }}>Number</th>
-                        <th scope="col" >Status</th>
-                        <th scope="col" style={{ width: "27%" }}>Action</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 {loader ?

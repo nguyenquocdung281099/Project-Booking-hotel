@@ -12,8 +12,8 @@ export default function* BookingDBSaga() {
 
 function* getBookingDB(action) {
     try {
-        const urlsort = queryString.stringify(action.filter, action.search);
-        const bookingDB = yield call(get, `${URL_BOOKING}?${urlsort}`);
+        const url = queryString.stringify(action.filter);
+        const bookingDB = yield call(get, `${URL_BOOKING}?${url}`);
         yield put(func_action.setloader(false));
         delay(1000);
         if (bookingDB.status === 200) {
