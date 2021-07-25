@@ -31,7 +31,6 @@ export default function PrivateRoute({ component: Component, ...rest }) {
       typeof listUser !== 'undefined' ?
       listUser.find(e => e.email === emailUser.email) : 'null'
 
-      console.log("................")
   return (
     <Route
       {...rest}

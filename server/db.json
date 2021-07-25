@@ -576,6 +576,40 @@
       "createdAt": 1627006949958,
       "updatedAt": 1627006949958,
       "id": 3
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Thu Aug 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Aug 20 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 189,
+      "status": "CANCEL",
+      "idroom": 6,
+      "number": 4,
+      "paymethod": "ZaloPay",
+      "createdAt": 1627050797302,
+      "updatedAt": 1627050797302,
+      "id": 4
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Fri Jul 23 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 32,
+      "status": "CANCEL",
+      "idroom": 6,
+      "userName": "nguyenquocdung1234",
+      "number": 2,
+      "service": [
+        {
+          "name": "Fitness centre",
+          "id": 3,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1627054038079,
+      "updatedAt": 1627054038079,
+      "id": 5
     }
   ],
   "bankaccount": [
