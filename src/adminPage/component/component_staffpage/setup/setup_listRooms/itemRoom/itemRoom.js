@@ -28,7 +28,6 @@ export default function ItemRoom(props) {
             <td>{number} <i class="fas fa-user"></i></td>
             <td>{rating} <i class="fas fa-star"></i></td>
             <td>{pricePerday} $</td>
-            <td>{status}</td>
             <td>
                 <button type="button" className="btn btn-info" onClick={() => showModal(true, id)}>
                     <i class="fas fa-edit"></i> Edit

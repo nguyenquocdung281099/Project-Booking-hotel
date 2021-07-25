@@ -31,9 +31,6 @@ export default function bookingDBReducer(state = defaultState, action) {
         case ActionType.CHANGE_FILTER:
             state = { ...newState, filter: action.payload };
             return state;
-        case ActionType.SEARCH_BOOKINGDB:
-            state = { ...newState, search: action.payload };
-            return state;
         case ActionType.EDIT_BOOKINGDB_SC:
             let newBooking1 = newState.bookingDB.map((item) => {
                 if (item.id === action.payload.id) {

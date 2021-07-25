@@ -16,32 +16,32 @@ export default function Sidebar(props) {
     {
       icon: "fas fa-suitcase",
       name: "List Bookings",
-      url: "/admin/operation/list_bookings",
+      url: "/admin/list_bookings",
       show: loginRole ==='user4'?  {display: "block"} : {display: "none"}
     },
     {
       icon: "fas fa-ticket-alt",
       name: "List Promotions",
-      url: "/admin/setup/list_promos",
+      url: "/admin/list_promos",
       show: loginRole ==='user3'?  {display: "block"} : {display: "none"}
     },
     {
       icon: "fas fa-bed",
       name: "List Rooms",
-      url: "/admin/setup/list_rooms",
+      url: "/admin/list_rooms",
       show: loginRole ==='user3'?  {display: "block"} : {display: "none"}
     },
 
     {
       icon: "fas fa-wrench",
       name: "List Services",
-      url: "/admin/setup/list_services",
+      url: "/admin/list_services",
       show: loginRole ==='user3'?  {display: "block"} : {display: "none"}
     },
     {
       icon: "fas fa-users",
       name: "List Users",
-      url: "/admin/system/list_users",
+      url: "/admin/list_users",
       show: loginRole ==='user2'?  {display: "block"} : {display: "none"}
     },
   ];

@@ -172,7 +172,7 @@ export default function ListRooms() {
   });
 
   return (
-    <div>
+    <div className='setup_content content'>
       <ToastContainer />
 
       <table className="table table-bordered">
@@ -189,7 +189,7 @@ export default function ListRooms() {
                 </button>
               </div>
             </th>
-            <th colSpan="7" className="add-th">
+            <th colSpan="6" className="add-th">
               <SortRoom />
             </th>
           </tr>
@@ -200,7 +200,6 @@ export default function ListRooms() {
             <th scope="col">Number</th>
             <th scope="col">Rating</th>
             <th scope="col">Price</th>
-            <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
         </thead>

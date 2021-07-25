@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import ItemUser from "./itemUser/itemUser";
-import { 
-  delUserDB, 
-  editUserDB, 
+import {
+  delUserDB,
+  editUserDB,
   getUserDB,
   getBookingDB
- } from "../../../../../redux/action/";
+} from "../../../../../redux/action/";
 import ModalUser from "./system_modalUser/modalUser";
 import SortUser from "./system_sortUser/sortUser";
 import { ToastContainer, toast } from "react-toastify";
@@ -17,6 +17,78 @@ import "react-toastify/dist/ReactToastify.css";
 import ModalDelete from "../../modalRSUDelete/modalDelete";
 
 export default function ListUsers() {
+  try {
+    function editData(data) {
+      let updateData =
+        userData.userDB.length !== 0 &&
+          userData.userDB !== null &&
+          typeof userData.userDB !== "undefined" ?
+          userData.userDB.find((item) => item.id === data.id) : "";
+      updateData = data;
+      updateData.updatedAt = +Date.now();
+      dispatch(editUserDB(updateData));
+      dispatch(getUserDB({}));
+      hideModal();
+      toaster("EDIT");
+    }
+  
+    function deleteData(id) {
+      dispatch(delUserDB(id));
+      toaster("DELETE");
+    }
+  
+    const showModal = (i, a) => {
+      let newState = { ...modalStatus };
+      let data = userData.userDB.length !== 0 &&
+        userData.userDB !== null &&
+        typeof userData.userDB !== "undefined" ?
+        userData.userDB.find((item) => {
+          return item.id === a;
+        }) : "";
+      newState = { ...newState, isOpen: true, isEdit: i, ...data };
+      setModalStatus(newState);
+    };
+  
+    const hideModal = () => {
+      let newState = { ...modalStatus };
+      let data = {
+        id: null,
+        name: null,
+        idRole: null,
+        birthday: null,
+        email: null,
+        address: null,
+        phone: null,
+        createdAt: null,
+        updatedAt: null,
+      };
+      newState = { ...newState, isOpen: false, isEdit: null, ...data };
+      setModalStatus(newState);
+    };
+  
+    const showModalDel = (i, a) => {
+      let newState = { ...modalDelStatus };
+      newState = { ...newState, isOpen: i, id: a };
+      setModalDelStatus(newState);
+    };
+  
+    const hideModalDel = () => {
+      setModalDelStatus({ isOpen: false, id: null });
+    };
+  
+    const deleteConfirm = (data) => {
+      hideModalDel();
+      deleteData(data);
+    };
+  
+    const findUsing = (data) => {
+      let obj = bookUModal.findIndex(element => element.idUser === data)
+      return obj !== -1 ? obj : -1
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userDB);
   const loader = useSelector((state) => state.userDB.loader);
@@ -44,7 +116,7 @@ export default function ListUsers() {
 
   useEffect(() => {
     dispatch(getUserDB({ ...filter }));
-  }, [filter, dispatch, pindex]);
+      }, [filter, dispatch, pindex]);
 
   function handleChangePagi(page, pageSize) {
     dispatch(getUserDB({ ...filter }));
@@ -89,7 +161,11 @@ export default function ListUsers() {
   };
 
   function editData(data) {
-    let updateData = userData.userDB.find((item) => item.id === data.id);
+    let updateData =
+      userData.userDB.length !== 0 &&
+        userData.userDB !== null &&
+        typeof userData.userDB !== "undefined" ?
+        userData.userDB.find((item) => item.id === data.id) : "";
     updateData = data;
     updateData.updatedAt = +Date.now();
     dispatch(editUserDB(updateData));
@@ -105,9 +181,12 @@ export default function ListUsers() {
 
   const showModal = (i, a) => {
     let newState = { ...modalStatus };
-    let data = userData.userDB.find((item) => {
-      return item.id === a;
-    });
+    let data = userData.userDB.length !== 0 &&
+      userData.userDB !== null &&
+      typeof userData.userDB !== "undefined" ?
+      userData.userDB.find((item) => {
+        return item.id === a;
+      }) : "";
     newState = { ...newState, isOpen: true, isEdit: i, ...data };
     setModalStatus(newState);
   };
@@ -150,7 +229,7 @@ export default function ListUsers() {
   }
 
   return (
-    <div>
+    <div className='system_content content'>
       <ToastContainer />
 
       <table className="table table-bordered">
@@ -180,19 +259,22 @@ export default function ListUsers() {
           </tbody>
         ) : (
           <tbody>
-            {userData.userDB.map((item, index) => {
-              if (index >= pindex.minIndex && index < pindex.maxIndex) {
-                return (
-                  <ItemUser
-                    key={index}
-                    index={index}
-                    {...item}
-                    showModalDel={showModalDel}
-                    showModal={showModal}
-                  />
-                );
-              }
-            })}
+            {userData.userDB.length !== 0 &&
+              userData.userDB !== null &&
+              typeof userData.userDB !== "undefined" ?
+              userData.userDB.map((item, index) => {
+                if (index >= pindex.minIndex && index < pindex.maxIndex) {
+                  return (
+                    <ItemUser
+                      key={index}
+                      index={index}
+                      {...item}
+                      showModalDel={showModalDel}
+                      showModal={showModal}
+                    />
+                  );
+                }
+              }) : ""}
           </tbody>
         )}
       </table>
@@ -219,4 +301,5 @@ export default function ListUsers() {
       />
     </div>
   );
+
 }

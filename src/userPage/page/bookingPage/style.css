@@ -89,7 +89,7 @@ form .group-input {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 300px;
+  width: 250px;
   height: 120px;
   background: white;
   border-radius: 15px;
@@ -111,7 +111,7 @@ form .group-input {
   background: chartreuse;
 }
 #code_promo {
-  width: 55%;
+  width: 45%;
 }
 .inf_room__confirm {
   width: 100%;
