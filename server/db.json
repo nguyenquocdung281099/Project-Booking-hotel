@@ -533,7 +533,7 @@
       "dateStart": "Thu Sep 02 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Sep 03 2021 00:00:00 GMT+0700 (Indochina Time)",
       "totalCost": "159.50",
-      "status": "NEW",
+      "status": "CHECKED OUT",
       "idroom": 2,
       "userName": "saleaa",
       "number": 3,
@@ -554,62 +554,63 @@
       "dateStart": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
       "totalCost": 232.60000000000002,
-      "status": "CANCEL",
+      "status": "LIVEIN",
       "idroom": 2,
       "userName": "nguyenquocdung1234",
       "number": 3,
       "paymethod": "ZaloPay",
       "createdAt": 1627006563227,
-      "updatedAt": 1627006563227,
-      "id": 2
+      "updatedAt": 1627205400063,
+      "id": 2,
+      "service": [],
+      "codeDiscount": null
     },
     {
       "idUser": 3,
       "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Tue Aug 03 2021 00:00:00 GMT+0700 (Indochina Time)",
       "totalCost": 66,
-      "status": "CANCEL",
+      "status": "NEW",
       "idroom": 2,
       "userName": "nguyenquocdung1234",
       "number": 3,
       "paymethod": "ZaloPay",
       "createdAt": 1627006949958,
-      "updatedAt": 1627006949958,
-      "id": 3
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Thu Aug 12 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Fri Aug 20 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 189,
-      "status": "CANCEL",
-      "idroom": 6,
-      "number": 4,
-      "paymethod": "ZaloPay",
-      "createdAt": 1627050797302,
-      "updatedAt": 1627050797302,
-      "id": 4
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Fri Jul 23 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 32,
-      "status": "CANCEL",
-      "idroom": 6,
-      "userName": "nguyenquocdung1234",
-      "number": 2,
+      "updatedAt": 1627205683535,
+      "id": 3,
       "service": [
+        {
+          "id": 1,
+          "name": "Dịch vụ swim",
+          "price": "500"
+        },
+        {
+          "name": "Dịch vụ phòng họp",
+          "id": 2,
+          "price": 70
+        },
         {
           "name": "Fitness centre",
           "id": 3,
           "price": 50
+        },
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        },
+        {
+          "name": "Sòng bạc",
+          "id": 5,
+          "price": 100
+        },
+        {
+          "name": "Sân golf và sân tennis",
+          "id": 6,
+          "price": 120
         }
       ],
-      "paymethod": "ZaloPay",
-      "createdAt": 1627054038079,
-      "updatedAt": 1627054038079,
-      "id": 5
+      "codeDiscount": null
     }
   ],
   "bankaccount": [

@@ -30,7 +30,7 @@ export default function ListRooms() {
     Object.keys(roomData.pagi).length === 0
       ? {
         _page: 1,
-        _limit: 14,
+        _limit: 12,
         _totalRows: 12,
       }
       : roomData.pagi;
