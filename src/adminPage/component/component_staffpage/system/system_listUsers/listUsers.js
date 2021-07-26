@@ -17,85 +17,13 @@ import "react-toastify/dist/ReactToastify.css";
 import ModalDelete from "../../modalRSUDelete/modalDelete";
 
 export default function ListUsers() {
-  try {
-    function editData(data) {
-      let updateData =
-        userData.userDB.length !== 0 &&
-          userData.userDB !== null &&
-          typeof userData.userDB !== "undefined" ?
-          userData.userDB.find((item) => item.id === data.id) : "";
-      updateData = data;
-      updateData.updatedAt = +Date.now();
-      dispatch(editUserDB(updateData));
-      dispatch(getUserDB({}));
-      hideModal();
-      toaster("EDIT");
-    }
-  
-    function deleteData(id) {
-      dispatch(delUserDB(id));
-      toaster("DELETE");
-    }
-  
-    const showModal = (i, a) => {
-      let newState = { ...modalStatus };
-      let data = userData.userDB.length !== 0 &&
-        userData.userDB !== null &&
-        typeof userData.userDB !== "undefined" ?
-        userData.userDB.find((item) => {
-          return item.id === a;
-        }) : "";
-      newState = { ...newState, isOpen: true, isEdit: i, ...data };
-      setModalStatus(newState);
-    };
-  
-    const hideModal = () => {
-      let newState = { ...modalStatus };
-      let data = {
-        id: null,
-        name: null,
-        idRole: null,
-        birthday: null,
-        email: null,
-        address: null,
-        phone: null,
-        createdAt: null,
-        updatedAt: null,
-      };
-      newState = { ...newState, isOpen: false, isEdit: null, ...data };
-      setModalStatus(newState);
-    };
-  
-    const showModalDel = (i, a) => {
-      let newState = { ...modalDelStatus };
-      newState = { ...newState, isOpen: i, id: a };
-      setModalDelStatus(newState);
-    };
-  
-    const hideModalDel = () => {
-      setModalDelStatus({ isOpen: false, id: null });
-    };
-  
-    const deleteConfirm = (data) => {
-      hideModalDel();
-      deleteData(data);
-    };
-  
-    const findUsing = (data) => {
-      let obj = bookUModal.findIndex(element => element.idUser === data)
-      return obj !== -1 ? obj : -1
-    }
-  } catch (error) {
-    console.error(error);
-  }
-
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userDB);
   const loader = useSelector((state) => state.userDB.loader);
   const filter = userData.filter;
   const pagi = {
     _page: 1,
-    _limit: 14,
+    _limit: 12,
     _totalRows: userData.userDB.length,
   };
 
@@ -116,7 +44,7 @@ export default function ListUsers() {
 
   useEffect(() => {
     dispatch(getUserDB({ ...filter }));
-      }, [filter, dispatch, pindex]);
+  }, [filter, dispatch, pindex]);
 
   function handleChangePagi(page, pageSize) {
     dispatch(getUserDB({ ...filter }));
@@ -228,6 +156,8 @@ export default function ListUsers() {
     return obj !== -1 ? obj : -1
   }
 
+  console.log(pindex)
+
   return (
     <div className='system_content content'>
       <ToastContainer />
@@ -262,8 +192,10 @@ export default function ListUsers() {
             {userData.userDB.length !== 0 &&
               userData.userDB !== null &&
               typeof userData.userDB !== "undefined" ?
-              userData.userDB.map((item, index) => {
-                if (index >= pindex.minIndex && index < pindex.maxIndex) {
+              userData.userDB
+                .filter((item, index) =>
+                  (index >= pindex.minIndex && index < pindex.maxIndex))
+                .map((item, index) => {
                   return (
                     <ItemUser
                       key={index}
@@ -273,13 +205,14 @@ export default function ListUsers() {
                       showModal={showModal}
                     />
                   );
-                }
-              }) : ""}
+                })
+              : ""}
           </tbody>
         )}
       </table>
       <Pagination
-        defaultCurrent={pagi._page}
+        defaultCurrent={1}
+        // defaultCurrent={pagi._page}
         pageSize={pagi._limit}
         total={pagi._totalRows}
         onChange={handleChangePagi}

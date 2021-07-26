@@ -14,6 +14,10 @@ export default function SignUpPage() {
   const toastSc = () => toast.warning("sign in success !");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (isSignUpEr === true) {
       toastEr();
     }

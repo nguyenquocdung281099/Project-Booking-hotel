@@ -19,6 +19,10 @@ export default function LoginPage() {
     password: "*",
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const notify = () => toast.success("login success!");
   const notifyErr = () =>
     toast.success("login err! you need re-enter password or email");
@@ -52,7 +56,7 @@ export default function LoginPage() {
   }
 
   useEffect(() => {
-    if (loginErr === true) {
+    if (loginErr === true && data.email !== "" && data.password !== "") {
       notifyErr();
     }
   }, [loginErr]);

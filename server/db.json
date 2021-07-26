@@ -6,7 +6,7 @@
       "idtyperoom": 1,
       "number": 3,
       "pricePerday": 110,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51293655789_d1fc5afcef_h.jpg",
         "https://live.staticflickr.com/65535/51293655864_b27c335cce_k.jpg",
@@ -15,7 +15,8 @@
         "https://live.staticflickr.com/65535/51293118418_b7cb322006_k.jpg",
         "https://live.staticflickr.com/65535/51293944445_2434e5db2a_h.jpg"
       ],
-      "updatedAt": 1626700316926
+      "updatedAt": 1626700316926,
+      "rating": 1
     },
     {
       "id": 3,
@@ -23,7 +24,7 @@
       "idtyperoom": 1,
       "number": 5,
       "pricePerday": 105,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51292195222_fd98d1a51c_k.jpg",
         "https://live.staticflickr.com/65535/51288949408_3740bd6aaf_o.jpg",
@@ -32,7 +33,8 @@
         "https://live.staticflickr.com/65535/51293945040_52148d89ff_k.jpg",
         "https://live.staticflickr.com/65535/51292939636_1b4350b136_k.jpg"
       ],
-      "updatedAt": 1626700330271
+      "updatedAt": 1626700330271,
+      "rating": 3
     },
     {
       "id": 4,
@@ -41,7 +43,7 @@
       "number": 1,
       "rating": 5,
       "pricePerday": 104,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289503884_81683cd9fa_o.jpg",
         "https://live.staticflickr.com/65535/51293943870_c569d3359f_k.jpg",
@@ -51,7 +53,8 @@
         "https://live.staticflickr.com/65535/51292940226_b513a94bde_h.jpg"
       ],
       "createdAt": null,
-      "updatedAt": 1626784496046
+      "updatedAt": 1626784496046,
+      "raiting ": 5
     },
     {
       "id": 5,
@@ -62,7 +65,7 @@
       "number": 4,
       "rating": 2,
       "pricePerday": 111,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289797400_e53fcc5b6f_o.jpg",
         "https://live.staticflickr.com/65535/51293655789_d1fc5afcef_h.jpg",
@@ -81,7 +84,7 @@
       "number": 4,
       "rating": 3,
       "pricePerday": 112,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51288032662_e83f400a28_o.jpg",
         "https://live.staticflickr.com/65535/51293656114_95fabd35e1_h.jpg",
@@ -100,7 +103,7 @@
       "number": 1,
       "rating": 4,
       "pricePerday": 113,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289476079_4d2dd6e2cb_o.jpg",
         "https://live.staticflickr.com/65535/51293118643_0a62532a75_k.jpg",
@@ -119,7 +122,7 @@
       "number": 2,
       "rating": 5,
       "pricePerday": 114,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289797565_80615d710c_o.jpg",
         "https://live.staticflickr.com/65535/51289476079_4d2dd6e2cb_o.jpg",
@@ -138,7 +141,7 @@
       "number": 3,
       "rating": 2,
       "pricePerday": 132,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51288949408_3740bd6aaf_o.jpg",
         "https://live.staticflickr.com/65535/51288032662_e83f400a28_o.jpg",
@@ -157,7 +160,7 @@
       "number": 3,
       "rating": 2,
       "pricePerday": 133,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289502429_13e859c466_o.jpg",
         "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg",
@@ -176,7 +179,7 @@
       "number": 2,
       "rating": 4,
       "pricePerday": 134,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51292194247_fdde59c509_k.jpg",
         "https://live.staticflickr.com/65535/51288930163_32576ae383_o.jpg",
@@ -195,7 +198,7 @@
       "number": 1,
       "rating": 5,
       "pricePerday": 135,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51288785186_7c52d098d0_o.jpg",
         "https://live.staticflickr.com/65535/51289797400_e53fcc5b6f_o.jpg",
@@ -214,7 +217,7 @@
       "number": 1,
       "rating": 1,
       "pricePerday": 152,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51293943950_708b60214b_h.jpg",
         "https://live.staticflickr.com/65535/51293654904_bece959530_h.jpg",
@@ -233,7 +236,7 @@
       "number": 2,
       "rating": 5,
       "pricePerday": 156,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51292195222_fd98d1a51c_k.jpg",
         "https://live.staticflickr.com/65535/51293943950_708b60214b_h.jpg",
@@ -252,7 +255,7 @@
       "number": 3,
       "rating": 3,
       "pricePerday": 154,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg",
         "https://live.staticflickr.com/65535/51293943915_ea6103d774_h.jpg",
@@ -271,7 +274,7 @@
       "number": 2,
       "rating": 1,
       "pricePerday": 155,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51293945040_52148d89ff_k.jpg",
         "https://live.staticflickr.com/65535/51289502464_611f56dbe7_o.jpg",
@@ -290,7 +293,7 @@
       "number": 4,
       "rating": 1,
       "pricePerday": 200,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51292939121_2fab78370e_k.jpg",
         "https://live.staticflickr.com/65535/51292195297_dd3e0bd336_k.jpg",
@@ -309,7 +312,7 @@
       "number": 2,
       "rating": 4,
       "pricePerday": 205,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51293655279_b99c76efac_k.jpg",
         "https://live.staticflickr.com/65535/51289796185_15645f251d_o.jpg",
@@ -328,7 +331,7 @@
       "number": 3,
       "rating": 3,
       "pricePerday": 201,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51288930163_32576ae383_o.jpg",
         "https://live.staticflickr.com/65535/51292939846_31e0e9667a_k.jpg",
@@ -347,7 +350,7 @@
       "number": 4,
       "rating": 2,
       "pricePerday": 202,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg",
         "https://live.staticflickr.com/65535/51289792355_65cff9ba35_o.jpg",
@@ -366,7 +369,7 @@
       "number": 4,
       "rating": 3,
       "pricePerday": 250,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51292940426_1c794ef515_h.jpg",
         "https://live.staticflickr.com/65535/51292939846_31e0e9667a_k.jpg",
@@ -385,7 +388,7 @@
       "number": 1,
       "rating": 4,
       "pricePerday": 251,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51289480249_5dafe78ea6_o.jpg",
         "https://live.staticflickr.com/65535/51293943870_c569d3359f_k.jpg",
@@ -404,7 +407,7 @@
       "number": 2,
       "rating": 5,
       "pricePerday": 252,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51293656404_3abc2e4eb8_k.jpg",
         "https://live.staticflickr.com/65535/51289795645_9060700c72_o.jpg",
@@ -423,7 +426,7 @@
       "number": 3,
       "rating": 1,
       "pricePerday": 253,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51293118313_fc449643db_k.jpg",
         "https://live.staticflickr.com/65535/51289480429_c09206aaa6_o.jpg",
@@ -442,7 +445,7 @@
       "number": 2,
       "rating": 2,
       "pricePerday": 254,
-      "description": "Với diện tích 340 m², Biệt thự 3 phòng ngủ là biệt thự sang trọng thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Sở hữu hồ bơi riêng cạnh sân vườn, nằm tại vị trí đắc địa ngay cạnh bãi Dài, tầm nhìn hướng ra hồ nước, Biệt thự 3 phòng ngủ là lựa chọn lý tưởng dành cho các gia đình hay nhóm du khách đi du lịch nghỉ dưỡng hoặc công tác.",
+      "description": "With an area of 340 m², 3-Bedroom Villa is a luxury villa with modern design, fully integrated with amenities for your stay. Owning a private pool next to the garden, located in a prime location right next to Dai beach, overlooking the lake, 3-bedroom Villa is an ideal choice for families or groups of tourists traveling to relax. care or work.",
       "image": [
         "https://live.staticflickr.com/65535/51292939846_31e0e9667a_k.jpg",
         "https://live.staticflickr.com/65535/51292939961_d246651032_h.jpg",
@@ -488,11 +491,11 @@
   "service": [
     {
       "id": 1,
-      "name": "Dịch vụ swim",
+      "name": "service swim",
       "price": "500"
     },
     {
-      "name": "Dịch vụ phòng họp",
+      "name": "service meeting",
       "id": 2,
       "price": 70
     },
@@ -502,17 +505,17 @@
       "price": 50
     },
     {
-      "name": "Dịch vụ phòng 24/24",
+      "name": "service room 24/24",
       "id": 4,
       "price": 50
     },
     {
-      "name": "Sòng bạc",
+      "name": "Casino",
       "id": 5,
       "price": 100
     },
     {
-      "name": "Sân golf và sân tennis",
+      "name": "Golf course and tennis court",
       "id": 6,
       "price": 120
     }
@@ -520,11 +523,11 @@
   "promotion": [
     {
       "id": 2,
-      "name": "giảm giá ngày kỉ niệm khách sạn ",
+      "name": "hotel anniversary discount",
       "discount": 10,
       "code": "discountHoilyday",
-      "amount": 0,
-      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
+      "amount": 94,
+      "expiryDate": "Fri Oct 30 2021 23:20:24 GMT+0700 (Indochina Time)"
     }
   ],
   "booking": [
@@ -533,7 +536,7 @@
       "dateStart": "Thu Sep 02 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Fri Sep 03 2021 00:00:00 GMT+0700 (Indochina Time)",
       "totalCost": "159.50",
-      "status": "NEW",
+      "status": "CHECKED OUT",
       "idroom": 2,
       "userName": "saleaa",
       "number": 3,
@@ -550,66 +553,1344 @@
       "id": 1
     },
     {
-      "idUser": 3,
-      "dateStart": "Sun Jul 25 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 232.60000000000002,
-      "status": "CANCEL",
+      "idUser": 5,
+      "dateStart": "Thu Sep 02 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Sep 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
       "idroom": 2,
-      "userName": "nguyenquocdung1234",
+      "userName": "saleaa",
       "number": 3,
-      "paymethod": "ZaloPay",
-      "createdAt": 1627006563227,
-      "updatedAt": 1627006563227,
-      "id": 2
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Tue Aug 03 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 66,
-      "status": "CANCEL",
-      "idroom": 2,
-      "userName": "nguyenquocdung1234",
-      "number": 3,
-      "paymethod": "ZaloPay",
-      "createdAt": 1627006949958,
-      "updatedAt": 1627006949958,
-      "id": 3
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Thu Aug 12 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Fri Aug 20 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 189,
-      "status": "CANCEL",
-      "idroom": 6,
-      "number": 4,
-      "paymethod": "ZaloPay",
-      "createdAt": 1627050797302,
-      "updatedAt": 1627050797302,
-      "id": 4
-    },
-    {
-      "idUser": 3,
-      "dateStart": "Fri Jul 23 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "dateEnd": "Sat Jul 24 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 32,
-      "status": "CANCEL",
-      "idroom": 6,
-      "userName": "nguyenquocdung1234",
-      "number": 2,
       "service": [
         {
-          "name": "Fitness centre",
-          "id": 3,
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
           "price": 50
         }
       ],
       "paymethod": "ZaloPay",
-      "createdAt": 1627054038079,
-      "updatedAt": 1627054038079,
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 1
+    },
+    {
+      "idUser": 2,
+      "dateStart": "Tue Aug 10 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Aug 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 1665,
+      "status": "NEW",
+      "idroom": 5,
+      "userName": "admin",
+      "number": 4,
+      "paymethod": "ZaloPay",
+      "createdAt": 1627318982735,
+      "updatedAt": 1627318982735,
+      "id": 4
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 2,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
       "id": 5
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "250",
+      "status": "CANCEL",
+      "idroom": 4,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 6
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CHECKED OUT",
+      "idroom": 7,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 7
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "300",
+      "status": "CANCEL",
+      "idroom": 8,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 8
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "450",
+      "status": "CHECKED OUT",
+      "idroom": 9,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 9
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 13,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 10
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 2,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 11
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "250",
+      "status": "CANCEL",
+      "idroom": 3,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 12
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CHECKED OUT",
+      "idroom": 8,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 13
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sun Feb 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "1600",
+      "status": "CANCEL",
+      "idroom": 4,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 14
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sun Feb 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "1500",
+      "status": "CHECKED OUT",
+      "idroom": 11,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 15
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Feb 23 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "500",
+      "status": "CANCEL",
+      "idroom": 13,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 16
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 01 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Feb 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "400",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 2,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 17
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Feb 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "250",
+      "status": "CANCEL",
+      "idroom": 13,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 18
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Feb 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 19
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Thu Feb 18 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Thu Feb 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "180",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 20
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sat Feb 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 28 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "450",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 21
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 26 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Feb 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 22
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 23
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 24
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 25
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 26
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 27
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 28
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 29
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "1000",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 30
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "800",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 31
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "500",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 32
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 33
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 34
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Apr 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Apr 14 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 35
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Thu Apr 01 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Apr 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 36
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Apr 02 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Mon Apr 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 37
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Apr 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Apr 10 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 38
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Apr 13 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Apr 16 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 39
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Apr 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Apr 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 40
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "400.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 41
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sat Apr 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Apr 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "800.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 42
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 43
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 44
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "600.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 45
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "700",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 46
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 47
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "600.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 48
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "700",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 49
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 50
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 51
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 52
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "300.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 53
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "100",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 54
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 55
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 56
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 57
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 58
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 59
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 60
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 19,
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "nguyenquocdung1234",
+      "number": 2,
+      "paymethod": "ZaloPay",
+      "createdAt": 1627656959522,
+      "updatedAt": 1627656959522,
+      "id": 61
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Fri Aug 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Aug 28 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 180,
+      "status": "NEW",
+      "idroom": 2,
+      "number": 3,
+      "service": [
+        {
+          "name": "service meeting",
+          "id": 2,
+          "price": 70
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1627657095860,
+      "updatedAt": 1627657095860,
+      "id": 62
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jul 30 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 207,
+      "status": "NEW",
+      "idroom": 5,
+      "userName": "nguyenquocdung",
+      "number": 4,
+      "service": [
+        {
+          "name": "Golf course and tennis court",
+          "id": 6,
+          "price": 120
+        }
+      ],
+      "paymethod": "ATM",
+      "createdAt": 1627657270753,
+      "updatedAt": 1627657270753,
+      "id": 63
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 99,
+      "status": "NEW",
+      "idroom": 2,
+      "number": 3,
+      "paymethod": "ZaloPay",
+      "createdAt": 1627657743427,
+      "updatedAt": 1627657743427,
+      "id": 64
+    },
+    {
+      "idUser": 17,
+      "dateStart": "Sun Aug 01 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Aug 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 220,
+      "status": "NEW",
+      "idroom": 2,
+      "userName": "admin@gmail.com",
+      "number": 3,
+      "paymethod": "ZaloPay",
+      "createdAt": 1627694709459,
+      "updatedAt": 1627694709459,
+      "id": 65
+    },
+    {
+      "idUser": 17,
+      "dateStart": "Sat Aug 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Aug 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 189,
+      "status": "NEW",
+      "idroom": 2,
+      "userName": "admin@gmail.com",
+      "number": 2,
+      "service": [
+        {
+          "name": "Casino",
+          "id": 5,
+          "price": 100
+        }
+      ],
+      "paymethod": "visa-master",
+      "createdAt": 1627695133252,
+      "updatedAt": 1627695133252,
+      "id": 66
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Wed Aug 04 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Thu Aug 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 32,
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "nguyenquocdung",
+      "number": 3,
+      "service": [
+        {
+          "name": "service meeting",
+          "id": 2,
+          "price": 70
+        }
+      ],
+      "paymethod": "visa-jcb",
+      "createdAt": 1627697786384,
+      "updatedAt": 1627697786384,
+      "id": 67
     }
   ],
   "bankaccount": [
@@ -626,6 +1907,18 @@
       "paymentId": 12315453,
       "name": "PHAM VAN CHIEN",
       "balance": 50000
+    }
+  ],
+  "users": [
+    {
+      "email": "manager@gmail.com",
+      "password": "$2a$10$TCRm5HfAsGzi9Eesgqg6SOdGnGAPFRGejDS0V0o5ClvLjz0RY3yha",
+      "userName": "manager",
+      "address": "HT",
+      "birthday": "1998/04/30",
+      "name": "manager",
+      "idRole": "user3",
+      "id": 1
     }
   ]
 }

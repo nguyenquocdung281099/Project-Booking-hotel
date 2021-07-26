@@ -14,14 +14,16 @@ import OffersBlock from "../../component/component-userpage/share/OffersBlock";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 AOS.init({
   duration: 1200,
 });
 export default function HomePage() {
   const { t } = useTranslation();
-  const x = Date.parse("2021/09/05");
-  console.log(x);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="homepage">
@@ -43,16 +45,16 @@ export default function HomePage() {
               className="welcome--block__image1 welcome--block__image col-12 col-lg-6 col-xl-4"
               data-aos="fade-left"
             ></div>
-            <BlockWelcomeItem title="Great Services" link="/service" />
+            <BlockWelcomeItem title={t("Great Services")} link="/service" />
             <div
               className="welcome--block__image2 welcome--block__image col-12 col-lg-6 col-xl-4"
               data-aos="fade-right"
             ></div>
           </div>
           <div className="bodypage__welcome--block row">
-            <BlockWelcomeItem title="Profession Staff" link="/about" />
+            <BlockWelcomeItem title={t("Profession Staff")} link="/about" />
             <div className="welcome--block__image3 welcome--block__image col-12 col-lg-6 col-xl-4"></div>
-            <BlockWelcomeItem title="Best Experience" link="/gallery" />
+            <BlockWelcomeItem title={t("Best Experience")} link="/gallery" />
           </div>
         </section>
         <section className="banner container-fluid ">
@@ -100,26 +102,23 @@ export default function HomePage() {
         </section>
         <section className="booking__room_Online container-fluid d-none d-lg-block">
           <div className="booking__room--body container">
-            <div className="booking__room--wrap">
+            <div className="booking__room--wrap pt-5">
               <img
                 src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/21.png"
                 alt="booking online"
               />
               <div className="booking__room--content">
                 <EdgeTop />
-                <h3 className="booking__room--subtitle">{t("Luxury Resort App")}</h3>
+                <h3 className="booking__room--subtitle">
+                  {t("Luxury Resort App")}
+                </h3>
                 <h1 className="booking__room--title">
                   {t("Booking Rooms Online")}
                 </h1>
                 <EdgeBottom />
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa. Sed ut perspiciatis
-                  unde omnis iste natus error sit voluptatem accusantium
-                  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-                  illo inventore veritati.
+                  Good quality rooms, suitable for everyone, full of high to low
+                  services, perfect for holidays.
                 </p>
                 <Button url="/room" content={t("DOWNLOAD")} />
               </div>

@@ -42,8 +42,12 @@ export default function ProfilePage() {
   const [disabled, setDisabled] = useState(true);
   const dataBooking = useSelector((state) => state.booking.booking);
 
-  const bookingRoomFetch = dataBooking.data;
+  let bookingRoomFetch = dataBooking.data;
   const dataRoom = useSelector((state) => state.room);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   function handleCancel(item) {
     dispatch(
@@ -70,7 +74,7 @@ export default function ProfilePage() {
         <h1 className="main--banner__title">{t("Profile")}</h1>
         <EdgeBottom />
       </section>
-      <section className="profiel__page--body wrap container mt-5 mb-5">
+      <section className="profiel__page--body wrap container mt-5 pb-5">
         <div className="row ">
           <div className="col-12 col-md-4 profile_left pt-3">
             <img
@@ -81,7 +85,7 @@ export default function ProfilePage() {
             <address>{users.address}</address>
           </div>
           <div className="profile__main col-12 col-md-7 ml-5 ">
-            <table class="table ">
+            <table class="table table-responsive-md">
               <tbody>
                 <tr>
                   <th scope="row">Email:</th>
@@ -151,93 +155,96 @@ export default function ProfilePage() {
               </tbody>
             </table>
           </div>
-          <div></div>
         </div>
-        <div className="history__booking_main mt-5 mb-5">
+        <div className="history__booking_main mt-5 pb-5">
           <h3>{t("History Booking")}</h3>
-          <table class="table history__booking mb-5 mt-5 ">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">{t("nameRoom")}</th>
-                <th scope="col">{t("promotion")}</th>
-                <th scope="col">{t("checkin")}</th>
-                <th scope="col">{t("checkout")}</th>
-                <th scope="col">{t("status")}</th>
-                <th scope="col">{t("Payment")}</th>
-                <th scope="col">{t("Cost")}</th>
-                <th scope="col">{t("Action")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bookingRoomFetch &&
-                bookingRoomFetch.map((item, index) => {
-                  const checkin = new Date(item.dateStart);
-                  const checkout = new Date(item.dateEnd);
-                  return (
-                    <tr key={index}>
-                      <th scope="col">{item.id}</th>
-                      <td>
-                        {dataRoom.rooms.map((element) => {
-                          return item.idroom === element.id && element.name;
-                        })}
-                      </td>
-                      <td>{item.codeDiscount || "none"}</td>
-                      <td>
-                        {`${checkin.getDate()}/${
-                          checkin.getMonth() + 1
-                        }/${checkin.getFullYear()}`}
-                      </td>
-                      <td>
-                        {`${checkout.getDate()}/${
-                          checkout.getMonth() + 1
-                        }/${checkout.getFullYear()}`}
-                      </td>
-                      <td>{item.status}</td>
+          {bookingRoomFetch ? (
+            <>
+              <table class="table history__booking pb-5 mt-5  ">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{t("nameRoom")}</th>
+                    <th scope="col">{t("promotion")}</th>
+                    <th scope="col">{t("checkin")}</th>
+                    <th scope="col">{t("checkout")}</th>
+                    <th scope="col">{t("status")}</th>
+                    <th scope="col">{t("Payment")}</th>
+                    <th scope="col">{t("Cost")}</th>
+                    <th scope="col">{t("Action")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bookingRoomFetch.map((item, index) => {
+                    const checkin = new Date(item.dateStart);
+                    const checkout = new Date(item.dateEnd);
+                    return (
+                      <tr key={index}>
+                        <th scope="col">{item.id}</th>
+                        <td>
+                          {dataRoom.rooms.map((element) => {
+                            return item.idroom === element.id && element.name;
+                          })}
+                        </td>
+                        <td>{item.codeDiscount || "none"}</td>
+                        <td>
+                          {`${checkin.getDate()}/${
+                            checkin.getMonth() + 1
+                          }/${checkin.getFullYear()}`}
+                        </td>
+                        <td>
+                          {`${checkout.getDate()}/${
+                            checkout.getMonth() + 1
+                          }/${checkout.getFullYear()}`}
+                        </td>
+                        <td>{item.status}</td>
 
-                      <td>{item.paymethod}</td>
+                        <td>{item.paymethod}</td>
 
-                      <td>
-                        
-                        {new Intl.NumberFormat("de-DE", {
-                          style: "currency",
-                          currency: "USD",
-                        }).format(item.totalCost)}
-                      </td>
-                      <td>
-                        {item.status === "NEW" && (
-                          <Popconfirm
-                            title="Do you really want to cancel the room? you will lose 20% of the cost"
-                            onConfirm={() => {
-                              handleCancel(item);
-                            }}
-                            okText="Yes"
-                            cancelText="No"
-                          >
-                            <button className="btn-danger">Cancel</button>
-                          </Popconfirm>
-                        )}
-                      </td>
-                    </tr>
+                        <td>
+                          {new Intl.NumberFormat("de-DE", {
+                            style: "currency",
+                            currency: "USD",
+                          }).format(item.totalCost)}
+                        </td>
+                        <td>
+                          {item.status === "NEW" && (
+                            <Popconfirm
+                              title="Do you really want to cancel the room? you will lose 20% of the cost"
+                              onConfirm={() => {
+                                handleCancel(item);
+                              }}
+                              okText="Yes"
+                              cancelText="No"
+                            >
+                              <button className="btn-danger">Cancel</button>
+                            </Popconfirm>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <Pagination
+                defaultCurrent={1}
+                total={
+                  dataBooking.pagination ? dataBooking.pagination._totalRows : 0
+                }
+                onChange={(currentPage) => {
+                  dispatch(
+                    getBookingRoom({
+                      idUser: users.id,
+                      _page: currentPage,
+                      _limit: 5,
+                    })
                   );
-                })}
-            </tbody>
-          </table>
-          <Pagination
-            defaultCurrent={1}
-            total={
-              dataBooking.pagination ? dataBooking.pagination._totalRows : 0
-            }
-            onChange={(currentPage) => {
-              dispatch(
-                getBookingRoom({
-                  idUser: users.id,
-                  _page: currentPage,
-                  _limit: 5,
-                })
-              );
-            }}
-          />
+                }}
+              />
+            </>
+          ) : (
+            t("empty booking history")
+          )}
         </div>
       </section>
     </main>

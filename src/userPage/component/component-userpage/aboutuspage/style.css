@@ -26,3 +26,12 @@
   text-align: center;
   padding-top: 4rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .slider_client .aboutus__item img {
+    margin-left: 7% !important;
+  }
+}
+.aboutus__item {
+  min-height: 400px;
+}

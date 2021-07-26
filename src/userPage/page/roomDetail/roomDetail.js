@@ -53,6 +53,9 @@ export default function RoomDetailPage() {
     }
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="roomDetail__page">
       <section className="aboutus__main--banner container_fluid">

@@ -41,7 +41,7 @@ export default function SliderCommentClinet() {
 }
 function SliderClienItem(props) {
   return (
-    <div className="aboutus__item col-12">
+    <div className="aboutus__item col-12 mb-3">
       <img src={props.item.url} alt="about_us_member" />
       <p className="aboutus__description">
         Lorem ipsum dolor sit ametcon sectetur adipisicing elit, sed doiusmod

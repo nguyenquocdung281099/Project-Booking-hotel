@@ -30,7 +30,7 @@ export default function ListPromos() {
         Object.keys(promoData.pagi).length === 0
             ? {
                 _page: 1,
-                _limit: 14,
+                _limit: 12,
                 _totalRows: 12,
             }
             : promoData.pagi;
@@ -175,7 +175,7 @@ export default function ListPromos() {
                         <th colSpan="1" className='add-th'>
                             <div className='form-inline add-inline'>
                                 <button type="button" class="btn btn-primary" onClick={() => showModal(false, null)}>
-                                <i class="fas fa-plus-circle"></i> Add Promo</button>
+                                    <i class="fas fa-plus-circle"></i> Add Promo</button>
                             </div>
                         </th>
                         <th colSpan="6" className='add-th'>

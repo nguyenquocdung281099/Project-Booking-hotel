@@ -17,7 +17,6 @@ export default function CardRoomsList() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.room);
   const filter = data.filter;
-  console.log(filter);
   const type = data.type.length === 0 ? [{ name: "" }] : data.type;
   const filterSearchRoom = data.filterSearchRoom;
   const { t } = useTranslation();
@@ -50,8 +49,9 @@ export default function CardRoomsList() {
 
   function handleChangePagi(page, pagesize) {
     dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
-    window.screenY = 0;
   }
+
+  console.log(data);
   return (
     <div className="col-12 col-lg-8">
       {data.loading && (
@@ -74,10 +74,13 @@ export default function CardRoomsList() {
         </p>
       )}
       {Object.keys(data).length !== 0 &&
+        data.rooms.length !== 0 &&
+        type.length !== 0 &&
         data.rooms.map((item, index) => {
           let indexType = type.findIndex(
             (itemType) => itemType.id === item.idtyperoom
           );
+          console.log(indexType);
           return (
             <CardRoomsItem
               item={item}

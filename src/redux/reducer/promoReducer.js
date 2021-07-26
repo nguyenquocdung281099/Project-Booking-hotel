@@ -16,13 +16,13 @@ export default function promoReducer(state = defaultState, action) {
         newState = {
           ...newState,
           promo: action.payload.data,
-          pagi: action.payload.pagination
-        }
+          pagi: action.payload.pagination,
+        };
       } else {
         newState = {
           ...newState,
-          promo: action.payload
-        }
+          promo: action.payload,
+        };
       }
       return newState;
     case ActionType.GET_PROMO_SC:
@@ -59,7 +59,7 @@ export default function promoReducer(state = defaultState, action) {
         return item;
       });
 
-      newState = { ...newState, promo: newPromo1 };
+      newState = { ...newState, promo: newPromo1, isGetPromo: false };
       return newState;
     case ActionType.DEL_PROMO_SC:
       let newPromo2 = newState.promo.filter(

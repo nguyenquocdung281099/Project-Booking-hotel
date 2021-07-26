@@ -50,6 +50,7 @@ export default function userReducer(state = defaultState, action) {
         infomation: [],
         isLogin: false,
         user: [],
+        isLoginERR: false,
       };
       state = { ...newState };
       return { ...state };

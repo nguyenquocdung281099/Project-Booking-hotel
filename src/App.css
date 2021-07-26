@@ -1,16 +1,12 @@
 @media only screen and (max-width: 768px) {
   .container {
     width: 100% !important;
-    /* padding-left: 0 !important;
-    padding-right: 0 !important; */
     padding: 0 !important;
   }
 }
-@media only screen and (max-width: 768px) {
-  .container {
-    width: 100% !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+@media only screen and (max-width: 1024px) {
+  .gem-wrapbox-element {
+    width: 30% !important;
   }
 }
 

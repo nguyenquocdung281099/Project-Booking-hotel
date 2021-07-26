@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Invoice from '../operation_invoice/invoice'
+import Report from '../operation_report/report';
 
 export default function ListBookings() {
 
@@ -24,7 +25,7 @@ export default function ListBookings() {
         Object.keys(bookingDBData.pagi).length === 0
             ? {
                 _page: 1,
-                _limit: 14,
+                _limit: 12,
                 _totalRows: 12,
             }
             : bookingDBData.pagi;
@@ -160,7 +161,7 @@ export default function ListBookings() {
     });
 
     const showInvoice = (a) => {
-        let newState = { ...modalStatus }
+        let newState = { ...invoiceStatus }
         let data = bookingDBData.bookingDB.find(item => {
             return item.id === a
         })
@@ -169,7 +170,7 @@ export default function ListBookings() {
     };
 
     const hideInvoice = () => {
-        let newState = { ...modalStatus }
+        let newState = { ...invoiceStatus }
         let data = {
             id: null,
             idroom: null,
@@ -213,11 +214,28 @@ export default function ListBookings() {
                 })
             )
         } else {
-            // dispatch(getBookingDB({ _page: pagi._page, _limit: pagi._limit }))
             dispatch(changeFilter({}))
-            console.log(filter)
         }
     }
+
+    const [reportStatus, setReportStatus] = useState({
+        isOpen: false,
+    })
+
+    const showReport = () => {
+        dispatch(getBookingDB({ _page: null, _limit: null }));
+        let newState = { ...reportStatus }
+        newState = { ...newState, isOpen: true }
+        setReportStatus(newState)
+    };
+
+    const hideReport = () => {
+        let newState = { ...reportStatus }
+        newState = { ...newState, isOpen: false };
+        setReportStatus(newState)
+        dispatch(getBookingDB({ _page: pagi._page, _limit: pagi._limit }))
+        dispatch(changeFilter({}))
+    };
 
     return (
         <div className='operation_content content'>
@@ -226,8 +244,14 @@ export default function ListBookings() {
             <table className="table table-bordered">
                 <thead>
                     <tr>
-                        <th colSpan="8" className='add-th'>
-                            <SortBooking handleSearch={handleSearch}/>
+                        <th colSpan="1" className='add-th'>
+                            <div className='form-inline add-inline'>
+                                <button type="button" class="btn btn-primary" onClick={() => showReport()}>
+                                    <i class="fas fa-file-alt"></i> Report</button>
+                            </div>
+                        </th>
+                        <th colSpan="7" className='add-th'>
+                            <SortBooking handleSearch={handleSearch} />
                         </th>
                     </tr>
                     <tr>
@@ -274,6 +298,12 @@ export default function ListBookings() {
                 hideInvoice={hideInvoice}
                 findRoomName={findRoomName}
                 findUser={findUser}
+            />
+
+            <Report
+                {...reportStatus}
+                findRoomName={findRoomName}
+                hideReport={hideReport}
             />
         </div>
     )

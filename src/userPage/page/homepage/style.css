@@ -80,10 +80,6 @@ main {
   .start__hotel--item {
     color: white !important;
   }
-
-  .gem-wrapbox-element {
-    width: 50% !important;
-  }
 }
 .fa-star {
   color: orange;

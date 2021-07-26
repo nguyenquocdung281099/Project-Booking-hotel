@@ -26,14 +26,15 @@ import { InputNumber } from "antd";
 
 export default function BookingPage() {
   const [valueSearchCode, setValueSearchCode] = useState("");
-  const [isCancelCode, setIsCancel] = useState(false);
+  const [statusCode, setStatus] = useState("APPLY");
+  const [codeEr, setCodeEr] = useState(true);
   const [valuePayMethod, setValuePayMethod] = useState("ZaloPay");
   const infRoom = JSON.parse(sessionStorage.getItem(KEY_ROOM_BOOKING)) || [];
   const param = useLocation();
+  const { t } = useTranslation();
   const [serviceExtra, setServiceExtra] = useState(
     JSON.parse(localStorage.getItem("KEY_SERVICE")) || []
   );
-
   const notify = () => toast.success("apply code success!");
   const cancelSC = () => toast.success("cancel code success!");
   const notifyEr = () =>
@@ -46,13 +47,15 @@ export default function BookingPage() {
   let promo = useSelector((state) => state.promo.promo);
   const isGetPromo = useSelector((state) => state.promo.isGetPromo);
   const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
-  const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
-  const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
-  const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
   const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const service = useSelector((state) => state.service.service);
-  const { t } = useTranslation();
   const users = useSelector((state) => state.user.user);
+
+  const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
+  const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
+
+  const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
+
   const [booking, setBookings] = useState({
     idUser: users.id,
     dateStart: undefined,
@@ -66,7 +69,6 @@ export default function BookingPage() {
   });
 
   const dispatch = useDispatch();
-  // get discount code
 
   const holidays = setDateBooked(bookingRoomFetch);
   useEffect(() => {
@@ -80,11 +82,11 @@ export default function BookingPage() {
   useEffect(() => {
     if (isGetPromo === true) {
       notify();
-      setIsCancel(true);
+      setStatus("CANCEL");
       setBookings({ ...booking, codeDiscount: promo[0].code });
     } else if (isGetPromo === false) {
       setBookings({ ...booking, codeDiscount: null });
-      if (isCancelCode === true) {
+      if (statusCode === "APPLY" && codeEr === true) {
         notifyEr();
       } else {
         cancelSC();
@@ -132,6 +134,11 @@ export default function BookingPage() {
   function onChangeNumber(value) {
     setBookings({ ...booking, number: value });
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="bookingPage">
       <ToastContainer />
@@ -284,7 +291,7 @@ export default function BookingPage() {
                 <div>
                   <div className="row">
                     <div className="infBooking col-12 col-lg-5">
-                      <h2 className="mb-5">{t("inf_booking")}</h2>
+                      <h2 className="mb-5">{t("User_booking")}</h2>
                       <div className="email group-input">
                         <label for="email">Email:</label>
                         <input type="text" disabled value={users.email} />
@@ -310,10 +317,10 @@ export default function BookingPage() {
                           onChange={(e) => {
                             setValueSearchCode(e.target.value);
                           }}
-                          disabled={promo.length !== 0 && isCancelCode === true}
+                          disabled={statusCode === "CANCEl"}
                         />
 
-                        {isCancelCode === false ? (
+                        {statusCode === "APPLY" ? (
                           <button
                             className="btn-applyCode"
                             disabled={valueSearchCode === "" && true}
@@ -334,7 +341,8 @@ export default function BookingPage() {
                           <button
                             className="btn-applyCode"
                             onClick={(e) => {
-                              setIsCancel(false);
+                              setStatus("APPLY");
+                              setCodeEr(false);
                               e.preventDefault();
                               setBookings({ ...booking, codeDiscount: null });
                               dispatch(cancelCost());
@@ -429,14 +437,15 @@ export default function BookingPage() {
                               </td>
                             </tr>
                           )}
+                          {isGetPromo === true && statusCode === "CANCEL" ? (
+                            <tr>
+                              <td>{t("discount code")}:</td>{" "}
+                              <td>{promo[0].code}</td>
+                            </tr>
+                          ) : (
+                            ""
+                          )}
                         </table>
-                        {isGetPromo === true && isCancelCode === true ? (
-                          <p>
-                            {t("discount code")} :{promo[0].code}{" "}
-                          </p>
-                        ) : (
-                          ""
-                        )}
                       </div>
                     </div>
                   </div>
@@ -607,6 +616,27 @@ export default function BookingPage() {
                             </td>
                           </tr>
                         )}
+                        <tr>
+                          <td>
+                            <h5>{t("discount price")} :</h5>
+                          </td>
+                          <td>
+                            {isGetPromo === true && statusCode === "CANCEL"
+                              ? new Intl.NumberFormat("de-DE", {
+                                  style: "currency",
+                                  currency: "USD",
+                                }).format(
+                                  (getTotalCost(
+                                    totalDay,
+                                    infRoom.pricePerday,
+                                    serviceExtra
+                                  ) *
+                                    promo[0].discount) /
+                                    100
+                                )
+                              : "0$"}
+                          </td>
+                        </tr>
                         <tr>
                           <td>
                             <h5 className="name_rom"> {t("total cost")}</h5>

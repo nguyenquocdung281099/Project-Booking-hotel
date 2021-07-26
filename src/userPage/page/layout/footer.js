@@ -68,9 +68,7 @@ export default function Footer() {
             </div>
             <div className="footer__letter col-12 col-md-6 col-xl-4">
               <h3>Newsletter</h3>
-              <p>
-                {t("sub")}
-              </p>
+              <p>{t("sub")}</p>
 
               <div class="input-group mb-3">
                 <input
@@ -81,11 +79,11 @@ export default function Footer() {
                   aria-describedby="button-addon2"
                 />
                 <button
-                  class="btn btn-outline-secondary"
+                  class=" btn-outline-secondary"
                   type="button"
                   id="button-addon2"
                 >
-                  Button
+                  Submit  
                 </button>
               </div>
             </div>

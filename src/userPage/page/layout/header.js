@@ -21,7 +21,7 @@ export default function Header() {
   const [isOpened, setIsOpened] = React.useState(true);
 
   const didScrollPage = (e) => {
-    const headerStickyOffset = 50;
+    const headerStickyOffset = 0;
     if (window.scrollY >= headerStickyOffset) {
       setShowHeader(true);
     } else {
@@ -40,7 +40,7 @@ export default function Header() {
   }, [dispatch]);
 
   useEffect(() => {
-    window.addEventListener("scroll", debounce(didScrollPage, 50));
+    window.addEventListener("scroll", debounce(didScrollPage, 0));
     return () => {
       window.removeEventListener("keydown", didScrollPage);
     };

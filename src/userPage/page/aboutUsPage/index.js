@@ -7,12 +7,17 @@ import SliderCommentClinet from "../../component/component-userpage/aboutuspage/
 import DiscoverAmenitiesBlock from "../../component/component-userpage/aboutuspage/discovercard";
 import TitleBlock from "../../component/component-userpage/share/titleblock";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 AOS.init({
   duration: 1200,
 });
 
 export default function AboutUsPage() {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="aboutus__main container_fluid">
       <section className="aboutus__main--banner container_fluid">
@@ -44,10 +49,10 @@ export default function AboutUsPage() {
           <DiscoverAmenitiesBlock />
         </div>
       </section>
-      <section className="nearby container-fluid pt-5">
+      <section className="nearby container-fluid ">
         <TitleBlock subtitle="THEGEM LUXURY HOTEL" title="NEARBY" />
         <div className="nearby_wrap container">
-          <div className="d-flex flex-column flex-md-row">
+          <div className="d-flex flex-column flex-md-row flex-wrap">
             <img
               src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/3-1.jpg"
               class="img-fluid img1"
@@ -64,7 +69,7 @@ export default function AboutUsPage() {
             class="img-fluid img2"
             alt="nearby"
           />
-          <div className="d-flex flex-column flex-md-row">
+          <div className="d-flex flex-column flex-md-row flex-wrap">
             <img
               src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/5-1.jpg"
               class="img-fluid img1"
