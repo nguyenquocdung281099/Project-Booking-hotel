@@ -216,6 +216,7 @@ export default function ListServices() {
         total={pagi._totalRows}
         pageSize={pagi._limit}
         onChange={handleChangePagi}
+        showSizeChanger={false}
       />
 
       <ModalService

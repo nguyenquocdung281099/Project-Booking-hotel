@@ -10,7 +10,7 @@ export default function Report(props) {
     let { isOpen, findRoomName } = props
     const mBData = useSelector((state) => state.bookingDB.bookingDB)
     const loader = useSelector((state) => state.bookingDB.loader)
-    const mPagi = {
+    let mPagi = {
         _page: 1,
         _limit: 10,
         _totalRows: mBData.length,
@@ -49,6 +49,20 @@ export default function Report(props) {
     const tMData = mBData.length !== 0 && mBData !== null && typeof mBData !== 'undefined' ?
         mBData.filter(e => ((new Date(e.dateStart)) - day.dayS) >= 0 && ((new Date(e.dateEnd)) - day.dayE) <= 0)
         : []
+
+
+    if (mBData.length !== 0 && mBData !== null && typeof mBData !== 'undefined') {
+        mPagi = {
+            _page: 1,
+            _limit: 10,
+            _totalRows: tMData.length,
+        };
+    } else {
+        mPagi = {
+            _page: 1,
+            _limit: 10
+        }
+    }
 
     tMData.length !== 0 && tMData !== null && typeof tMData !== 'undefined' ?
         tMData.forEach((e) => { cost += (Number.parseFloat(e.totalCost)) })
@@ -251,6 +265,7 @@ export default function Report(props) {
                     pageSize={mPagi._limit}
                     total={mPagi._totalRows}
                     onChange={handleChangeMPagi}
+                    showSizeChanger={false}
                 />
             </Modal.Body>
             <Modal.Footer>

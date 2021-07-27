@@ -212,10 +212,10 @@ export default function ListUsers() {
       </table>
       <Pagination
         defaultCurrent={1}
-        // defaultCurrent={pagi._page}
         pageSize={pagi._limit}
         total={pagi._totalRows}
         onChange={handleChangePagi}
+        showSizeChanger={false}
       />
 
       <ModalUser

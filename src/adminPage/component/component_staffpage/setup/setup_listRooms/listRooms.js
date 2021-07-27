@@ -220,6 +220,7 @@ export default function ListRooms() {
         total={pagi._totalRows}
         pageSize={pagi._limit}
         onChange={handleChangePagi}
+        showSizeChanger={false}
       />
 
       <ModalRoom

@@ -282,6 +282,7 @@ export default function ListBookings() {
                 total={pagi._totalRows}
                 pageSize={pagi._limit}
                 onChange={handleChangePagi}
+                showSizeChanger={false}
             />
 
             < ModalBooking

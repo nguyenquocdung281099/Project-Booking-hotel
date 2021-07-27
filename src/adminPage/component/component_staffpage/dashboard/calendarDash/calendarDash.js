@@ -34,7 +34,7 @@ export default function CalendarDash() {
   const data = calendarData.map(({ id, dateStart, dateEnd }) => ({ id, dateStart, dateEnd }));
 
   const myEventsList = data.map(function (row) {
-    return { start: new Date(row.dateStart), end: new Date(row.dateEnd), title: `Room ${row.id}` }
+    return { start: new Date(row.dateStart), end: new Date(row.dateEnd), title: `ID ${row.id}` }
   })
 
   return (

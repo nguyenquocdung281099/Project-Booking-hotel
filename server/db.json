@@ -522,9 +522,71 @@
       "id": 2,
       "name": "giảm giá ngày kỉ niệm khách sạn ",
       "discount": 10,
-      "code": "discountHoilyday",
+      "code": "discountAnni",
+      "amount": 1,
+      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)",
+      "createdAt": null,
+      "updatedAt": 1627369931371
+    },
+    {
+      "name": "giảm giá mùa hè",
+      "discount": 10,
+      "code": "SummerDiscount",
+      "amount": 5,
+      "expiryDate": "Thu Jul 29 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1627369968612,
+      "updatedAt": 1627369968612,
+      "id": 3
+    },
+    {
+      "name": "giảm giá mùa cách ly",
+      "discount": 15,
+      "code": "lockdownDiscount",
+      "amount": 10,
+      "expiryDate": "Wed Aug 11 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1627369999004,
+      "updatedAt": 1627369999004,
+      "id": 4
+    },
+    {
+      "name": "giảm giá cho đặt dài ngày",
+      "discount": 20,
+      "code": "longBookingDiscount",
+      "amount": 5,
+      "expiryDate": "Sat Oct 30 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1627370095657,
+      "updatedAt": 1627370095657,
+      "id": 5
+    },
+    {
+      "name": "Tet Hodiliday Discount ",
+      "discount": 10,
+      "code": "tetHolidayDiscount",
+      "amount": 10,
+      "expiryDate": "Tue Feb 16 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1627370095657,
+      "updatedAt": 1627370095657,
+      "id": 6
+    },
+    {
+      "name": "Liberation Day Discount",
+      "discount": 10,
+      "code": "liberationDiscount",
       "amount": 0,
-      "expiryDate": "Fri Jul 30 2021 23:20:24 GMT+0700 (Indochina Time)"
+      "expiryDate": "Fri Apr 30 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1627370095657,
+      "updatedAt": 1627370095657,
+      "id": 7
+    },
+    {
+      "name": "International Labor Day Discount",
+      "discount": 15,
+      "code": "laborDayDiscount",
+      "amount": 5,
+      "expiryDate": "Sat May 8 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1627370095657,
+      "updatedAt": 1627370095657,
+      "id": 8
     }
   ],
   "booking": [
@@ -611,6 +673,1196 @@
         }
       ],
       "codeDiscount": null
+    },
+    {
+      "idUser": 2,
+      "dateStart": "Tue Aug 10 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Aug 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": 1665,
+      "status": "NEW",
+      "idroom": 5,
+      "userName": "admin",
+      "number": 4,
+      "paymethod": "ZaloPay",
+      "createdAt": 1627318982735,
+      "updatedAt": 1627318982735,
+      "id": 4
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 2,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 5
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "250",
+      "status": "CANCEL",
+      "idroom": 4,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 6
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CHECKED OUT",
+      "idroom": 7,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 7
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "300",
+      "status": "CANCEL",
+      "idroom": 8,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 8
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "450",
+      "status": "CHECKED OUT",
+      "idroom": 9,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 9
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Jan 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Jan 12 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 13,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 10
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 2,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 11
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "250",
+      "status": "CANCEL",
+      "idroom": 3,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 12
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CHECKED OUT",
+      "idroom": 8,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 13
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sun Feb 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "1600",
+      "status": "CANCEL",
+      "idroom": 4,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 14
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sun Feb 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "1500",
+      "status": "CHECKED OUT",
+      "idroom": 11,
+      "userName": "saleaa",
+      "number": 1,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 15
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Feb 23 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "500",
+      "status": "CANCEL",
+      "idroom": 13,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 16
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 01 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Feb 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "400",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 2,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 17
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Feb 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "250",
+      "status": "CANCEL",
+      "idroom": 13,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 18
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Feb 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Feb 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 19
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Thu Feb 18 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Thu Feb 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "180",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 20
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sat Feb 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sun Feb 28 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "450",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 21
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Feb 26 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Feb 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 22
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 23
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 24
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 25
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 26
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 27
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 28
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 29
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "1000",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 30
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "800",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 31
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "500",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 32
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 33
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Mar 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Mar 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 34
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Wed Apr 07 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Apr 14 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 35
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Thu Apr 01 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Apr 03 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 36
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Fri Apr 02 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Mon Apr 05 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 37
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Apr 06 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Sat Apr 10 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 4,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 38
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Apr 13 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Apr 16 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 39
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon Apr 19 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Apr 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 40
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "400.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 41
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Sat Apr 24 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Tue Apr 27 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "800.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 42
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 43
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 44
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "600.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 45
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "700",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 46
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 47
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "600.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 48
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "700",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 49
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Mon May 17 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri May 21 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 50
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "200",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 51
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 52
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "300.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 53
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "100",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 54
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 55
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 56
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 57
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CANCEL",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 58
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 59
+    },
+    {
+      "idUser": 5,
+      "dateStart": "Tue Jun 22 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Fri Jun 25 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "totalCost": "159.50",
+      "status": "CHECKED OUT",
+      "idroom": 2,
+      "userName": "saleaa",
+      "number": 3,
+      "service": [
+        {
+          "name": "Dịch vụ phòng 24/24",
+          "id": 4,
+          "price": 50
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1626970596118,
+      "updatedAt": 1626970596118,
+      "id": 60
     }
   ],
   "bankaccount": [
