@@ -6,6 +6,7 @@ const defaultState = {
   filter: {},
   pagi: {},
   isGetPromo: undefined,
+  promoUser: {},
 };
 
 export default function promoReducer(state = defaultState, action) {
@@ -62,9 +63,7 @@ export default function promoReducer(state = defaultState, action) {
       newState = { ...newState, promo: newPromo1, isGetPromo: false };
       return newState;
     case ActionType.DEL_PROMO_SC:
-      let newPromo2 = newState.promo.filter(
-        (item) => item.id !== action.payload
-      );
+      let newPromo2 = newState.promo.filter((item) => item.id !== action.payload);
       newState = { ...newState, promo: newPromo2 };
       return newState;
     case ActionType.CHANGE_FILTER:
@@ -73,6 +72,32 @@ export default function promoReducer(state = defaultState, action) {
     case ActionType.CANCEL_COST:
       state = { ...newState, isGetPromo: false };
       return state;
+
+    case ActionType.CHECK_PROMOTION_SC: {
+      return {
+        ...state,
+        loader: false,
+
+        promoUser: {
+          ...action.data,
+        },
+      };
+    }
+    case ActionType.CHECK_PROMOTION: {
+      return {
+        ...state,
+        loader: true,
+      };
+    }
+    case ActionType.CHECK_PROMOTION_ER: {
+      return {
+        loader: false,
+        ...state,
+        promoUser: {
+          ...action.data,
+        },
+      };
+    }
     default:
       return state;
   }

@@ -8,22 +8,23 @@ export default function FilterCategory(props) {
   const data = useSelector((state) => state.room);
   const type = data.type;
   const filter = data.filter;
+  console.log(filter);
   useEffect(() => {
     dispatch(gettyperoom());
     // eslint-disable-next-line
   }, []);
-  function handleFilter(id) {
-    dispatch(changeFilter({ ...filter, idtyperoom: id }));
+  function handleFilter(type) {
+    dispatch(changeFilter({ ...filter, type: type }));
   }
   return (
     <div>
       <ul>
         {type.map((item, index) => (
           <li
-            className={filter.idtyperoom === item.id && "active"}
+            className={filter.type === item._id && "active"}
             key={`type_${item.name}-${index}`}
             onClick={(e) => {
-              handleFilter(item.id);
+              handleFilter(item._id);
             }}
           >
             <i class="fas fa-arrow-right"></i>

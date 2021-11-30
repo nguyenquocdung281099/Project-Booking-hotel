@@ -526,8 +526,18 @@
       "name": "hotel anniversary discount",
       "discount": 10,
       "code": "discountHoilyday",
-      "amount": 94,
+      "amount": 92,
       "expiryDate": "Fri Oct 30 2021 23:20:24 GMT+0700 (Indochina Time)"
+    },
+    {
+      "name": "đă",
+      "discount": 2,
+      "code": "code",
+      "amount": 1200,
+      "expiryDate": "Thu Oct 21 2021 07:00:00 GMT+0700 (Indochina Time)",
+      "createdAt": 1633525981993,
+      "updatedAt": 1633525981993,
+      "id": 3
     }
   ],
   "booking": [
@@ -1782,8 +1792,8 @@
       "idUser": 3,
       "dateStart": "Fri Aug 27 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Sat Aug 28 2021 00:00:00 GMT+0700 (Indochina Time)",
-      "totalCost": 180,
-      "status": "NEW",
+      "totalCost": 36,
+      "status": "CANCEL",
       "idroom": 2,
       "number": 3,
       "service": [
@@ -1825,8 +1835,8 @@
       "dateStart": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
       "dateEnd": "Sat Jul 31 2021 00:00:00 GMT+0700 (Indochina Time)",
       "codeDiscount": "discountHoilyday",
-      "totalCost": 99,
-      "status": "NEW",
+      "totalCost": 19,
+      "status": "CANCEL",
       "idroom": 2,
       "number": 3,
       "paymethod": "ZaloPay",
@@ -1891,6 +1901,60 @@
       "createdAt": 1627697786384,
       "updatedAt": 1627697786384,
       "id": 67
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Wed Sep 08 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Sep 08 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 786,
+      "status": "NEW",
+      "idroom": 25,
+      "userName": "nguyenquocdung1234",
+      "number": 2,
+      "service": [
+        {
+          "id": 1,
+          "name": "service swim",
+          "price": "500"
+        },
+        {
+          "name": "service meeting",
+          "id": 2,
+          "price": 70
+        },
+        {
+          "name": "Fitness centre",
+          "id": 3,
+          "price": 50
+        }
+      ],
+      "paymethod": "visa-jcb",
+      "createdAt": 1630121064959,
+      "updatedAt": 1630121064959,
+      "id": 68
+    },
+    {
+      "idUser": 3,
+      "dateStart": "Sat Oct 09 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "dateEnd": "Wed Oct 20 2021 00:00:00 GMT+0700 (Indochina Time)",
+      "codeDiscount": "discountHoilyday",
+      "totalCost": 1539,
+      "status": "NEW",
+      "idroom": 2,
+      "userName": "nguyenquocdung1234",
+      "number": 3,
+      "service": [
+        {
+          "id": 1,
+          "name": "service swim",
+          "price": "500"
+        }
+      ],
+      "paymethod": "ZaloPay",
+      "createdAt": 1633525789339,
+      "updatedAt": 1633525789339,
+      "id": 69
     }
   ],
   "bankaccount": [

@@ -26,8 +26,8 @@ export default function SiderBarRoom() {
         }}
       >
         <option selected>{t("sort")}</option>
-        <option value="asc">{t("price asc")}</option>
-        <option value="desc">{t("price desc")}</option>
+        <option value="1">{t("price asc")}</option>
+        <option value="-1">{t("price desc")}</option>
       </select>
       <h3 className="name_filter">{t("Filter Category")}</h3>
       <FilterCategory />
@@ -40,7 +40,7 @@ export default function SiderBarRoom() {
             dispatch(changeFilter({}));
           }}
         >
-         {t(" Clear Filter")}
+          {t(" Clear Filter")}
         </button>
       )}
     </div>

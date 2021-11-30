@@ -49,16 +49,7 @@ export default function SignUpPage() {
   function SignIn(e) {
     e.preventDefault();
     let dataErrors = {};
-    const {
-      name,
-      phone,
-      email,
-      address,
-      birthday,
-      userName,
-      password,
-      rePassword,
-    } = data;
+    const { name, phone, email, address, birthday, userName, password, rePassword } = data;
 
     //  ? name
     if (name === "") {
@@ -81,8 +72,7 @@ export default function SignUpPage() {
     if (email === "") {
       dataErrors = { ...dataErrors, email: t("please fill out your email") };
     } else {
-      const emailno =
-        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      const emailno = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       if (!emailno.test(email)) {
         dataErrors = { ...dataErrors, email: t("please format your email") };
       } else {
@@ -150,14 +140,13 @@ export default function SignUpPage() {
     }
 
     if (Object.keys(dataErrors).length === 0) {
-      dispatch(addUser(data));
+      dispatch(
+        addUser({
+          requestData: data,
+        })
+      );
     }
     setdataError({ ...dataErrors });
-  }
-  const isSignUpSC = useSelector((state) => state.user.isSignUpSC);
-  if (isSignUpSC === true) {
-    toastSc();
-    return <Redirect to="/login" />;
   }
 
   return (

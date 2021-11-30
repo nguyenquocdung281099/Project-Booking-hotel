@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { debounce } from "lodash";
+import { debounce, isEmpty } from "lodash";
 import "./style.css";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -14,9 +14,7 @@ export default function Header() {
   const notify = () => toast.success("logout success!");
   const dispatch = useDispatch();
   const defaultHeaderClassName = "main_h";
-  const [headerClassName, setHeaderClassName] = React.useState(
-    defaultHeaderClassName
-  );
+  const [headerClassName, setHeaderClassName] = React.useState(defaultHeaderClassName);
   const [showHeader, setShowHeader] = React.useState(false);
   const [isOpened, setIsOpened] = React.useState(true);
 
@@ -52,9 +50,7 @@ export default function Header() {
 
   useEffect(() => {
     setHeaderClassName(
-      `main_h ${showHeader ? "sticky " : "transparent"} ${
-        isOpened ? "open-nav " : ""
-      }`
+      `main_h ${showHeader ? "sticky " : "transparent"} ${isOpened ? "open-nav " : ""}`
     );
   }, [isOpened, showHeader]);
 
@@ -76,7 +72,7 @@ export default function Header() {
       url: "/room",
     },
   ];
-  const infor = useSelector((state) => state.user.user) || [];
+  const infor = useSelector((state) => state.user.userCurrent) || [];
   return (
     <div>
       <header className={headerClassName}>
@@ -126,23 +122,17 @@ export default function Header() {
                 )}
               </li>
               <li>
-                {infor.length !== 0 && token !== null && (
+                {isEmpty(infor) || (
                   <Link to="/profile">
                     {t("USER")} <i class="far fa-user"></i>
                   </Link>
                 )}
               </li>
               <div>
-                <button
-                  className="btn-flag ml-3"
-                  onClick={() => i18n.changeLanguage("vi")}
-                >
+                <button className="btn-flag ml-3" onClick={() => i18n.changeLanguage("vi")}>
                   vi
                 </button>
-                <button
-                  className="btn-flag"
-                  onClick={() => i18n.changeLanguage("en")}
-                >
+                <button className="btn-flag" onClick={() => i18n.changeLanguage("en")}>
                   en
                 </button>
               </div>

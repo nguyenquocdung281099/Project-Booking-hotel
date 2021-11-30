@@ -1,10 +1,14 @@
 // ! action
 export const GET_BOOKING = "GET_BOOKING";
 export const GET_ROOM = "GET_ROOM";
+export const GET_ROOM_ER = "GET_ROOM_ER";
 export const GET_SERVICE = "GET_SERVICE";
 export const GET_PROMO = "GET_PROMO";
 export const GET_PROMO_ER = "GET_PROMO_ER";
 export const GET_USER = "GET_USER";
+export const GET_USER_CURRENT = "GET_USER_CURRENT";
+export const GET_USER_CURRENT_SC = "GET_USER_CURRENT_SC";
+export const GET_USER_CURRENT_ER = "GET_USER_CURRENT_ER";
 export const SET_LOADER = "SET_LOADER";
 export const GET_TYPE_ROOM = "GET_TYPE_ROOM";
 export const CHANGE_FILTER = "CHANGE_FILTER";
@@ -56,6 +60,8 @@ export const GET_ROOM_DETAIL_SC = "GET_ROOM_DETAIL_SC";
 export const EDIT_USERS = "EDIT_USERS";
 
 export const ADD_USER = "ADD_USER";
+export const ADD_USER_SC = "ADD_USER_SC";
+export const ADD_USER_ER = "ADD_USER_ER";
 export const SHOW_TOAST = "SHOW_TOAST";
 
 export const GET_BOOKING_ROOM = "GET_BOOKING_ROOM";
@@ -78,7 +84,7 @@ export const DEL_USERDB_SC = "DEL_USERDB_SC";
 //booking DB staffpage
 export const GET_BOOKINGDB = "GET_BOOKINGDB";
 export const GET_BOOKINGDB_SC = "GET_BOOKINGDB_SC";
- export const EDIT_BOOKINGDB = "EDIT_BOOKINGDB";
+export const EDIT_BOOKINGDB = "EDIT_BOOKINGDB";
 export const EDIT_BOOKINGDB_SC = "EDIT_BOOKINGDB_SC";
 
 //room DB staffpage
@@ -98,3 +104,15 @@ export const SIGN_UP_ER = "SIGN_UP_ER";
 export const SIGN_UP_SC = "SIGN_UP_SC";
 
 export const SIGN_UP_TO = "SIGN_UP_TO";
+
+export const UPDATE_INFORMATION_USER_ER = "UPDATE_INFORMATION_USER_ER";
+
+export const UPDATE_INFORMATION_USER_SC = "UPDATE_INFORMATION_USER_SC";
+
+export const UPDATE_INFORMATION_USER = "UPDATE_INFORMATION_USER";
+
+export const CHECK_PROMOTION_ER = "CHECK_PROMOTION_ER";
+
+export const CHECK_PROMOTION_SC = "CHECK_PROMOTION_SC";
+
+export const CHECK_PROMOTION = "CHECK_PROMOTION";

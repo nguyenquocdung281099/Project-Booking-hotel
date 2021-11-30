@@ -9,6 +9,7 @@ const defaultState = {
   isLoginERR: false,
   isSignUpEr: false,
   isSignUpSC: false,
+  userCurrent: {},
 };
 
 export default function userReducer(state = defaultState, action) {
@@ -24,7 +25,7 @@ export default function userReducer(state = defaultState, action) {
       newState = { ...newState, user: action.payload };
       return newState;
     case actionType.LOGIN_SC:
-      if (action.payload.idRole !== "user1") {
+      if (action.payload.idRole === "user1") {
         localStorage.setItem("KEY_AUTHEN", true);
         newState = {
           ...newState,
@@ -41,7 +42,6 @@ export default function userReducer(state = defaultState, action) {
           user: action.payload,
         };
       }
-
       return { ...newState };
     case actionType.LOGOUT:
       newState = {
@@ -60,6 +60,23 @@ export default function userReducer(state = defaultState, action) {
     case actionType.SIGN_UP_TO:
       newState = { ...newState, isSignUpSC: false };
       return newState;
+    case actionType.GET_USER_CURRENT_SC: {
+      return {
+        ...state,
+        userCurrent: {
+          ...action.data,
+        },
+      };
+    }
+    case actionType.UPDATE_INFORMATION_USER_SC: {
+      return {
+        ...state,
+        userCurrent: {
+          ...state.userCurrent,
+          ...action.data,
+        },
+      };
+    }
     default:
       return state;
   }

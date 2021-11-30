@@ -10,7 +10,6 @@ export default function FilterRating() {
   function handleFilter(rating) {
     dispatch(changeFilter({ ...filter, rating: rating }));
   }
-  console.log(filter.rating);
   return (
     <ul>
       {star.map((item, index) => {

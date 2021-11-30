@@ -1,8 +1,9 @@
 export const URL = "http://localhost:3333/api";
-export const URL_TYPE = "http://localhost:3333/api/TypeRoom";
-export const URL_ROOM = "http://localhost:3333/api/room";
-export const URL_USER = "http://localhost:8000";
+export const URL_TYPE = "http://localhost:5555/TypeRooms";
+export const URL_ROOM = "http://localhost:5555/rooms";
+export const URL_USER = "http://localhost:5555";
 export const KEY_TOKEN = "TOKEN_USER";
+export const KEY_REF_TOKEN = "KEY_REF_TOKEN";
 export const KEY_ROOM_VEIWED = "KEY_ROOM_VEIWED";
 export const KEY_ROOM_BOOKING = "KEY_ROOM_BOOKING";
 export const KEY_DATE_CHECKIN = "KEY_DATE_CHECKIN";

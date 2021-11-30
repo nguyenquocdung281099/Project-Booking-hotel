@@ -15,12 +15,12 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
-
 AOS.init({
   duration: 1200,
 });
 export default function HomePage() {
   const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -109,16 +109,12 @@ export default function HomePage() {
               />
               <div className="booking__room--content">
                 <EdgeTop />
-                <h3 className="booking__room--subtitle">
-                  {t("Luxury Resort App")}
-                </h3>
-                <h1 className="booking__room--title">
-                  {t("Booking Rooms Online")}
-                </h1>
+                <h3 className="booking__room--subtitle">{t("Luxury Resort App")}</h3>
+                <h1 className="booking__room--title">{t("Booking Rooms Online")}</h1>
                 <EdgeBottom />
                 <p>
-                  Good quality rooms, suitable for everyone, full of high to low
-                  services, perfect for holidays.
+                  Good quality rooms, suitable for everyone, full of high to low services, perfect
+                  for holidays.
                 </p>
                 <Button url="/room" content={t("DOWNLOAD")} />
               </div>
@@ -133,11 +129,7 @@ export default function HomePage() {
         </section>
         <section className="Special__Offers container-fluid">
           <div className="container">
-            <TitleBlock
-              subtitle="TheGem Hotel"
-              title={t("Special Offers")}
-              top="false"
-            />
+            <TitleBlock subtitle="TheGem Hotel" title={t("Special Offers")} top="false" />
             <OffersBlock />
           </div>
         </section>

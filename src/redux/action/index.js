@@ -315,6 +315,19 @@ export const addUser = (data) => {
   };
 };
 
+export const addUserSC = (data) => {
+  return {
+    type: ActionType.ADD_USER_SC,
+    data: data,
+  };
+};
+export const addUserER = (data) => {
+  return {
+    type: ActionType.ADD_USER_ER,
+    data: data,
+  };
+};
+
 export const showtoast = () => {
   return { type: ActionType.SHOW_TOAST };
 };
@@ -470,5 +483,62 @@ export const signUpSc = () => {
 export const signUpTO = () => {
   return {
     type: ActionType.SIGN_UP_TO,
+  };
+};
+
+export const getUserCurrent = (data) => {
+  return {
+    type: ActionType.GET_USER_CURRENT,
+    data: data,
+  };
+};
+export const getUserCurrentC = (data) => {
+  return {
+    type: ActionType.GET_USER_CURRENT_SC,
+    data: data,
+  };
+};
+export const getUserCurrentR = (data) => {
+  return {
+    type: ActionType.GET_USER_CURRENT_ER,
+    data: data,
+  };
+};
+
+export const updateInformationUser = (data) => {
+  return {
+    type: ActionType.UPDATE_INFORMATION_USER,
+    data: data,
+  };
+};
+export const updateInformationUserSC = (data) => {
+  return {
+    type: ActionType.UPDATE_INFORMATION_USER_SC,
+    data: data,
+  };
+};
+export const updateInformationUserER = (data) => {
+  return {
+    type: ActionType.UPDATE_INFORMATION_USER_ER,
+    data: data,
+  };
+};
+
+export const checkPromotion = (data) => {
+  return {
+    type: ActionType.CHECK_PROMOTION,
+    data: data,
+  };
+};
+export const checkPromotionSC = (data) => {
+  return {
+    type: ActionType.CHECK_PROMOTION_SC,
+    data: data,
+  };
+};
+export const checkPromotionER = (data) => {
+  return {
+    type: ActionType.CHECK_PROMOTION_ER,
+    data: data,
   };
 };

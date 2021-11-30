@@ -1,0 +1,129 @@
+.profile__page {
+  .profiel__page--body img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid #e6aa32;
+    box-shadow: 5px 5px 5px #61450d;
+    margin-bottom: 1rem;
+  }
+
+  padding: 0;
+  padding-bottom: 2rem;
+  background-color: #e2e8f0;
+
+  .profile_left {
+    border-radius: 15px;
+
+    background-color: white;
+    text-align: center;
+    position: relative;
+    .change_pass {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      i {
+        &:hover {
+          color: rgb(127, 127, 197);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .profile__main {
+    border-radius: 15px;
+
+    background-color: white;
+  }
+  .history__booking {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1rem;
+  }
+  .history__booking_main {
+    text-align: center;
+  }
+  @media only screen and (max-width: 768px) {
+    .profile__main {
+      margin: 0 !important;
+    }
+    .profile__main .history__booking {
+      width: 768px !important;
+      overflow-x: scroll !important;
+    }
+  }
+
+  .btn_profile {
+    display: flex;
+    justify-content: end;
+  }
+  button {
+    height: auto !important;
+    width: 100px;
+  }
+  .btn_profile button {
+    height: auto !important;
+    margin: 0 !important;
+  }
+  .information {
+    padding: 30px;
+    .information-item {
+      padding: 7px;
+      display: flex;
+      justify-content: space-evenly;
+      .title {
+        font-size: 16px !important;
+        width: 15%;
+      }
+      .content {
+        width: 70%;
+        border: 1px solid #e6aa32;
+        border-radius: 10px;
+        padding: 5px;
+        &:disabled {
+          border: none;
+          background-color: none;
+        }
+      }
+    }
+  }
+}
+
+.ant-modal-root {
+  .ant-modal-title {
+    color: #e6aa32;
+  }
+  .ant-modal-footer {
+    display: none;
+  }
+  button {
+    height: 30px !important;
+    margin-right: 20px;
+  }
+  .modal-information {
+  }
+  .information {
+    padding: 30px;
+    .information-item {
+      padding: 7px;
+      display: flex;
+      justify-content: space-evenly;
+      .title {
+        font-size: 16px !important;
+        width: 25%;
+      }
+      .content {
+        width: 70%;
+        border: 1px solid #e6aa32;
+        border-radius: 10px;
+        padding: 5px;
+        height: 50px;
+        &:disabled {
+          border: none;
+          background-color: none;
+        }
+      }
+    }
+  }
+}

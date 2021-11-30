@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, signUpTO } from "../../../redux/action";
 import { Redirect } from "react-router-dom";
 export default function LoginPage() {
-  const loginErr = useSelector((state) => state.user.isLoginERR);
   const userAuth = useSelector((state) => state.user);
 
   const [data, setdata] = useState({ email: "", password: "" });
@@ -22,10 +21,6 @@ export default function LoginPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const notify = () => toast.success("login success!");
-  const notifyErr = () =>
-    toast.success("login err! you need re-enter password or email");
 
   const { t } = useTranslation();
 
@@ -51,22 +46,19 @@ export default function LoginPage() {
     }
     setdataError({ ...dataErrors });
     if (Object.keys(dataErrors).length === 0) {
-      dispatch(login(data));
+      dispatch(
+        login({
+          requestData: data,
+        })
+      );
     }
   }
-
-  useEffect(() => {
-    if (loginErr === true && data.email !== "" && data.password !== "") {
-      notifyErr();
-    }
-  }, [loginErr]);
 
   useEffect(() => {
     dispatch(signUpTO());
   }, []);
 
   if (userAuth.isLogin === true) {
-    notify();
     if (userAuth.isAuthen === true) {
       return <Redirect exact to="/admin/dashboard" />;
     } else {
@@ -84,9 +76,7 @@ export default function LoginPage() {
         <div className="signin__container--wrap container">
           <div className="signin__body row p-4">
             <div className="signin__body--information col-lg-6 col-12 mb-5">
-              <h2 className="information__title mb-5 ">
-                {t("Your infomation")}
-              </h2>
+              <h2 className="information__title mb-5 ">{t("Your infomation")}</h2>
               <form className="information__form" id="information__form">
                 <div className="form-group mb-4">
                   <label for="email__signin">{t("Your UserName:")}</label>
@@ -139,9 +129,9 @@ export default function LoginPage() {
             <div className="signin__body--notAccount col-lg-6 col-12">
               <h2 className="notAccount__title mb-5 ">{t("notacount")}</h2>
               <p className="notAccount__content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna. Ut enim ad
-                mini veniam, quis nostrud exercitation.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna. Ut enim ad mini veniam, quis nostrud
+                exercitation.
               </p>
               <Button url="/signup" content={t("SIGN UP")} />
             </div>

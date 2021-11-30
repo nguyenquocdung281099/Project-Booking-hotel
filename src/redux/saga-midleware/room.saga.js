@@ -3,7 +3,7 @@ import * as action from "../action/const_action";
 import { call, delay, put, takeLatest } from "redux-saga/effects";
 import { URL_ROOM, URL_TYPE } from "../../userPage/const/const";
 import queryString from "query-string";
-import { get } from "./callApi";
+import { get, RestClient } from "./callApi";
 
 export default function* RoomSaga() {
   yield takeLatest(action.GET_TYPE_ROOM, getType);
@@ -12,7 +12,8 @@ export default function* RoomSaga() {
 }
 function* getType() {
   try {
-    const type = yield call(get, URL_TYPE);
+    const type = yield call(RestClient.get, URL_TYPE);
+    console.log(type);
     yield put(func_action.gettyperoomsc(type.data));
   } catch (e) {}
 }
@@ -20,10 +21,7 @@ function* getType() {
 function* getRoom(action) {
   try {
     const url = queryString.stringify(action.filter);
-    const room = yield call(get, `${URL_ROOM}?${url}`);
-    yield put(func_action.setloader(false));
-    yield put(func_action.setLoading(false));
-    delay(1000);
+    const room = yield call(RestClient.get, `${URL_ROOM}?${url}`);
     yield put(func_action.getroomsc(room.data));
   } catch (e) {}
 }

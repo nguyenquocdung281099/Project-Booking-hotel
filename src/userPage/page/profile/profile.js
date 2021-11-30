@@ -1,55 +1,60 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./style.css";
+import "./style.scss";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   editBooking,
   editUser,
   getBookingRoom,
   getroom,
+  getUserCurrent,
+  updateInformationUser,
 } from "../../../redux/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Pagination, Popconfirm } from "antd";
+import { Pagination, Popconfirm, Form, Input, Button, Space } from "antd";
 import "antd/dist/antd.css";
+import { RestClient } from "../../../redux/saga-midleware/callApi";
+import { KEY_TOKEN } from "../../const/const";
+import { Modal } from "antd";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.user.user);
-  const [dataInf, setdataInf] = useState({});
-  const notify = () => toast.success(t("cancel success"));
-  const notifyEd = () => toast.success(t("Edit success"));
-
-  useEffect(() => {
-    setdataInf({
-      email: users.email,
-      userName: users.userName,
-      birthday: users.birthday,
-      address: users.address,
-    });
-    dispatch(getBookingRoom({ idUser: users.id, _page: 1, _limit: 5 }));
-    dispatch(
-      getroom({
-        _page: 1,
-        _limit: 25,
-      })
-    );
-  }, [users, dispatch]);
-
+  const users = useSelector((state) => state.user.userCurrent);
+  console.log(users);
   const { t } = useTranslation();
-  const [disabled, setDisabled] = useState(true);
   const dataBooking = useSelector((state) => state.booking.booking);
 
   let bookingRoomFetch = dataBooking.data;
   const dataRoom = useSelector((state) => state.room);
+  const onFinish = (values) => {
+    dispatch(
+      updateInformationUser({
+        email: users.email,
+        requestData: {
+          ...values,
+        },
+      })
+    );
+  };
 
+  const getUser = async () => {
+    const email = JSON.parse(localStorage.getItem("emailUser"));
+    if (email) {
+      // const user = await RestClient.post("http://localhost:5555/userCurrent", {});
+      // setUsers(user.data);
+      dispatch(getUserCurrent({ requestData: { email } }));
+    }
+  };
+  console.log(users);
   useEffect(() => {
     window.scrollTo(0, 0);
+    getUser();
   }, []);
 
-  function handleCancel(item) {
+  function handleCancelBooking(item) {
     dispatch(
       editBooking(
         {
@@ -62,9 +67,12 @@ export default function ProfilePage() {
         }
       )
     );
-    notify();
   }
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
   return (
     <main className="profile__page container-fluid">
       <ToastContainer />
@@ -78,84 +86,112 @@ export default function ProfilePage() {
         <div className="row ">
           <div className="col-12 col-md-4 profile_left pt-3">
             <img
-              src="https://www.bootdey.com/img/Content/avatar/avatar7.png"
+              src={users.avatar || "https://www.bootdey.com/img/Content/avatar/avatar7.png"}
               alt="imgUser"
             />
             <h3>{users.userName}</h3>
             <address>{users.address}</address>
+            <div className="change_pass">
+              <i class="fas fa-pen mr-2" onClick={showModal}></i>
+            </div>
           </div>
-          <div className="profile__main col-12 col-md-7 ml-5 ">
-            <table class="table table-responsive-md">
-              <tbody>
-                <tr>
-                  <th scope="row">Email:</th>
-                  <td>
-                    <input
-                      type="text"
-                      value={dataInf.email}
-                      disabled
-                      onChange={(e) => {
-                        setdataInf({ ...dataInf, email: e.target.value });
-                      }}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">{t("UserName")}:</th>
-                  <td>
-                    <input
-                      type="text"
-                      value={dataInf.userName}
-                      onChange={(e) => {
-                        setdataInf({ ...dataInf, userName: e.target.value });
-                      }}
-                      disabled={disabled}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">{t("Birthday")}:</th>
-                  <td>
-                    <input
-                      type="text"
-                      value={dataInf.birthday}
-                      onChange={(e) => {
-                        setdataInf({ ...dataInf, birthday: e.target.value });
-                      }}
-                      disabled={disabled}
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <th>
-                    <button
-                      onClick={(e) => {
-                        setDisabled(false);
-                      }}
-                      className="btn-success"
+          <div className="profile__main col-12 col-md-7 ml-5 p-3 ">
+            <Modal
+              title="EDIT PROFILE MODAL"
+              visible={isModalVisible}
+              onCancel={() => {
+                setIsModalVisible(false);
+              }}
+              className="information"
+              style={{ width: 700 }}
+            >
+              <Form
+                name="basic"
+                initialValues={{ ...users }}
+                onFinish={(value) => {
+                  onFinish(value);
+                  setIsModalVisible(false);
+                }}
+                autoComplete="off"
+              >
+                <div className="modal-information">
+                  <div className="information-item">
+                    <div className="title">Email</div>
+                    <Form.Item name="email" disabled={true} style={{ width: "100%" }}>
+                      <Input disabled={true} />
+                    </Form.Item>
+                  </div>
+                  <div className="information-item">
+                    <div className="title">Full Name</div>
+                    <Form.Item
+                      name="fullName"
+                      rules={[{ required: true, message: "Please input your Fullname!" }]}
+                      style={{ width: "100%" }}
                     >
-                      <i class="fas fa-pen mr-2"></i>
-                      {t("EDIT")}
-                    </button>
-                  </th>
-                  <td>
-                    <button
-                      className="btn m-auto"
-                      onClick={() => {
-                        notifyEd();
-                        setDisabled(true);
-                        dispatch(editUser(users.id, dataInf));
-                      }}
+                      <Input />
+                    </Form.Item>
+                  </div>
+                  <div className="information-item">
+                    <div className="title">User Name</div>
+                    <Form.Item
+                      name="userName"
+                      rules={[{ required: true, message: "Please input your username!" }]}
+                      style={{ width: "100%" }}
                     >
-                      Save
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                      <Input />
+                    </Form.Item>
+                  </div>
+                  <div className="information-item">
+                    <div className="title">Avatar</div>
+                    <Form.Item name="avatar" style={{ width: "100%" }}>
+                      <Input />
+                    </Form.Item>
+                  </div>{" "}
+                  <div className="information-item">
+                    <div className="title">Phone</div>
+                    <Form.Item
+                      name="phone"
+                      // rules={[
+                      //   { type: Number, message: "type phone is number" },
+                      //   { min: 10, message: "must be min 10 number" },
+                      //   { max: 11, message: "must be max 10 number" },
+                      // ]}
+                      disabled={true}
+                      style={{ width: "100%" }}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </div>
+                </div>
+                <Space align="end">
+                  <Button type="ghost"> Cancel </Button>
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </Space>
+              </Form>
+            </Modal>
+            <div className="information">
+              <div className="information-item">
+                <div className="title">Email</div>
+                <input type="text" className="content" value={users.email} disabled />
+              </div>
+              <div className="information-item">
+                <div className="title">Address</div>
+                <input type="text" className="content" value={users.address} disabled={true} />
+              </div>
+              <div className="information-item">
+                <div className="title">User Name</div>
+                <input type="text" className="content" value={users.userName} disabled={true} />
+              </div>
+              <div className="information-item">
+                <div className="title">Phone</div>
+                <input type="text" className="content" value={users.phone} disabled={true} />
+              </div>
+            </div>
           </div>
         </div>
+
         <div className="history__booking_main mt-5 pb-5">
           <h3>{t("History Booking")}</h3>
           {bookingRoomFetch ? (
@@ -212,7 +248,7 @@ export default function ProfilePage() {
                             <Popconfirm
                               title="Do you really want to cancel the room? you will lose 20% of the cost"
                               onConfirm={() => {
-                                handleCancel(item);
+                                handleCancelBooking(item);
                               }}
                               okText="Yes"
                               cancelText="No"
@@ -226,11 +262,10 @@ export default function ProfilePage() {
                   })}
                 </tbody>
               </table>
+
               <Pagination
                 defaultCurrent={1}
-                total={
-                  dataBooking.pagination ? dataBooking.pagination._totalRows : 0
-                }
+                total={dataBooking.pagination ? dataBooking.pagination._totalRows : 0}
                 onChange={(currentPage) => {
                   dispatch(
                     getBookingRoom({
@@ -250,3 +285,12 @@ export default function ProfilePage() {
     </main>
   );
 }
+
+const utilizeFocus = () => {
+  const ref = React.createRef();
+  const setFocus = () => {
+    ref.current && ref.current.focus();
+  };
+
+  return { setFocus, ref };
+};

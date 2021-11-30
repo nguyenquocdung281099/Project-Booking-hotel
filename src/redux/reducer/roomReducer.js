@@ -1,36 +1,52 @@
 import * as ActionType from "../action/const_action";
 
 const defaultState = {
-  rooms: [],
+  rooms: {
+    data: [],
+    meta: {},
+    load: false,
+  },
   type: [],
   filter: {},
-  pagi: {},
-  loading: true,
+  loading: false,
   roomsDetail: [],
   filterSearchRoom: {},
-  loader: true,
 };
 
 export default function roomReducer(state = defaultState, action) {
   let newState = { ...state };
   switch (action.type) {
-    case ActionType.GET_ROOM_SC:
-
-        if (action.payload.pagination) {
-            newState = {
-                ...newState,
-                rooms: action.payload.data,
-                pagi: action.payload.pagination
-            }
-        } else {
-            newState = {
-                ...newState,
-                rooms: action.payload
-            }
-        }
-        return newState;
+    case ActionType.GET_ROOM_SC: {
+      const { data, meta } = action.payload;
+      return {
+        ...state,
+        rooms: {
+          data,
+          meta,
+          load: false,
+        },
+      };
+    }
+    case ActionType.GET_ROOM: {
+      return {
+        ...state,
+        rooms: {
+          ...state.rooms,
+          load: true,
+        },
+      };
+    }
+    case ActionType.GET_ROOM_ER: {
+      return {
+        ...state,
+        rooms: {
+          ...state.rooms,
+          load: false,
+        },
+      };
+    }
     case ActionType.GET_TYPE_ROOM_SC:
-      newState = { ...newState, type: action.payload };
+      newState = { ...newState, type: action.payload.data };
       return newState;
     case ActionType.CHANGE_FILTER:
       Object.keys(action.payload).length === 0
@@ -67,9 +83,7 @@ export default function roomReducer(state = defaultState, action) {
       newState = { ...newState, rooms: newRoom1 };
       return newState;
     case ActionType.DEL_ROOM_SC:
-      let newRoom2 = newState.rooms.filter(
-        (item) => item.id !== action.payload
-      );
+      let newRoom2 = newState.rooms.filter((item) => item.id !== action.payload);
       newState = { ...newState, rooms: newRoom2 };
       return newState;
     case ActionType.GET_ROOM_DETAIL_SC:

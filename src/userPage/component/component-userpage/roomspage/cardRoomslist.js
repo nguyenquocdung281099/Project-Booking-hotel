@@ -1,6 +1,6 @@
 import "./style.css";
 import { Link } from "react-router-dom";
-import { Image } from "antd";
+import { Image, Spin } from "antd";
 import "antd/dist/antd.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import "antd/dist/antd.css";
 import { Pagination } from "antd";
 import { KEY_ROOM_BOOKING } from "../../../const/const";
 import { useTranslation } from "react-i18next";
+import { isEmpty } from "lodash";
 AOS.init({
   duration: 1200,
 });
@@ -17,82 +18,47 @@ export default function CardRoomsList() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.room);
   const filter = data.filter;
-  const type = data.type.length === 0 ? [{ name: "" }] : data.type;
   const filterSearchRoom = data.filterSearchRoom;
   const { t } = useTranslation();
-  const pagi =
-    Object.keys(data.pagi).length === 0
-      ? {
-          _page: 1,
-          _limit: 5,
-          _totalRows: 20,
-        }
-      : data.pagi;
   useEffect(() => {
-    dispatch(getroom({ _page: pagi._page, _limit: pagi._limit }));
-
+    dispatch(getroom());
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
-    Object.keys(filterSearchRoom).length === 0
-      ? dispatch(getroom({ ...filter, _page: pagi._page, _limit: pagi._limit }))
-      : dispatch(
-          getroom({
-            _page: pagi._page,
-            _limit: pagi._limit,
-            ...filterSearchRoom,
-            ...filter,
-          })
-        );
-    dispatch(setLoading(true));
-  }, [filter, dispatch, pagi._page, pagi._limit, filterSearchRoom]);
-
+    dispatch(getroom({ ...filter, page: data.rooms.meta.page, limit: data.rooms.meta.limit }));
+  }, [filter, dispatch]);
+  console.log(data.rooms.meta);
   function handleChangePagi(page, pagesize) {
-    dispatch(getroom({ ...filter, _page: page, _limit: pagi._limit }));
+    dispatch(getroom({ ...filter, page: page, limit: 5 }));
   }
-
-  console.log(data);
   return (
     <div className="col-12 col-lg-8">
-      {data.loading && (
-        <div class="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      {data.loading ? (
+        <Spin />
+      ) : !isEmpty(data.rooms.data) ? (
+        data.rooms.data.map((item, index) => {
+          return (
+            <CardRoomsItem item={item} key={`roomsitem-${index}`} type={item.idtyperoom.name} />
+          );
+        })
+      ) : (
+        <>
+          {t("there are ")}
+          {0}
+          {t("qualified rooms")}
+        </>
       )}
       {Object.keys(filterSearchRoom).length !== 0 && (
         <p>
           {t("there are ")}
-          {pagi._totalRows}
+          {data.rooms.meta.total}
           {t("qualified rooms")}
         </p>
       )}
-      {Object.keys(data).length !== 0 &&
-        data.rooms.length !== 0 &&
-        type.length !== 0 &&
-        data.rooms.map((item, index) => {
-          let indexType = type.findIndex(
-            (itemType) => itemType.id === item.idtyperoom
-          );
-          console.log(indexType);
-          return (
-            <CardRoomsItem
-              item={item}
-              key={`roomsitem-${index}`}
-              type={type[indexType].name}
-            />
-          );
-        })}
       <Pagination
-        defaultCurrent={pagi._page}
-        total={pagi._totalRows}
-        pageSize={pagi._limit}
+        defaultCurrent={data.rooms.meta.page || 10}
+        total={data.rooms.meta.total || 10}
+        pageSize={data.rooms.meta.limit || 10}
         onChange={handleChangePagi}
       />
     </div>
@@ -101,8 +67,7 @@ export default function CardRoomsList() {
 
 function CardRoomsItem(props) {
   const { t } = useTranslation();
-  const { image, name, pricePerday, id, description, rating, number } =
-    props.item;
+  const { image, name, pricePerday, id, description, rating, number } = props.item;
   let star = [];
 
   for (let index = 0; index < 5; index++) {
@@ -136,10 +101,7 @@ function CardRoomsItem(props) {
         <Link
           to="/Booking"
           onClick={() => {
-            sessionStorage.setItem(
-              KEY_ROOM_BOOKING,
-              JSON.stringify(props.item)
-            );
+            sessionStorage.setItem(KEY_ROOM_BOOKING, JSON.stringify(props.item));
           }}
         >
           {t("Booking")}
