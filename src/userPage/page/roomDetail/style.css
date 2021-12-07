@@ -33,6 +33,11 @@
   text-align: center;
   padding: 3rem 0;
 }
+.comment_block {
+  background-color: #f8f0e3;
+  text-align: center;
+  padding: 3rem 0;
+}
 .veiwed-slide-item {
   position: relative;
   z-index: 0;

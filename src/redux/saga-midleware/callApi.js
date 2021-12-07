@@ -28,8 +28,10 @@ async function executeRequest(url, config) {
 
   try {
     const result = await axios.request(newConfig);
+    console.log("check1");
     return result;
   } catch (error) {
+    console.log("check2");
     // refresh token
     if (error.response?.status === 401) {
       try {
@@ -54,6 +56,7 @@ async function executeRequest(url, config) {
         return error;
       }
     }
+    throw error;
   }
 }
 export const RestClient = {

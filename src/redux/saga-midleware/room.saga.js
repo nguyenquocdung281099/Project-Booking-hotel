@@ -1,7 +1,7 @@
 import * as func_action from "../action/index";
 import * as action from "../action/const_action";
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { URL_ROOM, URL_TYPE } from "../../userPage/const/const";
+import { URL_ROOM, URL_TYPE, URL_USER } from "../../userPage/const/const";
 import queryString from "query-string";
 import { get, RestClient } from "./callApi";
 
@@ -29,7 +29,7 @@ function* getRoom(action) {
 function* getRoomDetail(action) {
   try {
     const url = queryString.stringify(action.payload);
-    const room = yield call(get, `${URL_ROOM}?${url}`);
-    yield put(func_action.getRoomDetailSc(room.data[0]));
+    const room = yield call(get, `${URL_USER}/roomCurrent?${url}`);
+    yield put(func_action.getRoomDetailSc(room.data.data));
   } catch (e) {}
 }

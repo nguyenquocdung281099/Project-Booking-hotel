@@ -25,35 +25,15 @@ export default function userReducer(state = defaultState, action) {
       newState = { ...newState, user: action.payload };
       return newState;
     case actionType.LOGIN_SC:
-      if (action.payload.idRole === "user1") {
+      if (action.payload.idRole === "user2") {
         localStorage.setItem("KEY_AUTHEN", true);
-        newState = {
-          ...newState,
-          isLogin: true,
-          user: action.payload,
-          isAuthen: true,
-          isSignUpSC: false,
-        };
-      } else {
-        newState = {
-          ...newState,
-          isLogin: true,
-          isSignUpSC: false,
-          user: action.payload,
-        };
       }
-      return { ...newState };
-    case actionType.LOGOUT:
-      newState = {
-        ...newState,
-        isAuthen: false,
-        infomation: [],
-        isLogin: false,
-        user: [],
-        isLoginERR: false,
+      return {
+        ...state,
+        isLogin: true,
+        userCurrent: action.payload,
+        isAuthen: action.payload.idRole === "user2",
       };
-      state = { ...newState };
-      return { ...state };
     case actionType.LOGIN_ERR:
       newState = { ...newState, isLoginERR: true };
       return newState;
@@ -75,6 +55,17 @@ export default function userReducer(state = defaultState, action) {
           ...state.userCurrent,
           ...action.data,
         },
+      };
+    }
+    case actionType.LOGOUT: {
+      return {
+        ...state,
+        userCurrent: {},
+        isAuthen: false,
+        infomation: [],
+        isLogin: false,
+        user: [],
+        isLoginERR: false,
       };
     }
     default:

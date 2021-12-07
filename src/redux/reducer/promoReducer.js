@@ -2,7 +2,7 @@ import * as ActionType from "../action/const_action";
 
 const defaultState = {
   promo: [],
-  loader: true,
+  loader: false,
   filter: {},
   pagi: {},
   isGetPromo: undefined,
@@ -77,7 +77,6 @@ export default function promoReducer(state = defaultState, action) {
       return {
         ...state,
         loader: false,
-
         promoUser: {
           ...action.data,
         },
@@ -91,11 +90,14 @@ export default function promoReducer(state = defaultState, action) {
     }
     case ActionType.CHECK_PROMOTION_ER: {
       return {
-        loader: false,
         ...state,
-        promoUser: {
-          ...action.data,
-        },
+        loader: false,
+      };
+    }
+    case ActionType.CANCEL_PROMO: {
+      return {
+        ...state,
+        promoUser: {},
       };
     }
     default:

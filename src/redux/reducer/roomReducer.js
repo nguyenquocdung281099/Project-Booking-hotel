@@ -9,7 +9,7 @@ const defaultState = {
   type: [],
   filter: {},
   loading: false,
-  roomsDetail: [],
+  roomsDetail: {},
   filterSearchRoom: {},
 };
 
