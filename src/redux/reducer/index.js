@@ -5,8 +5,9 @@ import serviceReducer from "./serviceReducer";
 import promoReducer from "./promoReducer";
 import userReducer from "./userReducer";
 import userDBReducer from "./userDBReducer";
-import bookingDBReducer from './bookingDBReducer'
-import roomDBReducer from './roomDBReducer'
+import bookingDBReducer from "./bookingDBReducer";
+import roomDBReducer from "./roomDBReducer";
+import CommentReducer from "./comment";
 
 export const RootReducer = combineReducers({
   booking: bookingReducer,
@@ -16,5 +17,6 @@ export const RootReducer = combineReducers({
   user: userReducer,
   userDB: userDBReducer,
   bookingDB: bookingDBReducer,
-  roomDB: roomDBReducer
+  roomDB: roomDBReducer,
+  comments: CommentReducer,
 });

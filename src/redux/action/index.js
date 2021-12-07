@@ -542,3 +542,85 @@ export const checkPromotionER = (data) => {
     data: data,
   };
 };
+
+export const getBlankDate = (data) => {
+  return {
+    type: ActionType.GET_BLANK_DATE,
+    data: data,
+  };
+};
+export const getBlankDateSC = (data) => {
+  return {
+    type: ActionType.GET_BLANK_DATE_SC,
+    data: data,
+  };
+};
+export const getBlankDateER = (data) => {
+  return {
+    type: ActionType.GET_BLANK_DATE_ER,
+    data: data,
+  };
+};
+
+export const getExtraService = (data) => {
+  return {
+    type: ActionType.GET_EXTRA_SERVICE,
+    data: data,
+  };
+};
+export const getExtraServiceSC = (data) => {
+  return {
+    type: ActionType.GET_EXTRA_SERVICE_SC,
+    data: data,
+  };
+};
+export const getExtraServiceER = (data) => {
+  return {
+    type: ActionType.GET_EXTRA_SERVICE_ER,
+    data: data,
+  };
+};
+
+export const cancelPromotion = () => {
+  return {
+    type: ActionType.CANCEL_PROMO,
+  };
+};
+
+export const getComment = (data) => {
+  return {
+    type: ActionType.GET_COMMENT,
+    data: data,
+  };
+};
+export const getCommentSC = (data) => {
+  return {
+    type: ActionType.GET_COMMENT_SC,
+    data: data,
+  };
+};
+export const getCommentER = (data) => {
+  return {
+    type: ActionType.GET_COMMENT_ER,
+    data: data,
+  };
+};
+
+export const createComment = (data) => {
+  return {
+    type: ActionType.CREATE_COMMENT,
+    data: data,
+  };
+};
+export const createCommentSC = (data) => {
+  return {
+    type: ActionType.CREATE_COMMENT_SC,
+    data: data,
+  };
+};
+export const createCommentER = (data) => {
+  return {
+    type: ActionType.CREATE_COMMENT_ER,
+    data: data,
+  };
+};

@@ -1,0 +1,35 @@
+$pinkColor: #ff7ea5;
+$mainColor: #f6f7fb;
+$textMainColor: #474d58;
+$btnActive: #f45b0f;
+
+.admin-sidebar {
+  width: 300px;
+  background-color: #1e1e2d;
+  height: 100vh;
+  overflow-y: hidden;
+  ul {
+    padding: 32px 0 !important;
+    li {
+      padding: 12px;
+      width: 100%;
+      border-radius: 12px;
+      img {
+        margin: 0 16px;
+      }
+      &:hover {
+        background-color: #f6f7fb;
+        a {
+          color: black;
+        }
+      }
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      font-size: 110%;
+      a {
+        color: white;
+      }
+    }
+  }
+}

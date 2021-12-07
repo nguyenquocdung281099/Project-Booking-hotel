@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getBookingRoom, getRoomDetail } from "../../../redux/action";
+import { getBlankDate, getBookingRoom, getRoomDetail } from "../../../redux/action";
 import "./style.css";
 import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
@@ -16,6 +16,7 @@ import SliderRoomVeiwed from "../../component/component-userpage/roomDetail/slid
 import { KEY_ROOM_VEIWED } from "../../const/const";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Comment from "../../component/component-userpage/roomDetail/comment";
 
 AOS.init({
   duration: 2000,
@@ -26,17 +27,17 @@ export default function RoomDetailPage() {
   const dispath = useDispatch();
   const { t } = useTranslation();
   let dataRoomCurrent = useSelector((state) => state.room.roomsDetail);
-  const bookingRoomFetch = useSelector((state) => state.booking.booking);
+  const holidays = useSelector((state) => state.booking.dateBooked);
+
   const [styleProgess, setStyleProgess] = useState({
     width: "25%",
   });
-
-  const holidays = setDateBooked(bookingRoomFetch);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispath(getRoomDetail({ id: param.id }));
+    dispatch(getBlankDate(param.id));
   }, []);
 
   useEffect(() => {
@@ -151,24 +152,20 @@ export default function RoomDetailPage() {
               <h4 className="mb-3">{t("Availability")}</h4>
               <div className="d-flex">
                 <div className="describe d-flex m-2 ">
-                  <div className=" full-room mr-2">1</div>{" "}
-                  <p>{t("fully-room")}</p>
+                  <div className=" full-room mr-2">1</div> <p>{t("fully-room")}</p>
                 </div>
                 <div className="describe d-flex m-2">
-                  <div className="empty-room mr-2 ">1</div>{" "}
-                  <p>{t("empty-room")}</p>
+                  <div className="empty-room mr-2 ">1</div> <p>{t("empty-room")}</p>
                 </div>
               </div>
               <div className="d-flex">
                 <DatePicker inline excludeDates={holidays} />
               </div>
 
-              <h4 className="mb-3 mt-3">
-                {t("OUR GUESTS RATE THIS ROOM AS BELOW")}
-              </h4>
+              <h4 className="mb-3 mt-3">{t("OUR GUESTS RATE THIS ROOM AS BELOW")}</h4>
               <p>
-                Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean
-                lorem quis bibendum auctor nisi elit.
+                Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean lorem quis bibendum
+                auctor nisi elit.
               </p>
               <p>Overal</p>
               <div class="progress">
@@ -247,20 +244,13 @@ export default function RoomDetailPage() {
       ) : (
         ""
       )}
+      <section className="comment_block">
+        <TitleBlock subtitle="THE GEMS HOTEL" title="customer reviews" />
+
+        <div className="container">
+          <Comment id={param.id} />
+        </div>
+      </section>
     </main>
   );
 }
-
-const setDateBooked = (booking) => {
-  let holidays = [];
-  if (booking && booking.length !== 0) {
-    booking.forEach((item) => {
-      holidays[holidays.length] = parseInt(Date.parse(item.dateStart));
-      while (holidays[holidays.length - 1] < Date.parse(item.dateEnd)) {
-        holidays[holidays.length] =
-          parseInt(holidays[holidays.length - 1]) + 86400000;
-      }
-    });
-  }
-  return holidays;
-};

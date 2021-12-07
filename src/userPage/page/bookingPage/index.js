@@ -8,9 +8,11 @@ import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import EdgeTop from "../../component/component-userpage/HomePage/edgeTop";
 import { KEY_DATE_CHECKIN, KEY_DATE_CHECKOUT, KEY_ROOM_BOOKING } from "../../const/const";
 import {
-  cancelCost,
+  cancelPromotion,
   checkPromotion,
   editPromo,
+  getBlankDate,
+  getExtraService,
   getservice,
   setBooking,
 } from "../../../redux/action/index";
@@ -20,6 +22,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, Route, Switch, useLocation } from "react-router-dom";
 import { Button, InputNumber } from "antd";
 import { isEmpty } from "lodash";
+import moment from "moment";
+import { showNotification } from "../../../until";
 
 export default function BookingPage() {
   const [valueSearchCode, setValueSearchCode] = useState("");
@@ -35,18 +39,18 @@ export default function BookingPage() {
 
   let promo = useSelector((state) => state.promo.promo);
   const promoUser = useSelector((state) => state.promo.promoUser);
-  console.log(promoUser);
   const loader = useSelector((state) => state.promo.loader);
   const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
-  const bookingRoomFetch = useSelector((state) => state.booking.booking);
   const service = useSelector((state) => state.service.service);
   const users = useSelector((state) => state.user.userCurrent);
+  const dateBooked = useSelector((state) => state.booking.dateBooked);
+  const dateBookeds = dateBooked.map((item) => new Date(item));
 
   const checkIn = new Date(sessionStorage.getItem(KEY_DATE_CHECKIN));
   const checkOut = new Date(sessionStorage.getItem(KEY_DATE_CHECKOUT));
 
-  const totalDay = getTotalDay(Date.parse(checkOut), Date.parse(checkIn));
-  console.log(users);
+  const totalDay = moment(new Date(checkOut)).diff(moment(new Date(checkIn)), "days") + 1;
+
   const [booking, setBookings] = useState({
     idUser: users.id,
     dateStart: undefined,
@@ -54,30 +58,32 @@ export default function BookingPage() {
     codeDiscount: undefined,
     totalCost: 0,
     status: "NEW",
-    idroom: infRoom.id,
+    idroom: infRoom._id,
     userName: users.userName,
     number: filterSearchRoom.number_gte + 1 || infRoom.number,
   });
-
   const dispatch = useDispatch();
-
-  const holidays = setDateBooked(bookingRoomFetch);
   useEffect(() => {
     setBookings({ ...booking, idUser: users.id });
+    dispatch(getBlankDate(infRoom._id));
+    dispatch(getExtraService());
   }, [users]);
 
   useEffect(() => {
     dispatch(getservice({ _page: 1 }));
   }, []);
 
+  useEffect(() => {
+    setBookings({ ...booking, codeDiscount: promoUser.code || "" });
+  }, [promoUser]);
+
   const totalCost =
     isEmpty(promoUser) === false
-      ? getTotalCost(totalDay, infRoom.pricePerday, serviceExtra, promo[0].discount)
+      ? getTotalCost(totalDay, infRoom.pricePerday, serviceExtra, promoUser.discount)
       : getTotalCost(totalDay, infRoom.pricePerday, serviceExtra);
-
   const handelPay = () => {
     if (isEmpty(promoUser) === false) {
-      dispatch(editPromo({ ...promo[0], amount: promo[0].amount - 1 }));
+      dispatch(editPromo({ ...promoUser, amount: promoUser.amount - 1 }));
     }
     const bookings = {
       ...booking,
@@ -91,9 +97,11 @@ export default function BookingPage() {
       setBooking({
         requestData: {
           ...bookings,
+          userName: users.userName,
         },
       })
     );
+    dispatch(cancelPromotion());
     localStorage.removeItem("KEY_SERVICE");
     sessionStorage.removeItem(KEY_DATE_CHECKIN);
     sessionStorage.removeItem(KEY_DATE_CHECKOUT);
@@ -173,7 +181,7 @@ export default function BookingPage() {
                         inline
                         minDate={new Date()}
                         maxDate={booking.dateEnd}
-                        excludeDates={holidays}
+                        excludeDates={dateBookeds}
                         required
                       />
                     </div>
@@ -189,7 +197,7 @@ export default function BookingPage() {
                         }}
                         inline
                         minDate={booking.dateStart}
-                        excludeDates={holidays}
+                        excludeDates={dateBookeds}
                         required
                       />
                     </div>
@@ -284,25 +292,30 @@ export default function BookingPage() {
                           disabled={statusCode === "CANCEl"}
                         />
 
-                        {isEmpty(promoUser) && (
+                        {
                           <Button
                             className="btn-applyCode"
                             disabled={valueSearchCode === "" && true}
                             onClick={(e) => {
                               e.preventDefault();
-                              dispatch(
-                                checkPromotion({
-                                  requestData: {
-                                    codePromotion: valueSearchCode,
-                                  },
-                                })
-                              );
+                              if (isEmpty(promoUser)) {
+                                dispatch(
+                                  checkPromotion({
+                                    requestData: {
+                                      codePromotion: valueSearchCode,
+                                    },
+                                  })
+                                );
+                              } else {
+                                dispatch(cancelPromotion());
+                                showNotification("success", "Cancel voucher success ");
+                              }
                             }}
                             loading={loader}
                           >
-                            {t("apply")}
+                            {isEmpty(promoUser) ? t("apply") : "Cancel"}
                           </Button>
-                        )}
+                        }
                       </div>
                       <div className="address group-input">
                         <label for="address">{t("Person")}:</label>
@@ -355,7 +368,7 @@ export default function BookingPage() {
                               <h5 className="name_rom"> {t("Total Day")}</h5>
                             </td>
                             <td>
-                              <h5>{getTotalDay(Date.parse(checkOut), Date.parse(checkIn))}</h5>
+                              <h5>{totalDay}</h5>
                             </td>
                           </tr>
                           <tr>
@@ -384,7 +397,7 @@ export default function BookingPage() {
                           )}
                           {!isEmpty(promoUser) && (
                             <tr>
-                              <td>{t("discount code")}:</td> <td>{promo[0].code}</td>
+                              <td>{t("discount code")}:</td> <td>{promoUser.code}</td>
                             </tr>
                           )}
                         </table>
@@ -517,7 +530,7 @@ export default function BookingPage() {
                             <h5 className="name_rom"> {t("Total Day")}</h5>
                           </td>
                           <td>
-                            <h5>{getTotalDay(Date.parse(checkOut), Date.parse(checkIn))}</h5>
+                            <h5>{totalDay}</h5>
                           </td>
                         </tr>
                         <tr>
@@ -549,13 +562,13 @@ export default function BookingPage() {
                             <h5>{t("discount price")} :</h5>
                           </td>
                           <td>
-                            {!isEmpty(promoUser )
+                            {!isEmpty(promoUser)
                               ? new Intl.NumberFormat("de-DE", {
                                   style: "currency",
                                   currency: "USD",
                                 }).format(
                                   (getTotalCost(totalDay, infRoom.pricePerday, serviceExtra) *
-                                    promo[0].discount) /
+                                    promoUser.discount) /
                                     100
                                 )
                               : "0$"}
@@ -595,27 +608,6 @@ export default function BookingPage() {
       </div>
     </main>
   );
-}
-
-const setDateBooked = (booking) => {
-  let holidays = [];
-  if (booking && booking.length !== 0) {
-    booking.forEach((item) => {
-      holidays[holidays.length] = parseInt(Date.parse(item.dateStart));
-      while (holidays[holidays.length - 1] < Date.parse(item.dateEnd)) {
-        holidays[holidays.length] = parseInt(holidays[holidays.length - 1]) + 86400000;
-      }
-    });
-  }
-  return holidays;
-};
-
-function getTotalDay(dateEndMs, dateStartMs) {
-  console.log(dateEndMs);
-  console.log(dateEndMs);
-  const totalDay =
-    (dateEndMs - dateStartMs) / 86400000 === 0 ? 1 : (dateEndMs - dateStartMs) / 86400000;
-  return totalDay;
 }
 
 function getTotalCost(totalDay, pricePerday, service, discout = 0) {
