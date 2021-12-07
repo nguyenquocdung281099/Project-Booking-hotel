@@ -19,6 +19,7 @@ import "antd/dist/antd.css";
 import { RestClient } from "../../../redux/saga-midleware/callApi";
 import { KEY_TOKEN } from "../../const/const";
 import { Modal } from "antd";
+import { isEmpty } from "lodash";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
@@ -26,9 +27,9 @@ export default function ProfilePage() {
   console.log(users);
   const { t } = useTranslation();
   const dataBooking = useSelector((state) => state.booking.booking);
-
-  let bookingRoomFetch = dataBooking.data;
+  console.log(dataBooking);
   const dataRoom = useSelector((state) => state.room);
+
   const onFinish = (values) => {
     dispatch(
       updateInformationUser({
@@ -43,16 +44,19 @@ export default function ProfilePage() {
   const getUser = async () => {
     const email = JSON.parse(localStorage.getItem("emailUser"));
     if (email) {
-      // const user = await RestClient.post("http://localhost:5555/userCurrent", {});
-      // setUsers(user.data);
       dispatch(getUserCurrent({ requestData: { email } }));
     }
   };
-  console.log(users);
   useEffect(() => {
     window.scrollTo(0, 0);
     getUser();
   }, []);
+
+  useEffect(() => {
+    if (users?.id) {
+      dispatch(getBookingRoom({ id: users.id }));
+    }
+  }, [users]);
 
   function handleCancelBooking(item) {
     dispatch(
@@ -194,7 +198,7 @@ export default function ProfilePage() {
 
         <div className="history__booking_main mt-5 pb-5">
           <h3>{t("History Booking")}</h3>
-          {bookingRoomFetch ? (
+          {dataBooking ? (
             <>
               <table class="table history__booking pb-5 mt-5  ">
                 <thead>
@@ -203,7 +207,7 @@ export default function ProfilePage() {
                     <th scope="col">{t("nameRoom")}</th>
                     <th scope="col">{t("promotion")}</th>
                     <th scope="col">{t("checkin")}</th>
-                    <th scope="col">{t("checkout")}</th>
+                    <th scope="col">{t("checkout")}</th> 
                     <th scope="col">{t("status")}</th>
                     <th scope="col">{t("Payment")}</th>
                     <th scope="col">{t("Cost")}</th>
@@ -211,16 +215,17 @@ export default function ProfilePage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {bookingRoomFetch.map((item, index) => {
+                  {dataBooking.data.map((item, index) => {
                     const checkin = new Date(item.dateStart);
                     const checkout = new Date(item.dateEnd);
                     return (
                       <tr key={index}>
-                        <th scope="col">{item.id}</th>
+                        <th scope="col">{index + 1}</th>
                         <td>
-                          {dataRoom.rooms.map((element) => {
+                          {/* {dataRoom.rooms.map((element) => {
                             return item.idroom === element.id && element.name;
-                          })}
+                          })} */}
+                          aaa
                         </td>
                         <td>{item.codeDiscount || "none"}</td>
                         <td>
@@ -263,7 +268,7 @@ export default function ProfilePage() {
                 </tbody>
               </table>
 
-              <Pagination
+              {/* <Pagination
                 defaultCurrent={1}
                 total={dataBooking.pagination ? dataBooking.pagination._totalRows : 0}
                 onChange={(currentPage) => {
@@ -275,7 +280,7 @@ export default function ProfilePage() {
                     })
                   );
                 }}
-              />
+              /> */}
             </>
           ) : (
             t("empty booking history")
