@@ -13,12 +13,12 @@ export default function bookingReducer(state = defaultState, action) {
   let newState = { ...state };
   switch (action.type) {
     case GET_BOOKING_SC:
-      console.log(action.payload);
       return {
         ...state,
         booking: {
           ...state.booking,
           data: action.payload.data,
+          meta: action.payload.meta,
         },
       };
     case GET_BLANK_DATE_SC: {

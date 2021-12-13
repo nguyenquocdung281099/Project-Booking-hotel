@@ -6,9 +6,7 @@ import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
 import {
   editBooking,
-  editUser,
   getBookingRoom,
-  getroom,
   getUserCurrent,
   updateInformationUser,
 } from "../../../redux/action";
@@ -16,20 +14,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Pagination, Popconfirm, Form, Input, Button, Space } from "antd";
 import "antd/dist/antd.css";
-import { RestClient } from "../../../redux/saga-midleware/callApi";
-import { KEY_TOKEN } from "../../const/const";
 import { Modal } from "antd";
 import { isEmpty } from "lodash";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.userCurrent);
-  console.log(users);
+
   const { t } = useTranslation();
   const dataBooking = useSelector((state) => state.booking.booking);
-  console.log(dataBooking);
-  const dataRoom = useSelector((state) => state.room);
-
+  const { data, meta } = dataBooking;
+  console.log(meta);
   const onFinish = (values) => {
     dispatch(
       updateInformationUser({
@@ -153,16 +148,7 @@ export default function ProfilePage() {
                   </div>{" "}
                   <div className="information-item">
                     <div className="title">Phone</div>
-                    <Form.Item
-                      name="phone"
-                      // rules={[
-                      //   { type: Number, message: "type phone is number" },
-                      //   { min: 10, message: "must be min 10 number" },
-                      //   { max: 11, message: "must be max 10 number" },
-                      // ]}
-                      disabled={true}
-                      style={{ width: "100%" }}
-                    >
+                    <Form.Item name="phone" disabled={true} style={{ width: "100%" }}>
                       <Input />
                     </Form.Item>
                   </div>
@@ -198,7 +184,7 @@ export default function ProfilePage() {
 
         <div className="history__booking_main mt-5 pb-5">
           <h3>{t("History Booking")}</h3>
-          {dataBooking ? (
+          {data ? (
             <>
               <table class="table history__booking pb-5 mt-5  ">
                 <thead>
@@ -215,18 +201,13 @@ export default function ProfilePage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {dataBooking.data.map((item, index) => {
+                  {data.map((item, index) => {
                     const checkin = new Date(item.dateStart);
                     const checkout = new Date(item.dateEnd);
                     return (
                       <tr key={index}>
                         <th scope="col">{index + 1}</th>
-                        <td>
-                          {/* {dataRoom.rooms.map((element) => {
-                            return item.idroom === element.id && element.name;
-                          })} */}
-                          aaa
-                        </td>
+                        <td>{item.idroom.name}</td>
                         <td>{item.codeDiscount || "none"}</td>
                         <td>
                           {`${checkin.getDate()}/${
@@ -268,19 +249,12 @@ export default function ProfilePage() {
                 </tbody>
               </table>
 
-              {/* <Pagination
-                defaultCurrent={1}
-                total={dataBooking.pagination ? dataBooking.pagination._totalRows : 0}
-                onChange={(currentPage) => {
-                  dispatch(
-                    getBookingRoom({
-                      idUser: users.id,
-                      _page: currentPage,
-                      _limit: 5,
-                    })
-                  );
-                }}
-              /> */}
+              <Pagination
+                current={meta.page || 0}
+                total={meta.total || 0}
+                pageSize={meta.limit || 0}
+                onChange={(currentPage) => {}}
+              />
             </>
           ) : (
             t("empty booking history")
