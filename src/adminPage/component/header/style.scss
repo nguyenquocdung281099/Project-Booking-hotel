@@ -1,0 +1,57 @@
+$btnActive: #f45b0f;
+
+.admin-header {
+  #hr {
+    margin: 0 !important;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  .admin-title {
+    font-size: 150%;
+    margin-left: 32px;
+  }
+  .admin-action-header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    .notification-admin {
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+      margin: 0 16px;
+    }
+    .message-admin {
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+      margin: 0 16px;
+    }
+
+    .notification-admin,
+    .message-admin {
+      position: relative;
+      & > span {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: $btnActive;
+        min-width: 16px;
+        min-height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60%;
+        color: white;
+        border-radius: 50%;
+      }
+    }
+    .avatar-admin {
+      margin: 24px 16px 16px 0;
+    }
+  }
+}

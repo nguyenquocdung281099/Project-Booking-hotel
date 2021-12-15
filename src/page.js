@@ -1,6 +1,6 @@
 import HomePage from "./userPage/page/homepage/index";
 
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import RouterPublic from "./Router/publicRouter/publicrouter";
 import AboutUsPage from "./userPage/page/aboutUsPage/index";
 import LoginPage from "./userPage/page/loginpage/index";
