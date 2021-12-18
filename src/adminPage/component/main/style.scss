@@ -1,4 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,800&display=swap');
+
 .AdminMain {
   padding: 0 2rem !important;
   height: calc(100vh - 70px -16px);
+  margin: 3rem 0 !important;
+  
+  .loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header {
+    display: flex !important;
+    justify-content: space-between;
+    margin-bottom: 1rem !important;
+    .header-left {
+      display: flex;
+      align-items: center;
+      .Adminmain_title {
+        font-family: 'Mulish', sans-serif;
+        margin-right: 1rem;
+        font-weight: 1000;
+        color: black;
+        font-size: 130%;
+      }
+      .address {
+        margin-right: 0.5rem;
+      }
+      .header-right {
+      }
+    }
+  }
 }

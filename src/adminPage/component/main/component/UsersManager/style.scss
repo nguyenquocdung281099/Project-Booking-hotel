@@ -1,0 +1,111 @@
+.admin-userManager {
+  width: 100%;
+
+  .admin-userManager-container {
+    width: 90%;
+    align-items: center;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    .ant-table-thead .ant-table-cell{
+      background-color: white;
+    }
+
+    .userManager-header{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      h2{
+        color: #474D58;
+        font-weight: 800;
+        font-size: 120%;
+      }
+      div{
+        display: flex;
+        &>button{
+          margin-right: 1rem;
+          border-radius: 3px;
+          border: none;
+          color: white;
+          background-color: #884FFB ;
+          padding: 4px 10px;
+          cursor: pointer;
+
+          &:hover{
+          background-color: #884ffbb0 ;
+
+          }
+        }
+      }
+    }
+
+    .pagination{
+      margin-top: 2rem;
+      display: flex;
+      justify-content: end;
+
+      .ant-pagination-item-link{
+        border:none !important;
+
+      }
+      .ant-pagination-item-active{
+        background-color: #884FFB !important;
+        color: white !important;
+      }
+    }
+
+   
+  }
+  .addUser_tab {
+    margin-top: 1.5rem !important;
+    width: 90%;
+    padding: 2rem;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 15px;
+
+    h2{
+      color: #474D58;
+      font-weight: 800;
+      font-size: 120%;
+      margin-bottom: 1.5rem;
+    }
+
+    input{
+      background-color: white !important;
+      border: 1px solid #474d5856 !important;
+      border-radius: 10px !important;
+      padding: 13px 20px;
+      margin: 16px;
+    }
+    .ant-select-selector{
+      background-color: white !important;
+      border: 1px solid #474d5856 !important;
+      border-radius: 10px !important;
+      height: 48px;
+      margin: 16px;
+    }
+    form{
+      justify-content: space-evenly;
+      display: flex;
+      flex-wrap: wrap;
+
+      &>div{
+        width: 48%;
+      }
+    }
+    .ant-form-item-explain{
+      margin-left: 16px;
+    }
+    button{
+      border-radius: 7px;
+      width: 100%;
+      border: 1px solid #474d5856 !important;
+      padding: 13px 20px;
+      background-color: #884FFB;
+      color: white;
+    }
+  }
+}

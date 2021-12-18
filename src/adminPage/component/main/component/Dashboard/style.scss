@@ -1,19 +1,21 @@
 // #FF7EA5 #20DEFF #C388F6 #F5F5FF
 .dashboard-admin {
   height: 100%;
+  margin: 2rem 0;
+
   .dashboard-block1 {
     height: 480px;
     width: 100%;
     display: flex;
     .chart-main {
       background-color: white;
-      width: 65%;
+      width: 66%;
       padding: 0 24px;
       height: 100%;
       border-radius: 15px;
     }
     .chart-statistics {
-      width: 35%;
+      width: 33%;
       padding-left: 2rem;
 
       .chart-statistics-main {
@@ -75,7 +77,204 @@
         background-image: url(https://demo.dashboardpack.com/user-management-html/img/crm/bg.svg);
         background-size: cover;
         background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 15px;
+        div{
+          h1{
+            color: white;
+            font-weight: bolder;
+            margin-bottom: 15px;
+          }
+          p{
+            margin-bottom: 15px;
+            font-size: 80%;
+            color:#C388F6 ;
+          }
+          a{
+            font-size: 80%;
+            color: orange;
+          }
+        }
       }
+    }
+  }
+
+  .dasboard-block2{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    margin-top: 3rem;
+
+    .block2-item{
+      padding: 24px;
+      width: 33%;
+      height: 100%;
+      background-color: white;
+      border-radius: 15px;
+    }
+    
+    .sale{
+      margin-left: 2rem;
+
+      .sale-desc_item{
+        display: flex;
+        align-items: flex-start;
+        margin: 8px;
+        img{
+          margin-right: 24px;
+        }
+        .content{
+          h3{
+            color: #474d5888;
+          }
+        }
+        .label{
+          font-weight: 1000;
+          color: #474d58d5;
+        }
+      }
+    }
+
+    .Recent{
+      margin-left: 2rem;
+
+      .Recent-header{
+        display: flex;
+        justify-content: space-between;
+        .Recent-title{
+          color: #474D58;
+          font-weight: 1000;
+          font-size: 130%;
+        }
+        span {
+          font-size: 150%;
+        }
+      }
+
+      .Recent-contain{
+        margin-top: 48px;
+        .Recent-contain_item{
+
+          display: flex;
+          // align-items: flex-start;
+          margin-bottom: 16px;
+          .circle{
+            margin-top: 6px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #C388F6;
+            margin-right: 24px;
+          }
+          .contain{
+            .Recent-time{
+              color: #C388F6;
+              font-weight: 1000;
+            }
+            .Recent-content{
+              color: #474d58a9;
+            }
+          }
+        }
+      }
+    }
+
+    .newuser{
+
+      .newuser-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .newUser-title{
+          color: #474D58;
+          font-weight: 1000;
+          font-size: 130%;
+        }
+        & > span{
+          font-size: 150%;
+        }
+
+        .newuser-title_search{
+          input{
+            background-color: #F6F7FB;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border: none;
+            padding: 4px 10px;
+            outline: none;
+          }
+
+          button{
+            color: white;
+            background-color: orange;
+            border: none;
+            border-top-right-radius: 5px;
+            padding: 4px 10px;
+            border-bottom-right-radius: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+
+            &:hover{
+              background-color: rgba(255, 166, 0, 0.678);
+            }
+          }
+        }
+      }
+
+      .newuser-main{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin-top: 48px;
+          .inforuser-item{
+            height: 55px;
+            box-sizing: border-box;
+            padding: 15px 24px;
+            justify-content: space-between;
+            background-color:#F5F5FF ;
+            transition: 0.5s;
+            display: flex;
+            border-radius:15px ;
+            margin: 8px 0;
+
+            &:hover{
+              background-color:#F5FDFF ;
+            }
+            .name{
+              display: flex;
+              width: 45%;
+              text-align: center;
+              align-items: center;
+              h3{
+                margin-left: 15px;
+              }
+            }
+            .Role{
+              width: 25%;
+              text-align: center;
+            }
+            .action{
+              text-align: end;
+              width: 20%;
+              span{
+                color: #C388F6;
+                font-weight: 1000;
+                transition: 0.5s;
+              }
+              cursor: pointer;
+              &:hover{
+                span{
+                  background-color:#C388F6;
+                  border-radius:3px ;
+                  color: white;
+                }
+              }
+            }
+          }
+        }
     }
   }
 }

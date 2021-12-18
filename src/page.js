@@ -10,6 +10,7 @@ import ProfilePage from "./userPage/page/profile/profile";
 import RoomDetailPage from "./userPage/page/roomDetail/roomDetail";
 import BookingRoute from "./Router/bookingrouter/booking";
 import BookingPage from "./userPage/page/bookingPage";
+import AdminPage from "./adminPage/index"
 export default function Page() {
   return (
     <div className="page">
@@ -23,6 +24,7 @@ export default function Page() {
 
         <BookingRoute path="/profile" component={ProfilePage} />
         <BookingRoute path="/booking" component={BookingPage} />
+        <Route path="/admin" component={AdminPage} />
       </Switch>
     </div>
   );

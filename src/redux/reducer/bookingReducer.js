@@ -1,4 +1,4 @@
-import { GET_BLANK_DATE_SC, GET_BOOKING_SC } from "../action/const_action";
+import { GET_BLANK_DATE_SC, GET_BOOKING_SC } from '../action/const_action'
 
 const defaultState = {
   booking: {
@@ -7,10 +7,10 @@ const defaultState = {
   },
   isEditBooking: false,
   dateBooked: [],
-};
+}
 
 export default function bookingReducer(state = defaultState, action) {
-  let newState = { ...state };
+  let newState = { ...state }
   switch (action.type) {
     case GET_BOOKING_SC:
       return {
@@ -20,14 +20,14 @@ export default function bookingReducer(state = defaultState, action) {
           data: action.payload.data,
           meta: action.payload.meta,
         },
-      };
+      }
     case GET_BLANK_DATE_SC: {
       return {
         ...state,
         dateBooked: action.data,
-      };
+      }
     }
     default:
-      return state;
+      return state
   }
 }

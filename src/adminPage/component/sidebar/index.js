@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { sideTitle } from "../../constant";
-import "./style.scss";
+import { Link } from 'react-router-dom'
+import { sideTitle } from '../../constant'
+import './style.scss'
 
 export default function AdminSideBar() {
   return (
@@ -9,12 +9,13 @@ export default function AdminSideBar() {
         <ul>
           {sideTitle.map((item, index) => (
             <li key={`label-${index}`}>
-              <img src={item.icon} alt="item.label" />
-              <Link to={`/admin/${item.path}`}>{item.label}</Link>
+              <Link to={`/admin/${item.path}`}>
+                <img src={item.icon} alt="item.label" /> {item.label}
+              </Link>
             </li>
           ))}
         </ul>
       </div>
     </div>
-  );
+  )
 }
