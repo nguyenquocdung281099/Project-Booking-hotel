@@ -17,7 +17,7 @@ export default function roomReducer(state = defaultState, action) {
   let newState = { ...state };
   switch (action.type) {
     case ActionType.GET_ROOM_SC: {
-      const { data, meta } = action.payload;
+      const { data, meta } = action.data;
       return {
         ...state,
         rooms: {
@@ -46,54 +46,71 @@ export default function roomReducer(state = defaultState, action) {
       };
     }
     case ActionType.GET_TYPE_ROOM_SC:
-      newState = { ...newState, type: action.payload.data };
+      newState = { ...newState, type: action.data.data };
       return newState;
     case ActionType.CHANGE_FILTER:
-      Object.keys(action.payload).length === 0
+      Object.keys(action.data).length === 0
         ? (state = {
             ...newState,
-            filter: action.payload,
+            filter: action.data,
             filterSearchRoom: {},
           })
         : (state = {
             ...newState,
-            filter: action.payload,
+            filter: action.data,
           });
       return state;
     case ActionType.SET_LOADING:
       state = { ...newState, loading: action.status };
       return state;
     case ActionType.SET_LOADER:
-      newState = { ...newState, loader: action.payload };
+      newState = { ...newState, loader: action.data };
       return newState;
 
-    case ActionType.ADD_ROOM_SC:
-      newState = {
-        ...newState,
-        rooms: [...newState.rooms, action.payload],
-      };
-      return newState;
-    case ActionType.EDIT_ROOM_SC:
-      let newRoom1 = newState.rooms.map((item) => {
-        if (item.id === action.payload.id) {
-          item = action.payload;
-        }
-        return item;
-      });
-      newState = { ...newState, rooms: newRoom1 };
-      return newState;
-    case ActionType.DEL_ROOM_SC:
-      let newRoom2 = newState.rooms.filter((item) => item.id !== action.payload);
-      newState = { ...newState, rooms: newRoom2 };
-      return newState;
+    case ActionType.ADD_ROOM:{
+      return {
+        ...state,
+        loading: true
+      }
+    }
+    case ActionType.ADD_ROOM_SC:{
+      return {
+        ...state,
+        loading: false
+      }
+    }
+    case ActionType.ADD_ROOM_ER:{
+      return {
+        ...state,
+        loading: false
+      }
+    }
+    case ActionType.DEL_ROOM:{
+      return {
+        ...state,
+        loading: true
+      }
+    }
+    case ActionType.DEL_ROOM_SC:{
+      return {
+        ...state,
+        loading: false
+      }
+    }
+    case ActionType.DEL_ROOM_ER:{
+      return {
+        ...state,
+        loading: false
+      }
+    }
     case ActionType.GET_ROOM_DETAIL_SC:
       state = {
         ...newState,
-        roomsDetail: action.payload,
+        roomsDetail: action.data,
       };
       return state;
     case ActionType.FILTER_SEARCH_ROOM:
-      newState = { ...newState, filterSearchRoom: action.payload };
+      newState = { ...newState, filterSearchRoom: action.data };
       return newState;
     default:
       return state;

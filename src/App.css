@@ -12,4 +12,8 @@
 
 body {
   font-size: 16px !important;
+  position: relative;
+}
+.ant-popover-buttons .ant-btn {
+  height: 25px !important;
 }

@@ -250,9 +250,9 @@ export default function ProfilePage() {
               </table>
 
               <Pagination
-                current={meta.page || 0}
-                total={meta.total || 0}
-                pageSize={meta.limit || 0}
+                current={meta?.page || 0}
+                total={meta?.total || 0}
+                pageSize={meta?.limit || 0}
                 onChange={(currentPage) => {}}
               />
             </>

@@ -8,6 +8,9 @@ import Dashboard from './component/Dashboard'
 import RoomsManager from './component/RoomsManager'
 import './style.scss'
 import UsersManager from './component/UsersManager'
+import VoucherManager from './component/VoucherManager'
+import ServiceManager from './component/ServiceManager'
+import TyperoomManager from './component/TypeRoomsManager'
 
 
 export default function AdminMain() {
@@ -33,6 +36,9 @@ export default function AdminMain() {
         <Route path="/admin/rooms" component={RoomsManager} />
         <Route path="/admin/bookings" component={BookingsManager} />
         <Route path="/admin/users" component={UsersManager} />
+        <Route path="/admin/voucher" component={VoucherManager} />
+        <Route path="/admin/service" component={ServiceManager} />
+        <Route path="/admin/typeroom" component={TyperoomManager} />
       </Switch>
     </div>
   )

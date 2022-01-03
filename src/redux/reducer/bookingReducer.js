@@ -17,8 +17,8 @@ export default function bookingReducer(state = defaultState, action) {
         ...state,
         booking: {
           ...state.booking,
-          data: action.payload.data,
-          meta: action.payload.meta,
+          data: action.data.data,
+          meta: action.data.meta,
         },
       }
     case GET_BLANK_DATE_SC: {

@@ -468,6 +468,25 @@ export default function BookingPage() {
                       <div className="pay-method__item d-flex">
                         <input
                           type="radio"
+                          checked={valuePayMethod === "direct-payment" && true}
+                          onChange={(e) => {
+                            setValuePayMethod(e.target.value);
+                          }}
+                          name="paymethod"
+                          value="direct-payment"
+                          id="direct-payment"
+                        />
+                        <div className="d-flex  justify-content-between">
+                          <label for="direct-payment">direct payment</label>
+                          <img
+                            src="https://cdn.luxstay.com/images/logos/payments/visa_master_jcb.svg"
+                            alt="lg-pay"
+                          />
+                        </div>
+                      </div>
+                      <div className="pay-method__item d-flex">
+                        <input
+                          type="radio"
                           checked={valuePayMethod === "ATM" && true}
                           onChange={(e) => {
                             setValuePayMethod(e.target.value);

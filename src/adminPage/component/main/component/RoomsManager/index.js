@@ -1,92 +1,135 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
+
 import './style.scss'
-import { Tabs, Pagination, Table } from 'antd'
+import { Tabs, Pagination, Table, Popconfirm } from 'antd'
 import InputSearch from '../inputSearch'
-import { UserAddOutlined } from '@ant-design/icons'
 import { useState } from 'react'
-import { Form, Input, Button, Select } from 'antd'
+import { Form, Input, Rate, Select, Tooltip } from 'antd'
+import {
+  addRoom,
+  delRoom,
+  editRoom,
+  getAlltypeRoomAdmin,
+  getroom,
+} from '../../../../../redux/action'
+import { isEmpty } from 'lodash'
 const { TabPane } = Tabs
 
-export default function RoomsManager() {
+export default function UsersManager() {
   const [form] = Form.useForm()
-  const { Option } = Select;
+  const { Option } = Select
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getroom({ limit: 10, page: 1 }))
+    dispatch(getAlltypeRoomAdmin())
+  }, [])
+
+  const { data, meta } = useSelector((state) => state.room.rooms)
+  const dataTypeRooms = useSelector((state) => state.typeRooms.data)
+  console.log(dataTypeRooms)
+  const [activeKey, setActiveKey] = useState('1')
+  const [idRoom, setidRoom] = useState('')
+  const [isEdit, setisEdit] = useState(false)
+
   const onChange = () => {}
   const columns = [
     {
-      title: 'Name',
+      title: ' Name',
       dataIndex: 'name',
     },
     {
-      title: 'Chinese Score',
-      dataIndex: 'chinese',
-      sorter: {
-        compare: (a, b) => a.chinese - b.chinese,
-        multiple: 3,
-      },
+      title: 'Type',
+      render: (_, record) => <>{record?.idtyperoom.name}</>,
     },
     {
-      title: 'Math Score',
-      dataIndex: 'math',
-      sorter: {
-        compare: (a, b) => a.math - b.math,
-        multiple: 2,
-      },
+      title: 'number',
+      dataIndex: 'number',
     },
     {
-      title: 'English Score',
-      dataIndex: 'english',
-      sorter: {
-        compare: (a, b) => a.english - b.english,
-        multiple: 1,
+      title: 'rating',
+      render: (_, record) => (
+        <>
+          <Rate disabled defaultValue={record.rating} />
+        </>
+      ),
+    },
+    {
+      title: 'price Per day',
+      render: (_, record) => <>{record.pricePerday}$</>,
+    },
+    {
+      title: 'description',
+      render: (_, record) => (
+        <Tooltip placement="topLeft" title={record.description}>
+          {' '}
+          <div className="description">{record.description}</div>
+        </Tooltip>
+      ),
+      width: 100,
+    },
+    {
+      title: 'Action',
+      render: (_, record) => {
+        return (
+          <div className="action" id="action">
+            <EditOutlined
+              onClick={() => {
+                onEditRooms(record._id)
+                setidRoom(record._id)
+              }}
+            />
+
+            <Popconfirm
+              placement="topLeft"
+              title={'you want delete ?'}
+              onConfirm={() => onDeleteRoom(record._id)}
+              okText="Yes"
+              cancelText="No"
+            >
+              {record.idRole !== '1' && <DeleteOutlined />}
+            </Popconfirm>
+          </div>
+        )
       },
     },
   ]
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      chinese: 98,
-      math: 60,
-      english: 70,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      chinese: 98,
-      math: 66,
-      english: 89,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      chinese: 98,
-      math: 90,
-      english: 70,
-    },
-    {
-      key: '4',
-      name: 'Jim Red',
-      chinese: 88,
-      math: 99,
-      english: 89,
-    },
-  ]
+  console.log(idRoom)
+  const onDeleteRoom = (id) => {
+    dispatch(delRoom({ id }))
+  }
 
   const onSearch = (value) => {
-    console.log(value)
+    dispatch(getroom({ limit: 10, page: 1, search: value }))
   }
 
   const onFinish = (values) => {
-    console.log(values)
-  }
-
-  const onReset = () => {
+    !isEdit
+      ? dispatch(addRoom({ requestData: { ...values, rating: 5 } }))
+      : dispatch(editRoom({ requestData: { ...values }, id: idRoom }))
+    setisEdit(false)
     form.resetFields()
   }
 
+  const onEditRooms = (id) => {
+    const dataEdit = data.filter((item) => item._id === id)[0]
+    form.setFieldsValue({
+      ...dataEdit,
+      image1: dataEdit.image[0],
+      image2: dataEdit.image[1],
+      image3: dataEdit.image[2],
+      image4: dataEdit.image[3],
+      image5: dataEdit.image[4],
+      idtyperoom: dataEdit.idtyperoom._id,
+    })
+    setActiveKey('2')
+    setisEdit(true)
+  }
   return (
     <div className="admin-userManager">
-      <Tabs defaultActiveKey="1" centered={true}>
-        <TabPane tab={<span>Rooms List</span>} key="1">
+      <Tabs activeKey={activeKey} centered={true} onChange={(key) => setActiveKey(key)}>
+        <TabPane tab={<span>User List</span>} key="1">
           <div className="admin-userManager-container">
             <div className="userManager-header">
               <h2>Rooms List</h2>
@@ -102,52 +145,60 @@ export default function RoomsManager() {
               pagination={false}
             />
             <div className="pagination">
-              <Pagination defaultCurrent={1} total={50} />
+              <Pagination
+                defaultCurrent={meta?.page || 1}
+                total={meta?.total || 0}
+                pageSize={meta?.limit || 10}
+                onChange={(page) => dispatch(getroom({ limit: 10, page: page }))}
+              />
             </div>
           </div>
         </TabPane>
         <TabPane tab={<span>New Room</span>} key="2">
           <div className="addUser_tab">
-            <h2>Add Room</h2>
+            <h2>Add User</h2>
             <div className="form">
               <Form form={form} name="addRoom" onFinish={onFinish}>
                 <Form.Item name="name" rules={[{ required: true }]}>
                   <Input placeholder="name" />
                 </Form.Item>
                 <Form.Item name="number" rules={[{ required: true }]}>
-                  <Input placeholder="number" type="number"/>
+                  <Input placeholder="number" type="number" />
                 </Form.Item>
-                <Form.Item name="price Per day" rules={[{ required: true }]}>
-                  <Input placeholder=" price Per day" />
+                <Form.Item name="pricePerday" rules={[{ required: true }]}>
+                  <Input placeholder=" price Per day" type={'number'} />
                 </Form.Item>
                 <Form.Item name="description" rules={[{ required: true }]}>
                   <Input placeholder="description" />
                 </Form.Item>
-                <Form.Item name="image" rules={[{ required: true }]}>
+                <Form.Item name="image1" rules={[{ required: true }]}>
                   <Input placeholder="image 1" />
                 </Form.Item>
-                <Form.Item name="image" rules={[{ required: true }]}>
+                <Form.Item name="image2" rules={[{ required: true }]}>
                   <Input placeholder="image 2" />
                 </Form.Item>
-                <Form.Item name="image" rules={[{ required: true }]}>
+                <Form.Item name="image3" rules={[{ required: true }]}>
                   <Input placeholder="image 3" />
                 </Form.Item>
-                <Form.Item name="image" rules={[{ required: true }]}>
+                <Form.Item name="image4" rules={[{ required: true }]}>
                   <Input placeholder="image 4" />
                 </Form.Item>
-                <Form.Item name="image" rules={[{ required: true }]}>
+                <Form.Item name="image5" rules={[{ required: true }]}>
                   <Input placeholder="image 5" />
                 </Form.Item>
-                <Form.Item
-                  name="idtyperoom"
-                  rules={[{ required: true}]}
-                >
+                <Form.Item name="idtyperoom" rules={[{ required: true }]}>
                   <Select placeholder="Please select a type">
-                    <Option value="1">Admin</Option>
-                    <Option value="2">user</Option>
+                    {!isEmpty(dataTypeRooms) &&
+                      dataTypeRooms.map((item, index) => {
+                        return (
+                          <Option key={index} value={item._id}>
+                            {item.name}
+                          </Option>
+                        )
+                      })}
                   </Select>
                 </Form.Item>
-                <Form.Item className='form-button'>
+                <Form.Item className="form-button">
                   <button type="primary" htmlType="submit">
                     Submit
                   </button>

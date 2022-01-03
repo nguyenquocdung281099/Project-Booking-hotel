@@ -20,6 +20,17 @@ const CommentReducer = (state = initState, action) => {
         },
       };
     }
+    case ActionType.ADMIN_GET_COMMENT_SC: {
+      const { data, meta } = action.data;
+      return {
+        ...state,
+        comment: {
+          ...state.comment,
+          data,
+          meta,
+        },
+      };
+    }
 
     default:
       return { ...state };

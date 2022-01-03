@@ -1,4 +1,6 @@
 import Chart from 'react-apexcharts'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   EllipsisOutlined,
   ArrowRightOutlined,
@@ -11,23 +13,50 @@ import ReactLoading from 'react-loading'
 import './style.scss'
 import { Avatar } from 'antd'
 import CircleChart from './component/ApexChartCircle'
+import { getCommentAdmin, getDataMaster, getUserAdmin } from '../../../../../redux/action'
+import { isEmpty } from 'lodash'
+import moment from 'moment'
 
 export default function Dashboard() {
-  const series = [
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getDataMaster())
+    dispatch(
+      getUserAdmin({
+        limit: 5,
+        page: 1,
+      })
+    )
+    dispatch(
+      getCommentAdmin({
+        limit: 5,
+        page: 1,
+      })
+    )
+  }, [dispatch])
+
+  const masterData = useSelector((state) => state.Dashboard.dataMaster)
+  const loading = useSelector((state) => state.Dashboard.loading)
+  const listUser = useSelector((state) => state.userDB.data)
+  const listComment = useSelector((state) => state.comments.comment)
+  console.log(listComment)
+
+  const series = masterData?.dataChart || [
     {
       name: 'TEAM A',
       type: 'column',
-      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
     {
       name: 'TEAM B',
       type: 'area',
-      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
     {
       name: 'TEAM C',
       type: 'line',
-      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     },
   ]
   var options = {
@@ -36,7 +65,7 @@ export default function Dashboard() {
       stacked: false,
     },
     stroke: {
-      width: [0, 2, 5],
+      width: [0, 5, 1],
       curve: 'smooth',
     },
 
@@ -54,17 +83,17 @@ export default function Dashboard() {
       colors: ['#893DD9', '#F7F8F9', '#9C27B0'],
     },
     labels: [
-      '01/01/2003',
-      '02/01/2003',
-      '03/01/2003',
-      '04/01/2003',
-      '05/01/2003',
-      '06/01/2003',
-      '07/01/2003',
-      '08/01/2003',
-      '09/01/2003',
-      '10/01/2003',
-      '11/01/2003',
+      '01/01/2021',
+      '02/01/2021',
+      '03/01/2021',
+      '04/01/2021',
+      '05/01/2021',
+      '06/01/2021',
+      '07/01/2021',
+      '08/01/2021',
+      '09/01/2021',
+      '10/01/2021',
+      '11/01/2021',
     ],
     markers: {
       size: 0,
@@ -96,26 +125,25 @@ export default function Dashboard() {
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/businessman.svg',
       label: 'Users Registrations',
-      acount: 100,
+      acount: masterData?.dataStatic?.totalUsers,
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/customer.svg',
       label: 'Total Rooms',
-      acount: 100,
+      acount: masterData?.dataStatic?.totalRooms,
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/infographic.svg',
       label: 'Total Bookings',
-      acount: 100,
+      acount: masterData?.dataStatic?.totalBookings,
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/sqr.svg',
       label: 'Total Extra Service',
-      acount: 100,
+      acount: masterData?.dataStatic?.totalService,
     },
   ]
 
-  const dataNewUser = [1, 2, 3, 4, 5]
   const dataRecent = [2, 3, 4, 5]
   const titleSale = [
     {
@@ -134,7 +162,6 @@ export default function Dashboard() {
       content: 'Pitstop Email Marketing',
     },
   ]
-  const loading = false
   return (
     <>
       {loading ? (
@@ -190,18 +217,19 @@ export default function Dashboard() {
                 </div>
               </div>
               <div className="newuser-main">
-                {dataNewUser.map((item) => (
-                  <div className="inforuser-item">
-                    <div className="name">
-                      <Avatar src="https://joeschmoe.io/api/v1/random" />
-                      <h3>Quoc Dung</h3>
+                {!isEmpty(listUser) &&
+                  listUser.map((item) => (
+                    <div className="inforuser-item">
+                      <div className="name">
+                        <Avatar src={item.Avatar || 'https://joeschmoe.io/api/v1/random'} />
+                        <h3>{item.fullName}</h3>
+                      </div>
+                      <div className="Role">{item.idRole === '1' ? 'Admin' : 'User'}</div>
+                      <div className="action">
+                        <RestOutlined />
+                      </div>
                     </div>
-                    <div className="Role">Admin</div>
-                    <div className="action">
-                      <RestOutlined />
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
             <div className="sale block2-item">
@@ -226,20 +254,20 @@ export default function Dashboard() {
                 <EllipsisOutlined />
               </div>
               <div className="Recent-contain">
-                {dataRecent.map((item) => {
-                  return (
-                    <div className="Recent-contain_item">
-                      <div className="circle"></div>
-                      <div className="contain">
-                        <div className="Recent-time">5 min ago</div>
-                        <div className="Recent-content">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                          scelerisque
+                {isEmpty(listComment.data) ||
+                  listComment.data.map((item) => {
+                    return (
+                      <div className="Recent-contain_item">
+                        <div className="circle"></div>
+                        <div className="contain">
+                          <div className="Recent-time">
+                            {moment(item.createAt).format('YYYY/MM/DD')}
+                          </div>
+                          <div className="Recent-content">{item.content}</div>
                         </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
               </div>
             </div>
           </div>

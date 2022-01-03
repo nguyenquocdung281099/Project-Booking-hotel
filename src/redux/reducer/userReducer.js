@@ -22,17 +22,17 @@ export default function userReducer(state = defaultState, action) {
       newState = { ...newState, isSignUpEr: false, isSignUpSC: true };
       return newState;
     case actionType.GET_USER_SC:
-      newState = { ...newState, user: action.payload };
+      newState = { ...newState, user: action.data };
       return newState;
     case actionType.LOGIN_SC:
-      if (action.payload.idRole === "user2") {
+      if (action.data.idRole === "user2") {
         localStorage.setItem("KEY_AUTHEN", true);
       }
       return {
         ...state,
         isLogin: true,
-        userCurrent: action.payload,
-        isAuthen: action.payload.idRole === "user2",
+        userCurrent: action.data,
+        isAuthen: action.data.idRole === "user2",
       };
     case actionType.LOGIN_ERR:
       newState = { ...newState, isLoginERR: true };

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import "./App.css";
 import Page from "./page";
 import { getUserCurrent } from "./redux/action";
+import ChatBot from "./userPage/component/component-userpage/chatBot";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <Page />
+      <ChatBot/>
     </div>
   );
 }

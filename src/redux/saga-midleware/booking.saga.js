@@ -3,7 +3,7 @@ import * as action from "../action/const_action";
 import { call, put, takeLatest } from "redux-saga/effects";
 
 import queryString from "query-string";
-import { get, post, patch, RestClient } from "./callApi";
+import { RestClient } from "./callApi";
 import { URL_USER } from "../../userPage/const/const";
 import { showNotification } from "../../until";
 
@@ -12,12 +12,12 @@ export default function* BookingSaga() {
   yield takeLatest(action.SET_BOOKING, setBooking);
   yield takeLatest(action.CHECK_PROMOTION, checkPromotionSage);
   yield takeLatest(action.GET_BLANK_DATE, getBlankDateSaga);
-  yield takeLatest(action.GET_EXTRA_SERVICE, getExtraServiceSaga);
+  yield takeLatest(action.GET_SERVICE, getExtraServiceSaga);
 }
 
 function* getBookingRoom(action) {
   try {
-    const url = queryString.stringify(action.payload);
+    const url = queryString.stringify(action.data);
     const booking = yield call(RestClient.get, `${URL_USER}/myBooking?${url}`);
     yield put(func_action.getbookingsc(booking.data));
   } catch (e) {}
@@ -25,7 +25,7 @@ function* getBookingRoom(action) {
 
 function* setBooking(action) {
   try {
-    yield call(RestClient.post, `${URL_USER}/bookingRoom`, action.payload);
+    yield call(RestClient.post, `${URL_USER}/bookingRoom`, action.data);
     yield showNotification("success", "booking room success");
   } catch (error) {
     yield showNotification("warning", "booking room fall");
@@ -53,7 +53,6 @@ function* getBlankDateSaga(action) {
 function* getExtraServiceSaga(action) {
   try {
     const extraService = yield call(RestClient.get, `${URL_USER}/extraService`);
-    console.log("extraService", extraService);
-    yield put(func_action.getExtraServiceSC(extraService.data));
+    yield put(func_action.getservicesc(extraService.data));
   } catch (error) {}
 }

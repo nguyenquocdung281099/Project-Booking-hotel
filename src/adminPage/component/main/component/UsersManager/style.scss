@@ -1,6 +1,42 @@
 .admin-userManager {
-  width: 100%;
+  button.status,
+  button.cancel {
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    outline: none;
+    color: white;
 
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  button.NEW {
+    background-color: #28a745;
+    color: white;
+  }
+  button.cancel {
+    background-color: #dc3545;
+    color: white;
+  }
+  button.CHECKIN {
+    background-color: #28a745;
+  }
+  button.CHECKOUT {
+    background-color: #17a2b8;
+  }
+  button.FINISH {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  width: 100%;
+  .description {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 200px;
+  }
   .admin-userManager-container {
     width: 90%;
     align-items: center;
@@ -9,54 +45,50 @@
     padding: 2rem;
     border-radius: 15px;
     margin-top: 2rem;
-    .ant-table-thead .ant-table-cell{
+    .ant-table-thead .ant-table-cell {
       background-color: white;
     }
 
-    .userManager-header{
+    .userManager-header {
       display: flex;
       justify-content: space-between;
       margin-bottom: 1.5rem;
-      h2{
-        color: #474D58;
+      h2 {
+        color: #474d58;
         font-weight: 800;
         font-size: 120%;
       }
-      div{
+      div {
         display: flex;
-        &>button{
+        & > button {
           margin-right: 1rem;
           border-radius: 3px;
           border: none;
           color: white;
-          background-color: #884FFB ;
+          background-color: #884ffb;
           padding: 4px 10px;
           cursor: pointer;
 
-          &:hover{
-          background-color: #884ffbb0 ;
-
+          &:hover {
+            background-color: #884ffbb0;
           }
         }
       }
     }
 
-    .pagination{
+    .pagination {
       margin-top: 2rem;
       display: flex;
       justify-content: end;
 
-      .ant-pagination-item-link{
-        border:none !important;
-
+      .ant-pagination-item-link {
+        border: none !important;
       }
-      .ant-pagination-item-active{
-        background-color: #884FFB !important;
+      .ant-pagination-item-active {
+        background-color: #884ffb !important;
         color: white !important;
       }
     }
-
-   
   }
   .addUser_tab {
     margin-top: 1.5rem !important;
@@ -66,46 +98,71 @@
     margin: 0 auto;
     border-radius: 15px;
 
-    h2{
-      color: #474D58;
+    h2 {
+      color: #474d58;
       font-weight: 800;
       font-size: 120%;
       margin-bottom: 1.5rem;
     }
 
-    input{
+    input {
       background-color: white !important;
       border: 1px solid #474d5856 !important;
       border-radius: 10px !important;
       padding: 13px 20px;
       margin: 16px;
     }
-    .ant-select-selector{
+    .ant-select-selector {
       background-color: white !important;
       border: 1px solid #474d5856 !important;
       border-radius: 10px !important;
       height: 48px;
       margin: 16px;
     }
-    form{
+    form {
       justify-content: space-evenly;
       display: flex;
       flex-wrap: wrap;
 
-      &>div{
+      & > div {
         width: 48%;
       }
+      .ant-picker {
+        width: 100%;
+      }
+
+      .form-button{
+        width: 100%;
+        .ant-form-item-control-input-content{
+          display: flex;
+          justify-content: flex-end;
+          button{
+            width: 15%;
+          }
+        }
+      }
     }
-    .ant-form-item-explain{
+    .ant-form-item-explain {
       margin-left: 16px;
     }
-    button{
+    button {
       border-radius: 7px;
       width: 100%;
       border: 1px solid #474d5856 !important;
       padding: 13px 20px;
-      background-color: #884FFB;
+      background-color: #884ffb;
       color: white;
+    }
+  }
+  .action {
+    span {
+      cursor: pointer;
+      margin: 8px;
+      &:hover {
+        svg {
+          color: #884ffb;
+        }
+      }
     }
   }
 }

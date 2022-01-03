@@ -35,3 +35,11 @@ export const sideTitle = [
     label: "Typerooms Manager",
   },
 ];
+
+export const StatusBooking = {
+  NEW : "NEW",
+  CANCEL:"CANCEL",
+  CHECKIN:"CHECKIN",
+  CHECKOUT:"CHECKOUT",
+  FINISH:"FINISH",
+}

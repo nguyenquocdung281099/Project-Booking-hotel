@@ -1,0 +1,37 @@
+.admin-reply_wrap {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-left: 10px;
+  & > span {
+    background: rgba(0, 0, 0, 0.09);
+  }
+  .cb-adminReply {
+    padding: 5px;
+
+    margin-left: 10px;
+    min-width: 80px;
+    max-width: 170px;
+    min-height: 40px;
+    background: #dcbd81;
+    color: white;
+    position: relative;
+    border-radius: 10px;
+    &::before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-right: 10px solid #dcbd81;
+      border-bottom: 10px solid transparent;
+      top: 7px;
+      left: -8px;
+    }
+
+    div{
+      margin-left: 10px;
+    }
+  }
+}
