@@ -13,6 +13,7 @@ import {
   getServiceAdmin,
   updateServiceAdmin,
 } from '../../../../../redux/action'
+import { useTranslation } from 'react-i18next'
 const { TabPane } = Tabs
 export default function ServiceManager() {
   const [form] = Form.useForm()
@@ -21,8 +22,8 @@ export default function ServiceManager() {
     dispatch(getServiceAdmin({ limit: 10, page: 1 }))
   }, [])
 
+  const {t} = useTranslation()
   const { data, meta } = useSelector((state) => state.serviceAdmin)
-  console.log(data)
 
   const [activeKey, setActiveKey] = useState('1')
   const [idRoom, setidRoom] = useState('')
@@ -34,15 +35,15 @@ export default function ServiceManager() {
   const onChange = () => {}
   const columns = [
     {
-      title: ' Name',
+      title: t('Name'),
       dataIndex: 'name',
     },
     {
-      title: 'Price',
+      title: t('Price'),
       dataIndex: 'price',
     },
     {
-      title: 'Action',
+      title: t('Action'),
       render: (_, record) => {
         return (
           <div className="action" id="action">
@@ -94,10 +95,10 @@ export default function ServiceManager() {
   return (
     <div className="admin-userManager">
       <Tabs activeKey={activeKey} centered={true} onChange={(key) => setActiveKey(key)}>
-        <TabPane tab={<span>Sevice List</span>} key="1">
+        <TabPane tab={<span>{t("Service List")}</span>} key="1">
           <div className="admin-userManager-container">
             <div className="userManager-header">
-              <h2>Sevice List</h2>
+              <h2>{t("Service List")}</h2>
               <div>
                 <InputSearch onSubmit={onSearch} width={'300px'} widthBtn={'100px'} />
               </div>
@@ -119,9 +120,9 @@ export default function ServiceManager() {
             </div>
           </div>
         </TabPane>
-        <TabPane tab={<span>New Service</span>} key="2">
+        <TabPane tab={<span>{t("New Service")}</span>} key="2">
           <div className="addUser_tab">
-            <h2>Add Sevice</h2>
+            <h2>{t("Add Sevice")}</h2>
             <div className="form">
               <Form form={form} name="addRoom" onFinish={onFinish}>
                 <Form.Item name="name" rules={[{ required: true }]}>
@@ -133,7 +134,7 @@ export default function ServiceManager() {
 
                 <Form.Item className="form-button">
                   <button type="primary" htmlType="submit">
-                    Submit
+                    {t("Submit")}
                   </button>
                 </Form.Item>
               </Form>

@@ -1,6 +1,6 @@
 import HomePage from "./userPage/page/homepage/index";
 
-import { Route, Switch } from "react-router-dom";
+import { Router, Switch } from "react-router-dom";
 import RouterPublic from "./Router/publicRouter/publicrouter";
 import AboutUsPage from "./userPage/page/aboutUsPage/index";
 import LoginPage from "./userPage/page/loginpage/index";
@@ -11,6 +11,8 @@ import RoomDetailPage from "./userPage/page/roomDetail/roomDetail";
 import BookingRoute from "./Router/bookingrouter/booking";
 import BookingPage from "./userPage/page/bookingPage";
 import AdminPage from "./adminPage/index"
+import PrivateRoute from "./Router/privaterouter/privateRouter";
+import {sideTitle} from "./adminPage/constant"
 export default function Page() {
   return (
     <div className="page">
@@ -24,7 +26,12 @@ export default function Page() {
 
         <BookingRoute path="/profile" component={ProfilePage} />
         <BookingRoute path="/booking" component={BookingPage} />
-        <Route path="/admin" component={AdminPage} />
+        <PrivateRoute path="/admin" component={AdminPage} />
+        {/* {
+          sideTitle.map((item, index) =>{
+            return <PrivateRoute path={`/admin/${item.path}`} component={item.component}/>
+          })
+        } */}
       </Switch>
     </div>
   );

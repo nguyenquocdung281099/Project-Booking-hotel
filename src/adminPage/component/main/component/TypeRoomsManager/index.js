@@ -8,6 +8,7 @@ import InputSearch from '../inputSearch'
 import { useState } from 'react'
 import { Form, Input } from 'antd'
 import { addRoom, addTypeRoomAdmin, editRoom, getroom, getTypeRoomMetaAdmin, updateTypeRoomAdmin } from '../../../../../redux/action'
+import { useTranslation } from 'react-i18next'
 const { TabPane } = Tabs
 export default function TyperoomManager() {
   const [form] = Form.useForm()
@@ -16,6 +17,7 @@ export default function TyperoomManager() {
   useEffect(() => {
     dispatch(getTypeRoomMetaAdmin({ limit: 10, page: 1 }))
   }, [])
+  const {t} = useTranslation()
 
   const { data, meta } = useSelector((state) => state.typeRooms)
   const [activeKey, setActiveKey] = useState('1')
@@ -25,15 +27,15 @@ export default function TyperoomManager() {
   const onChange = () => {}
   const columns = [
     {
-      title: ' Name',
+      title: t('Name'),
       dataIndex: 'name',
     },
     {
-      title: 'Size',
+      title: t('Size'),
       dataIndex: 'size',
     },
     {
-      title: 'Action',
+      title: t('Action'),
       render: (_, record) => {
         return (
           <div className="action" id="action">
@@ -72,10 +74,10 @@ export default function TyperoomManager() {
   return (
     <div className="admin-userManager">
       <Tabs activeKey={activeKey} centered={true} onChange={(key) => setActiveKey(key)}>
-        <TabPane tab={<span>User List</span>} key="1">
+        <TabPane tab={<span>{t("TypeRoom List")}</span>} key="1">
           <div className="admin-userManager-container">
             <div className="userManager-header">
-              <h2>Rooms List</h2>
+              <h2>{t("TypeRoom List")}</h2>
               <div>
                 <InputSearch onSubmit={onSearch} width={'300px'} widthBtn={'100px'} />
               </div>
@@ -97,9 +99,9 @@ export default function TyperoomManager() {
             </div>
           </div>
         </TabPane>
-        <TabPane tab={<span>New Room</span>} key="2">
+        <TabPane tab={<span>{t("New Typeroom")}</span>} key="2">
           <div className="addUser_tab">
-            <h2>Add User</h2>
+            <h2>{t("Add Typeroom")}</h2>
             <div className="form">
               <Form form={form} name="addRoom" onFinish={onFinish}>
                 <Form.Item name="name" rules={[{ required: true }]}>
@@ -110,7 +112,7 @@ export default function TyperoomManager() {
                 </Form.Item>
                 <Form.Item className="form-button">
                   <button type="primary" htmlType="submit">
-                    Submit
+                    {t('Submit')}
                   </button>
                 </Form.Item>
               </Form>

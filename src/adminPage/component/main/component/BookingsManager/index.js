@@ -8,12 +8,14 @@ import { changeStatusBookingAdmin, getbookingAdmin } from '../../../../../redux/
 import { useEffect } from 'react'
 import moment from 'moment'
 import { StatusBooking } from '../../../../constant'
+import { useTranslation } from 'react-i18next'
+import { ta } from 'date-fns/locale'
 
 export default function BookingsManager() {
   const dispatch = useDispatch()
   const { data, meta, loading } = useSelector((state) => state.bookingDB)
   const { NEW, CHECKIN, CHECKOUT, FINISH, CANCEL } = StatusBooking
-
+  const { t } = useTranslation()
   useEffect(() => {
     dispatch(getbookingAdmin({}))
   }, [])
@@ -37,29 +39,29 @@ export default function BookingsManager() {
   }
   const columns = [
     {
-      title: 'User Name',
+      title: t("User Name"),
       dataIndex: 'userName',
     },
     {
-      title: 'Room Name',
+      title: t("Room Name"),
       render: (_, record) => {
         return <>{record?.idroom?.name}</>
       },
     },
     {
-      title: 'Checkin',
+      title: t('Checkin'),
       render: (_, record) => <>{moment(record.dateStart).format('DD_MM_YYYY')}</>,
     },
     {
-      title: 'Checkout',
+      title: t('Checkout'),
       render: (_, record) => <>{moment(record.dateEnd).format('DD_MM_YYYY')}</>,
     },
     {
-      title: 'method payment ',
+      title: t('method payment'),
       dataIndex: 'paymethod',
     },
     {
-      title: 'Total cost',
+      title: t('Total cost'),
       dataIndex: 'totalCost',
     },
     {
@@ -118,7 +120,7 @@ export default function BookingsManager() {
     <div className="admin-userManager">
       <div className="admin-userManager-container">
         <div className="userManager-header">
-          <h2>User List</h2>
+          <h2>{t("User List")}</h2>
           <div>
             <InputSearch onSubmit={onSearch} width={'300px'} widthBtn={'100px'} />
           </div>

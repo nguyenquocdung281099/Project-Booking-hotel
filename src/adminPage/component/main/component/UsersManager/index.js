@@ -9,6 +9,7 @@ import { UserAddOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import { Form, Input, Button, Select } from 'antd'
 import { addUser, delUserDB, editUser, getUserAdmin } from '../../../../../redux/action'
+import { useTranslation } from 'react-i18next'
 const { TabPane } = Tabs
 
 export default function UsersManager() {
@@ -18,8 +19,8 @@ export default function UsersManager() {
   useEffect(() => {
     dispatch(getUserAdmin({ limit: 10, page: 1 }))
   }, [])
-
-  const { data, meta,loading } = useSelector((state) => state.userDB)
+  const { t } = useTranslation()
+  const { data, meta, loading } = useSelector((state) => state.userDB)
 
   const [activeKey, setActiveKey] = useState('1')
   const [isEdit, setisEdit] = useState(false)
@@ -27,7 +28,7 @@ export default function UsersManager() {
   const onChange = () => {}
   const columns = [
     {
-      title: 'full Name',
+      title: t('Full Name'),
       dataIndex: 'fullName',
     },
     {
@@ -35,23 +36,23 @@ export default function UsersManager() {
       dataIndex: 'email',
     },
     {
-      title: 'User Name',
+      title: t('User Name'),
       dataIndex: 'userName',
     },
     {
-      title: 'Phone',
+      title: t('Phone'),
       dataIndex: 'phone',
     },
     {
-      title: 'Address',
+      title: t('Address'),
       dataIndex: 'address',
     },
     {
-      title: 'Role',
+      title: t('Role'),
       render: (_, record) => <>{record.idRole === '1' ? 'Admin' : 'User'}</>,
     },
     {
-      title: 'Action',
+      title: t('Action'),
       render: (_, record) => {
         return (
           <div className="action" id="action">
@@ -77,7 +78,7 @@ export default function UsersManager() {
   }
 
   const onSearch = (value) => {
-    dispatch(getUserAdmin({ limit: 10, page: 1, search: value}))
+    dispatch(getUserAdmin({ limit: 10, page: 1, search: value }))
   }
 
   const onFinish = (values) => {
@@ -97,10 +98,10 @@ export default function UsersManager() {
   return (
     <div className="admin-userManager">
       <Tabs activeKey={activeKey} centered={true} onChange={(key) => setActiveKey(key)}>
-        <TabPane tab={<span>User List</span>} key="1">
+        <TabPane tab={<span>{t('User List')}</span>} key="1">
           <div className="admin-userManager-container">
             <div className="userManager-header">
-              <h2>User List</h2>
+              <h2>{t('User List')}</h2>
               <div>
                 <InputSearch onSubmit={onSearch} width={'300px'} widthBtn={'100px'} />
               </div>
@@ -123,9 +124,9 @@ export default function UsersManager() {
             </div>
           </div>
         </TabPane>
-        <TabPane tab={<span>New User</span>} key="2">
+        <TabPane tab={<span>{t("New User")}</span>} key="2">
           <div className="addUser_tab">
-            <h2>Add User</h2>
+            <h2>{t("New User")}</h2>
             <div className="form">
               <Form form={form} name="addUser" onFinish={onFinish}>
                 <Form.Item name="userName" rules={[{ required: true }]}>

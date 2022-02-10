@@ -13,7 +13,6 @@ export default function BlockWelcomeItem(props) {
         id="tgpli-6012fc51950c9"
         src="https://codex-themes.com/thegem/sites/resort-hotel/wp-content/uploads/2018/11/line2.png"
       />
-      <p>{t("")}</p>
       <button className="btn">
         <Link to={`${props.link}`}>{t("LEARN MORE")}</Link>
       </button>

@@ -643,11 +643,10 @@ export const getDataMasterER = (data) => {
   }
 }
 
-
 export const getUserAdmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_USER,
-    data: data
+    data: data,
   }
 }
 export const getUserAdminSC = (data) => {
@@ -666,7 +665,7 @@ export const getUserAdminER = (data) => {
 export const getCommentAdmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_COMMENT,
-    data: data
+    data: data,
   }
 }
 export const getCommentAdminSC = (data) => {
@@ -685,7 +684,7 @@ export const getCommentAdminER = (data) => {
 export const getbookingAdmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_BOOKING,
-    data: data
+    data: data,
   }
 }
 export const getbookingAdminSC = (data) => {
@@ -704,7 +703,7 @@ export const getbookingAdminER = (data) => {
 export const changeStatusBookingAdmin = (data) => {
   return {
     type: ActionType.ADMIN_CHANGE_STATUS_BOOKING,
-    data: data
+    data: data,
   }
 }
 export const changeStatusBookingAdminSC = (data) => {
@@ -723,7 +722,7 @@ export const changeStatusBookingAdminER = (data) => {
 export const deleteServiceAdmin = (data) => {
   return {
     type: ActionType.ADMIN_DELETE_SERVICE,
-    data: data
+    data: data,
   }
 }
 export const deleteServiceAdminSC = (data) => {
@@ -739,11 +738,10 @@ export const deleteServiceAdminER = (data) => {
   }
 }
 
-
 export const deleteVoucherdmin = (data) => {
   return {
     type: ActionType.ADMIN_DELETE_VOUCHER,
-    data: data
+    data: data,
   }
 }
 export const deleteVoucherdminSC = (data) => {
@@ -762,7 +760,7 @@ export const deleteVoucherdminER = (data) => {
 export const getVoucheradmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_VOUCHER,
-    data: data
+    data: data,
   }
 }
 export const getVoucheradminSC = (data) => {
@@ -778,11 +776,10 @@ export const getVoucheradminER = (data) => {
   }
 }
 
-
 export const getServiceAdmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_SERVICE,
-    data: data
+    data: data,
   }
 }
 export const getServiceAdminSC = (data) => {
@@ -798,11 +795,10 @@ export const getServiceAdminER = (data) => {
   }
 }
 
-
 export const updateServiceAdmin = (data) => {
   return {
     type: ActionType.ADMIN_UPDATE_SERVICE,
-    data: data
+    data: data,
   }
 }
 export const updateServiceAdminSC = (data) => {
@@ -818,11 +814,10 @@ export const updateServiceAdminER = (data) => {
   }
 }
 
-
 export const updateVoucheradmin = (data) => {
   return {
     type: ActionType.ADMIN_UPDATE_VOUCHER,
-    data: data
+    data: data,
   }
 }
 export const updateVoucheradminSC = (data) => {
@@ -841,7 +836,7 @@ export const updateVoucheradminER = (data) => {
 export const addVoucheradmin = (data) => {
   return {
     type: ActionType.ADMIN_ADD_VOUCHER,
-    data: data
+    data: data,
   }
 }
 export const addVoucheradminSC = (data) => {
@@ -857,11 +852,10 @@ export const addVoucheradminER = (data) => {
   }
 }
 
-
 export const getAlltypeRoomAdmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_ALL_TYPEROOM,
-    data: data
+    data: data,
   }
 }
 export const getAlltypeRoomAdminSC = (data) => {
@@ -880,7 +874,7 @@ export const getAlltypeRoomAdminER = (data) => {
 export const getTypeRoomMetaAdmin = (data) => {
   return {
     type: ActionType.ADMIN_GET_TYPEROOM_META,
-    data: data
+    data: data,
   }
 }
 export const getTypeRoomMetaAdminSC = (data) => {
@@ -896,11 +890,10 @@ export const getTypeRoomMetaAdminER = (data) => {
   }
 }
 
-
 export const updateTypeRoomAdmin = (data) => {
   return {
     type: ActionType.ADMIN_UPDATE_TYPEROOM,
-    data: data
+    data: data,
   }
 }
 export const updateTypeRoomAdminSC = (data) => {
@@ -919,7 +912,7 @@ export const updateTypeRoomAdminER = (data) => {
 export const addTypeRoomAdmin = (data) => {
   return {
     type: ActionType.ADMIN_ADD_TYPEROOM,
-    data: data
+    data: data,
   }
 }
 export const addTypeRoomAdminSC = (data) => {
@@ -931,6 +924,44 @@ export const addTypeRoomAdminSC = (data) => {
 export const addTypeRoomAdminER = (data) => {
   return {
     type: ActionType.ADMIN_ADD_TYPEROOM_ER,
+    data: data,
+  }
+}
+
+export const searchRoombyDate = (data) => {
+  return {
+    type: ActionType.SEARCH_ROOM_FOR_DATE,
+    data: data,
+  }
+}
+export const searchRoombyDateSC = (data) => {
+  return {
+    type: ActionType.SEARCH_ROOM_FOR_DATE_SC,
+    data: data,
+  }
+}
+export const searchRoombyDateER = (data) => {
+  return {
+    type: ActionType.SEARCH_ROOM_FOR_DATE_ER,
+    data: data,
+  }
+}
+
+export const getStaticComment = (data) => {
+  return {
+    type: ActionType.GET_STATIC_COMMENT,
+    data: data,
+  }
+}
+export const getStaticCommentSC = (data) => {
+  return {
+    type: ActionType.GET_STATIC_COMMENT_SC,
+    data: data,
+  }
+}
+export const getStaticCommentER = (data) => {
+  return {
+    type: ActionType.GET_STATIC_COMMENT_ER,
     data: data,
   }
 }

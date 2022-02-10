@@ -8,7 +8,6 @@ export default function FilterCategory(props) {
   const data = useSelector((state) => state.room);
   const type = data.type;
   const filter = data.filter;
-  console.log(filter);
   useEffect(() => {
     dispatch(gettyperoom());
     // eslint-disable-next-line

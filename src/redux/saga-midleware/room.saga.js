@@ -17,7 +17,6 @@ export default function* RoomSaga() {
 function* getType() {
   try {
     const type = yield call(RestClient.get, URL_TYPE)
-    console.log(type)
     yield put(func_action.gettyperoomsc(type.data))
   } catch (e) {}
 }
@@ -57,7 +56,6 @@ function* addRoomSaga(action) {
 
 function* updateRoomSaga(action) {
   try {
-    console.log(action.data);
     yield call(RestClient.post, `${URL_USER}/updateRoom`, action.data)
     yield showNotification('success', 'update room success')
     yield put(
@@ -75,10 +73,18 @@ function* updateRoomSaga(action) {
 
 function* deleteRoomSaga(action) {
   try {
-    console.log("zo");
     yield call(RestClient.post, `${URL_USER}/deleteRoom`, action.data)
     yield showNotification('success', 'delete room success')
   } catch (error) {
     yield showNotification('warning', 'delete room not success, please replace')
   }
 }
+
+
+// function* SearchRoomByDate(action) {
+//   try {
+//     const url = queryString.stringify(action.filter)
+    
+//     const room = yield call(RestClient.get, `${URL_ROOM}?${url}`)
+//   } catch (e) {}
+// }

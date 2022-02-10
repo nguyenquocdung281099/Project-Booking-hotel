@@ -3,6 +3,8 @@ import { URL_USER } from "../../userPage/const/const";
 import { RestClient } from "./callApi";
 import * as func_action from "../action/index";
 import * as action from "../action/const_action";
+import { showNotification } from '../../until'
+
 export default function* CommentSaga() {
   yield takeLatest(action.GET_COMMENT, GetCommentSaga);
   yield takeLatest(action.CREATE_COMMENT, createCommentSaga);
@@ -29,5 +31,9 @@ function* createCommentSaga(action) {
         page: 1,
       },
     });
-  } catch (error) {}
+    showNotification('success', 'comment success')
+
+  } catch (error) {
+    showNotification('warning', 'comment errors')
+  }
 }

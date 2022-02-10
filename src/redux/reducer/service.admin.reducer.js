@@ -24,7 +24,6 @@ export default function ServiceAdmiinReducer(state = defaultState, action) {
       }
     }
     case ActionType.ADMIN_DELETE_SERVICE_SC: {
-        console.log(action.data);
         const  id  = action.data
         const listService = state.data
         const ind = listService.findIndex((item) => {

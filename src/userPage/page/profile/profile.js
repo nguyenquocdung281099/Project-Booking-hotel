@@ -24,7 +24,6 @@ export default function ProfilePage() {
   const { t } = useTranslation();
   const dataBooking = useSelector((state) => state.booking.booking);
   const { data, meta } = dataBooking;
-  console.log(meta);
   const onFinish = (values) => {
     dispatch(
       updateInformationUser({

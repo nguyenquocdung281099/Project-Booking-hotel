@@ -16,6 +16,7 @@ import CircleChart from './component/ApexChartCircle'
 import { getCommentAdmin, getDataMaster, getUserAdmin } from '../../../../../redux/action'
 import { isEmpty } from 'lodash'
 import moment from 'moment'
+import { useTranslation } from 'react-i18next'
 
 export default function Dashboard() {
   const dispatch = useDispatch()
@@ -40,8 +41,8 @@ export default function Dashboard() {
   const loading = useSelector((state) => state.Dashboard.loading)
   const listUser = useSelector((state) => state.userDB.data)
   const listComment = useSelector((state) => state.comments.comment)
-  console.log(listComment)
 
+  const { t } = useTranslation()
   const series = masterData?.dataChart || [
     {
       name: 'TEAM A',
@@ -124,22 +125,22 @@ export default function Dashboard() {
   const statisticsData = [
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/businessman.svg',
-      label: 'Users Registrations',
+      label: t('Users Registrations'),
       acount: masterData?.dataStatic?.totalUsers,
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/customer.svg',
-      label: 'Total Rooms',
+      label: t('Total Rooms'),
       acount: masterData?.dataStatic?.totalRooms,
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/infographic.svg',
-      label: 'Total Bookings',
+      label: t('Total Bookings'),
       acount: masterData?.dataStatic?.totalBookings,
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/crm/sqr.svg',
-      label: 'Total Extra Service',
+      label: t('Total Extra Service'),
       acount: masterData?.dataStatic?.totalService,
     },
   ]
@@ -148,18 +149,18 @@ export default function Dashboard() {
   const titleSale = [
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/icon2/7.svg',
-      label: 'Most Sales',
-      content: 'Authors with the best sales',
+      label: t('Most Sales'),
+      content: t('Authors with the best sales'),
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/icon2/6.svg',
-      label: 'Total sales lead',
-      content: '40% increased on week-to-week reports',
+      label: t('Total sales lead'),
+      content: t('increased on week-to-week reports'),
     },
     {
       icon: 'https://demo.dashboardpack.com/user-management-html/img/icon2/5.svg',
-      label: 'Average Bestseller',
-      content: 'Pitstop Email Marketing',
+      label: t('Average Bestseller'),
+      content: t('Pitstop Email Marketing'),
     },
   ]
   return (
@@ -193,10 +194,9 @@ export default function Dashboard() {
               </div>
               <div className="chart-statistics-abs">
                 <div>
-                  <h1>Create CRM Reports</h1>
+                  <h1>{t("Create CRM Reports")}</h1>
                   <p>
-                    {' '}
-                    Outlines keep you and honest <br /> indulging honest.
+                    {t("Outlines keep you and honest")} <br /> {t("indulging honest")}
                   </p>
                   <a href="#">
                     Read More <ArrowRightOutlined />
@@ -208,7 +208,7 @@ export default function Dashboard() {
           <div className="dasboard-block2">
             <div className="newuser block2-item">
               <div className="newuser-header">
-                <h1 className="newUser-title">New Users</h1>
+                <h1 className="newUser-title">{t("New Users")}</h1>
                 <div className="newuser-title_search">
                   <input type="text" className="search-user" placeholder="Search..." />
                   <button type="submit">
@@ -233,6 +233,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="sale block2-item">
+            <h1 className="Static-title">{t("Static Comment")}</h1>
               <CircleChart />
               <div className="sale-desc">
                 {titleSale.map((item, ind) => {
@@ -250,7 +251,7 @@ export default function Dashboard() {
             </div>
             <div className="Recent block2-item">
               <div className="Recent-header">
-                <h1 className="Recent-title">Recent activity</h1>
+                <h1 className="Recent-title">{t("Recent activity")}</h1>
                 <EllipsisOutlined />
               </div>
               <div className="Recent-contain">
@@ -258,7 +259,7 @@ export default function Dashboard() {
                   listComment.data.map((item) => {
                     return (
                       <div className="Recent-contain_item">
-                        <div className="circle"></div>
+                        <div className={`circle ${item.evaluate}`}></div>
                         <div className="contain">
                           <div className="Recent-time">
                             {moment(item.createAt).format('YYYY/MM/DD')}

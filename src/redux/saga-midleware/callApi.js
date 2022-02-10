@@ -28,14 +28,12 @@ async function executeRequest(url, config) {
 
   try {
     const result = await axios.request(newConfig);
-    console.log("check1");
     return result;
   } catch (error) {
-    console.log("check2");
     // refresh token
     if (error.response?.status === 401) {
       try {
-        const newToken = await axios.post("http://localhost:5555/refreshToken", {
+        const newToken = await axios.post("https://booking-hotel-api-dungnq.herokuapp.com/refreshToken", {
           requestData: {
             refreshToken: refToken,
           },

@@ -15,9 +15,10 @@ import {
   getroom,
 } from '../../../../../redux/action'
 import { isEmpty } from 'lodash'
+import { useTranslation } from 'react-i18next'
 const { TabPane } = Tabs
 
-export default function UsersManager() {
+export default function RoomManager() {
   const [form] = Form.useForm()
   const { Option } = Select
   const dispatch = useDispatch()
@@ -25,10 +26,10 @@ export default function UsersManager() {
     dispatch(getroom({ limit: 10, page: 1 }))
     dispatch(getAlltypeRoomAdmin())
   }, [])
-
+  const { t } = useTranslation()
   const { data, meta } = useSelector((state) => state.room.rooms)
   const dataTypeRooms = useSelector((state) => state.typeRooms.data)
-  console.log(dataTypeRooms)
+
   const [activeKey, setActiveKey] = useState('1')
   const [idRoom, setidRoom] = useState('')
   const [isEdit, setisEdit] = useState(false)
@@ -36,19 +37,19 @@ export default function UsersManager() {
   const onChange = () => {}
   const columns = [
     {
-      title: ' Name',
+      title: t('Name'),
       dataIndex: 'name',
     },
     {
-      title: 'Type',
+      title: t('Type'),
       render: (_, record) => <>{record?.idtyperoom.name}</>,
     },
     {
-      title: 'number',
+      title: t('Number'),
       dataIndex: 'number',
     },
     {
-      title: 'rating',
+      title: t('rating'),
       render: (_, record) => (
         <>
           <Rate disabled defaultValue={record.rating} />
@@ -56,11 +57,11 @@ export default function UsersManager() {
       ),
     },
     {
-      title: 'price Per day',
+      title: t('Price Per day'),
       render: (_, record) => <>{record.pricePerday}$</>,
     },
     {
-      title: 'description',
+      title: t('Description'),
       render: (_, record) => (
         <Tooltip placement="topLeft" title={record.description}>
           {' '}
@@ -70,7 +71,7 @@ export default function UsersManager() {
       width: 100,
     },
     {
-      title: 'Action',
+      title: t("Action"),
       render: (_, record) => {
         return (
           <div className="action" id="action">
@@ -95,7 +96,6 @@ export default function UsersManager() {
       },
     },
   ]
-  console.log(idRoom)
   const onDeleteRoom = (id) => {
     dispatch(delRoom({ id }))
   }
@@ -129,10 +129,10 @@ export default function UsersManager() {
   return (
     <div className="admin-userManager">
       <Tabs activeKey={activeKey} centered={true} onChange={(key) => setActiveKey(key)}>
-        <TabPane tab={<span>User List</span>} key="1">
+        <TabPane tab={<span>{t("Room List")}</span>} key="1">
           <div className="admin-userManager-container">
             <div className="userManager-header">
-              <h2>Rooms List</h2>
+              <h2>{t("Room List")}</h2>
               <div>
                 <InputSearch onSubmit={onSearch} width={'300px'} widthBtn={'100px'} />
               </div>
@@ -154,9 +154,9 @@ export default function UsersManager() {
             </div>
           </div>
         </TabPane>
-        <TabPane tab={<span>New Room</span>} key="2">
+        <TabPane tab={<span>{t("New Room")}</span>} key="2">
           <div className="addUser_tab">
-            <h2>Add User</h2>
+            <h2>{t("Add Room")}</h2>
             <div className="form">
               <Form form={form} name="addRoom" onFinish={onFinish}>
                 <Form.Item name="name" rules={[{ required: true }]}>
@@ -200,7 +200,7 @@ export default function UsersManager() {
                 </Form.Item>
                 <Form.Item className="form-button">
                   <button type="primary" htmlType="submit">
-                    Submit
+                    {t('Submit')}
                   </button>
                 </Form.Item>
               </Form>

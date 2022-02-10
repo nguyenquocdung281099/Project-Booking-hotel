@@ -1,6 +1,41 @@
 $btnActive: #f45b0f;
 
 .admin-header {
+  .information {
+    margin-right: 50px;
+    position: relative;
+    &:hover {
+      .info-action {
+        display: block;
+      }
+    }
+  }
+  .info-action {
+    width: 200px;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 15px;
+    position: absolute;
+    top: 100%;
+    left: -270%;
+    display: none;
+    text-align: center;
+    p{
+      margin-bottom: 5px;
+    }
+    button{
+      outline: none;
+      border: 1px solid #f45b0f;
+      border-radius: 5px;
+      background: none;
+      color: black;
+      transition: all 0.25s;
+      &:hover{
+        color: #f45b0f;
+        background-color: white;
+      }
+    }
+  }
   #hr {
     margin: 0 !important;
   }

@@ -3,6 +3,7 @@ import * as ActionType from '../action/const_action'
 const initial = {
   dataMaster: {},
   loading: false,
+  staticComment: 0,
 }
 const DashboardReducer = (state = initial, action) => {
   switch (action.type) {
@@ -25,6 +26,7 @@ const DashboardReducer = (state = initial, action) => {
         loading: false,
       }
     }
+
     default:
       return {}
   }

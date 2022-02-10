@@ -14,6 +14,7 @@ import {
   updateVoucheradmin,
 } from '../../../../../redux/action'
 import moment from 'moment'
+import { useTranslation } from 'react-i18next'
 const { TabPane } = Tabs
 export default function VoucherManager() {
   const [form] = Form.useForm()
@@ -22,7 +23,7 @@ export default function VoucherManager() {
   useEffect(() => {
     dispatch(getVoucheradmin({ limit: 10, page: 1 }))
   }, [])
-
+  const { t } = useTranslation()
   const { data, meta } = useSelector((state) => state.Voucher)
 
   const [activeKey, setActiveKey] = useState('1')
@@ -32,19 +33,19 @@ export default function VoucherManager() {
   const onChange = () => {}
   const columns = [
     {
-      title: ' Name',
+      title: t('Name'),
       dataIndex: 'name',
     },
     {
-      title: 'Discount',
+      title: t('Discount'),
       dataIndex: 'discount',
     },
     {
-      title: 'Code',
+      title: t('Code'),
       dataIndex: 'code',
     },
     {
-      title: 'Expiry Date',
+      title: t('Expiry Date'),
       render: (_, record) => (
         <p style={{ color: `${moment(record.expiryDate) < moment() ? 'red' : 'black'}` }}>
           {moment(record.expiryDate).format('DD-MM-YYYY')}
@@ -52,7 +53,7 @@ export default function VoucherManager() {
       ),
     },
     {
-      title: 'Action',
+      title: t('Action'),
       render: (_, record) => {
         return (
           <div className="action" id="action">
@@ -77,7 +78,6 @@ export default function VoucherManager() {
       },
     },
   ]
-  console.log(idRoom)
   const onDeleteRoom = (id) => {
     dispatch(deleteVoucherdmin({ id }))
   }
@@ -106,10 +106,10 @@ export default function VoucherManager() {
   return (
     <div className="admin-userManager">
       <Tabs activeKey={activeKey} centered={true} onChange={(key) => setActiveKey(key)}>
-        <TabPane tab={<span>Voucher List</span>} key="1">
+        <TabPane tab={<span>{t("Voucher List")}</span>} key="1">
           <div className="admin-userManager-container">
             <div className="userManager-header">
-              <h2>Voucher List</h2>
+              <h2>{t("Voucher List")}</h2>
               <div>
                 <InputSearch onSubmit={onSearch} width={'300px'} widthBtn={'100px'} />
               </div>
@@ -131,9 +131,9 @@ export default function VoucherManager() {
             </div>
           </div>
         </TabPane>
-        <TabPane tab={<span>New Voucher</span>} key="2">
+        <TabPane tab={<span>{t("New Voucher")}</span>} key="2">
           <div className="addUser_tab">
-            <h2>Add Voucher</h2>
+            <h2>{t("Add Voucher")}</h2>
             <div className="form">
               <Form form={form} name="addRoom" onFinish={onFinish}>
                 <Form.Item name="name" rules={[{ required: true }]}>
@@ -153,7 +153,7 @@ export default function VoucherManager() {
                 </Form.Item>
                 <Form.Item className="form-button">
                   <button type="primary" htmlType="submit">
-                    Submit
+                    {t("Submit")}
                   </button>
                 </Form.Item>
               </Form>

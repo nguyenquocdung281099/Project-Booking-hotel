@@ -1,16 +1,17 @@
-import * as ActionType from "../action/const_action";
+import * as ActionType from '../action/const_action'
 
 const initState = {
   comment: {
     data: [],
     meta: {},
   },
-};
+  staticComment: 0,
+}
 
 const CommentReducer = (state = initState, action) => {
   switch (action.type) {
     case ActionType.GET_COMMENT_SC: {
-      const { data, meta } = action.data;
+      const { data, meta } = action.data
       return {
         ...state,
         comment: {
@@ -18,10 +19,10 @@ const CommentReducer = (state = initState, action) => {
           data,
           meta,
         },
-      };
+      }
     }
     case ActionType.ADMIN_GET_COMMENT_SC: {
-      const { data, meta } = action.data;
+      const { data, meta } = action.data
       return {
         ...state,
         comment: {
@@ -29,12 +30,17 @@ const CommentReducer = (state = initState, action) => {
           data,
           meta,
         },
-      };
+      }
     }
-
+    case ActionType.GET_STATIC_COMMENT_SC: {
+      return {
+        ...state,
+        staticComment: action.data.data,
+      }
+    }
     default:
-      return { ...state };
+      return { ...state }
   }
-};
+}
 
-export default CommentReducer;
+export default CommentReducer

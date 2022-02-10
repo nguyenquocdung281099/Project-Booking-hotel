@@ -1,15 +1,15 @@
 import { BellOutlined, MessageOutlined, UserOutlined } from '@ant-design/icons'
 import Avatar from 'antd/lib/avatar/avatar'
 import { useSelector } from 'react-redux'
-
+import { useTranslation } from 'react-i18next'
 import './style.scss'
 export default function HeaderAdmin() {
   const user = useSelector((state) => state.user.userCurrent)
-
+const {t} = useTranslation()
   return (
     <>
       <div className="admin-header">
-        <h1 className="admin-title">Hotel Manager</h1>
+        <h1 className="admin-title">{t("Hotel Manager")}</h1>
         <div className="admin-action-header">
           <div className="notification-admin">
             <div className="icon">
@@ -34,8 +34,8 @@ export default function HeaderAdmin() {
               />
             </div>
             <div className='info-action'>
-              <p>{user.fullName}</p>
-              <button>LOGOUT</button>
+              <p>Nguyen Quoc Dung</p>
+              <button>{t("LOGOUT")}</button>
             </div>
           </div>
         </div>

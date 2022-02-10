@@ -23,6 +23,7 @@ export default function* AdminSaga() {
   yield takeLatest(actionConst.ADMIN_GET_TYPEROOM_META, getListTypeRoomAdmin)
   yield takeLatest(actionConst.ADMIN_UPDATE_TYPEROOM, updateTyperoom)
   yield takeLatest(actionConst.ADMIN_UPDATE_TYPEROOM, updateTyperoom)
+  yield takeLatest(actionConst.GET_STATIC_COMMENT, getStaticComment)
 }
 
 function* getDataMaster() {
@@ -63,7 +64,6 @@ function* getListVoucherAdmin(action) {
   }
 }
 function* getListServiceAdmin(action) {
-  console.log('dhawd')
   try {
     const result = yield call(
       RestClient.get,
@@ -123,7 +123,6 @@ function* deleteVoucher(action) {
 
 function* addService(action) {
   try {
-    console.log(action.data)
     yield call(RestClient.post, `${URL_USER}/admin/addService`, action.data)
     yield put(func_action.addServiceSC(action.data.id))
     yield getListServiceAdmin({
@@ -140,7 +139,6 @@ function* addService(action) {
 
 function* addVoucher(action) {
   try {
-    console.log(action.data)
     yield call(RestClient.post, `${URL_USER}/admin/addVoucher`, action.data)
     yield getListVoucherAdmin({
       data: {
@@ -201,11 +199,20 @@ function* getListTypeRoomAdmin(action) {
   } catch (error) {}
 }
 
+function* getStaticComment(action) {
+  try {
+    const result = yield call(
+      RestClient.get,
+      `${URL_USER}/admin/statisticalComent`
+    )
+    console.log(result);
+    yield put(func_action.getStaticCommentSC(result.data))
+  } catch (error) {}
+}
 
 
 function* addTyperoom(action) {
   try {
-    console.log(action.data)
     yield call(RestClient.post, `${URL_USER}/admin/addTypeRooms`, action.data)
     yield getListTypeRoomAdmin({
       data: {

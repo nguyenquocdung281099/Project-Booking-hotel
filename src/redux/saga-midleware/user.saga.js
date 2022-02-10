@@ -3,7 +3,7 @@ import { KEY_REF_TOKEN, KEY_TOKEN, URL_USER } from '../../userPage/const/const'
 import { get, patch, post, RestClient } from './callApi'
 import * as actionType from '../action/const_action'
 import * as actionFuntion from '../action/index'
-import { showNotification } from '../../until/index'
+import { showNotification,History } from '../../until/index'
 
 export default function* UserSaga() {
   yield takeLatest(actionType.GET_USER, getUser)
@@ -21,9 +21,10 @@ function* addUser(action) {
     const res = yield call(RestClient.post, `${URL_USER}/register`, action.data)
     yield put(actionFuntion.addUserSC(res.data))
     yield showNotification('success', 'register success')
+    History.push("/login")
   } catch (error) {
     yield put(actionFuntion.addUserER(error))
-    yield showNotification('warning', error.respone?.data.message)
+    yield showNotification('warning', "serve errors")
   }
 }
 
@@ -44,7 +45,8 @@ function* Login(action) {
     yield showNotification('success', 'login success')
   } catch (error) {
     yield put(actionFuntion.loginErr())
-    yield showNotification('warning', error.respone?.data.message)
+    yield showNotification('warning', "email or password invalid, please replace !!! ")
+
   }
 }
 

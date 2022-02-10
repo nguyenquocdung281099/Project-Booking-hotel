@@ -1,8 +1,13 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useRouteMatch } from 'react-router-dom'
 import { sideTitle } from '../../constant'
 import './style.scss'
 
 export default function AdminSideBar() {
+  const [path, setPath] = useState("")
+  let match = useLocation;
+  useEffect(() =>{console.log(match);
+  }, [match])
   return (
     <div className="admin-sidebar">
       <div>
