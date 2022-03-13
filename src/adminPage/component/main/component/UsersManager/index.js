@@ -129,13 +129,13 @@ export default function UsersManager() {
             <h2>{t("New User")}</h2>
             <div className="form">
               <Form form={form} name="addUser" onFinish={onFinish}>
-                <Form.Item name="userName" rules={[{ required: true }]}>
+                <Form.Item name="userName" >
                   <Input placeholder="UserName" />
                 </Form.Item>
-                <Form.Item name="fullName" rules={[{ required: true }]}>
+                <Form.Item name="fullName" >
                   <Input placeholder="fullName" />
                 </Form.Item>
-                <Form.Item name="phone" rules={[{ required: true }]}>
+                <Form.Item name="phone" >
                   <Input placeholder="Number Phone" />
                 </Form.Item>
                 <Form.Item
@@ -144,10 +144,10 @@ export default function UsersManager() {
                 >
                   <Input placeholder="email" disabled={isEdit} />
                 </Form.Item>
-                <Form.Item name="address" rules={[{ required: true }]}>
+                <Form.Item name="address" >
                   <Input placeholder="address" />
                 </Form.Item>
-                <Form.Item name="password" rules={[{ required: true }]}>
+                <Form.Item name="password" >
                   <Input placeholder="password" type="password" />
                 </Form.Item>
                 <Form.Item
@@ -156,17 +156,20 @@ export default function UsersManager() {
                     { required: true },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
-                        if (!value || getFieldValue('password') === value) {
-                          return Promise.resolve()
+                        if(getFieldValue('password')){
+                          if (!value || getFieldValue('password') === value) {
+                            return Promise.resolve()
+                          }
+                          return Promise.reject('please replace re-password')
                         }
-                        return Promise.reject('please replace re-password')
+                        
                       },
                     }),
                   ]}
                 >
                   <Input placeholder="re-password" type="password" />
                 </Form.Item>
-                <Form.Item name="idRole" rules={[{ required: true }]}>
+                <Form.Item name="idRole" >
                   <Select placeholder="Please select a Role">
                     <Option value="1">Admin</Option>
                     <Option value="2">user</Option>

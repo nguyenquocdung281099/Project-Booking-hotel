@@ -8,7 +8,8 @@ import { getuser, getUserDB } from '../../redux/action'
 
 export default function PrivateRoute({ component: Component, ...rest }) {
   const fakeAuthe = useSelector((state) => state.user.isAuthen)
-  console.log(fakeAuthe)
+  const localAuth = JSON.parse(localStorage.getItem("KEY_AUTHEN"))
+
 
   const dispatch = useDispatch()
   let emailUser = { email: '' }
@@ -22,7 +23,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
-      render={(props) => (fakeAuthe === true ? <Component {...props} /> : <Redirect to="/login" />)}
+      render={(props) => ((fakeAuthe || localAuth) ? <Component {...props} /> : <Redirect to="/login" />)}
     />
   )
 }

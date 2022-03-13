@@ -5,17 +5,17 @@ import EdgeBottom from "../../component/component-userpage/HomePage/edge";
 import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
 import {
-  editBooking,
+  changeStatusBookingAdmin,
   getBookingRoom,
   getUserCurrent,
   updateInformationUser,
 } from "../../../redux/action";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Pagination, Popconfirm, Form, Input, Button, Space } from "antd";
 import "antd/dist/antd.css";
 import { Modal } from "antd";
-import { isEmpty } from "lodash";
+
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
@@ -53,18 +53,22 @@ export default function ProfilePage() {
   }, [users]);
 
   function handleCancelBooking(item) {
-    dispatch(
-      editBooking(
-        {
-          status: "CANCEL",
-          totalCost: parseInt(parseInt(item.totalCost) * 0.2),
-        },
-        item.id,
-        {
-          idUser: users.id,
-        }
+    try {
+      dispatch(
+        changeStatusBookingAdmin({
+          requestData: {
+            id: item._id,
+            status: "CANCEL",
+          },
+        })
       )
-    );
+      if (users?.id) {
+        console.log("hihi");
+        dispatch(getBookingRoom({ id: users.id }));
+      }
+    } catch (error) {
+      
+    }
   }
   const [isModalVisible, setIsModalVisible] = useState(false);
 

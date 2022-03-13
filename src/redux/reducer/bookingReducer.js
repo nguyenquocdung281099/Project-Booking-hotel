@@ -10,7 +10,6 @@ const defaultState = {
 }
 
 export default function bookingReducer(state = defaultState, action) {
-  let newState = { ...state }
   switch (action.type) {
     case GET_BOOKING_SC:
       return {
