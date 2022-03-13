@@ -1,9 +1,9 @@
 import * as func_action from '../action/index'
 import * as action from '../action/const_action'
-import { call, delay, put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { URL_ROOM, URL_TYPE, URL_USER } from '../../userPage/const/const'
 import queryString from 'query-string'
-import { get, RestClient } from './callApi'
+import {  RestClient } from './callApi'
 import { showNotification } from '../../until'
 
 export default function* RoomSaga() {
@@ -32,7 +32,7 @@ function* getRoom(action) {
 function* getRoomDetail(action) {
   try {
     const url = queryString.stringify(action.data)
-    const room = yield call(get, `${URL_USER}/roomCurrent?${url}`)
+    const room = yield call(RestClient.get, `${URL_USER}/roomCurrent?${url}`)
     yield put(func_action.getRoomDetailSc(room.data.data))
   } catch (e) {}
 }

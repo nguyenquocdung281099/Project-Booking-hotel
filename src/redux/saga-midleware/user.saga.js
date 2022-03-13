@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { KEY_REF_TOKEN, KEY_TOKEN, URL_USER } from '../../userPage/const/const'
-import { get, patch, post, RestClient } from './callApi'
+import {  RestClient } from './callApi'
 import * as actionType from '../action/const_action'
 import * as actionFuntion from '../action/index'
 import { showNotification,History } from '../../until/index'
@@ -30,7 +30,7 @@ function* addUser(action) {
 
 function* getUser(action) {
   try {
-    const user = yield call(get, `${URL_USER}/${action.filter}`)
+    const user = yield call(RestClient.get, `${URL_USER}/${action.filter}`)
     yield put(actionFuntion.getusersc(user.data[0]))
   } catch (error) {}
 }
@@ -52,7 +52,7 @@ function* Login(action) {
 
 function* EditUser(action) {
   try {
-    const res = yield call(patch, `${URL_USER}/users/${action.id}`, action.data)
+    const res = yield call(RestClient.patch, `${URL_USER}/users/${action.id}`, action.data)
     yield put(actionFuntion.getusersc(res.data))
   } catch (error) {
     yield put(actionFuntion.showtoast())

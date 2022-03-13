@@ -2,17 +2,17 @@ import axios from "axios";
 
 import { KEY_TOKEN, KEY_REF_TOKEN } from "../../userPage/const/const";
 // ? get api
-export const get = (url) => {
-  return axios.get(url);
-};
+// export const get = (url) => {
+//   return axios.get(url);
+// };
 
-export const post = (url, data) => {
-  return axios.post(url, data);
-};
+// export const post = (url, data) => {
+//   return axios.post(url, data);
+// };
 
-export const patch = (url, data) => {
-  return axios.patch(url, data);
-};
+// export const patch = (url, data) => {
+//   return axios.patch(url, data);
+// };
 
 async function executeRequest(url, config) {
   const accessToken = localStorage.getItem(KEY_TOKEN);
@@ -23,7 +23,12 @@ async function executeRequest(url, config) {
     ...config,
     headers: {
       Authorization: "beaer " + accessToken,
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
     },
+    mode: 'no-cors',
+    withCredentials: true,
+    credentials: 'same-origin',
   };
 
   try {

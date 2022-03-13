@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 import { useEffect } from 'react'
 import ReactApexChart from 'react-apexcharts'
 import { useDispatch, useSelector } from 'react-redux'

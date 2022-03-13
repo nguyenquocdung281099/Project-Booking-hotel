@@ -1,7 +1,7 @@
 export const URL = "http://localhost:3333/api";
-export const URL_TYPE = "https://booking-hotel-api-dungnq.herokuapp.com/TypeRooms";
-export const URL_ROOM = "https://booking-hotel-api-dungnq.herokuapp.com/rooms";
-export const URL_USER = "https://booking-hotel-api-dungnq.herokuapp.com";
+export const URL_TYPE = "http://localhost:5555/TypeRooms";
+export const URL_ROOM = "http://localhost:5555/rooms";
+export const URL_USER = "http://localhost:5555";
 export const KEY_TOKEN = "TOKEN_USER";
 export const KEY_REF_TOKEN = "KEY_REF_TOKEN";
 export const KEY_ROOM_VEIWED = "KEY_ROOM_VEIWED";
