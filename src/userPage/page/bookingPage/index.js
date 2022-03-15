@@ -28,7 +28,6 @@ import { showNotification } from "../../../until";
 export default function BookingPage() {
   const [valueSearchCode, setValueSearchCode] = useState("");
   const [statusCode, setStatus] = useState("APPLY");
-  const [codeEr, setCodeEr] = useState(true);
   const [valuePayMethod, setValuePayMethod] = useState("ZaloPay");
   const infRoom = JSON.parse(sessionStorage.getItem(KEY_ROOM_BOOKING)) || [];
   const param = useLocation();
@@ -37,11 +36,11 @@ export default function BookingPage() {
     JSON.parse(localStorage.getItem("KEY_SERVICE")) || []
   );
 
-  let promo = useSelector((state) => state.promo.promo);
   const promoUser = useSelector((state) => state.promo.promoUser);
   const loader = useSelector((state) => state.promo.loader);
   const filterSearchRoom = useSelector((state) => state.room.filterSearchRoom);
   const service = useSelector((state) => state.service.service);
+  console.log({service});
   const users = useSelector((state) => state.user.userCurrent);
   const dateBooked = useSelector((state) => state.booking.dateBooked);
   const dateBookeds = dateBooked.map((item) => new Date(item));

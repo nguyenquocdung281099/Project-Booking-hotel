@@ -11,6 +11,7 @@ export default function serviceReducer(state = defaultState, action) {
   let newState = { ...state };
   switch (action.type) {
     case ActionType.GET_EXTRA_SERVICE_SC:
+      console.log(action.data.data.data);
       return {
         ...state,
         service: action.data.data,

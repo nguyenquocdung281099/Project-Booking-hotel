@@ -15,8 +15,8 @@ import { KEY_TOKEN, KEY_REF_TOKEN } from "../../userPage/const/const";
 // };
 
 async function executeRequest(url, config) {
-  const accessToken = localStorage.getItem(KEY_TOKEN);
-  const refToken = localStorage.getItem(KEY_REF_TOKEN);
+  const accessToken = JSON.parse(localStorage.getItem(KEY_TOKEN));
+  const refToken = JSON.parse(localStorage.getItem(KEY_REF_TOKEN));
 
   let newConfig = {
     url: url,

@@ -8,7 +8,7 @@ import { isArray, isEmpty } from 'lodash'
 import socketIOClient from 'socket.io-client'
 import moment from 'moment'
 
-const host = 'https://booking-hotel-api-dungnq.herokuapp.com'
+const host = 'http://localhost:5555'
 export default function Comment(id) {
   const [dataNewComment, setDataNewComment] = useState({
     content: '',
@@ -32,6 +32,7 @@ export default function Comment(id) {
     setTotal(meta.total)
   }, [DataComment])
   const socketRef = useRef()
+
   useEffect(() => {
     socketRef.current = socketIOClient.connect(host)
 
@@ -88,17 +89,17 @@ export default function Comment(id) {
                     avatar: userCurrent.avatar,
                     userName: userCurrent.userName,
                   })
-                  dispatch(
-                    createComment({
-                      requestData: {
-                        idUser: userCurrent.id,
-                        ...dataNewComment,
-                        idRoom: id.id,
-                        avatar: userCurrent.avatar,
-                        userName: userCurrent.userName,
-                      },
-                    })
-                  )
+                  // dispatch(
+                  //   createComment({
+                  //     requestData: {
+                  //       idUser: userCurrent.id,
+                  //       ...dataNewComment,
+                  //       idRoom: id.id,
+                  //       avatar: userCurrent.avatar,
+                  //       userName: userCurrent.userName,
+                  //     },
+                  //   })
+                  // )
                 }}
                 disabled={!dataNewComment.content || isEmpty(userCurrent)}
               >

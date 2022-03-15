@@ -53,6 +53,6 @@ function* getBlankDateSaga(action) {
 function* getExtraServiceSaga(action) {
   try {
     const extraService = yield call(RestClient.get, `${URL_USER}/extraService`);
-    yield put(func_action.getservicesc(extraService.data));
+    yield put(func_action.getExtraServiceSC(extraService.data));
   } catch (error) {}
 }
